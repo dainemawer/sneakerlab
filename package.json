@@ -1,0 +1,21 @@
+{
+  "name": "sneakerlab",
+  "version": "1.0.0",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "description": "",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build ./src/pages/*.html"
+  },
+  "source": "src/pages/index.html",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.4.1",
+    "parcel": "^2.4.1",
+    "posthtml": "^0.16.6",
+    "posthtml-include": "^1.7.3",
+    "tailwindcss": "^3.0.23"
+  }
+}
