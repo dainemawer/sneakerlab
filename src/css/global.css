@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a {
+    @apply relative after:content-[''] after:absolute after:w-0 after:left-0 after:border-b after:border-solid after:border-[rgb(0,0,0)] after:block hover:after:w-full focus:after:w-full focus:outline-0 after:transition-all after:ease-in-out after:duration-300
+}
