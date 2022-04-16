@@ -18,13 +18,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/public/favicon.svg"
+        type="image/png">
     <meta name="theme-color" content="#fafafa">
     <link rel="stylesheet" href="../css/global.css">
 </head>
 
-<body class="font-raleway px-7 xl:container xl:mx-auto">
+<body class="font-raleway px-4 lg:px-5">
+    <a class="sr-only focus:not-sr-only" href="#main-content">Skip to Main Content</a>
     <include src="src/components/header.html"></include>
-    <main class="min-h-screen" role="main" aria-label="Main Site Content"></main>
+    <main id="main-content" class="min-h-screen xl:container xl:mx-auto" role="main" aria-label="Main Site Content">
+        <include src="src/components/hero.html"></include>
+        <include src="src/components/three-up.html"></include>
+        <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[480] xl:max-w-[900] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">Shop our advanced environmentally friendly products</h3>
+        <include src="src/components/featured-products.html"></include>
+        <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[1000] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">At Sneaker LAB we are committed to being as environmentally friendly as we can.</h3>
+        <include src="src/components/featured-collaborations.html"></include>
+        <include src="src/components/featured-stories.html"></include>
+    </main>
     <include src="src/components/footer.html"></include>
     <!-- Add your site or application content here -->
 
