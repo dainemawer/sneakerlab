@@ -1,51 +1,26 @@
 <!doctype html>
 <html class="no-js" lang="en-ZA">
 
-<head>
-    <meta charset="utf-8">
-    <title>SneakerLab</title>
-    <meta name="description" content="Welcome to the Sneaker LAB online store where we make it our mission to provide you with the best innovative shoe care products on the market. Our products are made from environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care brand that puts nature first.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Home | SneakerLab</title>
+        <meta property="og:title" content="">
+        <meta property="og:url" content="">
+        <include src="src/components/head.html"></include>
+    </head>
 
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
-
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
-    <!-- <link rel="apple-touch-icon" href="icon.png"> -->
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="/public/favicon.svg"
-        type="image/png">
-    <meta name="theme-color" content="#fafafa">
-    <link rel="stylesheet" href="../css/global.css">
-</head>
-
-<body class="font-raleway px-4 lg:px-5">
-    <a class="sr-only focus:not-sr-only" href="#main-content">Skip to Main Content</a>
-    <include src="src/components/header.html"></include>
-    <main id="main-content" class="min-h-screen xl:container xl:mx-auto" role="main" aria-label="Main Site Content">
-        <include src="src/components/hero.html"></include>
-        <include src="src/components/three-up.html"></include>
-        <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[480] xl:max-w-[900] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">Shop our advanced environmentally friendly products</h3>
-        <include src="src/components/featured-products.html"></include>
-        <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[1000] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">At Sneaker LAB we are committed to being as environmentally friendly as we can.</h3>
-        <include src="src/components/featured-collaborations.html"></include>
-        <include src="src/components/featured-stories.html"></include>
-    </main>
-    <include src="src/components/footer.html"></include>
-    <!-- Add your site or application content here -->
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
-    <script type="module" src="../js/app.js"></script>
-</body>
+    <body class="font-raleway">
+        <include src="src/components/header.html"></include>
+        <main id="main-content" class="min-h-screen xl:container xl:mx-auto px-4 lg:px-5" role="main" aria-label="Main Site Content">
+            <include src="src/components/hero.html"></include>
+            <include src="src/components/three-up.html"></include>
+            <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[480] xl:max-w-[900] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">Shop our advanced environmentally friendly products</h3>
+            <include src="src/components/featured-products.html"></include>
+            <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[1000] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">At Sneaker LAB we are committed to being as environmentally friendly as we can.</h3>
+            <include src="src/components/featured-collaborations.html"></include>
+            <include src="src/components/featured-stories.html"></include>
+        </main>
+        <include src="src/components/footer.html"></include>
+        <include src="src/components/foot.html"></include>
+    </body>
 
 </html>

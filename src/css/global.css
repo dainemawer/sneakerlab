@@ -6,14 +6,170 @@ a {
     @apply relative after:content-[''] after:absolute after:w-0 after:left-0 after:border-b after:border-solid after:border-[rgb(0,0,0)] after:block hover:after:w-full focus:after:w-full focus:outline-0 after:transition-all after:ease-in-out after:duration-300
 }
 
+.page-inverted {
+    @apply bg-[#000] text-[#fff]
+}
+
 .is-sticky {
-    @apply backdrop-blur 
+    @apply bg-[#fff]/50 backdrop-blur 
+}
+
+.page-inverted a:not(.sr-only) {
+    @apply relative after:content-[''] after:absolute after:w-0 after:left-0 after:border-b after:border-solid after:border-[#fff] after:block hover:after:w-full focus:after:w-full focus:outline-0 after:transition-all after:ease-in-out after:duration-300
+}
+
+.page-inverted .is-sticky  {
+    @apply bg-[#000]/50 backdrop-blur
+}
+
+.page-inverted .logo path {
+    @apply fill-[#fff]
+}
+
+.page-inverted .input {
+    @apply border-[#fff] bg-[#000]
 }
 
 .marquee-wrap:hover .marquee {
     @apply opacity-100
 }
 
-.is-active {
-    @apply max-h-[116px]
+.Accordion-panel[hidden] {
+  @apply hidden;
+}
+
+.accordion-trigger[aria-expanded="true"] .plus {
+    @apply hidden;
+}
+
+.accordion-trigger[aria-expanded="true"] .minus {
+    @apply inline-block;
+}
+
+.accordion-trigger[aria-expanded="false"] .minus {
+    @apply hidden;
+}
+
+.accordion-trigger[aria-expanded="true"] .minus {
+    @apply inline-block;
+}
+
+.menu-visible {
+    @apply translate-x-0
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.checkbox-container {
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    font-size: 22px;
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    cursor: pointer;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    border: 1px solid #CBCBCB;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    border-color: #000;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #000;
+    border-color: #000;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7' /%3E%3C/svg%3E");
+    content: "";
+    display: none;
+    height: 17px;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 17px;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.account-active,
+.cookies-active,
+.popup-newsletter-active,
+.filter-active,
+.modal-active,
+.panel-active {
+    @apply visible opacity-100 pointer-events-auto max-h-[148]
+}
+
+.account-active,
+.cookies-active,
+.filter-active,
+.modal-active,
+.popup-newsletter-active {
+    @apply max-h-max
+}
+
+.overlay-active,
+.search-active {
+    @apply overflow-hidden after:content-[''] after:w-full  after:h-full after:absolute after:top-0 after:left-0 z-10 after:bg-[#000]/50
+}
+
+.search-active [role="banner"] {
+    @apply bg-[#fff]
+}
+
+[id="account-modal"] legend {
+    @apply hidden;
+}
+
+.input ~ .tab { display: none }
+
+.input:checked + label {
+    @apply bg-eco-green text-[#fff] py-1 px-3 rounded-3xl
+}
+
+#tab1:checked ~ .tab.tab-item-1,
+#tab2:checked ~ .tab.tab-item-2 {
+    @apply block;
+}
+
+.grid-active {
+    @apply text-[#000]
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }

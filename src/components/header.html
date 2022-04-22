@@ -1,8 +1,11 @@
+<a class="sr-only focus:not-sr-only" href="#main-content">Skip to Main Content</a>
 <header aria-label="Site Header" role="banner" class="sticky bg-transparent z-10 top-[-1px] py-3 transition-all">
-    <div class="flex flex-wrap justify-between xl:container xl:mx-auto">
+    <div class="flex flex-wrap justify-between px-4 lg:px-5 xl:container xl:mx-auto">
         <nav class="basis-2/6">
             <ul class="flex">
-                <li class="inline-block text-sm lg:hidden"><a href="" role="button">Menu</a></li>
+                <li class="inline-block text-sm lg:hidden">
+                    <a id="mobile-navigation-trigger" aria-controls="mobile-navigation" aria-expanded="false" href="#mobile-navigation" role="button">Menu</a>
+                </li>
                 <li class="mr-6 hidden text-sm lg:inline-block"><a href="/shop">Shop</a></li>
                 <li class="mr-6 text-sm hidden lg:inline-block"><a href="/how-to">How To</a></li>
                 <li class="text-sm hidden lg:inline-block"><a href="/collaborations">Collaborations</a></li>
@@ -10,7 +13,7 @@
         </nav>
         <div class="flex justify-center basis-2/6">
             <a aria-label="SneakerLab" href="/">
-                <svg width="24" height="24" class="block lg:hidden" fill="none" xmlns="http://www.w3.org/2000/svg"
+                <svg width="24" height="24" class="logo block lg:hidden" fill="none" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 25 24">
                     <path
                         d="M19.754 17.572a.288.288 0 0 0-.253-.153h-1.734v-.718c0-.22-.055-.436-.161-.629l-3.477-7.084a.348.348 0 0 1-.026-.118V6.638c0-.077.029-.15.08-.207l.411-.422.013-.015a.31.31 0 0 0 .08-.208v-.577H9.721v.582c0 .078.03.152.082.209l.013.015.407.418c.052.057.08.13.08.207v2.232c0 .04-.009.08-.026.117l-3.482 7.09a.904.904 0 0 0-.03.062v.017a1.302 1.302 0 0 0 1.181 1.847h9.25v1.744a.287.287 0 0 0 .153.253v.625h.272v-.625a.288.288 0 0 0 .152-.253v-1.744h1.734a.289.289 0 0 0 .253-.15h.625v-.272l-.631-.011Z"
@@ -19,7 +22,7 @@
                         d="M24.5 24H5.537A5.044 5.044 0 0 1 .5 18.96V0h18.961A5.044 5.044 0 0 1 24.5 5.038V24ZM1.127.623v18.34a4.417 4.417 0 0 0 4.41 4.412h18.336V5.035a4.417 4.417 0 0 0-4.41-4.412H1.127Z"
                         fill="#000" />
                 </svg>
-                <svg class="lg:block hidden" width="144" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                <svg class="logo lg:block hidden" width="144" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 145 24">
                     <path
                         d="M19.254 17.572a.288.288 0 0 0-.253-.153h-1.734v-.718c0-.22-.055-.436-.161-.629l-3.477-7.084a.348.348 0 0 1-.026-.118V6.638c0-.077.029-.15.08-.207l.411-.422.013-.015a.31.31 0 0 0 .08-.208v-.577H9.221v.582c0 .078.03.152.082.209l.013.015.407.418c.052.057.08.13.08.207v2.232c0 .04-.009.08-.026.117l-3.482 7.09a.904.904 0 0 0-.03.062v.017a1.302 1.302 0 0 0 1.181 1.847h9.25v1.744a.287.287 0 0 0 .153.253v.625h.272v-.625a.288.288 0 0 0 .152-.253v-1.744h1.734a.289.289 0 0 0 .253-.15h.625v-.272l-.631-.011Z"
@@ -35,14 +38,14 @@
                 <li class="mr-6 text-sm hidden lg:inline-block"><a href="#search" aria-expanded="false" aria-controls="search" data-id="js-trigger-search" role="button">Search</a></li>
                 <li class="mr-6 text-sm xl:hidden inline-block scale-75">
                     <a aria-label="Search Sneaker Lab" data-id="js-trigger-search" href="#search" role="button" aria-expanded="false" aria-controls="search">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                                 clip-rule="evenodd" />
                         </svg>
                     </a>
                 </li>
-                <li role="button" class="mr-6 text-sm hidden lg:inline-block"><a href="#account">Account</a></li>
+                <li role="button" class="mr-6 text-sm hidden lg:inline-block"><a data-id="js-account-trigger" role="button" href="#account">Account</a></li>
                 <li class="text-sm">
                     <a href="#cart" role="button">
                         Cart<sup>0</sup>
@@ -50,9 +53,10 @@
                 </li>
             </ul>
         </nav>
-        <!-- <div class="relative w-full">
+        <div class="relative w-full">
             <include src="./src/components/search.html"></include>
-        </div> -->
+        </div>
     </div>
-   
+    <include src="./src/components/navigation.html"></include>
+    <include src="./src/components/account-modal.html"></include>
 </header>
