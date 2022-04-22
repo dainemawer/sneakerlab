@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="en-ZA">
+
+    <head>
+        <title>Login | SneakerLab</title>
+        <meta property="og:title" content="">
+        <meta property="og:url" content="">
+        <include src="src/components/head.html"></include>
+    </head>
+
+    <body class="font-raleway px-4 md:px-5">
+        <include src="src/components/header.html"></include>
+        <main id="main-content" class="xl:container xl:mx-auto" role="main" aria-label="Main Site Content">
+            <div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-10 md:mt-20 mb-40 px-4 lg:px-5">
+                <div class="md:col-span-3">
+                    <h1 class="text-xs md:text-sm uppercase mb-10">[&nbsp;&nbsp;My Account&nbsp;&nbsp;]</h1>
+                </div>
+                <div class="md:col-span-9">
+                    <p class="bg-concrete inline-block py-1 px-1 rounded-3xl">
+                        <button class="flex items-center leading-none">
+                            <span class="text-xs uppercase bg-eco-green text-[#fff] py-1 px-3 rounded-3xl">Login</span>
+                            <span class="text-xs uppercase py-1 px-3">Sign Up</span>
+                        </button>
+                    </p>
+                    <include src="src/components/login-form.html"></include>
+                </div>
+            </div>
+        </main>
+
+        <include src="src/components/footer.html"></include>
+        <include src="src/components/foot.html"></include>
+    </body>
+
+</html>

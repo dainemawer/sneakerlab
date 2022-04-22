@@ -1,0 +1,70 @@
+<section class="xl:container xl:mx-auto mb-6">
+    <h2 class="uppercase text-sm mb-5">[ Featured Stories ]</h2>
+    <header class="relative flex justify-between items-center">
+        <button data-filter-trigger class="relative uppercase text-5xl" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
+        <a class="md:block hidden rounded py-3 px-12 font-medium text-sm border border-silver" href="/stories">View all stories</a>
+        <include src="./src/components/filter.html"></include>
+    </header>
+    <div class="grid md:grid-cols-2 gap-4 mb-6 mt-6 border-silver border-t pt-6">
+        <article class="flex flex-row ">
+            <figure class="basis-3/6">
+                <a href="">
+                    <img class="rounded-lg" alt="Featured Story 1" src="https://picsum.photos/744/526" height="263" width="372" />
+                </a>
+            </figure>
+            <div class="ml-4 basis-3/6 relative">
+                <h3 class="uppercase text-xl leading-none lg:text-2xl xl:text-3xl md:max-w-[344]">Lace Up &amp; Lead The Way</h3>
+                <div class="absolute left-0 bottom-0 flex w-full justify-between xl:justify-start">
+                    <span class="text-sm block uppercase font-semibold">Article</span>
+                    <time class="text-sm block ml-2 uppercase">[ Oct 12, 2021 ]</time>
+                </div>
+            </div>
+        </article>
+        <article class="flex flex-row border-silver border-t pt-6 md:pt-0 md:border-0">
+            <figure class="basis-3/6">
+                <a href="">
+                    <img class="rounded-lg" alt="Featured Story 2" src="https://picsum.photos/744/526" height="263" width="372" />
+                </a>
+            </figure>
+            <div class="ml-4 basis-3/6 relative">
+                <h3 class="uppercase text-xl leading-none lg:text-2xl xl:text-3xl md:max-w-[344]">Top Tips To Take Care of Your Suede Sneakers</h3>
+                <div class="absolute left-0 bottom-0 flex w-full justify-between xl:justify-start">
+                    <span class="text-sm block uppercase font-semibold">Article</span>
+                    <time class="text-sm block ml-2 uppercase">[ Oct 12, 2021 ]</time>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div class="grid md:grid-cols-2 gap-4 pb-6 mb-6 border-silver md:border-b md:border-t md:pt-6">
+        <article class="flex flex-row border-silver border-t pt-6 md:pt-0 md:border-0">
+            <figure class="basis-3/6">
+                <a href="">
+                    <img class="rounded-lg" alt="Featured Story 3" src="https://picsum.photos/744/526" height="263" width="372" />
+                </a>
+            </figure>
+            <div class="ml-4 basis-3/6 relative">
+                <h3 class="uppercase text-xl lg:text-2xl leading-none xl:text-3xl md:max-w-[344]">Sneakerlab X Story Sneaker Wipes</h3>
+                <div class="absolute left-0 bottom-0 flex w-full justify-between xl:justify-start">
+                    <span class="text-sm block uppercase font-semibold">Article</span>
+                    <time class="text-sm block ml-2 uppercase">[ Oct 12, 2021 ]</time>
+                </div>
+            </div>
+        </article>
+        <article class="flex flex-row border-silver border-t pt-6 md:pt-0 md:border-0">
+            <figure class="basis-3/6">
+                <a href="">
+                    <img class="rounded-lg" alt="Featured Story 4" src="https://picsum.photos/744/526" height="263" width="372" />
+                </a>
+            </figure>
+            <div class="ml-4 basis-3/6 relative">
+                <h3 class="uppercase text-xl leading-none lg:text-2xl xl:text-3xl md:max-w-[344]">How Our Green Journey Is Going</h3>
+                <div class="absolute left-0 bottom-0 flex w-full justify-between xl:justify-start">
+                    <span class="text-sm block uppercase font-semibold">Article</span>
+                    <time class="text-sm block ml-2 uppercase">[ Oct 12, 2021 ]</time>
+                </div>
+            </div>
+        </article>
+    </div>
+    <a class="inline-block md:hidden rounded py-3 px-12 font-medium text-sm border border-silver" href="/stories">View all
+        stories</a>
+</section>
