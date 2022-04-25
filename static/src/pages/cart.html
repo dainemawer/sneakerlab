@@ -8,37 +8,37 @@
     <include src="src/components/head.html"></include>
 </head>
 
-<body class="font-raleway px-4 md:px-5">
+<body class="font-raleway">
     <include src="src/components/header.html"></include>
     <main id="main-content" class="xl:container xl:mx-auto" role="main" aria-label="Main Site Content">
         <div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-10 md:mt-20 mb-40 px-4 lg:px-5">
             <div class="md:col-span-3">
-                <h1 class="text-xs md:text-sm uppercase mb-10">[&nbsp;&nbsp;Your Cart&nbsp;&nbsp;]</h1>
+                <h1 class="text-xs md:text-sm uppercase mb-8 md:mb-10">[&nbsp;&nbsp;Your Cart&nbsp;&nbsp;]</h1>
             </div>
             <div class="md:col-span-9">
                 <div class="flex">
                     <div class="w-[65%]">
-                        <span class="uppercase font-semibold text-sm inline-block mb-4">Product</span>
+                        <span class="uppercase font-semibold text-xs md:text-sm inline-block mb-3 md:mb-4">Product</span>
                     </div>
                     <div class="w-[20%]">
-                        <span class="uppercase font-semibold text-sm inline-block mb-4">QTY</span>
+                        <span class="uppercase hidden font-semibold text-xs md:text-sm md:inline-block mb-4">QTY</span>
                     </div>
                     <div class="w-[15%] text-right">
-                        <span class="uppercase font-semibold text-sm inline-block mb-4">Price</span>
+                        <span class="uppercase hidden font-semibold text-xs md:text-sm md:inline-block mb-4">Price</span>
                     </div>
                 </div>
                 <include src="./src/components/cart-item.html"></include>
                 <include src="./src/components/cart-item.html"></include>
-                <div class="flex items-end justify-between">
-                    <p class="mb-2">
-                        <a class="uppercase text-sm" href="">Keep Shopping</a>
+                <div class="md:flex items-end justify-between">
+                    <p class="mt-10 md:mt-0 mb-2">
+                        <a class="uppercase text-xs md:text-sm" href="">Keep Shopping</a>
                     </p>
-                    <div class="w-[35%]">
+                    <div class="absolute bottom-0 md:static w-full md:w-[35%]">
                         <div class="flex mt-6 mb-7 justify-between items-center">
-                            <p class="uppercase text-sm">Sub Total</p>
-                            <p class="text-sm">$24.99</p>
+                            <p class="uppercase text-xs md:text-sm">Sub Total</p>
+                            <p class="text-xs md:text-sm">$24.99</p>
                         </div>
-                        <button class="bg-eco-green text-[#fff] text-sm py-3 px-9 rounded w-full hover:bg-forest-green"
+                        <button class="bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green"
                         type="button">Checkout</button>
                     </div>
                    
