@@ -8,9 +8,9 @@
     <include src="src/components/head.html"></include>
 </head>
 
-<body class="font-raleway px-4 md:px-5">
+<body class="font-raleway">
     <include src="src/components/header.html"></include>
-    <main id="main-content" class="xl:container xl:mx-auto" role="main" aria-label="Main Site Content">
+    <main id="main-content" class="xl:container xl:mx-auto px-4 lg:px-5" role="main" aria-label="Main Site Content">
         <div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-10 md:mt-20 mb-40">
             <div class="md:col-span-3">
                 <h1 class="text-xs md:text-sm uppercase mb-10">[&nbsp;&nbsp;My Account&nbsp;&nbsp;]</h1>
@@ -22,7 +22,15 @@
                         <span class="text-xs uppercase bg-eco-green text-[#fff] py-1 px-3 rounded-3xl">Sign Up</span>
                     </button>
                 </p>
-                <include src="src/components/sign-up-form.html"></include>
+                <include src="src/components/sign-up-form.html">
+                    {
+                        "firstname": "su-pg-firstname",
+                        "lastname": "su-pg-lastname",
+                        "email": "su-pg-email",
+                        "password": "su-pg-password",
+                        }
+                    }
+                </include>
             </div>
         </div>
     </main>

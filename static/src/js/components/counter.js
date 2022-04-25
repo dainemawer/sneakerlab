@@ -23,4 +23,4 @@ const Counter = () => {
   })
 }
 
-export default Counter
+Counter()

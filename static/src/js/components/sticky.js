@@ -9,4 +9,4 @@ const isSticky = () => {
   observer.observe(sticky)
 }
 
-export default isSticky
+isSticky()
