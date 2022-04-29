@@ -184,6 +184,7 @@ a {
 }
 
 .account-active,
+.add-to-cart-active,
 .cookies-active,
 .popup-newsletter-active,
 .filter-active,
@@ -193,6 +194,7 @@ a {
 }
 
 .account-active,
+.add-to-cart-active,
 .cookies-active,
 .filter-active,
 .modal-active,
@@ -202,7 +204,11 @@ a {
 
 .overlay-active,
 .search-active {
-    @apply overflow-hidden after:content-[''] after:w-full  after:h-full after:absolute after:top-0 after:left-0 z-10 after:bg-[#000]/50
+    @apply overflow-hidden after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:left-0 z-10 after:bg-[#000]/50
+}
+
+.atc-overlay-active {
+    @apply overflow-hidden after:content-[''] after:w-screen after:h-screen after:fixed after:top-0 after:left-0 after:z-30 after:bg-[#000]/50
 }
 
 .search-active [role="banner"] {
@@ -235,4 +241,39 @@ input::-webkit-inner-spin-button {
 
 a.ticker::after {
     display: none !important 
+}
+
+.slide {
+    height: 360px;
+}
+
+.flickity-page-dots {
+  bottom: 12px !important;
+  right: 12px !important;
+  width: auto !important;
+}
+/* white circles */
+.flickity-page-dots .dot {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background: transparent;
+  border: 2px solid white;
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+    border-color: #F5F5F5;
+    background: #6C6C6C;
+}
+
+/* position dots up a bit */
+.flickity-page-dots {
+  bottom: -22px;
+}
+/* dots are lines */
+.flickity-page-dots .dot {
+  height: 4px;
+  width: 40px;
+  margin: 0;
+  border-radius: 0;
 }
