@@ -14,11 +14,26 @@ const Search = () => {
         document.body.classList.remove('search-active')
       }
     })
+
+    // Handle Click Outside
+    document.addEventListener('mousedown', (e) => {
+      if (!search.contains(e.target) && e.target !== trigger) {
+        search.classList.remove('panel-active')
+        document.body.classList.remove('search-active')
+      }
+    })
   })
 
   close && close.addEventListener('click', (e) => {
-    e.preventDefault()
     if (search.classList.contains('panel-active')) {
+      search.classList.remove('panel-active')
+      document.body.classList.remove('search-active')
+    }
+  })
+
+  // Handle Escape Key Event
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
       search.classList.remove('panel-active')
       document.body.classList.remove('search-active')
     }

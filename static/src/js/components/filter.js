@@ -15,6 +15,24 @@ const Filter = () => {
       panel.classList.remove('filter-active')
     }
   })
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      trigger.innerHTML = 'Filter+'
+      trigger.setAttribute('aria-expanded', 'false')
+      panel.setAttribute('aria-hidden', 'true')
+      panel.classList.remove('filter-active')
+    }
+  })
+
+  document.addEventListener('mousedown', (e) => {
+    if (!panel.contains(e.target) && e.target !== trigger) {
+      trigger.innerHTML = 'Filter+'
+      trigger.setAttribute('aria-expanded', 'false')
+      panel.setAttribute('aria-hidden', 'true')
+      panel.classList.remove('filter-active')
+    }
+  })
 }
 
 Filter()

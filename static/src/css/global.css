@@ -61,7 +61,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-a {
+a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.filter-item) {
     @apply relative after:content-[''] after:absolute after:w-0 after:left-0 after:border-b after:border-solid after:border-[rgb(0,0,0)] after:block hover:after:w-full focus:after:w-full focus:outline-0 after:transition-all after:ease-in-out after:duration-300
 }
 
@@ -73,12 +73,24 @@ a {
     @apply bg-[#fff]/50 backdrop-blur 
 }
 
-.page-inverted a:not(.sr-only) {
+.view-all {
+    position: absolute !important
+}
+
+.page-inverted a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.filter-item) {
     @apply relative after:content-[''] after:absolute after:w-0 after:left-0 after:border-b after:border-solid after:border-[#fff] after:block hover:after:w-full focus:after:w-full focus:outline-0 after:transition-all after:ease-in-out after:duration-300
 }
 
 .page-inverted .is-sticky  {
     @apply bg-[#000]/50 backdrop-blur
+}
+
+.page-inverted .filter-dropdown {
+    @apply bg-[#000]/50 !important
+}
+
+.page-inverted .filter-dropdown .filter-item {
+    @apply text-[#fff] !important
 }
 
 .page-inverted .logo path {
@@ -276,4 +288,12 @@ a.ticker::after {
   width: 40px;
   margin: 0;
   border-radius: 0;
+}
+
+.page-inverted .button {
+    @apply border-[#fff] hover:opacity-50 focus:opacity-50 transition-all !important
+}
+
+[data-close-modal] {
+    position: absolute !important
 }

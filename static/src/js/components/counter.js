@@ -2,7 +2,7 @@ const Counter = () => {
   const cartItems = document.querySelectorAll('[data-cart-item]')
 
   cartItems.forEach(item => {
-    let count = 1;
+    let count = 1
     const increment = item.querySelector('[data-cart-increment]')
     const decrement = item.querySelector('[data-cart-decrement]')
     const counter = item.querySelector('[name="quantity"]')

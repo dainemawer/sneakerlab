@@ -8,9 +8,13 @@ const QuickAccount = () => {
     if (!panel.classList.contains('account-active')) {
       panel.classList.add('account-active')
       document.body.classList.add('overlay-active')
+      panel.setAttribute('aria-hidden', 'false')
+      trigger.setAttribute('aria-expanded', 'true')
     } else {
       panel.classList.remove('account-active')
       document.body.classList.remove('overlay-active')
+      panel.setAttribute('aria-hidden', 'true')
+      trigger.setAttribute('aria-expanded', 'false')
     }
   })
 
@@ -19,6 +23,8 @@ const QuickAccount = () => {
     if (e.key === 'Escape') {
       panel.classList.remove('account-active')
       document.body.classList.remove('overlay-active')
+      panel.setAttribute('aria-hidden', 'true')
+      trigger.setAttribute('aria-expanded', 'false')
     }
   })
 
@@ -27,6 +33,7 @@ const QuickAccount = () => {
     if (!panel.contains(e.target) && e.target !== trigger) {
       panel.classList.remove('account-active')
       document.body.classList.remove('overlay-active')
+      panel.setAttribute('aria-hidden', 'true')
     }
   })
 }

@@ -36,8 +36,9 @@ const Marquee = () => {
     else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue
     speed = scrollValue
     clearTimeout(timer)
-    timer = setTimeout(handleSpeedClear, 10);
-  });
+    timer = setTimeout(handleSpeedClear, 10)
+  })
+
   function handleSpeedClear () {
     speed = 2
   }

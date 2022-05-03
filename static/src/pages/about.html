@@ -22,10 +22,10 @@
                 <p class="text-xl lg:text-3xl mb-10 lg:mb-20 mt-10 lg:mt-36">At Sneaker LAB we understand the power of a fresh pair of sneakers. We took our passion for sneaker culture and matched it with science, creating a natural cleaning solution, that works.</p>
             </div>
             <div class="col-span-12 md:col-span-6">
-                <img class="rounded-lg" src="https://picsum.photos/1520/1628" width="760" height="814" alt="" loading="lazy">
+                <img class="rounded-lg" src="../../public/images/760x814.jpg" width="760" height="814" alt="" loading="lazy" decoding="async" />
             </div>
             <div class="col-span-12 md:col-span-6">
-                <img class="rounded-lg" src="https://picsum.photos/1520/1628" width="760" height="814" alt="" loading="lazy">
+                <img class="rounded-lg" src="../../public/images/760x814.jpg" width="760" height="814" alt="" loading="lazy" decoding="async"/>
                 <div class="mt-10 md:mt-16 mb-14">
                     <p class="text-xs md:text-sm max-w-[345]">
                         Our advanced environmentally friendly products promise to CLEAN | CARE | PROTECT your sneakers. We are a proudly
@@ -45,9 +45,9 @@
                 <h2 class="font-medium text-4xl md:text-7xl uppercase max-w-[1048] mb-7 md:mb-16">Greener and Cleaner BioTechnology</h2>
             </div>
             <div class="col-span-12 md:col-span-6">
-                <img class="rounded-lg" src="https://picsum.photos/824/830" width="412" height="415" alt="" loading="lazy">
-                <a class="mt-4 text-sm inline-flex justify-start items-end" role="button" href="">
-                    <svg class="mr-2 -translate-y-[6px]" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <img class="rounded-lg" src="../../public/images/412x415.jpg" width="412" height="415" alt="" loading="lazy" decoding="async" />
+                <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
+                    <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="white" />
                     </svg>
                     Play video
@@ -86,18 +86,21 @@
                 <p class="text-xl md:text-3xl mb-10 md:mb-20 mt-10 md:mt-36">
                     We want to extend our culture of care beyond sneakers by giving back to both communities and the planet. To date, we’ve partnered with the non-profit community project, Gold Youth Development Agency, to uplift and empower South African youth.
                 </p>
-                <img class="rounded-lg" src="https://picsum.photos/1520/1628" width="760" height="814" alt="" loading="lazy">
-                <a class="mt-4 text-sm inline-flex justify-start items-center" role="button" href="">
-                    <svg class="mr-2 -translate-y-[6px]" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <img class="rounded-lg" src="../../public/images/760x814.jpg" width="760" height="814" alt="" loading="lazy" decoding="async" />
+                <a data-trigger-modal class="mt-4 text-sm play-video hover:opacity-50 focus:opacity-50 transition-all inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
+                    <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="white" />
                     </svg>
                     Play video
                 </a>
-                <p class="mt-16"><a class="uppercase text-3xl font-medium" href="/get-involved">Get Involved</a></p>
+                <p class="mt-16"><a class="uppercase text-3xl font-medium" href="./legals.html">Get Involved</a></p>
             </div>
         </div>
         <include src="src/components/featured-stories.html"></include>
     </main>
+    <script type="module" src="../js/components/filter.js"></script>
+    <script type="module" src="../js/components/modal.js"></script>
+    <include src="./src/components/modal.html"></include>
     <include src="src/components/footer.html"></include>
     <include src="src/components/foot.html"></include>
 </body>
