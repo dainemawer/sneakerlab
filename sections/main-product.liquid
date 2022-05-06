@@ -381,8 +381,6 @@
                 </variant-selects>
               {%- endif -%}
             {%- endunless -%}
-        
-        {% render 'paywhirl-plan-selector', product: product %}
 
             <noscript class="product-form__noscript-wrapper-{{ section.id }}">
               <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
