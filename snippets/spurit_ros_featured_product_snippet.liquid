@@ -1,0 +1,38 @@
+<script>
+  if(typeof(Spurit) === 'undefined'){
+    var Spurit = {};
+  }
+  if(!Spurit.RecurringOrderAndSubscriptions){
+    Spurit.RecurringOrderAndSubscriptions = {};
+  }
+  if(!Spurit.RecurringOrderAndSubscriptions.snippet){
+    Spurit.RecurringOrderAndSubscriptions.snippet = {};
+  }
+  if(!Spurit.RecurringOrderAndSubscriptions.snippet.products){
+    Spurit.RecurringOrderAndSubscriptions.snippet.products = {};
+  }
+
+  {% if product %}
+      Spurit.RecurringOrderAndSubscriptions.snippet.products['{{product.id}}'] = {
+        id: {{product.id}},
+        title: '{{product.title}}',
+        handle: '{{product.handle}}',
+        collections: {{product.collections | map: 'id' | json}},
+        variants: [],
+
+        {% if product.requires_selling_plan %}
+            requires_selling_plan: true,
+        {% else %}
+            requires_selling_plan: false,
+        {% endif %}
+      };
+
+      {% for variant in product.variants %}
+          Spurit.RecurringOrderAndSubscriptions.snippet.products['{{product.id}}'].variants.push({
+            id: {{variant.id}},
+            title: '{{variant.title}}',
+            price: {{variant.price}},
+          });
+      {% endfor %}
+  {% endif %}
+</script>
