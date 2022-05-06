@@ -1,0 +1,157 @@
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
+
+/* ----- Plan selector widget ----- */
+
+.paywhirl-plan-selector {
+  padding: 0;
+  border: none;
+  margin-bottom: 1em;
+  flex-basis: 100%;
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+}
+
+.paywhirl-plan-selector > legend {
+  padding: 1em 0 0 0;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-group {
+  margin: 1em 0;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-group:not(.paywhirl-group-available) {
+  display: none;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-group:not(.paywhirl-group-selected) > .paywhirl-plan-selector-plan {
+  display: none;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-group > label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-group > label > input {
+  min-height: auto;
+  width: 1em;
+  margin-right: 0.8em;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-plan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 1.8em;
+  margin-bottom: 0.8em;
+  margin-top: 0.8em;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-plan > label {
+  margin-right: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  flex: 0 1 auto;
+  white-space: nowrap;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-plan > select {
+  margin-top: 0;
+  margin-bottom: 0;
+  min-height: auto;
+  width: auto;
+  flex-grow: 1;
+}
+
+.paywhirl-plan-selector .paywhirl-plan-selector-description {
+  text-align: left;
+  margin: 1em 0;
+}
+
+.paywhirl-theme-narrative .paywhirl-plan-selector :not(legend) {
+  text-transform: none;
+}
+
+.paywhirl-theme-narrative .paywhirl-plan-selector .paywhirl-plan-selector-group label {
+  font-size: inherit;
+}
+
+/* ----- Cart snippet ----- */
+
+.paywhirl-cart-selling-plan {
+  display: block;
+}
+
+.paywhirl-theme-boundless .paywhirl-cart-selling-plan {
+  margin-bottom: 0.66667em;
+  font-size: 80%;
+}
+
+.paywhirl-theme-brooklyn .paywhirl-cart-selling-plan {
+  margin-bottom: 0;
+  text-rendering: optimizeLegibility;
+}
+
+.paywhirl-theme-debut .paywhirl-cart-selling-plan {
+  padding: calc((5 / (var(--font-size-base, 15))) * 1em) 0 0;
+  margin-top: 0.25rem;
+  font-size: calc(((var(--font-size-base, 15) - 2) / (var(--font-size-base, 15))) * 1em);
+}
+
+.paywhirl-theme-express .paywhirl-cart-selling-plan {
+  margin-bottom: 0.5rem;
+  color: var(--color-body-text);
+  font-size: 1.3rem;
+}
+
+.paywhirl-theme-dawn .paywhirl-plan-selector-group select {
+  border: 1px solid rgba(18, 18, 18, .55);
+  font-size: 1.6rem;
+  height: 4.5rem;
+  padding-left: 0.6em;
+  color: currentColor;
+  transition: border var(--duration-short) ease;
+}
+
+.paywhirl-theme-dawn .paywhirl-plan-selector-group select:hover,
+.paywhirl-theme-dawn .paywhirl-plan-selector-group select:focus {
+  border: 1px solid rgba(18, 18, 18, .25);
+  outline: transparent;
+  box-shadow: none;
+}
+
+@media only screen and (min-width: 46.85em) {
+  .paywhirl-theme-express .paywhirl-cart-selling-plan {
+    font-size: 1.6rem;
+  }
+}
+
+.paywhirl-theme-minimal .paywhirl-cart-selling-plan {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.paywhirl-theme-narrative .paywhirl-cart-selling-plan {
+  margin-top: 3px;
+  font-size: 1.2rem;
+}
+
+.paywhirl-theme-simple .paywhirl-cart-selling-plan {
+  font-size: 85%;
+  margin: 0.3rem 0;
+}
+
+.paywhirl-theme-simple .paywhirl-cart-selling-plan {
+  font-size: 85%;
+  margin: 0.3rem 0;
+}
+
+.paywhirl-theme-supply .paywhirl-cart-selling-plan {
+  font-size: 80%;
+}
+
+.paywhirl-theme-venture .paywhirl-cart-selling-plan {
+  margin-bottom: 10px;
+}

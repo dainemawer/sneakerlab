@@ -1,0 +1,91 @@
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
+
+<script>
+window.paywhirlForShopify = window.paywhirlForShopify || {};
+window.paywhirlForShopify.settings = {
+  /*
+   * Original theme, to which the styling should be adjusted
+   *
+   * Recognized values are: 'boundless', 'brooklyn', 'dawn', 'debut', 'express',
+   * 'minimal', 'narrative', 'simple', 'supply', 'venture' and 'custom'
+   */
+  theme: 'custom',
+
+  /*
+   * Callback function for adjusting product price when the user selects a subscription plan
+   *
+   * Parameters:
+   * - $planSelector: jQuery 3.5+ object containing the current plan selector
+   * - prices: an object containing following properties
+   *   - price: Unformatted, numeric price
+   *   - price_formatted: Formatted price
+   *   - price_formatted_without_trailing_zeros: Formatted price excluding decimal point and trailing zeros
+   *   - compare_at_price: Unformatted, numeric regular price
+   *   - compare_at_price_formatted: Formatted regular price
+   *   - compare_at_price_formatted_without_trailing_zeros: Formatted regular price excluding decimal point and trailing zeros
+   */
+  updatePrice: function($planSelector, prices) {
+    console.log('PayWhirl: Updating price to ' + prices.price_formatted);
+
+    // Find wrapping node of the current product
+
+    var wrapperSel = [
+      'div[data-section-type]',
+      '.shopify-section',
+      '[data-pf-type="ProductBox"]'
+    ].join(',');
+
+    var $wrapper = $planSelector.closest(wrapperSel);
+
+    if ($wrapper.length === 0) {
+      $wrapper = $planSelector.parents('body');
+    }
+
+    // Find a node containing the price
+
+    var containerSel = [
+      '#ProductPrice',
+      '#productPrice-product-template',
+      '#ProductPrice-product-template',
+      '#productPrice > .visually-hidden',
+      '.price .price-item--regular',
+      '.product__price .price-item--regular',
+      '.product__price .product__price--reg',
+      '.product__price .product__current-price',
+      '.product-single__price',
+      '[data-pf-type="ProductPrice"]',
+      '[id^=productPrice-]'
+    ].join(',');
+
+    var $container = $wrapper.find(containerSel);
+
+    if ($container.length === 0) {
+      console.log('PayWhirl: Price container element could not be found. Contact our support for assistance.');
+      return;
+    }
+
+    // Update content of the price node
+
+    if (this.theme === 'supply') {
+      price = prices.price_formatted.split('.');
+      $container.html(price[0] + '<sup>' + price[1] + '</sup>');
+    } else {
+      $container.html(prices.price_formatted);
+    }
+  },
+
+  /*
+   * Translations
+   */
+  translations: {
+    en: {
+      'plan-selector-title': 'Purchase options',
+      'one-time-purchase-label': 'One-time purchase',
+    },
+    pl: {
+      'plan-selector-title': 'Opcje zakupu',
+      'one-time-purchase-label': 'Jednorazowy zakup',
+    }
+  }
+};
+</script>

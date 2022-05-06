@@ -1,0 +1,38 @@
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
+
+/*
+ * You can add custom styles for your customer portal to this file. By default it tries
+ * to adjust fonts to your theme settings.
+ *
+ * If you'd like to override the entire stylesheet, you can disable the built-in one
+ * by removing `&use_built_in_stylesheets=1` from the `paywhirl-customer-portal-frame.liquid` snippet
+ */
+
+ {% assign header_font = settings.type_header_family | default: settings.type_header_font | default: settings.font_heading %}
+ {% assign base_font = settings.type_base_family | default: settings.type_base_font | default: settings.font_body %}
+
+ {{ header_font | font_face }}
+ {{ base_font | font_face }}
+
+ {%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
+ {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
+ {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
+ {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
+
+ {{ base_font_bold | font_face }}
+ {{ base_font_bolder | font_face }}
+ {{ base_font_italic | font_face }}
+ {{ base_font_bold_italic | font_face }}
+
+ :root {
+   --font-weight-body--bold: {{ base_font_bold.weight | default: 700 }};
+   --font-weight-body--bolder: {{ base_font_bolder.weight | default: 700 }};
+
+   --font-stack-header: {% if header_font %}{{ header_font.family }}, {{ header_font.fallback_families }}{% else %}sans-serif{% endif %};
+   --font-style-header: {{ header_font.style | default: 'normal' }};
+   --font-weight-header: {{ header_font.weight | default: 'normal' }};
+
+   --font-stack-body: {% if base_font %}{{ base_font.family }}, {{ base_font.fallback_families }}{% else %}sans-serif{% endif %};
+   --font-style-body: {{ base_font.style | default: 'normal' }};
+   --font-weight-body: {{ base_font.weight | default: 'normal' }};
+ }

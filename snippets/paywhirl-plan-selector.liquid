@@ -1,0 +1,118 @@
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
+
+{% if product and product.selling_plan_groups.size > 0 %}
+
+<fieldset class="paywhirl-plan-selector paywhirl-plan-selector-last product-form__fieldset" data-section-id="{{ section.id }}" style="display: none">
+  <input type="hidden" name="selling_plan" value="{{ product.selected_selling_plan.id }}" />
+  <legend data-i18n="plan-selector-title">Purchase options</legend>
+
+  {% unless product.requires_selling_plan %}
+  <div class="paywhirl-plan-selector-group">
+    <label>
+      <input type="radio" name="paywhirl-plan-selector-group" value="" />
+      <span data-i18n="one-time-purchase-label">One-time purchase</span>
+    </label>
+
+    <div class="paywhirl-plan-selector-plan" style="display: none">
+      <select><option value=""></option></select>
+    </div>
+  </div>
+  {% endunless %}
+
+  {% for selling_plan_group in product.selling_plan_groups %}
+  <div class="paywhirl-plan-selector-group">
+    <label>
+      <input type="radio" name="paywhirl-plan-selector-group" value="{{ selling_plan_group.id }}" />
+      <span>{{ selling_plan_group.name }}</span>
+    </label>
+
+    <div class="paywhirl-plan-selector-plan">
+      <label>{{ selling_plan_group.options[0].name }}</label>
+      <select>
+        {% for plan in selling_plan_group.selling_plans %}
+        <option value="{{ plan.id }}">{{ plan.options[0].value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="paywhirl-plan-selector-description"></div>
+</fieldset>
+
+<script>
+  (function() {
+    var product = {{ all_products[product.handle] | json }};
+
+    product.page_type = {{ request.page_type | json }};
+    product.selected_selling_plan = {{ product.selected_selling_plan | json }};
+
+    product.selling_plans_by_id = (function() {
+      var ret = {};
+
+      for (group of product.selling_plan_groups) {
+        for (plan of group.selling_plans) {
+          ret[plan.id] = JSON.parse(JSON.stringify(plan));
+          ret[plan.id].selling_plan_group_id = group.id;
+        }
+      }
+
+      return ret;
+    })();
+
+    product.variants_by_id = (function() {
+      var ret = {};
+
+      {% for variant in product.variants %}
+        {% assign variant_id = variant.id %}
+        ret[{{ variant_id }}] = {{ variant | json }};
+        ret[{{ variant_id }}].price_formatted = {{ variant.price | money | json }};
+        ret[{{ variant_id }}].price_formatted_without_trailing_zeros = {{ variant.price | money_without_trailing_zeros | json }};
+        ret[{{ variant_id }}].compare_at_price_formatted = {{ variant.compare_at_price | money | json }};
+        ret[{{ variant_id }}].compare_at_price_formatted_without_trailing_zeros = {{ variant.compare_at_price | money_without_trailing_zeros | json }};
+        ret[{{ variant_id }}].available_group_ids = {};
+        ret[{{ variant_id }}].selling_plan_allocations_by_id = {};
+
+        {% for alloc in variant.selling_plan_allocations %}
+          ret[{{ variant_id }}].available_group_ids[{{ alloc.selling_plan_group_id | json }}] = true;
+          ret[{{ variant_id }}].selling_plan_allocations_by_id[{{ alloc.selling_plan.id }}] = {};
+          ret[{{ variant_id }}].selling_plan_allocations_by_id[{{ alloc.selling_plan.id }}].price = {{ alloc.price | json }};
+          ret[{{ variant_id }}].selling_plan_allocations_by_id[{{ alloc.selling_plan.id }}].price_formatted = {{ alloc.price | money | json }};
+          ret[{{ variant_id }}].selling_plan_allocations_by_id[{{ alloc.selling_plan.id }}].price_formatted_without_trailing_zeros = {{ alloc.price | money_without_trailing_zeros | json }};
+          ret[{{ variant_id }}].selling_plan_allocations_by_id[{{ alloc.selling_plan.id }}].compare_at_price = {{ alloc.compare_at_price | json }};
+          ret[{{ variant_id }}].selling_plan_allocations_by_id[{{ alloc.selling_plan.id }}].compare_at_price_formatted = {{ alloc.compare_at_price | money | json }};
+          ret[{{ variant_id }}].selling_plan_allocations_by_id[{{ alloc.selling_plan.id }}].compare_at_price_formatted_without_trailing_zeros = {{ alloc.compare_at_price | money_without_trailing_zeros | json }};
+        {% endfor %}
+      {% endfor %}
+
+      return ret;
+    })();
+
+	window.paywhirlForShopify = window.paywhirlForShopify || {};
+	var counter = window.paywhirlForShopify.counter || 0;
+    window.paywhirlForShopify.counter = counter + 1;
+
+    var nodes = document.querySelectorAll('fieldset.paywhirl-plan-selector-last');
+    var node = nodes[nodes.length - 1];
+    node.id = 'paywhirl-plan-selector-' + counter.toString();
+    node.classList.remove('paywhirl-plan-selector-last');
+    node.dataset.product = JSON.stringify(product);
+  })();
+</script>
+
+{% else %}
+
+<script>
+(function() {
+  // {{ product.selling_plan_groups }} is an empty array in Liquid
+  // even in eligible stores. It only disappears after encoding as JSON
+
+  var product = {{ product | json }};
+
+  if (typeof product.selling_plan_groups === 'undefined') {
+    console.log("This shop is not eligible for subscriptions. Please make sure to be using Shopify Payments");
+  }
+})();
+</script>
+
+{% endif %}

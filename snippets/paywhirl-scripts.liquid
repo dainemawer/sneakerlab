@@ -1,0 +1,218 @@
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
+
+<script>
+(function(paywhirl) {
+  var $ = paywhirl.jQuery;
+  var settings = paywhirl.settings;
+
+  function translate(key) {
+    var locale = (window.Shopify && window.Shopify.locale) ? window.Shopify.locale : 'en';
+    var translations = settings.translations[locale] || settings.translations['en'];
+    return translations[key];
+  }
+
+  function setupPlanSelector($node) {
+    var product = JSON.parse($node[0].dataset.product);
+
+    function getSectionId() {
+      return $node.data('sectionId');
+    }
+
+    function getNodeId() {
+      return $node.attr('id');
+    }
+
+    function getPlanSelector() {
+      return $(document.getElementById(getNodeId()));
+    }
+
+    function getForm() {
+      var form = getPlanSelector().closest('form[action*="/cart/add"]');
+
+      if (form.length === 0) {
+        form = $('#product-form-' + getSectionId());
+      }
+
+      return form;
+    }
+
+    function getVariantId() {
+      var id = getForm().find(':input[name="id"]').val();
+
+      if (!id) {
+        console.log('PayWhirl: Could not detect the id of current product variant. ' +
+          'This usually happens on unrecognized themes. Please contact our support or ' +
+          'your theme developer for assistance');
+
+        return null;
+      }
+
+      return parseInt(id);
+    }
+
+    function getSellingPlanInput() {
+      return getPlanSelector().find(':input[name="selling_plan"]');
+    }
+
+    function updateTranslations() {
+      getPlanSelector().find('[data-i18n]').each(function() {
+        var me = $(this);
+        var text = translate(me.data('i18n'));
+        me.text(text).removeAttr('data-i18n');
+      });
+    }
+
+    function updateDescription(planId) {
+      var planId = planId ? parseInt(planId) : null;
+      var desc = planId ? (product.selling_plans_by_id[planId].description || '') : '';
+      getPlanSelector().find('.paywhirl-plan-selector-description').html(desc);
+    }
+
+    function updatePrice(planId) {
+      var variantId = getVariantId();
+
+      if (!variantId) {
+        return;
+      }
+
+      var variant = product.variants_by_id[variantId];
+
+      var planId = planId ? parseInt(planId) : null;
+
+      var prices = {
+        price: variant.price,
+        price_formatted: variant.price_formatted,
+        price_formatted_without_trailing_zeros: variant.price_formatted_without_trailing_zeros,
+        compare_at_price: variant.compare_at_price,
+        compare_at_price_formatted: variant.compare_at_price_formatted,
+        compare_at_price_formatted_without_trailing_zeros: variant.compare_at_price_formatted_without_trailing_zeros
+      }
+
+      if (planId) {
+        prices.price = variant.selling_plan_allocations_by_id[planId].price
+        prices.price_formatted = variant.selling_plan_allocations_by_id[planId].price_formatted
+        prices.price_formatted_without_trailing_zeros = variant.selling_plan_allocations_by_id[planId].price_formatted_without_trailing_zeros
+        prices.compare_at_price = variant.selling_plan_allocations_by_id[planId].compare_at_price
+        prices.compare_at_price_formatted = variant.selling_plan_allocations_by_id[planId].compare_at_price_formatted
+        prices.compare_at_price_formatted_without_trailing_zeros = variant.selling_plan_allocations_by_id[planId].compare_at_price_formatted_without_trailing_zeros
+      }
+
+      settings.updatePrice(getPlanSelector(), prices);
+    }
+
+    function filterGroupsForVariant(variantId) {
+      var variant = product.variants_by_id[variantId];
+
+      getPlanSelector().find('.paywhirl-plan-selector-group').each(function() {
+        var groupId = $(this).find('[name=paywhirl-plan-selector-group]').val();
+        var isAvailable = groupId
+          ? (variant.available_group_ids[groupId] || false)
+          : (!product.requires_selling_plan);
+        $(this).toggleClass('paywhirl-group-available', isAvailable);
+      });
+
+      selectPlan(getSelectedOrFirstAvailablePlanId());
+    }
+
+    function variantChanged(forceUpdate = false) {
+      var variantId = getVariantId();
+
+      if (!variantId) {
+        return;
+      }
+
+      if (!variantChanged.previousId || variantChanged.previousId !== variantId || forceUpdate) {
+        filterGroupsForVariant(variantId);
+      }
+
+      variantChanged.previousId = variantId;
+    }
+
+    function getSelectedOrFirstAvailablePlanId() {
+      var group = getPlanSelector().find('.paywhirl-group-available.paywhirl-group-selected').first();
+
+      if (!group.length) {
+        group = getPlanSelector().find('.paywhirl-group-available').first();
+      }
+
+      return group.find('select').val();
+    }
+
+    function selectPlan(planId) {
+      var groupId = planId ? product.selling_plans_by_id[parseInt(planId)].selling_plan_group_id : '';
+
+      var group = getPlanSelector()
+        .find(':input[name="paywhirl-plan-selector-group"][value="' + groupId + '"]')
+        .closest('.paywhirl-plan-selector-group');
+
+      group
+        .find('.paywhirl-plan-selector-plan select')
+        .val(planId);
+
+      group
+        .addClass('paywhirl-group-selected')
+        .find(':input[name="paywhirl-plan-selector-group"]').prop('checked', true);
+
+      group
+        .siblings()
+        .removeClass('paywhirl-group-selected');
+
+      getSellingPlanInput().val(planId);
+
+      updateDescription(planId);
+      updatePrice(planId);
+    }
+
+    function selectSelectedPlan() {
+      var planId = getPlanSelector()
+        .find(':input[name="paywhirl-plan-selector-group"]:checked')
+        .closest('.paywhirl-plan-selector-group')
+        .find('select')
+        .val();
+
+      selectPlan(planId);
+    }
+
+    updateTranslations();
+
+    // Workaround for the plan selector being outside of the main product form in Dawn
+    if (getPlanSelector().closest('form[action*="/cart/add"]').length === 0) {
+      getPlanSelector().find('input').attr('form', getForm().attr('id'));
+    }
+
+    $('body').on('change', '#' + getNodeId() + ' input[name="paywhirl-plan-selector-group"]', selectSelectedPlan);
+    $('body').on('change', '#' + getNodeId() + ' .paywhirl-plan-selector-group select', selectSelectedPlan);
+    getForm().addClass(getNodeId() + '-form');
+
+    $('body').on('DOMSubtreeModified', '.' + getNodeId() + '-form', function() { setTimeout(variantChanged, 10); });
+
+    // Workaround for monitoring AJAX price updates in Dawn
+    $('body').on('DOMSubtreeModified', '#price-' + getSectionId(), function(ev) {
+      $el = $(ev.currentTarget).find('.price');
+
+      if ($el.hasClass('paywhirl-price-ignored')) {
+        return;
+      }
+
+      $el.addClass('paywhirl-price-ignored');
+      variantChanged(true);
+    });
+
+    variantChanged();
+
+    if (product.selected_selling_plan) {
+      selectPlan(product.selected_selling_plan.id.toString());
+    }
+
+    setTimeout(selectSelectedPlan, 30);
+
+    getPlanSelector().show();
+  }
+
+  $('body').addClass("paywhirl-theme-" + settings.theme);
+
+  $('fieldset.paywhirl-plan-selector').each(function() {
+    setupPlanSelector($(this));
+  });
+})(window.paywhirlForShopify);
+</script>

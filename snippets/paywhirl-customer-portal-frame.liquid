@@ -1,0 +1,150 @@
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
+
+{% assign pw_link_shop = shop.permanent_domain | url_encode %}
+{% assign pw_link_timestamp = "now" | date: "%s" %}
+{% assign pw_link_validity = 60 | times: 60 | times: 24 %}
+
+{% assign pw_params = "customer_id=" | append: customer.id %}
+{% assign pw_params = pw_params | append: "&link_shop=" | append: pw_link_shop %}
+{% assign pw_params = pw_params | append: "&link_timestamp=" | append: pw_link_timestamp %}
+{% assign pw_params = pw_params | append: "&link_validity=" | append: pw_link_validity %}
+
+{% capture pw_secret %}{% render 'paywhirl-customer-portal-secret' %}{% endcapture %}
+{% assign pw_signature = pw_params | hmac_sha256: pw_secret %}
+
+{% assign stylesheet = "paywhirl-customer-portal-theme.css" %}
+{% assign stylesheet = stylesheet | asset_url | url_encode %}
+{% assign domain = shop.domain | url_encode %}
+{% assign locale = request.locale.iso_code %}
+
+<div id="paywhirl-customer-portal-wrap" class="page-width">
+  <div class="section-header text-center">
+    <h1 data-paywhirl-i18n="{{ 'customer.account.title' | t }}">My Account</h1>
+    <p><a href="{{ routes.account_url }}" data-paywhirl-i18n="{{ 'customer.account.return' | t }}">Return to Account Details</a></p>
+  </div>
+
+  <div
+       id="paywhirl-customer-portal-loader"
+       style="text-align: center"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      role="presentation"
+      style="animation: spin 500ms infinite linear;display:inline-block;width:20px;height:20px;vertical-align:middle;fill:currentColor;"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M7.229 1.173a9.25 9.25 0 1 0 11.655 11.412 1.25 1.25 0 1 0-2.4-.698 6.75 6.75 0 1 1-8.506-8.329 1.25 1.25 0 1 0-.75-2.385z"
+        fill="#919EAB"
+      />
+    </svg>
+  </div>
+
+  <iframe
+    id="paywhirl-customer-portal-frame"
+    style="width: 100%; height: 0; border: none;"
+  >
+    <p>Loading</p>
+  </iframe>
+</div>
+
+<style>
+  @keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+</style>
+
+<script>
+  (function() {
+    function removePreviousNodes(node) {
+      var node = node.previousSibling;
+
+      while (node) {
+        var prev = node.previousSibling;
+        if (node.parentNode) {
+          node.parentNode.removeChild(node);
+        }
+        node = prev;
+      }
+    }
+
+    function getFrameUrl() {
+      var match = location.search.match(/[\?&]pw-page=([^&]+)/);
+
+      if (!match) {
+        return null;
+      }
+
+      var page = decodeURIComponent(match[1]);
+
+      return "/a/paywhirl" + page + "?{{ pw_params }}&link_signature={{ pw_signature }}&stylesheet={{ stylesheet }}&domain={{ domain }}&locale={{ locale }}&use_built_in_stylesheets=1"
+    }
+
+    function setupTranslations() {
+      var nodes = document.querySelectorAll("[data-paywhirl-i18n]");
+
+      for (var i = 0; i < nodes.length; ++i) {
+        var node = nodes[i];
+        var trans = node.dataset.paywhirlI18n;
+
+        if (!trans || trans.indexOf('translation missing') !== -1) {
+          continue;
+        }
+
+        node.textContent = trans;
+      }
+    }
+
+    function setupFrame() {
+      var wrap = document.getElementById('paywhirl-customer-portal-wrap');
+      var loader = document.getElementById('paywhirl-customer-portal-loader');
+      var frame = document.getElementById('paywhirl-customer-portal-frame');
+      var frameUrl = getFrameUrl();
+
+      if (!frameUrl) {
+        if (wrap.parentNode) {
+          wrap.parentNode.removeChild(wrap);
+        }
+
+        return;
+      }
+
+      frame.src = frameUrl;
+
+      removePreviousNodes(wrap);
+
+      window.addEventListener('message', function(evt) {
+        if (evt.data.source === 'paywhirl' && evt.data.method === 'set-height') {
+          frame.style.height = evt.data.height + 'px';
+
+          if (loader) {
+            if (loader.parentNode) {
+              loader.parentNode.removeChild(loader);
+            }
+            loader = null;
+          }
+        }
+
+        if (evt.data.source === 'paywhirl' && evt.data.method === 'navigate') {
+          location.href = "{{ routes.account_url }}" + '?pw-page=' + encodeURIComponent(evt.data.url);
+        }
+
+        if (evt.data.source === 'paywhirl' && evt.data.method === 'navigate-external') {
+          if (!window.open(evt.data.url)) {
+            location.href = evt.data.url;
+          }
+        }
+      }, false);
+    }
+
+    setupTranslations();
+    setupFrame();
+  })();
+</script>
