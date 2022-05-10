@@ -2,7 +2,7 @@
   "layout": "test-theme",
   "sections": {
     "main": {
-      "type": "main-page",
+      "type": "main-test",
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
