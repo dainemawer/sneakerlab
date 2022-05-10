@@ -119,8 +119,6 @@
               {%- endif -%}
             {%- when 'quantity_selector' -%}
 
-{% render 'paywhirl-plan-selector', product: product %}
-
               <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
                 <label class="form__label" for="Quantity-{{ section.id }}">
                   {{ 'products.product.quantity.label' | t }}
@@ -458,7 +456,6 @@
   <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
 {% endif %}
 
-{% render 'spurit_ros_featured_product_snippet' product: product %}
 {% schema %}
 {
   "name": "t:sections.featured-product.name",
