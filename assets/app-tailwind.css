@@ -157,6 +157,12 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     width: 0;
 }
 
+.checkbox-container input.checkmark {
+    opacity: 1;
+    width: 17px;
+    height: 17px;
+}
+
 /* Create a custom checkbox */
 .checkmark {
     border: 1px solid #CBCBCB;
