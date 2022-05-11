@@ -1262,7 +1262,7 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 
 /* Create a custom checkbox */
 
-.checkmark {
+input.checkmark {
   border: 1px solid #CBCBCB;
   border-radius: 2px;
   position: absolute;
@@ -1274,20 +1274,20 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 
 /* On mouse-over, add a grey background color */
 
-.checkbox-container:hover input ~ .checkmark {
+.checkbox-container:hover input ~ input.checkmark {
   border-color: #000;
 }
 
 /* When the checkbox is checked, add a blue background */
 
-.checkbox-container input:checked ~ .checkmark {
+.checkbox-container input:checked ~ input.checkmark {
   background-color: #000;
   border-color: #000;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 
-.checkmark:after {
+input.checkmark:after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7' /%3E%3C/svg%3E");
   content: "";
   display: none;
@@ -1300,7 +1300,7 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 
 /* Show the checkmark when checked */
 
-.checkbox-container input:checked ~ .checkmark:after {
+.checkbox-container input:checked ~ input.checkmark:after {
   display: block;
 }
 
