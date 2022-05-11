@@ -157,14 +157,8 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     width: 0;
 }
 
-.checkbox-container input.checkmark {
-    opacity: 1;
-    width: 17px;
-    height: 17px;
-}
-
 /* Create a custom checkbox */
-input.checkmark {
+.checkmark {
     border: 1px solid #CBCBCB;
     border-radius: 2px;
     position: absolute;
@@ -175,18 +169,18 @@ input.checkmark {
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox-container:hover input ~ input.checkmark {
+.checkbox-container:hover input ~ .checkmark {
     border-color: #000;
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkbox-container input:checked ~ input.checkmark {
+.checkbox-container input:checked ~ .checkmark {
     background-color: #000;
     border-color: #000;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-input.checkmark:after {
+.checkmark:after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7' /%3E%3C/svg%3E");
     content: "";
     display: none;
@@ -198,7 +192,7 @@ input.checkmark:after {
 }
 
 /* Show the checkmark when checked */
-.checkbox-container input:checked ~ input.checkmark:after {
+.checkbox-container input:checked ~ .checkmark:after {
     display: block;
 }
 
