@@ -1,0 +1,31 @@
+{% comment %}
+    Renders the login form for the header
+
+    Usage:
+    {% render 'login-form' %}
+{% endcomment %}
+
+<form class="max-w-[695]">
+    <fieldset>
+        <legend class="text-sm">
+            <p class="mt-8 mb-10 font-normal">Please enter your email and password below.</p>
+        </legend>
+        <div class="block w-full mb-8">
+            <label for="email">
+                <span class="block uppercase text-xs mb-1.5 text-cod-gray">Email*</span>
+                <input class="border border-silver text-[#000] p-1.5 hover:border-[#000] focus:border-[#000] outline-none block w-full rounded transition-all" type="email" id="email" name="email" required autocomplete="off" />
+            </label>
+        </div>
+        <div class="block w-full mb-8">
+            <label for="password">
+                <span class="block uppercase text-xs mb-1.5 text-cod-gray">Password*</span>
+                <input class="border border-silver text-[#000] hover:border-[#000] focus:border-[#000] outline-none p-1.5 block w-full rounded transition-all" type="password" id="password" name="password" required autocomplete="off" />
+            </label>
+
+        </div>
+        <div class="md:flex justify-between items-center">
+            <p class="uppercase text-xs text-cod-gray mb-10 md:mb-0"><a href="/password">Lost Your Password?</a></p>
+            <button class="bg-eco-green text-[#fff] text-sm py-3 px-9 rounded hover:bg-forest-green" type="submit">Sign in</button>
+        </div>
+    </fieldset>
+</form>
