@@ -627,6 +627,30 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 0.25rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-1\.5 {
+  margin-bottom: 0.375rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
 .block {
   display: block;
 }
@@ -691,6 +715,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 385;
 }
 
+.max-w-\[695\] {
+  max-width: 695;
+}
+
+.max-w-\[300\] {
+  max-width: 300;
+}
+
 .basis-2\/6 {
   flex-basis: 33.333333%;
 }
@@ -716,6 +748,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-end {
@@ -748,12 +784,25 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 1.5rem;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
 .rounded-tr-lg {
   border-top-right-radius: 0.5rem;
 }
 
 .rounded-bl-lg {
   border-bottom-left-radius: 0.5rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-silver {
+  --tw-border-opacity: 1;
+  border-color: rgb(203 203 203 / var(--tw-border-opacity));
 }
 
 .bg-\[\#fff\] {
@@ -774,8 +823,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: transparent;
 }
 
+.bg-eco-green {
+  --tw-bg-opacity: 1;
+  background-color: rgb(61 174 43 / var(--tw-bg-opacity));
+}
+
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-1\.5 {
+  padding: 0.375rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .py-3 {
@@ -801,6 +863,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+
+.px-9 {
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
 }
 
 .pt-8 {
@@ -839,6 +906,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1;
 }
 
+.font-normal {
+  font-weight: 400;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -851,13 +922,32 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-style: italic;
 }
 
+.leading-normal {
+  line-height: 1.5;
+}
+
 .text-\[\#000\] {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.text-cod-gray {
+  --tw-text-opacity: 1;
+  color: rgb(26 26 26 / var(--tw-text-opacity));
+}
+
+.text-\[\#fff\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .opacity-0 {
   opacity: 0;
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .outline {
@@ -1412,9 +1502,19 @@ a.ticker::after {
   color: rgb(206 206 206 / var(--tw-text-opacity));
 }
 
+.hover\:border-\[\#000\]:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
 .hover\:bg-eco-green:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(61 174 43 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-forest-green:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(39 113 28 / var(--tw-bg-opacity));
 }
 
 .hover\:text-\[\#fff\]:hover {
@@ -1435,6 +1535,11 @@ a.ticker::after {
   overflow: visible;
   clip: auto;
   white-space: normal;
+}
+
+.focus\:border-\[\#000\]:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .focus\:bg-eco-green:focus {
@@ -1460,6 +1565,20 @@ a.ticker::after {
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:flex {
+    display: flex;
   }
 }
 
