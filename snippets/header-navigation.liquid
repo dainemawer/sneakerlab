@@ -45,6 +45,7 @@
     const Navigation = () => {
         const trigger = document.getElementById('mobile-navigation-trigger')
         const nav = document.getElementById('mobile-navigation')
+        const loggedIn = false;
 
         trigger && trigger.addEventListener('click', () => {
             if (!nav.classList.contains('menu-visible')) {
