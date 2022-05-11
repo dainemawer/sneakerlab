@@ -190,7 +190,7 @@
       }
     {% endstyle %}
 
-    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {% comment %}{{ 'base.css' | asset_url | stylesheet_tag }}{% endcomment %}
 
     {% comment %}
       Main Sneaker Lab styling for the application.
