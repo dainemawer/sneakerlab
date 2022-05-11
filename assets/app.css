@@ -1255,7 +1255,6 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 }
 
 /* Create a custom checkbox */
-
 .checkmark {
   border: 1px solid #CBCBCB;
   border-radius: 2px;
