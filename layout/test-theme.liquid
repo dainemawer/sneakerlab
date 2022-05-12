@@ -30,6 +30,12 @@
         assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
 
+    {% if true %}
+        {%- liquid
+            assign color_scheme = 'page-inverted'
+        %}
+    {% endif %}
+
     {{ "app.css" | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
@@ -51,13 +57,15 @@
     </script>
 </head>
 
-<body>
+<body class="flex flex-col min-h-screen {% echo color_scheme %}">
 
-{% section 'test-header' %}
+    {% section 'test-header' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
         {{ content_for_layout }}
     </main>
 
+    {% section 'test-footer' %}
+    {% section 'foot' %}
 </body>
 </html>

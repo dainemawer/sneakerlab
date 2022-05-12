@@ -30,6 +30,7 @@
     </fieldset>
 </form>
 
+{% comment %}
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 <div class="customer login">
@@ -165,3 +166,5 @@
         {%- endform -%}
     </div>
 </div>
+
+{% endcomment %}

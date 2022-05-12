@@ -228,6 +228,11 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     @apply bg-[#fff]
 }
 
+.dark-mode.search-active [role="banner"] {
+    @apply bg-[#000];
+    color: white;
+}
+
 [id="account-modal"] legend {
     @apply hidden;
 }
