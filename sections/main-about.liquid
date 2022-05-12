@@ -10,10 +10,10 @@
             <p class="text-xl lg:text-3xl mb-10 lg:mb-20 mt-10 lg:mt-36">At Sneaker LAB we understand the power of a fresh pair of sneakers. We took our passion for sneaker culture and matched it with science, creating a natural cleaning solution, that works.</p>
         </div>
         <div class="col-span-12 md:col-span-6">
-            <img class="rounded-lg" src="../../public/images/760x814.jpg" width="760" height="814" alt="" loading="lazy" decoding="async" />
+            <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async" />
         </div>
         <div class="col-span-12 md:col-span-6">
-            <img class="rounded-lg" src="../../public/images/760x814.jpg" width="760" height="814" alt="" loading="lazy" decoding="async"/>
+            <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async"/>
             <div class="mt-10 md:mt-16 mb-14">
                 <p class="text-xs md:text-sm max-w-[345px]">
                     Our advanced environmentally friendly products promise to CLEAN | CARE | PROTECT your sneakers. We are a proudly
@@ -33,7 +33,7 @@
             <h2 class="font-medium text-4xl md:text-7xl uppercase max-w-[1048px] mb-7 md:mb-16">Greener and Cleaner BioTechnology</h2>
         </div>
         <div class="col-span-12 md:col-span-6">
-            <img class="rounded-lg" src="../../public/images/412x415.jpg" width="412" height="415" alt="" loading="lazy" decoding="async" />
+            <img class="rounded-lg" src="{{ '412x415.jpg' | asset_url }}" width="412" height="415" alt="" loading="lazy" decoding="async" />
             <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
                 <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="white" />
@@ -74,7 +74,7 @@
             <p class="text-xl md:text-3xl mb-10 md:mb-20 mt-10 md:mt-36">
                 We want to extend our culture of care beyond sneakers by giving back to both communities and the planet. To date, we’ve partnered with the non-profit community project, Gold Youth Development Agency, to uplift and empower South African youth.
             </p>
-            <img class="rounded-lg" src="../../public/images/760x814.jpg" width="760" height="814" alt="" loading="lazy" decoding="async" />
+            <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async" />
             <a data-trigger-modal class="mt-4 text-sm play-video hover:opacity-50 focus:opacity-50 transition-all inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
                 <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="white" />
@@ -87,8 +87,47 @@
     <include src="src/components/featured-stories.html"></include>
 </main>
 
-<script type="module" src="../js/components/filter.js"></script>
-<script type="module" src="../js/components/modal.js"></script>
-<include src="./src/components/modal.html"></include>
+<script>
+    const Filter = () => {
+        const trigger = document.querySelector('[data-filter-trigger]')
+        const panel = document.getElementById('filter-dropdown')
+
+        trigger && trigger.addEventListener('click', () => {
+            if (!panel.classList.contains('filter-active')) {
+                trigger.innerHTML = 'Filter-'
+                trigger.setAttribute('aria-expanded', 'true')
+                panel.setAttribute('aria-hidden', 'false')
+                panel.classList.add('filter-active')
+            } else {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('mousedown', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+    }
+
+    Filter()
+</script>
+
+{% render 'modal' %}
 
 
