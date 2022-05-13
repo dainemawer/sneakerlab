@@ -1,0 +1,74 @@
+{% comment %}
+    Sneakerlab footer content
+{% endcomment %}
+
+<footer aria-label="Site Footer" role="contentinfo">
+    <div class="pt-20 lg:pt-36 pb-20 grid grid-cols-12 gap-4 px-4 lg:px-5 xl:container xl:mx-auto">
+
+        {% render 'newsletter' %}
+
+        <nav class="lg:col-span-3 col-span-6">
+            <ul>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="/">Home</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="../pages/shop.html">Shop</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="../pages/about.html">About Us</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="../pages/how-to.html">How To</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="../pages/collaboration.html">Collaborations</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="../pages/stories.html">Stories</a>
+                </li>
+                <li>
+                    <a class="text-xs md:text-sm uppercase font-medium" href="/locations">Locations</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="lg:col-span-3 col-span-6">
+            <ul>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="../pages/contact.html">Contact Us</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="../pages/account.html">My Account</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="../pages/faq.html">FAQ</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="/become-a-stockist">Become a Stockist</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="/refund-policy">Refund Policy</a>
+                </li>
+                <li class="mb-2">
+                    <a class="text-xs md:text-sm uppercase font-medium" href="/terms-of-service">Terms of Service</a>
+                </li>
+                <li>
+                    <a class="text-xs md:text-sm uppercase font-medium" href="/privacy-policy">Privacy Policy</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+
+{% render 'colophon' %}
+{% render 'popup-cookies' %}
+{% render 'popup-newsletter' %}
+
+{% schema %}
+{
+    "name": "Footer",
+    "tag": "section",
+    "class": "mt-auto"
+}
+{% endschema %}

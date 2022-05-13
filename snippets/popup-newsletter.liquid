@@ -1,0 +1,20 @@
+{% comment %}
+    Pop up for newsletter subscription
+{% endcomment %}
+
+<div class="absolute p-6 z-20 rounded-tr-lg rounded-bl-lg right-4 bottom-4 w-full max-w-[385px] invisible opacity-0 bg-[#fff] pointer-events-none"
+     id="popup-newsletter-modal" aria-hidden="true">
+    <form action="" method="">
+        <h4 class="text-3xl uppercase font-medium">Sign up for 15% off</h4>
+        <p class="text-sm mt-8 mb-6">Get 15% off your first order and stay up to date with news and promotions.</p>
+        <div class="block w-full mb-8">
+            <label for="username">
+                <span class="block uppercase text-xs mb-1.5 text-cod-gray">Email*</span>
+                <input
+                        class="border border-silver p-1.5 hover:border-[#000] focus:border-[#000] outline-none block w-full rounded transition-all"
+                        type="email" id="username" name="username" required autocomplete="off" />
+            </label>
+        </div>
+        <button class="bg-eco-green text-[#fff] text-sm py-3 px-9 w-full rounded hover:bg-forest-green" type="submit">Subscribe</button>
+    </form>
+</div>

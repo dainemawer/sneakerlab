@@ -192,6 +192,11 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
+    {% comment %}
+      Main Sneaker Lab styling for the application.
+    {% endcomment %}
+    {% comment %}{{ "app.css" | asset_url | stylesheet_tag }}{% endcomment %}
+
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -217,11 +222,14 @@
 
     {% section 'announcement-bar' %}
     {% section 'header' %}
+
+    {% comment %}{% section 'test-header' %}{% endcomment %}
+
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    {% section 'footer' %}
+    {% section 'shopify-footer' %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -258,7 +266,5 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  {% render 'spurit_ros_theme_snippet' %}
-{% render 'paywhirl-main' %}
 </body>
 </html>

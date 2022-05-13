@@ -10,6 +10,10 @@
 - [Feature Request](https://github.com/dainemawer/sneakerlab/issues/new?assignees=&labels=&template=feature_request.md&title=)
 
 ## Local Development
+Tailwind build command:
+```console
+npx tailwindcss -i ./assets/app-tailwind.css -o ./assets/app.css --watch
+```
 
 ## Static Files
 

@@ -1,0 +1,69 @@
+{% comment %}
+    Renders a account modal for the header of the page.
+
+    Usage:
+    {% render 'account-modal' %}
+{% endcomment %}
+
+<div class="absolute p-6 z-20 rounded-tr-lg rounded-bl-lg right-4 top-4 w-full max-w-[385px] invisible opacity-0 bg-[#fff] pointer-events-none" id="account-modal" aria-hidden="true">
+    <div class="relative">
+        <p class="uppercase text-sm mb-6 text-[#000]">[&nbsp;&nbsp;Account&nbsp;&nbsp;]</p>
+        <span class="bg-concrete absolute z-0 py-1 px-1 rounded-3xl w-[147px] h-[33px] left-[-5px] top-[41px]"></span>
+        <input class="hidden input" type="radio" name="tabs" id="tab1" checked />
+        <label class="inline-block rounded-3xl text-[#000] transition-all hover:bg-eco-green hover:text-[#fff] focus:bg-eco-green focus:text-[#fff] relative z-10 text-xs uppercase py-1 px-3 cursor-pointer" for="tab1">Login</label>
+        <input class="hidden input" type="radio" name="tabs" id="tab2" />
+        <label class="inline-block rounded-3xl transition-all hover:bg-eco-green hover:text-[#fff] text-[#000] focus:bg-eco-green focus:text-[#fff] relative z-10 text-xs uppercase py-1 px-3 cursor-pointer" for="tab2">Sign Up</label>
+
+        <div class="mt-6 tab tab-item-1">
+            {% render 'login-form', email: 'lf-md-firstname', password: 'lf-md-lastname' %}
+        </div>
+
+        <div class="mt-6 tab tab-item-2">
+            {% render 'sign-up-form', firstname: 'su-md-firstname', lastname: 'su-md-lastname', email: 'su-md-email', password: 'su-md-password' %}
+        </div>
+    </div>
+</div>
+
+<script>
+    const QuickAccount = () => {
+        const trigger = document.querySelector('[data-id="js-account-trigger"]')
+        const panel = document.getElementById('account-modal')
+
+        // Handle Click Event
+        trigger && trigger.addEventListener('click', (e) => {
+            e.preventDefault()
+            if (!panel.classList.contains('account-active')) {
+                panel.classList.add('account-active')
+                document.body.classList.add('overlay-active')
+                panel.setAttribute('aria-hidden', 'false')
+                trigger.setAttribute('aria-expanded', 'true')
+            } else {
+                panel.classList.remove('account-active')
+                document.body.classList.remove('overlay-active')
+                panel.setAttribute('aria-hidden', 'true')
+                trigger.setAttribute('aria-expanded', 'false')
+            }
+        })
+
+        // Handle Escape Key Event
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                panel.classList.remove('account-active')
+                document.body.classList.remove('overlay-active')
+                panel.setAttribute('aria-hidden', 'true')
+                trigger.setAttribute('aria-expanded', 'false')
+            }
+        })
+
+        // Handle Click Outside
+        document.addEventListener('click', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                panel.classList.remove('account-active')
+                document.body.classList.remove('overlay-active')
+                panel.setAttribute('aria-hidden', 'true')
+            }
+        })
+    }
+
+    QuickAccount()
+</script>

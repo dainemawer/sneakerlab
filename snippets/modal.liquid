@@ -1,0 +1,65 @@
+{% comment %}
+    Renders the modal html
+{% endcomment %}
+
+<div id="modal" aria-hidden="true" data-modal class="fixed flex items-center justify-center invisible opacity-0 pointer-events-none z-10 left-0 top-0 w-full h-full overflow-auto bg-[#fff]/90 backdrop-blur" role="dialog">
+    <div class="p-5 w-4/5 mx-auto text-center">
+        <lite-vimeo videoid="364126459"></lite-vimeo>
+    </div>
+    <a data-close-modal aria-controls="modal" class="uppercase absolute text-3xl right-4 top-4 text-[#000]" href="#" role="button">Close</a>
+</div>
+
+
+<script>
+    const Modal = () => {
+        const triggers = document.querySelectorAll('[data-trigger-modal]')
+        const close = document.querySelector('[data-close-modal]')
+        const modal = document.querySelector('[data-modal]')
+
+        triggers && triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault()
+
+                if (!modal.classList.contains('modal-active')) {
+                    modal.classList.add('modal-active')
+                    document.body.style.overflow = 'hidden'
+                    e.target.setAttribute('aria-expanded', 'true')
+                    modal.setAttribute('aria-hidden', 'false')
+                } else {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    e.target.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+
+            document.addEventListener('mousedown', (e) => {
+                if (!modal.contains(e.target) && e.target !== trigger) {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    trigger.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+
+            close && close.addEventListener('click', (e) => {
+                e.preventDefault()
+                modal.classList.remove('modal-active')
+                document.body.style.overflow = 'auto'
+                trigger.setAttribute('aria-expanded', 'false')
+                modal.setAttribute('aria-hidden', 'true')
+            })
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    trigger.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+        })
+    }
+
+    Modal()
+</script>

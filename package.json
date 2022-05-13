@@ -1,0 +1,22 @@
+{
+  "name": "sneakerlab",
+  "version": "1.0.0",
+  "description": "[![Build status](https://github.com/shopify/dawn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Shopify/dawn/actions/workflows/ci.yml?query=branch%3Atrunk)",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./assets/app-tailwind.css -o ./assets/app.css",
+    "dev": "npx tailwindcss -i ./assets/app-tailwind.css -o ./assets/app.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dainemawer/sneakerlab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dainemawer/sneakerlab/issues"
+  },
+  "homepage": "https://github.com/dainemawer/sneakerlab#readme"
+}
