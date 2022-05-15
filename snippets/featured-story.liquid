@@ -1,0 +1,21 @@
+{% comment %}
+    Markup for featured story
+{% endcomment %}
+
+<article class="flex flex-row ">
+    <figure class="basis-3/6">
+        <a class="thumbnail" href="#">
+            <img class="rounded-lg" alt="Featured Story 1" src="{{ '372x263.jpg' | asset_url }}" width="372" height="263" decoding="async" />
+        </a>
+    </figure>
+    <div class="ml-4 basis-3/6 relative">
+        <h3 class="uppercase text-lg xs:text-xl leading-none lg:text-2xl xl:text-3xl md:max-w-[344]">
+            Lace Up &amp; Lead The Way
+        </h3>
+        <div class="absolute left-0 bottom-0 xs:flex w-full justify-between xl:justify-start">
+            <span class="text-xs xs:text-sm block uppercase font-semibold">Article</span>
+            <time class="text-xs xs:text-sm block xs:ml-2 uppercase">[ Oct 12, 2021 ]</time>
+        </div>
+    </div>
+</article>
+
