@@ -1,18 +1,21 @@
 <main id="main-content" class="xl:container xl:mx-auto px-4 lg:px-5" role="main" aria-label="Main Site Content">
     <div class="grid grid-cols-12 gap-2 md:gap-4 xl:container xl:mx-auto mt-20 mb-10 md:mb-40">
         <div class="col-span-12 lg:col-span-6">
-            <h1 class="font-semibold text-5xl md:text-8xl uppercase">About</h1>
+            <h1 class="font-semibold text-5xl md:text-8xl uppercase">{{ section.settings.heading1 }}</h1>
             <p class="uppercase text-xs max-w-[255px] md:text-sm mt-4 lg:mb-16 lg:my-12 lg:max-w-[161px]">
-                [&nbsp;&nbsp;About the SneakerLab team and what we do.&nbsp;&nbsp;]
+                [&nbsp;&nbsp;{{ section.settings.subtitle1 }}&nbsp;&nbsp;]
             </p>
         </div>
         <div class="col-span-12 lg:col-span-6">
-            <p class="text-xl lg:text-3xl mb-10 lg:mb-20 mt-10 lg:mt-36">At Sneaker LAB we understand the power of a fresh pair of sneakers. We took our passion for sneaker culture and matched it with science, creating a natural cleaning solution, that works.</p>
+            <p class="text-xl lg:text-3xl mb-10 lg:mb-20 mt-10 lg:mt-36">
+                {{ section.settings.subheading_lg_1 }}
+            </p>
         </div>
         <div class="col-span-12 md:col-span-6">
-            <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async" />
+            <img class="rounded-lg" src="{{ section.settings.image1 | image_url: width: 760, height: 814 }}" alt="{{ section.settings.image1.alt | escape }}" loading="lazy" decoding="async" />
         </div>
         <div class="col-span-12 md:col-span-6">
+            <img class="rounded-lg" src="{{ section.settings.image2 | image_url: width: 760, height: 814 }}" alt="{{ section.settings.image2.alt | escape }}" loading="lazy" decoding="async" />
             <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async"/>
             <div class="mt-10 md:mt-16 mb-14">
                 <p class="text-xs md:text-sm max-w-[345px]">
@@ -130,4 +133,56 @@
 
 {% render 'modal' %}
 
+{% schema %}
+{
+    "name": "About - Page",
+    "tag": "section",
+    "limit": 1,
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading1",
+            "label": "Heading 1",
+            "default": "About"
+        },
+        {
+            "type": "text",
+            "id": "subtitle1",
+            "label": "Sub Title 1",
+            "default": "About the SneakerLab team and what we do."
+        },
+        {
+            "type": "text",
+            "id": "subheading_lg_1",
+            "label": "Subheading Large 1",
+            "default": "At Sneaker LAB we understand the power of a fresh pair of sneakers. We took our passion for sneaker culture and matched it with science, creating a natural cleaning solution, that works."
+        },
+        {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image 1"
+        },
+        {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image 2"
+        },
+        {
+            "type": "text",
+            "id": "sm-paragraph1",
+            "label": "Small Paragraph 1"
+        },
+        {
+            "type": "text",
+            "id": "sm-paragraph2",
+            "label": "Small Paragraph 2"
+        },
+        {
+            "type": "text",
+            "id": "subtitle2",
+            "label": "Sub Title 2"
+        }
+    ]
+}
+{% endschema %}
 
