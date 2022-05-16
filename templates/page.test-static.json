@@ -2,7 +2,9 @@
   "layout": "test-theme",
   "sections": {
     "main": {
-      "type": "main-home"
+      "type": "main-home",
+      "settings": {
+      }
     }
   },
   "order": [

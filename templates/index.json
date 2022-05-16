@@ -2,19 +2,60 @@
   "layout": "test-theme",
   "sections": {
     "hero": {
-      "type": "home-hero"
+      "type": "home-hero",
+      "settings": {
+        "heading_line_1": "Sneaker Lab",
+        "heading_line_2": "The Future Of",
+        "heading_line_2_subscript": "Engineering to clean, care for and protect your sneakers."
+      }
     },
     "three-column-image-grid": {
-      "type": "three-column-image-grid"
+      "type": "three-column-image-grid",
+      "blocks": {
+        "5900b795-851d-44ac-8d7f-d60b33650a25": {
+          "type": "image",
+          "settings": {
+            "linkurl": "",
+            "linktext": ""
+          }
+        },
+        "d1adf755-3666-45e3-8635-bbeca95d2b7c": {
+          "type": "image",
+          "settings": {
+            "linkurl": "",
+            "linktext": ""
+          }
+        },
+        "17176ac8-a947-4ab3-9fd0-fd76129144aa": {
+          "type": "image",
+          "settings": {
+            "linkurl": "",
+            "linktext": ""
+          }
+        }
+      },
+      "block_order": [
+        "5900b795-851d-44ac-8d7f-d60b33650a25",
+        "d1adf755-3666-45e3-8635-bbeca95d2b7c",
+        "17176ac8-a947-4ab3-9fd0-fd76129144aa"
+      ],
+      "settings": {
+      }
     },
     "featured-products": {
-      "type": "featured-products"
+      "type": "featured-products",
+      "settings": {
+      }
     },
     "collaborations": {
-      "type": "collaborations"
+      "type": "collaborations",
+      "settings": {
+      }
     },
     "featured-stories": {
-      "type": "featured-stories"
+      "type": "featured-stories",
+      "settings": {
+      }
     }
   },
   "order": [
