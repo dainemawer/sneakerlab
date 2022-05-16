@@ -559,6 +559,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0px;
 }
 
+.-bottom-72 {
+  bottom: -18rem;
+}
+
 .bottom-32 {
   bottom: 8rem;
 }
@@ -585,10 +589,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bottom-0 {
   bottom: 0px;
-}
-
-.-bottom-72 {
-  bottom: -18rem;
 }
 
 .top-12 {
@@ -804,12 +804,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-height: 100vh;
 }
 
-.w-5 {
-  width: 1.25rem;
-}
-
 .w-full {
   width: 100%;
+}
+
+.w-5 {
+  width: 1.25rem;
 }
 
 .w-\[147px\] {
@@ -982,6 +982,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(203 203 203 / var(--tw-border-opacity));
 }
 
+.bg-\[\#fff\]\/70 {
+  background-color: rgb(255 255 255 / 0.7);
+}
+
 .bg-\[\#fff\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -990,10 +994,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-concrete {
   --tw-bg-opacity: 1;
   background-color: rgb(242 242 242 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#fff\]\/70 {
-  background-color: rgb(255 255 255 / 0.7);
 }
 
 .bg-\[\#fff\]\/50 {
@@ -1013,12 +1013,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / 0.9);
 }
 
-.p-6 {
-  padding: 1.5rem;
-}
-
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
 }
 
 .p-1\.5 {
@@ -1552,7 +1552,7 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 .account-active, .add-to-cart-active, .cookies-active, .popup-newsletter-active, .filter-active, .modal-active, .panel-active {
   pointer-events: auto;
   visibility: visible;
-  max-height: 148;
+  max-height: 148px;
   opacity: 1;
 }
 
