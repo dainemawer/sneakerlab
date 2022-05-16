@@ -1,0 +1,48 @@
+{% comment %}
+    Homepage hero section markup and schema
+{% endcomment %}
+
+<section>
+    <h1 class="hidden md:block text-5xl md:text-7xl lg:text-8xl xl:text-[6.875rem] uppercase text-left md:text-center mt-20 mb-14 md:mb-28">
+        <span class="inline-block lg:block font-semibold md:tracking-tighter leading-none ">{{ section.settings.heading_line_1 }}</span>
+        <span class="relative inline-block lg:block font-semibold md:tracking-tighter leading-none md:mt-[-12px]">
+            {{ section.settings.heading_line_2 }}
+            <span class="absolute md:relative left-4 lg:left-6 top-[-5px] lg:top-[-10px] inline-block text-left text-xs lg:text-sm tracking-normal max-w-[170px] lg:max-w-[200px] font-medium">
+                [&nbsp;&nbsp;&nbsp;{{ section.settings.heading_line_2_subscript }}&nbsp;&nbsp;&nbsp;]
+            </span>
+        </span>
+        <span class="inline-block lg:block font-semibold md:tracking-tighter leading-none md:mt-[-12px]">Sneaker Care</span>
+    </h1>
+    <h1
+            class="relative md:hidden block text-[2.625rem] xs:text-[3.125rem] leading-none md:text-7xl lg:text-8xl xl:text-[6.875rem] font-semibold uppercase text-left md:text-center mt-16 md:mt-20 mb-14 md:mb-28">
+        Sneaker Lab The Future Of Sneaker Care
+    </h1>
+</section>
+
+{% schema %}
+{
+  "name": "Home Hero",
+  "tag": "section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1",
+      "default": "Sneaker Lab"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading Line 2",
+      "default": "The Future Of"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2_subscript",
+      "label": "Heading Line 2 Subscript",
+      "default": "Engineering to clean, care for and protect your sneakers."
+    }
+  ]
+}
+{% endschema %}

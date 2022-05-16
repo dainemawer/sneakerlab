@@ -563,6 +563,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: -18rem;
 }
 
+.left-4 {
+  left: 1rem;
+}
+
+.top-\[-5px\] {
+  top: -5px;
+}
+
 .bottom-32 {
   bottom: 8rem;
 }
@@ -676,6 +684,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 5rem;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -686,10 +702,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.mb-14 {
-  margin-bottom: 3.5rem;
 }
 
 .mb-7 {
@@ -704,8 +716,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1.25rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
+.mb-20 {
+  margin-bottom: 5rem;
 }
 
 .mb-2 {
@@ -742,10 +754,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-1 {
   margin-bottom: 0.25rem;
-}
-
-.mb-20 {
-  margin-bottom: 5rem;
 }
 
 .mt-7 {
@@ -824,6 +832,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 80%;
 }
 
+.max-w-\[170px\] {
+  max-width: 170px;
+}
+
 .max-w-\[255px\] {
   max-width: 255px;
 }
@@ -834,6 +846,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[1048px\] {
   max-width: 1048px;
+}
+
+.max-w-\[480px\] {
+  max-width: 480px;
+}
+
+.max-w-\[1000px\] {
+  max-width: 1000px;
 }
 
 .max-w-\[385px\] {
@@ -1101,8 +1121,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.75rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
+}
+
+.font-raleway {
+  font-family: Raleway, sans-serif;
 }
 
 .text-sm {
@@ -1120,6 +1148,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1rem;
 }
 
+.text-\[2\.625rem\] {
+  font-size: 2.625rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1133,6 +1165,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-\[2rem\] {
+  font-size: 2rem;
 }
 
 .text-lg {
@@ -1170,6 +1206,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .leading-normal {
   line-height: 1.5;
+}
+
+.tracking-normal {
+  letter-spacing: 0em;
+}
+
+.tracking-tighter {
+  letter-spacing: -0.05em;
 }
 
 .text-\[\#000\] {
@@ -1554,6 +1598,7 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
   visibility: visible;
   max-height: 148px;
   opacity: 1;
+  display: block;
 }
 
 .account-active, .add-to-cart-active, .cookies-active, .filter-active, .modal-active, .popup-newsletter-active {
@@ -1845,8 +1890,24 @@ a.ticker::after {
 }
 
 @media (min-width: 768px) {
+  .md\:relative {
+    position: relative;
+  }
+
   .md\:col-span-6 {
     grid-column: span 6 / span 6;
+  }
+
+  .md\:mb-28 {
+    margin-bottom: 7rem;
+  }
+
+  .md\:mt-\[-12px\] {
+    margin-top: -12px;
+  }
+
+  .md\:mt-20 {
+    margin-top: 5rem;
   }
 
   .md\:mb-40 {
@@ -1917,6 +1978,15 @@ a.ticker::after {
     padding-top: 1.5rem;
   }
 
+  .md\:text-center {
+    text-align: center;
+  }
+
+  .md\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
   .md\:text-8xl {
     font-size: 6rem;
     line-height: 1;
@@ -1927,20 +1997,31 @@ a.ticker::after {
     line-height: 1.25rem;
   }
 
-  .md\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
-  }
-
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .md\:text-\[2\.1875rem\] {
+    font-size: 2.1875rem;
+  }
+
+  .md\:tracking-tighter {
+    letter-spacing: -0.05em;
   }
 }
 
 @media (min-width: 1024px) {
   .lg\:absolute {
     position: absolute;
+  }
+
+  .lg\:left-6 {
+    left: 1.5rem;
+  }
+
+  .lg\:top-\[-10px\] {
+    top: -10px;
   }
 
   .lg\:order-1 {
@@ -1996,6 +2077,10 @@ a.ticker::after {
     display: none;
   }
 
+  .lg\:max-w-\[200px\] {
+    max-width: 200px;
+  }
+
   .lg\:max-w-\[161px\] {
     max-width: 161px;
   }
@@ -2015,6 +2100,16 @@ a.ticker::after {
 
   .lg\:text-right {
     text-align: right;
+  }
+
+  .lg\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  .lg\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .lg\:text-3xl {
@@ -2080,6 +2175,14 @@ a.ticker::after {
     margin-right: auto;
   }
 
+  .xl\:mb-36 {
+    margin-bottom: 9rem;
+  }
+
+  .xl\:mt-44 {
+    margin-top: 11rem;
+  }
+
   .xl\:mb-0 {
     margin-bottom: 0px;
   }
@@ -2090,6 +2193,10 @@ a.ticker::after {
 
   .xl\:hidden {
     display: none;
+  }
+
+  .xl\:max-w-\[900px\] {
+    max-width: 900px;
   }
 
   .xl\:max-w-\[336px\] {
@@ -2106,6 +2213,14 @@ a.ticker::after {
 
   .xl\:text-left {
     text-align: left;
+  }
+
+  .xl\:text-\[6\.875rem\] {
+    font-size: 6.875rem;
+  }
+
+  .xl\:text-\[80px\] {
+    font-size: 80px;
   }
 
   .xl\:text-3xl {
@@ -2129,6 +2244,10 @@ a.ticker::after {
 
   .xs\:flex {
     display: flex;
+  }
+
+  .xs\:text-\[3\.125rem\] {
+    font-size: 3.125rem;
   }
 
   .xs\:text-xl {

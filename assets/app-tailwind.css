@@ -203,7 +203,8 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 .filter-active,
 .modal-active,
 .panel-active {
-    @apply visible opacity-100 pointer-events-auto max-h-[148px]
+    @apply visible opacity-100 pointer-events-auto max-h-[148px];
+    display: block;
 }
 
 .account-active,
