@@ -1,0 +1,24 @@
+
+    <include src="src/components/header.html"></include>
+    <main id="main-content" class="min-h-screen xl:container xl:mx-auto px-4 lg:px-5" role="main" aria-label="Main Site Content">
+        <include src="src/components/hero.html"></include>
+        <include src="src/components/three-up.html"></include>
+        <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[480] xl:max-w-[900] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">Shop our advanced environmentally friendly products</h3>
+        <include src="src/components/featured-products.html"></include>
+        <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[1000] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">At Sneaker LAB we are committed to being as environmentally friendly as we can.</h3>
+        <include src="src/components/featured-collaborations.html"></include>
+        <include src="src/components/featured-stories.html"></include>
+    </main>
+    <script type="module" src="../js/components/filter.js"></script>
+    <include src="src/components/footer.html"></include>
+    <include src="src/components/foot.html"></include>
+
+
+{% schema %}
+{
+  "name": "t:sections.main-test.name",
+  "tag": "section",
+  "class": "section",
+  "settings": []
+}
+{% endschema %}

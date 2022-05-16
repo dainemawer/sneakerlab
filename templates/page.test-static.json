@@ -2,11 +2,7 @@
   "layout": "test-theme",
   "sections": {
     "main": {
-      "type": "main-test",
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
+      "type": "main-home"
     }
   },
   "order": [
