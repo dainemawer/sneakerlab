@@ -6,73 +6,80 @@
     {% for block in section.blocks %}
         <article class="mb-6 tn:mb-0 tn:mr-2">
             <figure class="relative overflow-hidden marquee-wrap">
-                <a href="/collections/all">
-                    <img class="rounded-lg" alt="Keep It Clean" src="../../public/images/520x712.jpg" width="520" height="712" decoding="async" />
+                <a href="{{ block.link }}">
+                    {% if block.image %}
+                        <img src="{{ block.image | image_url: width: 520, height: 712 }}" alt="{{ block.image.alt }}" class="rounded-lg" decoding="async">
+                    {% else %}
+                        <img class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" />
+                    {% endif %}
                 </a>
                 <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">
                     <div class="inner relative w-full flex">
                         <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
-                            View [Products]
+                            {{ block.hover_text }}
                         </p>
                     </div>
                 </div>
             </figure>
             <h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">
-                Keep it clean. Make it last. Natural shoe care solutions
+                {{ block.title }}
             </h2>
         </article>
     {% endfor %}
-    {% comment %}<article class="mb-6 tn:mb-0 tn:mr-2">{% endcomment %}
-        {% comment %}<figure class="relative overflow-hidden marquee-wrap">{% endcomment %}
-            {% comment %}<a href="/collections/all">{% endcomment %}
-                {% comment %}<img class="rounded-lg" alt="Keep It Clean" src="../../public/images/520x712.jpg" width="520" height="712" decoding="async" />{% endcomment %}
-            {% comment %}</a>{% endcomment %}
-            {% comment %}<div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">{% endcomment %}
-                {% comment %}<div class="inner relative w-full flex">{% endcomment %}
-                    {% comment %}<p class="text-eco-green uppercase whitespace-nowrap text-7xl">{% endcomment %}
-                        {% comment %}View [Products]{% endcomment %}
-                    {% comment %}</p>{% endcomment %}
-                {% comment %}</div>{% endcomment %}
-            {% comment %}</div>{% endcomment %}
-        {% comment %}</figure>{% endcomment %}
-        {% comment %}<h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">{% endcomment %}
-            {% comment %}Keep it clean. Make it last. Natural shoe care solutions{% endcomment %}
-        {% comment %}</h2>{% endcomment %}
-    {% comment %}</article>{% endcomment %}
-    {% comment %}<article class="mb-6 tn:mb-0 tn:mr-2">{% endcomment %}
-        {% comment %}<figure class="relative overflow-hidden marquee-wrap">{% endcomment %}
-            {% comment %}<a href="/pages/collaboration/">{% endcomment %}
-                {% comment %}<img class="rounded-lg" alt="Collaborations" src="../../public/images/520x712.jpg" width="520" height="712" decoding="async" />{% endcomment %}
-            {% comment %}</a>{% endcomment %}
-            {% comment %}<div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">{% endcomment %}
-                {% comment %}<div class="inner relative w-full flex">{% endcomment %}
-                    {% comment %}<p class="text-eco-green uppercase whitespace-nowrap text-7xl">{% endcomment %}
-                        {% comment %}View [Collaborations]{% endcomment %}
-                    {% comment %}</p>{% endcomment %}
-                {% comment %}</div>{% endcomment %}
-            {% comment %}</div>{% endcomment %}
-        {% comment %}</figure>{% endcomment %}
-        {% comment %}<h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">{% endcomment %}
-            {% comment %}Creative and limited edition brand collaborations.{% endcomment %}
-        {% comment %}</h2>{% endcomment %}
-    {% comment %}</article>{% endcomment %}
-    {% comment %}<article>{% endcomment %}
-        {% comment %}<figure class="relative overflow-hidden marquee-wrap">{% endcomment %}
-            {% comment %}<a href="/pages/how-to/">{% endcomment %}
-                {% comment %}<img class="rounded-lg" alt="Eco-friendly" src="../../public/images/520x712.jpg" width="520" height="712" decoding="async" />{% endcomment %}
-            {% comment %}</a>{% endcomment %}
-            {% comment %}<div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">{% endcomment %}
-                {% comment %}<div class="inner relative w-full flex">{% endcomment %}
-                    {% comment %}<p class="text-eco-green uppercase whitespace-nowrap text-7xl">{% endcomment %}
-                        {% comment %}View [How To]{% endcomment %}
-                    {% comment %}</p>{% endcomment %}
-                {% comment %}</div>{% endcomment %}
-            {% comment %}</div>{% endcomment %}
-        {% comment %}</figure>{% endcomment %}
-        {% comment %}<h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">{% endcomment %}
-            {% comment %}Better for your sneakers, better for your earth.{% endcomment %}
-        {% comment %}</h2>{% endcomment %}
-    {% comment %}</article>{% endcomment %}
+
+
+
+    <article class="mb-6 tn:mb-0 tn:mr-2">
+        <figure class="relative overflow-hidden marquee-wrap">
+            <a href="/collections/all">
+                <img class="rounded-lg" alt="Keep It Clean" src="../../public/images/520x712.jpg" width="520" height="712" decoding="async" />
+            </a>
+            <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">
+                <div class="inner relative w-full flex">
+                    <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
+                        View [Products]
+                    </p>
+                </div>
+            </div>
+        </figure>
+        <h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">
+            Keep it clean. Make it last. Natural shoe care solutions
+        </h2>
+    </article>
+    <article class="mb-6 tn:mb-0 tn:mr-2">
+        <figure class="relative overflow-hidden marquee-wrap">
+            <a href="/pages/collaboration/">
+                <img class="rounded-lg" alt="Collaborations" src="../../public/images/520x712.jpg" width="520" height="712" decoding="async" />
+            </a>
+            <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
+                <div class="inner relative w-full flex">
+                    <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
+                        View [Collaborations]
+                    </p>
+                </div>
+            </div>
+        </figure>
+        <h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">
+            Creative and limited edition brand collaborations.
+        </h2>
+    </article>
+    <article>
+        <figure class="relative overflow-hidden marquee-wrap">
+            <a href="/pages/how-to/">
+                <img class="rounded-lg" alt="Eco-friendly" src="../../public/images/520x712.jpg" width="520" height="712" decoding="async" />
+            </a>
+            <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
+                <div class="inner relative w-full flex">
+                    <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
+                        View [How To]
+                    </p>
+                </div>
+            </div>
+        </figure>
+        <h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">
+            Better for your sneakers, better for your earth.
+        </h2>
+    </article>
 </section>
 
 {% schema %}
@@ -82,33 +89,30 @@
   "blocks": [
     {
       "type": "image",
-      "name": "Image",
+      "name": "Image with link & title",
       "settings": [
         {
-          "id": "linkurl",
+          "id": "title",
+          "type": "text",
+          "label": "Title underneath image"
+        },
+        {
+          "id": "link",
           "type": "url",
           "label": "URL link"
         },
         {
-          "id": "linktext",
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "id": "hover_text",
           "type": "text",
-          "label": "Link text"
+          "label": "Hover text"
         }
       ]
     }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "image"
-      },
-      {
-        "type": "image"
-      },
-      {
-        "type": "image"
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}
