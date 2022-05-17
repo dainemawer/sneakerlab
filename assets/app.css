@@ -555,12 +555,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: sticky;
 }
 
+.top-\[50\%\] {
+  top: 50%;
+}
+
+.top-\[45\%\] {
+  top: 45%;
+}
+
 .left-0 {
   left: 0px;
 }
 
 .-bottom-72 {
   bottom: -18rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .left-4 {
@@ -579,10 +591,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: -1px;
 }
 
-.top-\[50\%\] {
-  top: 50%;
-}
-
 .right-4 {
   right: 1rem;
 }
@@ -597,10 +605,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .top-\[41px\] {
   top: 41px;
-}
-
-.bottom-0 {
-  bottom: 0px;
 }
 
 .top-12 {
@@ -680,16 +684,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 5rem;
 }
 
+.mb-36 {
+  margin-bottom: 9rem;
+}
+
 .mb-5 {
   margin-bottom: 1.25rem;
 }
 
-.mb-12 {
-  margin-bottom: 3rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mb-12 {
+  margin-bottom: 3rem;
 }
 
 .mb-6 {
@@ -700,12 +712,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1.5rem;
 }
 
-.mb-14 {
-  margin-bottom: 3.5rem;
+.ml-4 {
+  margin-left: 1rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
+.mb-14 {
+  margin-bottom: 3.5rem;
 }
 
 .mb-10 {
@@ -750,10 +762,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mr-1 {
   margin-right: 0.25rem;
-}
-
-.ml-4 {
-  margin-left: 1rem;
 }
 
 .mt-8 {
@@ -848,6 +856,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 80%;
 }
 
+.max-w-\[1000px\] {
+  max-width: 1000px;
+}
+
 .max-w-\[480px\] {
   max-width: 480px;
 }
@@ -870,10 +882,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[1048px\] {
   max-width: 1048px;
-}
-
-.max-w-\[1000px\] {
-  max-width: 1000px;
 }
 
 .max-w-\[438px\] {
@@ -900,12 +908,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 300;
 }
 
-.basis-2\/6 {
-  flex-basis: 33.333333%;
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.basis-\[49\%\] {
+  flex-basis: 49%;
 }
 
 .basis-3\/6 {
   flex-basis: 50%;
+}
+
+.basis-2\/6 {
+  flex-basis: 33.333333%;
 }
 
 .-translate-x-full {
@@ -1070,6 +1086,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / 0.9);
 }
 
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .p-5 {
   padding: 1.25rem;
 }
@@ -1130,10 +1151,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 1.5rem;
 }
 
-.pb-6 {
-  padding-bottom: 1.5rem;
-}
-
 .pt-20 {
   padding-top: 5rem;
 }
@@ -1179,6 +1196,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem;
 }
 
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1187,6 +1209,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-xs {
@@ -1206,16 +1233,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .font-medium {
@@ -1258,6 +1275,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   letter-spacing: 0em;
 }
 
+.text-eco-green {
+  --tw-text-opacity: 1;
+  color: rgb(61 174 43 / var(--tw-text-opacity));
+}
+
 .text-\[\#000\] {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1266,11 +1288,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-\[\#818181\] {
   --tw-text-opacity: 1;
   color: rgb(129 129 129 / var(--tw-text-opacity));
-}
-
-.text-eco-green {
-  --tw-text-opacity: 1;
-  color: rgb(61 174 43 / var(--tw-text-opacity));
 }
 
 .text-cod-gray {
@@ -1311,125 +1328,17 @@ Ensure the default browser behavior of the `hidden` attribute.
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 .transition-opacity {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-/* latin-ext */
-
-/*@font-face {*/
-
-/*    font-family: 'Raleway';*/
-
-/*    font-style: normal;*/
-
-/*    font-weight: 400;*/
-
-/*    font-display: swap;*/
-
-/*    src: url('/public/fonts/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2') format('woff2');*/
-
-/*    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;*/
-
-/*}*/
-
-/* latin */
-
-/*@font-face {*/
-
-/*    font-family: 'Raleway';*/
-
-/*    font-style: normal;*/
-
-/*    font-weight: 400;*/
-
-/*    font-display: swap;*/
-
-/*    src: url('/public/fonts/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2') format('woff2');*/
-
-/*    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;*/
-
-/*}*/
-
-/* latin-ext */
-
-/*@font-face {*/
-
-/*    font-family: 'Raleway';*/
-
-/*    font-style: normal;*/
-
-/*    font-weight: 500;*/
-
-/*    font-display: swap;*/
-
-/*    src: url('/public/fonts/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2') format('woff2');*/
-
-/*    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;*/
-
-/*}*/
-
-/* latin */
-
-/*@font-face {*/
-
-/*    font-family: 'Raleway';*/
-
-/*    font-style: normal;*/
-
-/*    font-weight: 500;*/
-
-/*    font-display: swap;*/
-
-/*    src: url('/public/fonts/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2') format('woff2');*/
-
-/*    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;*/
-
-/*}*/
-
-/* latin-ext */
-
-/*@font-face {*/
-
-/*    font-family: 'Raleway';*/
-
-/*    font-style: normal;*/
-
-/*    font-weight: 600;*/
-
-/*    font-display: swap;*/
-
-/*    src: url('/public/fonts/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2') format('woff2');*/
-
-/*    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;*/
-
-/*}*/
-
-/* latin */
-
-/*@font-face {*/
-
-/*    font-family: 'Raleway';*/
-
-/*    font-style: normal;*/
-
-/*    font-weight: 600;*/
-
-/*    font-display: swap;*/
-
-/*    src: url('/public/fonts/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2') format('woff2');*/
-
-/*    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;*/
-
-/*}*/
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 
 a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.filter-item) {
   position: relative;
@@ -1947,8 +1856,16 @@ a.ticker::after {
     position: relative;
   }
 
+  .md\:bottom-\[20px\] {
+    bottom: 20px;
+  }
+
   .md\:col-span-6 {
     grid-column: span 6 / span 6;
+  }
+
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3;
   }
 
   .md\:mb-16 {
@@ -2011,6 +1928,10 @@ a.ticker::after {
     max-width: 344;
   }
 
+  .md\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2019,24 +1940,17 @@ a.ticker::after {
     gap: 1rem;
   }
 
-  .md\:border-b {
-    border-bottom-width: 1px;
-  }
-
-  .md\:border-t {
-    border-top-width: 1px;
-  }
-
-  .md\:pt-6 {
-    padding-top: 1.5rem;
-  }
-
   .md\:text-center {
     text-align: center;
   }
 
   .md\:text-\[2\.1875rem\] {
     font-size: 2.1875rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   .md\:text-2xl {
@@ -2074,6 +1988,14 @@ a.ticker::after {
     position: absolute;
   }
 
+  .lg\:bottom-\[24\%\] {
+    bottom: 24%;
+  }
+
+  .lg\:bottom-\[28px\] {
+    bottom: 28px;
+  }
+
   .lg\:left-6 {
     left: 1.5rem;
   }
@@ -2107,6 +2029,10 @@ a.ticker::after {
     margin-bottom: 3rem;
   }
 
+  .lg\:mt-0 {
+    margin-top: 0px;
+  }
+
   .lg\:mb-16 {
     margin-bottom: 4rem;
   }
@@ -2117,10 +2043,6 @@ a.ticker::after {
 
   .lg\:mt-36 {
     margin-top: 9rem;
-  }
-
-  .lg\:mt-0 {
-    margin-top: 0px;
   }
 
   .lg\:block {
@@ -2164,6 +2086,11 @@ a.ticker::after {
     text-align: right;
   }
 
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -2177,11 +2104,6 @@ a.ticker::after {
   .lg\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-
-  .lg\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 }
 
@@ -2281,13 +2203,13 @@ a.ticker::after {
     font-size: 80px;
   }
 
-  .xl\:text-\[6\.875rem\] {
-    font-size: 6.875rem;
-  }
-
   .xl\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .xl\:text-\[6\.875rem\] {
+    font-size: 6.875rem;
   }
 }
 
@@ -2296,20 +2218,16 @@ a.ticker::after {
     grid-column: span 6 / span 6;
   }
 
-  .xs\:mt-4 {
-    margin-top: 1rem;
-  }
-
   .xs\:ml-2 {
     margin-left: 0.5rem;
   }
 
-  .xs\:flex {
-    display: flex;
+  .xs\:mt-4 {
+    margin-top: 1rem;
   }
 
-  .xs\:text-\[3\.125rem\] {
-    font-size: 3.125rem;
+  .xs\:flex {
+    display: flex;
   }
 
   .xs\:text-xl {
@@ -2320,6 +2238,10 @@ a.ticker::after {
   .xs\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .xs\:text-\[3\.125rem\] {
+    font-size: 3.125rem;
   }
 }
 

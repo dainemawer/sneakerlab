@@ -7,62 +7,31 @@
 </h3>
 
 <section class="xl:container xl:mx-auto">
-    {{ section.settings.featured_products | json }}
-    <h2 class="uppercase text-sm mb-5">[ Featured Products <sup>04</sup> ]</h2>
+    {% comment %}{{ section.settings.featured_products | json }}{% endcomment %}
+
+    <h2 class="uppercase text-sm mb-5">[ Featured Products <sup>{{ section.settings.featured_products.count | prepend: '00' | slice: -2, 2 }}</sup> ]</h2>
     <div class="grid md:grid-cols-2 gap-4 mb-12 md:mb-16">
-        <article>
-            <figure class="bg-light-gray">
-                <a class="thumbnail" href="../pages/product.html">
-                    <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/760x567.jpg" width="760" height="567"
+
+        {% for product in section.settings.featured_products %}
+            <article>
+                <figure class="bg-light-gray rounded-lg">
+                    <a class="thumbnail" href="/products/{{ product.handle }}/">
+                        <img style="width: 760px; height: 567px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
+                        {% comment %}<img class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url: width: 760, height: 567 }}"{% endcomment %}
                          loading="lazy" decoding="async" />
-                </a>
-            </figure>
-            <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">Sneaker Wipes</h3>
-            <div class="flex items-start justify-between">
-                <p class="uppercase text-sm max-w-[220] lg:max-w-none">12 Pack Box</p>
-                <p class="uppercase text-sm">$9.99</p>
-            </div>
-        </article>
-        <article>
-            <figure class="bg-light-gray">
-                <a class="thumbnail" href="../pages/product.html">
-                    <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/760x567.jpg" width="760" height="567"
-                         loading="lazy" decoding="async" />
-                </a>
-            </figure>
-            <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">Premium Kit</h3>
-            <div class="flex justify-between">
-                <p class="uppercase text-sm max-w-[220] lg:max-w-none">Four essential sneaker care products</p>
-                <p class="uppercase text-sm">$9.99</p>
-            </div>
-        </article>
-        <article>
-            <figure class="bg-light-gray">
-                <a class="thumbnail" href="../pages/product.html">
-                    <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/760x567.jpg" width="760" height="567" loading="lazy" decoding="async" />
-                </a>
-            </figure>
-            <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">Deluxe Kit</h3>
-            <div class="flex justify-between">
-                <p class="uppercase text-sm max-w-[220] lg:max-w-none">All of Sneaker LAB's shoe and sneaker care essentials</p>
-                <p class="uppercase text-sm">$9.99</p>
-            </div>
-        </article>
-        <article>
-            <figure class="bg-light-gray">
-                <a class="thumbnail" href="../pages/product.html">
-                    <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/760x567.jpg" width="760" height="567"
-                         loading="lazy" decoding="async" />
-                </a>
-            </figure>
-            <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">Sneaker Cleaner</h3>
-            <div class="flex justify-between">
-                <p class="uppercase text-sm max-w-[220] lg:max-w-none">4.2 FL OZ</p>
-                <p class="uppercase text-sm">$9.99</p>
-            </div>
-        </article>
+                    </a>
+                </figure>
+                <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ product.title }}</h3>
+                <div class="flex items-start justify-between">
+                    {% comment %} TODO: Add variations for products such as sneaker wipes {% endcomment %}
+                    <p class="uppercase text-sm max-w-[220] lg:max-w-none">Product Description / Snippet / Custom Meta field</p>
+                    <p class="uppercase text-sm">{{ cart.currency.symbol }}{{ product.price | money_without_currency }}</p>
+                </div>
+            </article>
+
+        {% endfor %}
     </div>
-    <p class="text-left md:text-center uppercase text-xl md:text-2xl lg:text-3xl"><a href="/shop">Shop All</a></p>
+    <p class="text-left md:text-center uppercase text-xl md:text-2xl lg:text-3xl"><a href="/collections/all/">Shop All</a></p>
 </section>
 
 {% schema %}
