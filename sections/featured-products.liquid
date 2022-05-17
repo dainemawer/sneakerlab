@@ -1,0 +1,79 @@
+{% comment %}
+    Renders the featured products block
+{% endcomment %}
+
+<h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[480px] xl:max-w-[900px] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">
+    Shop our advanced environmentally friendly products
+</h3>
+
+<section class="xl:container xl:mx-auto">
+    <h2 class="uppercase text-sm mb-5">[ Featured Products <sup>04</sup> ]</h2>
+    <div class="grid md:grid-cols-2 gap-4 mb-12 md:mb-16">
+        <article>
+            <figure class="bg-light-gray">
+                <a class="thumbnail" href="../pages/product.html">
+                    <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/760x567.jpg" width="760" height="567"
+                         loading="lazy" decoding="async" />
+                </a>
+            </figure>
+            <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">Sneaker Wipes</h3>
+            <div class="flex items-start justify-between">
+                <p class="uppercase text-sm max-w-[220] lg:max-w-none">12 Pack Box</p>
+                <p class="uppercase text-sm">$9.99</p>
+            </div>
+        </article>
+        <article>
+            <figure class="bg-light-gray">
+                <a class="thumbnail" href="../pages/product.html">
+                    <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/760x567.jpg" width="760" height="567"
+                         loading="lazy" decoding="async" />
+                </a>
+            </figure>
+            <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">Premium Kit</h3>
+            <div class="flex justify-between">
+                <p class="uppercase text-sm max-w-[220] lg:max-w-none">Four essential sneaker care products</p>
+                <p class="uppercase text-sm">$9.99</p>
+            </div>
+        </article>
+        <article>
+            <figure class="bg-light-gray">
+                <a class="thumbnail" href="../pages/product.html">
+                    <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/760x567.jpg" width="760" height="567" loading="lazy" decoding="async" />
+                </a>
+            </figure>
+            <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">Deluxe Kit</h3>
+            <div class="flex justify-between">
+                <p class="uppercase text-sm max-w-[220] lg:max-w-none">All of Sneaker LAB's shoe and sneaker care essentials</p>
+                <p class="uppercase text-sm">$9.99</p>
+            </div>
+        </article>
+        <article>
+            <figure class="bg-light-gray">
+                <a class="thumbnail" href="../pages/product.html">
+                    <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/760x567.jpg" width="760" height="567"
+                         loading="lazy" decoding="async" />
+                </a>
+            </figure>
+            <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">Sneaker Cleaner</h3>
+            <div class="flex justify-between">
+                <p class="uppercase text-sm max-w-[220] lg:max-w-none">4.2 FL OZ</p>
+                <p class="uppercase text-sm">$9.99</p>
+            </div>
+        </article>
+    </div>
+    <p class="text-left md:text-center uppercase text-xl md:text-2xl lg:text-3xl"><a href="/shop">Shop All</a></p>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Featured Products",
+      "limit": 4
+    }
+  ]
+}
+{% endschema %}

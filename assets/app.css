@@ -672,20 +672,32 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
 }
 
-.mb-6 {
-  margin-bottom: 1.5rem;
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .mb-5 {
   margin-bottom: 1.25rem;
 }
 
-.mt-6 {
-  margin-top: 1.5rem;
+.mb-12 {
+  margin-bottom: 3rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .mb-14 {
@@ -718,10 +730,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mb-20 {
-  margin-bottom: 5rem;
 }
 
 .mb-2 {
@@ -840,6 +848,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 80%;
 }
 
+.max-w-\[480px\] {
+  max-width: 480px;
+}
+
+.max-w-\[220\] {
+  max-width: 220;
+}
+
 .max-w-\[170px\] {
   max-width: 170px;
 }
@@ -854,10 +870,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[1048px\] {
   max-width: 1048px;
-}
-
-.max-w-\[480px\] {
-  max-width: 480px;
 }
 
 .max-w-\[1000px\] {
@@ -931,6 +943,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-wrap: wrap;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
 }
@@ -981,12 +997,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   white-space: nowrap;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-3xl {
@@ -1016,6 +1032,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-silver {
   --tw-border-opacity: 1;
   border-color: rgb(203 203 203 / var(--tw-border-opacity));
+}
+
+.bg-light-gray {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#fff\]\/70 {
@@ -1149,9 +1170,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-family: Raleway, sans-serif;
 }
 
+.text-\[2rem\] {
+  font-size: 2rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-5xl {
@@ -1168,11 +1198,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 2.625rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -1181,10 +1206,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-
-.text-\[2rem\] {
-  font-size: 2rem;
 }
 
 .text-7xl {
@@ -1229,12 +1250,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.5;
 }
 
-.tracking-normal {
-  letter-spacing: 0em;
-}
-
 .tracking-tighter {
   letter-spacing: -0.05em;
+}
+
+.tracking-normal {
+  letter-spacing: 0em;
 }
 
 .text-\[\#000\] {
@@ -1930,6 +1951,10 @@ a.ticker::after {
     grid-column: span 6 / span 6;
   }
 
+  .md\:mb-16 {
+    margin-bottom: 4rem;
+  }
+
   .md\:mb-28 {
     margin-bottom: 7rem;
   }
@@ -1948,10 +1973,6 @@ a.ticker::after {
 
   .md\:mt-16 {
     margin-top: 4rem;
-  }
-
-  .md\:mb-16 {
-    margin-bottom: 4rem;
   }
 
   .md\:mt-0 {
@@ -2014,6 +2035,15 @@ a.ticker::after {
     text-align: center;
   }
 
+  .md\:text-\[2\.1875rem\] {
+    font-size: 2.1875rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .md\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
@@ -2032,10 +2062,6 @@ a.ticker::after {
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
-  }
-
-  .md\:text-\[2\.1875rem\] {
-    font-size: 2.1875rem;
   }
 
   .md\:tracking-tighter {
@@ -2109,6 +2135,10 @@ a.ticker::after {
     display: none;
   }
 
+  .lg\:max-w-none {
+    max-width: none;
+  }
+
   .lg\:max-w-\[200px\] {
     max-width: 200px;
   }
@@ -2134,6 +2164,11 @@ a.ticker::after {
     text-align: right;
   }
 
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .lg\:text-8xl {
     font-size: 6rem;
     line-height: 1;
@@ -2142,11 +2177,6 @@ a.ticker::after {
   .lg\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-
-  .lg\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 
   .lg\:text-2xl {
@@ -2247,12 +2277,12 @@ a.ticker::after {
     text-align: left;
   }
 
-  .xl\:text-\[6\.875rem\] {
-    font-size: 6.875rem;
-  }
-
   .xl\:text-\[80px\] {
     font-size: 80px;
+  }
+
+  .xl\:text-\[6\.875rem\] {
+    font-size: 6.875rem;
   }
 
   .xl\:text-3xl {
