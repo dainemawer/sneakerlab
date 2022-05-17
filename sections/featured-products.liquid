@@ -7,6 +7,7 @@
 </h3>
 
 <section class="xl:container xl:mx-auto">
+    {{ section.settings.featured_products | json }}
     <h2 class="uppercase text-sm mb-5">[ Featured Products <sup>04</sup> ]</h2>
     <div class="grid md:grid-cols-2 gap-4 mb-12 md:mb-16">
         <article>
@@ -70,7 +71,7 @@
   "settings": [
     {
       "type": "product_list",
-      "id": "product_list",
+      "id": "featured_products",
       "label": "Featured Products",
       "limit": 4
     }
