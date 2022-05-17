@@ -51,6 +51,12 @@
     "featured-products": {
       "type": "featured-products",
       "settings": {
+        "product_list": [
+          "sneaker-wipes-12-pack-box",
+          "premium-kit",
+          "deluxe-kit",
+          "sneaker-cleaner"
+        ]
       }
     },
     "collaborations": {
