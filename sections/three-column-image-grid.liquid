@@ -6,9 +6,9 @@
     {% for block in section.blocks %}
         <article class="mb-6 tn:mb-0 tn:mr-2">
             <figure class="relative overflow-hidden marquee-wrap">
-                <a href="{{ block.link }}">
-                    {% if block.image %}
-                        <img src="{{ block.image | image_url: width: 520, height: 712 }}" alt="{{ block.image.alt }}" class="rounded-lg" decoding="async">
+                <a href="{{ block.settings.link }}">
+                    {% if block.settings.image %}
+                        <img src="{{ block.settings.image | image_url: width: 520, height: 712 }}" alt="{{ block.settings.image.alt }}" class="rounded-lg" decoding="async">
                     {% else %}
                         <img class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" />
                     {% endif %}
@@ -16,13 +16,13 @@
                 <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">
                     <div class="inner relative w-full flex">
                         <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
-                            {{ block.hover_text }}
+                            {{ block.settings.hover_text }}
                         </p>
                     </div>
                 </div>
             </figure>
             <h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">
-                {{ block.title }}
+                {{ block.settings.title }}
             </h2>
         </article>
     {% endfor %}
