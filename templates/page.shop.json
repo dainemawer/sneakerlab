@@ -1,11 +1,8 @@
 {
   "layout": "test-theme",
   "sections": {
-    "filter" : {
-      "type": "shop-filter"
-    },
-    "product-grid": {
-      "type": "shop-product-grid",
+    "shop-main": {
+      "type": "shop-product-grid-static",
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
@@ -22,7 +19,6 @@
     }
   },
   "order": [
-    "filter",
-    "product-grid"
+    "shop-main"
   ]
 }

@@ -5,9 +5,12 @@
         <h1 class="text-xs md:text-sm uppercase mb-2 lg:mb-5">[&nbsp;&nbsp;All Products <sup>20</sup>&nbsp;&nbsp;]</h1>
         <div class="flex items-center justify-between border-b border-silver pb-3 mb-8 relative">
             <button data-filter-trigger class="uppercase text-4xl lg:text-5xl font-medium focus:opacity-50 hover:opacity-50 transition-all" aria-expanded="false" aria-controls="filter-dropdown" type="button">Filter+</button>
-            <include src="./src/components/filter.html"></include>
+
+            {% render 'shop-filter' %}
+
             <div class="flex items-center text-sm">
                 <span class="hidden lg:inline-block">View</span>
+
                 <button data-grid data-columns="4" type="button" class="inline-block ml-4 text-silver hover:text-[#000]">
                     <svg class="lg:hidden inline-block pointer-events-none" width="17" height="13" viewbox="0 0 17 13" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
@@ -45,6 +48,11 @@
         </div>
     </div>
     <section id="grid-toggle" class="grid md:grid-cols-2 gap-4">
+        {{ collection.all_products_count | json }}
+        {% for product in collection.all_products %}
+            <h1>Hello</h1>
+            {% render 'shop-product', product: product %}
+        {% endfor %}
         <include src="./src/components/shop-card.html"></include>
         <include src="./src/components/shop-card.html"></include>
         <include src="./src/components/shop-card.html"></include>
@@ -67,8 +75,6 @@
         <include src="./src/components/shop-card.html"></include>
     </section>
 </main>
-<include src="src/components/footer.html"></include>
-<script type="module" src="../js/components/grid.js"></script>
 
 <script>
     const ShopGrid = () => {
