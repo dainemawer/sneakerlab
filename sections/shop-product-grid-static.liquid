@@ -1,0 +1,145 @@
+
+<main id="main-content" class="min-h-screen xl:container xl:mx-auto px-4 lg:px-5" role="main"
+      aria-label="Main Site Content">
+    <div class="mt-12">
+        <h1 class="text-xs md:text-sm uppercase mb-2 lg:mb-5">[&nbsp;&nbsp;All Products <sup>20</sup>&nbsp;&nbsp;]</h1>
+        <div class="flex items-center justify-between border-b border-silver pb-3 mb-8 relative">
+            <button data-filter-trigger class="uppercase text-4xl lg:text-5xl font-medium focus:opacity-50 hover:opacity-50 transition-all" aria-expanded="false" aria-controls="filter-dropdown" type="button">Filter+</button>
+            <include src="./src/components/filter.html"></include>
+            <div class="flex items-center text-sm">
+                <span class="hidden lg:inline-block">View</span>
+                <button data-grid data-columns="4" type="button" class="inline-block ml-4 text-silver hover:text-[#000]">
+                    <svg class="lg:hidden inline-block pointer-events-none" width="17" height="13" viewbox="0 0 17 13" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <rect x="9" width="8" height="6" fill="currentColor" />
+                        <rect x="9" y="7" width="8" height="6" fill="currentColor" />
+                        <rect width="8" height="6" fill="currentColor" />
+                        <rect y="7" width="8" height="6" fill="currentColor" />
+                    </svg>
+                    <svg class="hidden lg:inline-block pointer-events-none" width="15" height="11" viewbox="0 0 15 11" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <rect width="3" height="5" fill="currentColor" />
+                        <rect x="8" width="3" height="5" fill="currentColor" />
+                        <rect x="4" width="3" height="5" fill="currentColor" />
+                        <rect y="6" width="3" height="5" fill="currentColor" />
+                        <rect x="8" y="6" width="3" height="5" fill="currentColor" />
+                        <rect x="12" width="3" height="5" fill="currentColor" />
+                        <rect x="12" y="6" width="3" height="5" fill="currentColor" />
+                        <rect x="4" y="6" width="3" height="5" fill="currentColor" />
+                    </svg>
+                    <span class="sr-only">Toggle 4 column grid</span>
+                </button>
+                <button data-grid data-columns="2" type="button" class="inline-block ml-3 text-silver hover:text-[#000] grid-active">
+                    <svg class="lg:hidden inline-block pointer-events-none" width="17" height="13" viewbox="0 0 17 13" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <rect width="17" height="13" fill="currentColor" />
+                    </svg>
+                    <svg class="hidden lg:inline-block pointer-events-none" width="17" height="11" viewbox="0 0 17 11" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <rect x="9" width="8" height="11" fill="currentColor" />
+                        <rect width="8" height="11" fill="currentColor" />
+                    </svg>
+                    <span class="sr-only">Toggle 2 column grid</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <section id="grid-toggle" class="grid md:grid-cols-2 gap-4">
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+        <include src="./src/components/shop-card.html"></include>
+    </section>
+</main>
+<include src="src/components/footer.html"></include>
+<script type="module" src="../js/components/grid.js"></script>
+
+<script>
+    const ShopGrid = () => {
+        const buttons = document.querySelectorAll('[data-grid]')
+        // const gridOptionTwo = document.querySelector('[data-grid="grid-2"]')
+        const grid = document.getElementById('grid-toggle')
+
+        for (const button of buttons) {
+            button.addEventListener('click', (event) => {
+                const { target } = event
+                const active = document.querySelector('.grid-active')
+
+                if (active) {
+                    active.classList.remove('grid-active')
+                }
+
+                target.classList.add('grid-active')
+
+                if (target.dataset.columns === '4') {
+                    grid.classList.remove('md:grid-cols-2')
+                    grid.classList.add('md:grid-cols-4')
+                    grid.classList.add('grid-cols-2')
+                } else {
+                    grid.classList.remove('grid-cols-2')
+                    grid.classList.remove('md:grid-cols-4')
+                    grid.classList.add('md:grid-cols-2')
+                }
+            })
+        }
+    }
+
+    ShopGrid()
+
+
+    const ShopFilter = () => {
+        const trigger = document.querySelector('[data-filter-trigger]')
+        const panel = document.getElementById('filter-dropdown')
+
+        trigger && trigger.addEventListener('click', () => {
+            if (!panel.classList.contains('filter-active')) {
+                trigger.innerHTML = 'Filter-'
+                trigger.setAttribute('aria-expanded', 'true')
+                panel.setAttribute('aria-hidden', 'false')
+                panel.classList.add('filter-active')
+            } else {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('mousedown', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+    }
+
+    ShopFilter()
+
+</script>
