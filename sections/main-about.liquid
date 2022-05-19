@@ -13,7 +13,7 @@
         </div>
         <div class="col-span-12 md:col-span-6">
 
-            {% if section.settings.image2 %}
+            {% if section.settings.image1 %}
                 <img class="rounded-lg" src="{{ section.settings.image1 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image1.alt | escape }}" loading="lazy" decoding="async" />
             {% else %}
                 <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async"/>
