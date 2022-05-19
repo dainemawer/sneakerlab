@@ -1,0 +1,24 @@
+<article id="" class="" aria-label="Sneaker Wipes">
+    <figure class="bg-light-gray relative overflow-hidden marquee-wrap rounded-lg ">
+        {% comment %}
+            TODO: Make dynamic
+        {% endcomment %}
+        <a href="/products/{{ product.handle }}/">
+            <img style="width: 760px; height: 567px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
+            loading="lazy" decoding="async" />
+        </a>
+
+        <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
+            <div class="inner relative w-full flex">
+                <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [Sneaker Wipes]</p>
+                <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [Sneaker Wipes]</p>
+            </div>
+        </div>
+    </figure>
+    <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ product.title }}</h3>
+    <div class="flex items-start justify-between">
+        <p class="uppercase text-sm max-w-[220] lg:max-w-none">Product Description / Snippet / Custom Meta field</p>
+        <p class="uppercase text-sm">{{ cart.currency.symbol }}{{ product.price | money_without_currency }}</p>
+    </div>
+</article>
+

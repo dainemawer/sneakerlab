@@ -1,15 +1,8 @@
 {
+  "layout": "test-theme",
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "background-1"
-      }
-    },
     "product-grid": {
-      "type": "main-collection-product-grid",
+      "type": "shop-product-grid-static",
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
@@ -26,7 +19,6 @@
     }
   },
   "order": [
-    "banner",
     "product-grid"
   ]
 }
