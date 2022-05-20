@@ -31,7 +31,7 @@
         const loggedIn = trigger.getAttribute('data-logged-in');
         console.log(loggedIn);
         if(!loggedIn) {
-            trigger.removeAttribute('href');
+            trigger.setAttribute('href', '#');
         }
 
         // Handle Click Event
