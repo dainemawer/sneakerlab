@@ -30,44 +30,42 @@
         const panel = document.getElementById('account-modal')
         const loggedIn = trigger.getAttribute('data-logged-in');
 
-        if (!loggedIn) {
-            // Handle Click Event
-            trigger && trigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+        // Handle Click Event
+        trigger && trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
 
-                if (!panel.classList.contains('account-active')) {
-                    panel.classList.add('account-active')
-                    document.body.classList.add('overlay-active')
-                    panel.setAttribute('aria-hidden', 'false')
-                    trigger.setAttribute('aria-expanded', 'true')
-                } else {
-                    panel.classList.remove('account-active')
-                    document.body.classList.remove('overlay-active')
-                    panel.setAttribute('aria-hidden', 'true')
-                    trigger.setAttribute('aria-expanded', 'false')
-                }
-            })
+            if (!panel.classList.contains('account-active')) {
+                panel.classList.add('account-active')
+                document.body.classList.add('overlay-active')
+                panel.setAttribute('aria-hidden', 'false')
+                trigger.setAttribute('aria-expanded', 'true')
+            } else {
+                panel.classList.remove('account-active')
+                document.body.classList.remove('overlay-active')
+                panel.setAttribute('aria-hidden', 'true')
+                trigger.setAttribute('aria-expanded', 'false')
+            }
+        })
 
-            // Handle Escape Key Event
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    panel.classList.remove('account-active')
-                    document.body.classList.remove('overlay-active')
-                    panel.setAttribute('aria-hidden', 'true')
-                    trigger.setAttribute('aria-expanded', 'false')
-                }
-            })
+        // Handle Escape Key Event
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                panel.classList.remove('account-active')
+                document.body.classList.remove('overlay-active')
+                panel.setAttribute('aria-hidden', 'true')
+                trigger.setAttribute('aria-expanded', 'false')
+            }
+        })
 
-            // Handle Click Outside
-            document.addEventListener('click', (e) => {
-                if (!panel.contains(e.target) && e.target !== trigger) {
-                    panel.classList.remove('account-active')
-                    document.body.classList.remove('overlay-active')
-                    panel.setAttribute('aria-hidden', 'true')
-                }
-            })
-        }
+        // Handle Click Outside
+        document.addEventListener('click', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                panel.classList.remove('account-active')
+                document.body.classList.remove('overlay-active')
+                panel.setAttribute('aria-hidden', 'true')
+            }
+        })
     }
 
     QuickAccount()
