@@ -49,7 +49,17 @@
                         </svg>
                     </a>
                 </li>
-                <li class="mr-6 text-sm hidden lg:inline-block"><a data-id="js-account-trigger" aria-expanded="false" aria-controls="account-modal" role="button" href="#account">Account</a></li>
+                <li class="mr-6 text-sm hidden lg:inline-block">
+                    <a
+                        data-id="js-account-trigger"
+                        aria-expanded="false"
+                        aria-controls="account-modal"
+                        role="button"
+                        href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                    >
+                        Account
+                    </a>
+                </li>
                 <li class="text-sm">
                     <a href="/cart/" role="button">
                         Cart<sup id="cart-count">0</sup>

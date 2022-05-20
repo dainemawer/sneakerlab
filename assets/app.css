@@ -635,6 +635,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 1rem;
 }
 
+.top-full {
+  top: 100%;
+}
+
 .isolate {
   isolation: isolate;
 }

@@ -48,7 +48,7 @@
         </div>
     </div>
     <section id="grid-toggle" class="grid md:grid-cols-2 gap-4">
-        {% for product in collection.all_products %}
+        {% for product in collection.products %}
             {% render 'shop-card', product: product %}
         {% endfor %}
     </section>
