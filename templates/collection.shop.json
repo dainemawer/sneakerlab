@@ -1,5 +1,4 @@
 {
-  "layout": "test-theme",
   "sections": {
     "product-grid": {
       "type": "shop-product-grid-static",
