@@ -30,11 +30,13 @@
         const panel = document.getElementById('account-modal')
         const loggedIn = trigger.getAttribute('data-logged-in');
         console.log(loggedIn);
+        if(!loggedIn) {
+            trigger.removeAttribute('href');
+        }
 
         // Handle Click Event
         trigger && trigger.addEventListener('click', (e) => {
             if(!loggedIn) {
-                trigger.removeAttribute('href');
                 e.preventDefault();
                 e.stopPropagation();
             }
