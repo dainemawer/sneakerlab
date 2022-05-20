@@ -16,9 +16,10 @@
             <article>
                 <figure class="bg-light-gray rounded-lg">
                     <a class="thumbnail" href="/products/{{ product.handle }}/">
+                        {% comment %}theme-check-disable{% endcomment %}
                         <img style="width: 760px; height: 567px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
-                        {% comment %}<img class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url: width: 760, height: 567 }}"{% endcomment %}
                          loading="lazy" decoding="async" />
+                        {% comment %}theme-check-enable{% endcomment %}
                     </a>
                 </figure>
                 <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ product.title }}</h3>

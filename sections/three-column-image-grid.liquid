@@ -8,9 +8,11 @@
             <figure class="relative overflow-hidden marquee-wrap">
                 <a href="{{ block.settings.link }}">
                     {% if block.settings.image %}
-                        <img src="{{ block.settings.image | image_url: width: 520, height: 712 }}" alt="{{ block.settings.image.alt }}" class="rounded-lg" decoding="async">
+                        {% comment %}theme-check-disable{% endcomment %}
+                        <img src="{{ block.settings.image | image_url: width: 520, height: 712 }}" alt="{{ block.settings.image.alt }}" class="rounded-lg" decoding="async" loading="lazy" />
+                        {% comment %}theme-check-enable{% endcomment %}
                     {% else %}
-                        <img class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" />
+                        <img class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" loading="lazy" />
                     {% endif %}
                 </a>
                 <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">

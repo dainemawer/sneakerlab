@@ -7,9 +7,9 @@
     <figure class="basis-3/6">
         <a class="thumbnail" href="{{ article.url }}">
             {% if article.image %}
-                <img class="rounded-lg" alt="{{ article.image.alt }}" src="{{ article.image | image_url: width: '372px', height: '263px' }}" width="372" height="263" decoding="async" />
+                <img class="rounded-lg" alt="{{ article.image.alt }}" src="{{ article.image | image_url: width: '372px', height: '263px' }}" width="372" height="263" decoding="async" loading="lazy" />
             {% else %}
-                <img class="rounded-lg" alt="Featured Story 1" src="{{ '372x263.jpg' | asset_url }}" width="372" height="263" decoding="async" />
+                <img class="rounded-lg" alt="Featured Story 1" src="{{ '372x263.jpg' | asset_url }}" width="372" height="263" decoding="async" loading="lazy" />
             {% endif %}
         </a>
     </figure>

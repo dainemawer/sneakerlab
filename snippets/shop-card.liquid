@@ -4,8 +4,10 @@
             TODO: Make dynamic
         {% endcomment %}
         <a href="/products/{{ product.handle }}/">
+            {% comment %}theme-check-disable{% endcomment %}
             <img style="width: 760px; height: 567px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
             loading="lazy" decoding="async" />
+            {% comment %}theme-check-enable{% endcomment %}
         </a>
 
         <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">

@@ -10,8 +10,8 @@
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
 </script>
 {% comment %}<script type="module" src="https://cdn.jsdelivr.net/npm/@slightlyoff/lite-vimeo@0.1.1/lite-vimeo.js">{% endcomment %}
-<script src="http://unpkg.com/lite-vimeo-embed"></script>
-<script src="https://www.google-analytics.com/analytics.js" async></script>
+<script src="{{ 'vimeo-embed.js' | asset_url }}"></script>
+<script src="{{ 'google-analytics.js' | asset_url }}" async></script>
 
 <!-- TODO: add scripts to main js file -->
 

@@ -10,7 +10,9 @@
     "lint": "eslint src/js/**/*.js"
   },
   "source": "src/pages/index.html",
-  "keywords": [],
+  "keywords": [
+
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
