@@ -66,4 +66,34 @@
     }
 
     QuickAccount()
+
+    function loginFormScript() {
+        document.addEventListener('DOMContentLoaded', function () {
+            const recover = document.getElementById('recover_password_form');
+            const loginFormInputs = document.getElementById('login_form_inputs');
+
+            const lostPasswordLink = document.getElementById('lost_password_link');
+            const cancelRecoverLink = document.getElementById('cancel_recover');
+            const signUpLink = document.getElementById('tab2');
+            const lostPasswordSubmit = document.getElementById('lost_password_submit');
+
+            function addHideRecoverListener(element) {
+                element.addEventListener('click', function () {
+                    recover.classList.add('hidden');
+                    loginFormInputs.classList.remove('hidden');
+                });
+            }
+
+            lostPasswordLink.addEventListener('click', function () {
+                recover.classList.remove('hidden');
+                loginFormInputs.classList.add('hidden');
+            });
+
+            addHideRecoverListener(cancelRecoverLink)
+            addHideRecoverListener(signUpLink)
+            addHideRecoverListener(lostPasswordSubmit)
+        });
+    }
+
+    loginFormScript()
 </script>

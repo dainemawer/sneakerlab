@@ -22,7 +22,7 @@
         {{ form.errors | default_errors }}
     {%- endif -%}
 
-    <fieldset>
+    <fieldset id="login_form_inputs">
         <legend class="text-sm">
             <p class="mt-8 mb-10 font-normal">Please enter your email and password below.</p>
         </legend>
@@ -68,7 +68,7 @@
 
         <div class="md:flex justify-between items-center">
             {%- if form.password_needed -%}
-                <p class="uppercase text-xs text-cod-gray mb-10 md:mb-0">
+                <p id="lost_password_link" class="uppercase text-xs text-cod-gray mb-10 md:mb-0">
                     <a href="#recover">Lost your password?</a>
                 </p>
             {%- endif -%}
@@ -77,10 +77,19 @@
             </button>
         </div>
     </fieldset>
-{% endform %}
+    {%- if recover_success == true -%}
+        <h3 class="form__message" tabindex="-1" autofocus>
+            <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
+                <path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z"
+                      fill="#428445" stroke="white" stroke-width="0.7"/>
+                <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white"/>
+                <path d="M4.10645 6.7688L6.13766 8.62553" stroke="white"/>
+            </svg>
+            {{ 'customer.recover_password.success' | t }}
+        </h3>
+    {%- endif -%}
 
-<div class="customer login hidden">
-    <div>
+    <div id="recover_password_form" class="mt-4 hidden">
         {% comment %}
             Customer Recover Password Form
         {% endcomment %}
@@ -126,32 +135,15 @@
                 </small>
             {%- endif -%}
 
-            <button>
-                {{ 'customer.login_page.submit' | t }}
-            </button>
+            <div class="md:flex justify-between items-center">
+                <a id="cancel_recover" class="uppercase text-xs text-cod-gray mb-10 md:mb-0" >
+                    {{ 'customer.login_page.cancel' | t }}
+                </a>
 
-            <a href="#login">
-                {{ 'customer.login_page.cancel' | t }}
-            </a>
+                <button id="lost_password_submit" class="bg-eco-green text-[#fff] text-sm py-3 px-9 rounded hover:bg-forest-green" type="submit">
+                    {{ 'customer.login_page.submit' | t }}
+                </button>
+            </div>
         {%- endform -%}
     </div>
-
-    <div>
-        {% comment %}
-            Recover Password success prompt
-        {% endcomment %}
-        {%- if recover_success == true -%}
-            <h3 class="form__message" tabindex="-1" autofocus>
-                <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
-                    <path d="M6.5 12.35C9.73087 12.35 12.35 9.73086 12.35 6.5C12.35 3.26913 9.73087 0.65 6.5 0.65C3.26913 0.65 0.65 3.26913 0.65 6.5C0.65 9.73086 3.26913 12.35 6.5 12.35Z"
-                          fill="#428445" stroke="white" stroke-width="0.7"/>
-                    <path d="M5.53271 8.66357L9.25213 4.68197" stroke="white"/>
-                    <path d="M4.10645 6.7688L6.13766 8.62553" stroke="white"/>
-                </svg>
-                {{ 'customer.recover_password.success' | t }}
-            </h3>
-        {%- endif -%}
-
-    </div>
-</div>
-
+{% endform %}
