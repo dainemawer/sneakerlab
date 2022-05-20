@@ -34,6 +34,7 @@
         // Handle Click Event
         trigger && trigger.addEventListener('click', (e) => {
             if(!loggedIn) {
+                trigger.removeAttribute('href');
                 e.preventDefault();
                 e.stopPropagation();
             }
