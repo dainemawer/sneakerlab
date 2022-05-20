@@ -103,7 +103,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Welcome to our store",
+              "text": "",
               "color_scheme": "background-1",
               "link": ""
             }
@@ -182,8 +182,26 @@
         "settings": {
           "color_scheme": "background-1"
         }
+      },
+      "test-header": {
+        "type": "test-header",
+        "settings": {
+        }
+      },
+      "test-footer": {
+        "type": "test-footer",
+        "settings": {
+        }
+      },
+      "foot": {
+        "type": "foot",
+        "settings": {
+        }
       }
-    }
+    },
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
