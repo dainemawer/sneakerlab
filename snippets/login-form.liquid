@@ -96,7 +96,7 @@
             {{ 'customer.recover_password.subtext' | t }}
         </p>
 
-        {%- form 'reset_customer_password' -%}
+        {% form 'recover_customer_password' %}
             {% assign recover_success = form.posted_successfully? %}
             <div class="block w-full mb-8">
                 <label for="RecoverEmail">
@@ -105,7 +105,6 @@
                             class="border border-silver text-[#000] hover:border-[#000] focus:border-[#000] outline-none p-1.5 block w-full rounded transition-all"
                             required
                             type="email"
-                            value=""
                             name="email"
                             id="RecoverEmail"
                             autocorrect="off"
@@ -138,10 +137,15 @@
                     {{ 'customer.login_page.cancel' | t }}
                 </a>
 
-                <button id="lost_password_submit" class="bg-eco-green text-[#fff] text-sm py-3 px-9 rounded hover:bg-forest-green" type="submit">
+                <button
+                    id="lost_password_submit"
+                    class="bg-eco-green text-[#fff] text-sm py-3 px-9 rounded hover:bg-forest-green"
+                    type="submit"
+                    value="Submit"
+                >
                     {{ 'customer.login_page.submit' | t }}
                 </button>
             </div>
-        {%- endform -%}
+        {% endform %}
     </div>
 {% endform %}
