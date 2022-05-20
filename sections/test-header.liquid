@@ -51,7 +51,7 @@
                 </li>
                 <li class="mr-6 text-sm hidden lg:inline-block">
                     <a
-                        {%- if customer == false -%}
+                        {%- if customer.id == null -%}
                             data-id="js-account-trigger"
                         {%- endif -%}
                         aria-expanded="false"
