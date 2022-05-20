@@ -42,7 +42,6 @@
                         {% if form.errors contains 'form' %}
                             aria-invalid="true"
                         {% endif %}
-                        placeholder="{{ 'customer.login_page.email' | t }}"
                 />
             </label>
         </div>
@@ -61,7 +60,6 @@
                         {% if form.errors contains 'form' %}
                             aria-invalid="true"
                         {% endif %}
-                        placeholder="{{ 'customer.login_page.password' | t }}"
                 />
             </label>
         </div>
@@ -77,6 +75,7 @@
             </button>
         </div>
     </fieldset>
+
     {%- if recover_success == true -%}
         <h3 class="form__message" tabindex="-1" autofocus>
             <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 13 13">
@@ -117,7 +116,6 @@
                                 aria-describedby="RecoverEmail-email-error"
                                 autofocus
                             {% endif %}
-                            placeholder="{{ 'customer.login_page.email' | t }}"
                     />
                 </label>
             </div>
