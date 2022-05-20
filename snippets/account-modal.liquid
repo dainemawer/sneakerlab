@@ -35,6 +35,7 @@
         trigger && trigger.addEventListener('click', (e) => {
             if(!loggedIn) {
                 e.preventDefault();
+                e.stopPropagation();
             }
 
             if (!panel.classList.contains('account-active')) {
