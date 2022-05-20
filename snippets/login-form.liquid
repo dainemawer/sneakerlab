@@ -96,7 +96,7 @@
             {{ 'customer.recover_password.subtext' | t }}
         </p>
 
-        {%- form 'recover_customer_password' -%}
+        {%- form 'reset_customer_password' -%}
             {% assign recover_success = form.posted_successfully? %}
             <div class="block w-full mb-8">
                 <label for="RecoverEmail">
