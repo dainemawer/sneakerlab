@@ -85,8 +85,16 @@
                 {%- endif -%}
 
             {%- when 'quote-section' -%}
+                {%- liquid
+                    if block.id == 'quote-section-2'
+                        assign class = 'max-w-[344px]'
+                    else
+                        assign class = ''
+                    endif
+                %}
+
                 <div class="col-span-12 md:col-span-6 mb-5 md:mb-12">
-                    <div class="text-xl md:text-3xl">
+                    <div class="text-xl md:text-3xl {{ class }}">
                         {{ block.settings.quote_paragraph | raw }}
                     </div>
                 </div>
@@ -98,12 +106,12 @@
 
             {%- when 'two-image-grid' -%}
                 <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
-                    {% if settings.left_image %}
+                    {% if block.settings.left_image %}
                         <img
                             class="rounded-lg object-cover"
                             style="width: 740px; height: 740px;"
                             alt="{{ settings.left_image.alt }}"
-                            src="{{ settings.left_image.alt | asset_url }}"
+                            src="{{ settings.left_image | asset_url }}"
                             width="740"
                             height="740"
                             loading="lazy"
@@ -115,7 +123,90 @@
                     {% endif %}
                 </div>
                 <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
-                    {% if settings.right_image %}
+                    {% if block.settings.right_image %}
+                        <img
+                                class="rounded-lg object-cover"
+                                style="width: 740px; height: 740px;"
+                                alt="{{ settings.left_image.alt }}"
+                                src="{{ settings.left_image | asset_url }}"
+                                width="740"
+                                height="740"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                    {% else %}
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
+                             loading="lazy" decoding="async" />
+                    {% endif %}
+                </div>
+
+            {% when 'four-tile-grid' %}
+                <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
+                    <div class="grid gap-2 grid-cols-2">
+                        {% if block.settings.left_image %}
+                            <img
+                                    class="rounded-lg object-cover"
+                                    style="width: 370px; height: 370px;"
+                                    alt="{{ settings.left_image.alt }}"
+                                    src="{{ settings.left_image | asset_url }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async" />
+                         {% endif %}
+                        {% if block.settings.left_image_2 %}
+                            <img
+                                    class="rounded-lg object-cover"
+                                    style="width: 370px; height: 370px;"
+                                    alt="{{ settings.left_image_2.alt }}"
+                                    src="{{ settings.left_image_2 | asset_url }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async" />
+                        {% endif %}
+                        {% if block.settings.left_image_3 %}
+                            <img
+                                    class="rounded-lg object-cover"
+                                    style="width: 370px; height: 370px;"
+                                    alt="{{ settings.left_image_3.alt }}"
+                                    src="{{ settings.left_image_3 | asset_url }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async" />
+                        {% endif %}
+                        {% if block.settings.left_image_4 %}
+                            <img
+                                    class="rounded-lg object-cover"
+                                    style="width: 370px; height: 370px;"
+                                    alt="{{ settings.left_image_4.alt }}"
+                                    src="{{ settings.left_image_4 | asset_url }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async" />
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 mb-12">
+                    {% if block.settings.right_image %}
                         <img
                                 class="rounded-lg object-cover"
                                 style="width: 740px; height: 740px;"
@@ -182,24 +273,6 @@
     {%- endfor -%}
 
     <!-- Static element -->
-
-    <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
-        <div class="grid gap-2 grid-cols-2">
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
-                 loading="lazy" decoding="async" />
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
-                 loading="lazy" decoding="async" />
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
-                 loading="lazy" decoding="async" />
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
-                 loading="lazy" decoding="async" />
-        </div>
-
-    </div>
-    <div class="col-span-12 md:col-span-6 mb-12">
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
-             loading="lazy" />
-    </div>
 
     <div class="col-span-12 mb-8 md:mb-12">
         <h3 class="uppercase tracking-tighter font-medium text-4xl md:text-7xl md:max-w-[1048px]">Big shout out to Skate Moss, Briana King, Jennifer Charlene and the rest of the DC skate team.</h3>
@@ -519,6 +592,38 @@
           "type": "image_picker",
           "id": "left_image",
           "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "right_image",
+          "label": "Right Image (Below on mobile)"
+        }
+      ]
+    },
+    {
+      "type": "four-tile-grid",
+      "name": "Four Tile Grid",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "left_grid_image_1",
+          "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_grid_image_2",
+          "label": "Left Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_grid_image_3",
+          "label": "Left Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_grid_image_4",
+          "label": "Left Image 4"
         },
         {
           "type": "image_picker",
