@@ -16,6 +16,25 @@
             "image_height": "adapt"
           }
         },
+        "quote-section": {
+          "type": "quote-section",
+          "settings": {
+            "quote_paragraph": "<p>Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.<\/p>",
+            "small_paragraph": "<p>The DC x The_ONES E. Tribeka Vachetta is made of premium untreatedleather that ages over time like an old baseball mitt. Buttery softand ready to be made yours. This limited edition sneaker comes witha Sneaker Lab Deluxe cleaning kit that includes all leather care essentials.<\/p>"
+          }
+        },
+        "df2e7687-ef6e-48f6-a599-7b01fde99c64": {
+          "type": "two-image-grid",
+          "settings": {
+          }
+        },
+        "quote-section-2": {
+          "type": "quote-section",
+          "settings": {
+            "quote_paragraph": "<p>This was a skater event down to the bone.<\/p>",
+            "small_paragraph": "<p>The DC x We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to Skate Moss, Briana King, Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.<\/p>"
+          }
+        },
         "content": {
           "type": "content",
           "settings": {
@@ -26,26 +45,13 @@
           "settings": {
             "share_label": "Share"
           }
-        },
-        "quote-section": {
-          "type": "quote-section",
-          "settings": {
-            "quote_paragraph": "<p>Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.<\/p>",
-            "small_paragraph": "<p>The DC x The_ONES E. Tribeka Vachetta is made of premium untreatedleather that ages over time like an old baseball mitt. Buttery softand ready to be made yours. This limited edition sneaker comes witha Sneaker Lab Deluxe cleaning kit that includes all leather care essentials.<\/p>"
-          }
-        },
-        "quote-section-2": {
-          "type": "quote-section",
-          "settings": {
-            "quote_paragraph": "<p>This was a skater event down to the bone.<\/p>",
-            "small_paragraph": "<p>The DC x We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to Skate Moss, Briana King, Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.<\/p>"
-          }
         }
       },
       "block_order": [
         "title",
         "featured_image",
         "quote-section",
+        "df2e7687-ef6e-48f6-a599-7b01fde99c64",
         "quote-section-2",
         "content",
         "share"
