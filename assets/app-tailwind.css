@@ -46,6 +46,10 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     @apply opacity-100
 }
 
+.maquee-wrap .marquee .inner p {
+    margin: 0 4rem;
+}
+
 .Accordion-panel[hidden] {
     @apply hidden;
 }
