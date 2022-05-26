@@ -1613,8 +1613,8 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
   opacity: 1;
 }
 
-.maquee-wrap .marquee .inner p {
-  margin: 0 4rem;
+.marquee-wrap .marquee .inner p {
+  margin: 0 2rem !important;
 }
 
 .Accordion-panel[hidden] {
