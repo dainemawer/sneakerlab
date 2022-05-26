@@ -47,7 +47,7 @@
             "paragraph": ""
           }
         },
-        "6c981cae-a69b-4fc7-87ec-e0209db36d93": {
+        "social": {
           "type": "social",
           "settings": {
             "social_html": "Follow us to stay up to date with all things Sneaker LAB.\n                        <a href=\"https:\/\/www.instagram.com\/sneakerlab\/\" target=\"_blank\" rel=\"noopenner noreferrer\">Instagram<\/a> and <a href=\"https:\/\/www.facebook.com\/SneakerLab.StayFresh\" target=\"_blank\" rel=\"noopenner noreferrer\">Facebook<\/a>."
@@ -75,7 +75,7 @@
         "quote-section-2",
         "four-tile-grid",
         "featured-section",
-        "6c981cae-a69b-4fc7-87ec-e0209db36d93",
+        "social",
         "content",
         "share"
       ],
