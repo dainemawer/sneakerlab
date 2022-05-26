@@ -27,20 +27,28 @@
             "share_label": "Share"
           }
         },
-        "d04b9f76-73da-4b49-b4d3-b7e0bc73c424": {
+        "quote-section": {
           "type": "quote-section",
           "settings": {
             "quote_paragraph": "<p>Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.<\/p>",
             "small_paragraph": "<p>The DC x The_ONES E. Tribeka Vachetta is made of premium untreatedleather that ages over time like an old baseball mitt. Buttery softand ready to be made yours. This limited edition sneaker comes witha Sneaker Lab Deluxe cleaning kit that includes all leather care essentials.<\/p>"
+          }
+        },
+        "quote-section-2": {
+          "type": "quote-section",
+          "settings": {
+            "quote_paragraph": "<p>This was a skater event down to the bone.<\/p>",
+            "small_paragraph": "<p>The DC x We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to Skate Moss, Briana King, Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.<\/p>"
           }
         }
       },
       "block_order": [
         "title",
         "featured_image",
+        "quote-section",
+        "quote-section-2",
         "content",
-        "share",
-        "d04b9f76-73da-4b49-b4d3-b7e0bc73c424"
+        "share"
       ],
       "settings": {
       }

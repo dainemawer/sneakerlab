@@ -89,26 +89,48 @@
                     <div class="text-xl md:text-3xl">
                         {{ block.settings.quote_paragraph | raw }}
                     </div>
-                    <p class="text-xl md:text-3xl">
-                        Sneaker Lab recently teamed up with DC Shoes and The_Ones,
-                        a social platform that celebrates women in sneaker culture,
-                        to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
-                    </p>
                 </div>
                 <div class="col-span-12 md:col-span-6 mb-8 md:mb-12">
                     <div class="text-xs md:text-sm max-w-[344px] text-left md:text-right float-right">
-                        {{ block.settings.small_paragraph | class: 'test', raw  }}
+                        {{ block.settings.small_paragraph | raw }}
                     </div>
-                    <p class="text-xs md:text-sm max-w-[344px] text-left md:text-right float-right">
-                        The DC x The_ONES E. Tribeka Vachetta is made of premium untreated
-                        leather that ages over time like an old baseball mitt. Buttery soft
-                        and ready to be made yours. This limited edition sneaker comes with
-                        a Sneaker Lab Deluxe cleaning kit that includes all leather care essentials.
-                    </p>
                 </div>
 
-                {{ block.settings.small_paragraph | raw }}
-
+            {%- when 'two-image-grid' -%}
+                <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
+                    {% if settings.left_image %}
+                        <img
+                            class="rounded-lg object-cover"
+                            style="width: 740px; height: 740px;"
+                            alt="{{ settings.left_image.alt }}"
+                            src="{{ settings.left_image.alt | asset_url }}"
+                            width="740"
+                            height="740"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    {% else %}
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
+                             loading="lazy" decoding="async" />
+                    {% endif %}
+                </div>
+                <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
+                    {% if settings.right_image %}
+                        <img
+                                class="rounded-lg object-cover"
+                                style="width: 740px; height: 740px;"
+                                alt="{{ settings.left_image.alt }}"
+                                src="{{ settings.left_image.alt | asset_url }}"
+                                width="740"
+                                height="740"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                    {% else %}
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
+                             loading="lazy" decoding="async" />
+                    {% endif %}
+                </div>
 
             {% comment %}
             {%- when 'content'-%}
@@ -160,15 +182,6 @@
     {%- endfor -%}
 
     <!-- Static element -->
-
-    <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
-             loading="lazy" decoding="async" />
-    </div>
-    <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
-             loading="lazy" decoding="async" />
-    </div>
 
     <div class="col-span-12 md:col-span-6 mb-5 md:mb-12">
         <p class="text-xl md:text-3xl md:max-w-[344px]">This was a skater event down to the bone.</p>
@@ -503,6 +516,23 @@
           "type": "richtext",
           "id": "small_paragraph",
           "label": "Smaller Paragraph"
+        }
+      ]
+    },
+    {
+      "type": "two-image-grid",
+      "name": "Two Image Grid",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "left_image",
+          "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "right_image",
+          "label": "Right Image (Below on mobile)"
         }
       ]
     },
