@@ -1,8 +1,5 @@
 {
   "sections": {
-    "new-cart": {
-      "type": "new-cart"
-    },
     "cart-items": {
       "type": "main-cart-items"
     },
@@ -30,7 +27,6 @@
     }
   },
   "order": [
-    "new-cart",
     "cart-items",
     "cart-footer"
   ]
