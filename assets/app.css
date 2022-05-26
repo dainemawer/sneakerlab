@@ -1208,6 +1208,11 @@ Ensure the default browser behavior of the `hidden` attribute.
      object-fit: contain;
 }
 
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .p-1\.5 {
   padding: 0.375rem;
 }
@@ -1606,6 +1611,10 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 
 .marquee-wrap:hover .marquee {
   opacity: 1;
+}
+
+.maquee-wrap .marquee .inner p {
+  margin: 0 4rem;
 }
 
 .Accordion-panel[hidden] {
@@ -2154,10 +2163,6 @@ a.ticker::after {
 
   .md\:max-w-\[344\] {
     max-width: 344;
-  }
-
-  .md\:max-w-\[344px\] {
-    max-width: 344px;
   }
 
   .md\:max-w-\[1048px\] {
