@@ -84,6 +84,11 @@
                     </figure>
                 {%- endif -%}
 
+            {%- when 'quote-section' -%}
+                {{ block.settings.quote_paragraph | escape }}
+                {{ block.settings.small_paragraph | escape }}
+
+
             {% comment %}
             {%- when 'content'-%}
                 <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{ block.shopify_attributes }}>
@@ -467,6 +472,23 @@
           "default": "adapt",
           "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label",
           "info": "t:sections.main-article.blocks.featured_image.settings.image_height.info"
+        }
+      ]
+    },
+    {
+      "type": "quote-section",
+      "name": "Quote Section",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote_paragraph",
+          "label": "Quote Paragraph Text (Larger Text)"
+        },
+        {
+          "type": "richtext",
+          "id": "small_paragraph",
+          "label": "Smaller Paragraph"
         }
       ]
     },
