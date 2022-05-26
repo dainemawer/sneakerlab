@@ -11,28 +11,18 @@
                 </div>
 
             {%- when 'title'-%}
-                <section class="col-span-12 max-w-[621px] mx-auto">
+                <header {{ block.shopify_attributes }} class="col-span-12 max-w-[621px] mx-auto">
                     <h1
+                        itemprop="headline"
                         class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center md:text-center mt-20 mb-14 md:mb-28">
-                        DC Shoes & The Ones
+                        {{ article.title | escape }}
                     </h1>
-                </section>
-
-                {% comment %}
-                <header class="page-width page-width--narrow" {{ block.shopify_attributes }}>
-                    <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
-                    {%- if block.settings.blog_show_author -%}
-                        <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <span itemprop="name">{{ article.author }}</span>
-                        </span>
-                    {%- endif -%}
                 </header>
-                {% endcomment %}
 
             <!-- Featured Image -->
             {%- when 'featured_image'-%}
                 {%- if article.image -%}
-                    <figure class="col-span-12 mb-10 md:mb-16">
+                    <figure class="col-span-12 mb-10 md:mb-16" itemprop="image">
                         <div class="flex items-center justify-between mb-5">
                             <h2 class="uppercase text-xs md:text-sm">[&nbsp;&nbsp;Collaboration&nbsp;&nbsp;]</h2>
                             <p class="uppercase text-xs md:text-sm">
@@ -44,7 +34,25 @@
                                 {%- endif -%}
                             </p>
                         </div>
-                        <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/1536x790.jpg" width="1536" height="790" decoding="async" />
+                        {% comment %}<img class="rounded-lg" alt="{{ article.image.alt | escape }}" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />{% endcomment %}
+
+                        <img
+                            srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                            {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                            {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                            {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                            {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                            {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                            {{ article.image | image_url }} {{ article.image.width }}w"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                            src="{{ article.image | image_url: width: 1100 }}"
+                            loading="lazy"
+                            decoding="async"
+                            class="rounded-lg"
+                            width="{{ article.image.width }}"
+                            height="{{ article.image.height }}"
+                            alt="{{ article.image.alt | escape }}"
+                        >
                         <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
                             <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
@@ -52,29 +60,6 @@
                             Play video
                         </a>
                     </figure>
-
-                    <div class="article-template__hero-container" {{ block.shopify_attributes }}>
-                        <div class="article-template__hero-{{ block.settings.image_height }} media"
-                             itemprop="image"
-                                {% if block.settings.image_height == 'adapt' and article.image %} style="padding-bottom: {{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;"{% endif %}
-                        >
-                            <img
-                                    srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
-                                    {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
-                                    {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
-                                    {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
-                                    {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
-                                    {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
-                                    {{ article.image | image_url }} {{ article.image.width }}w"
-                                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
-                                    src="{{ article.image | image_url: width: 1100 }}"
-                                    loading="lazy"
-                                    width="{{ article.image.width }}"
-                                    height="{{ article.image.height }}"
-                                    alt="{{ article.image.alt | escape }}"
-                            >
-                        </div>
-                    </div>
 
                 {% else %}
                     <figure class="col-span-12 mb-10 md:mb-16">
@@ -89,7 +74,7 @@
                                 {%- endif -%}
                             </p>
                         </div>
-                        <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/1536x790.jpg" width="1536" height="790" decoding="async" />
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />
                         <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
                             <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
@@ -158,11 +143,11 @@
     </div>
 
     <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/740x740.jpg" width="740" height="740"
+        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
              loading="lazy" decoding="async" />
     </div>
     <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/740x740.jpg" width="740" height="740"
+        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
              loading="lazy" decoding="async" />
     </div>
 
@@ -177,19 +162,19 @@
 
     <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
         <div class="grid gap-2 grid-cols-2">
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/370x370.jpg" width="370" height="370"
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
                  loading="lazy" decoding="async" />
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/370x370.jpg" width="370" height="370"
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
                  loading="lazy" decoding="async" />
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/370x370.jpg" width="370" height="370"
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
                  loading="lazy" decoding="async" />
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/370x370.jpg" width="370" height="370"
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
                  loading="lazy" decoding="async" />
         </div>
 
     </div>
     <div class="col-span-12 md:col-span-6 mb-12">
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/740x740.jpg" width="740" height="740"
+        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
              loading="lazy" />
     </div>
 
@@ -203,13 +188,13 @@
             Briana King,
             Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.</p>
 
-        <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="../../public/images/1120x1048.jpg" width="1120" height="1048"
+        <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '1120x1048.jpg' | asset_url }}" width="1120" height="1048"
              loading="lazy" decoding="async" />
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/370x370.jpg" width="370" height="372"
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="372"
                  loading="lazy" decoding="async" />
-            <img class="rounded-lg" alt="SneakerLab Product 3" src="../../public/images/370x370.jpg" width="370" height="372"
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="372"
                  loading="lazy" decoding="async" />
         </div>
     </div>
@@ -219,7 +204,7 @@
     </div>
     <div class="col-span-12 md:col-span-9">
         <p class="text-xl md:text-3xl md:max-w-[696px]">Follow us to stay up to date with all things Sneaker LAB.
-            <a href="https://instagram.com" target="_blank" rel="noopenner noreferrer">Instagram</a> and <a href="https://facebook.com" target="_blank" rel="noopenner noreferrer">Facebook</a>.</p>
+            <a href="https://www.instagram.com/sneakerlab/" target="_blank" rel="noopenner noreferrer">Instagram</a> and <a href="https://www.facebook.com/SneakerLab.StayFresh" target="_blank" rel="noopenner noreferrer">Facebook</a>.</p>
     </div>
 
 
@@ -511,26 +496,7 @@
         }
       ]
     }
-  ],
-  "default": {
-    "blocks": [
-      {
-        "type": "@app"
-      },
-      {
-        "type": "title"
-      },
-      {
-        "type": "featured_image"
-      },
-      {
-        "type": "content"
-      },
-      {
-        "type": "share"
-      }
-    ]
-  }
+  ]
 }
 {% endschema %}
 
