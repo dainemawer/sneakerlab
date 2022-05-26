@@ -1,7 +1,9 @@
 {
   "sections": {
     "cart-items": {
-      "type": "main-cart-items"
+      "type": "main-cart-items",
+      "settings": {
+      }
     },
     "cart-footer": {
       "type": "main-cart-footer",
