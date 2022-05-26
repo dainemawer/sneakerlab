@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-article",
+      "type": "main-article-collaborations",
       "blocks": {
         "featured_image": {
           "type": "featured_image",
@@ -32,9 +32,13 @@
         "share",
         "content"
       ]
+    },
+    "featured-stories": {
+      "type": "featured-stories"
     }
   },
   "order": [
-    "main"
+    "main",
+    "featured-stories"
   ]
 }

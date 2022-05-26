@@ -675,14 +675,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column: span 6 / span 6;
 }
 
-.my-0 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+.float-right {
+  float: right;
 }
 
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .mt-10 {
@@ -765,16 +769,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1.25rem;
 }
 
-.mb-40 {
-  margin-bottom: 10rem;
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
 }
 
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
+.mb-40 {
+  margin-bottom: 10rem;
 }
 
 .mb-3 {
@@ -961,6 +973,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 1048px;
 }
 
+.max-w-\[621px\] {
+  max-width: 621px;
+}
+
+.max-w-\[344px\] {
+  max-width: 344px;
+}
+
 .max-w-\[438px\] {
   max-width: 438px;
 }
@@ -975,10 +995,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[695\] {
   max-width: 695;
-}
-
-.max-w-\[344px\] {
-  max-width: 344px;
 }
 
 .max-w-\[695px\] {
@@ -2096,6 +2112,18 @@ a.ticker::after {
     margin-top: 9rem;
   }
 
+  .md\:mb-36 {
+    margin-bottom: 9rem;
+  }
+
+  .md\:mb-12 {
+    margin-bottom: 3rem;
+  }
+
+  .md\:mt-8 {
+    margin-top: 2rem;
+  }
+
   .md\:mb-4 {
     margin-bottom: 1rem;
   }
@@ -2128,12 +2156,28 @@ a.ticker::after {
     max-width: 344;
   }
 
+  .md\:max-w-\[344px\] {
+    max-width: 344px;
+  }
+
+  .md\:max-w-\[1048px\] {
+    max-width: 1048px;
+  }
+
+  .md\:max-w-\[696px\] {
+    max-width: 696px;
+  }
+
   .md\:grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .md\:grid-cols-4 {
@@ -2150,6 +2194,10 @@ a.ticker::after {
 
   .md\:text-center {
     text-align: center;
+  }
+
+  .md\:text-right {
+    text-align: right;
   }
 
   .md\:text-sm {
@@ -2316,6 +2364,10 @@ a.ticker::after {
   .lg\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .lg\:text-\[6\.875rem\] {
+    font-size: 6.875rem;
   }
 
   .lg\:text-5xl {
