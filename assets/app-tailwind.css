@@ -136,6 +136,18 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     display: block;
 }
 
+.visually-hidden {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    word-wrap: normal !important;
+}
+
 .account-active,
 .add-to-cart-active,
 .cookies-active,
@@ -243,4 +255,9 @@ a.ticker::after {
 
 [data-close-modal] {
     position: absolute !important
+}
+
+
+.cart-item__price-wrapper .price {
+    @apply text-xs md:text-sm !important;
 }
