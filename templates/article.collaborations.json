@@ -47,7 +47,10 @@
           "type": "featured-section",
           "settings": {
             "title": "",
-            "paragraph": ""
+            "paragraph": "",
+            "featured_image": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
+            "left_image": "shopify:\/\/shop_images\/fashion-model-in-pink.jpg",
+            "right_image": "shopify:\/\/shop_images\/woman-holding-coffee-mug.jpg"
           }
         },
         "social": {
