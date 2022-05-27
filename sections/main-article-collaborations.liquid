@@ -45,10 +45,11 @@
                             {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
                             {{ article.image | image_url }} {{ article.image.width }}w"
                             sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
-                            src="{{ article.image | image_url: width: 1100 }}"
+                            src="{{ article.image | image_url: width: 1500 }}"
                             loading="lazy"
                             decoding="async"
-                            class="rounded-lg"
+                            class="rounded-lg object-cover"
+                            style="width: 1536px; height: 790px;"
                             width="{{ article.image.width }}"
                             height="{{ article.image.height }}"
                             alt="{{ article.image.alt | escape }}"
@@ -74,7 +75,7 @@
                                 {%- endif -%}
                             </p>
                         </div>
-                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />
+                        <img class="rounded-lg object-cover" style="width: 1536px; height: 790px;" alt="SneakerLab Product 3" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />
                         <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
                             <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
@@ -111,7 +112,7 @@
                             class="rounded-lg object-cover"
                             style="width: 740px; height: 740px;"
                             alt="{{ block.settings.left_image.alt }}"
-                            src="{{ block.settings.left_image | asset_url }}"
+                            src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}"
                             width="740"
                             height="740"
                             loading="lazy"
@@ -128,7 +129,7 @@
                                 class="rounded-lg object-cover"
                                 style="width: 740px; height: 740px;"
                                 alt="{{ block.settings.left_image.alt }}"
-                                src="{{ block.settings.left_image | asset_url }}"
+                                src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}"
                                 width="740"
                                 height="740"
                                 loading="lazy"
@@ -143,59 +144,59 @@
             {% when 'four-tile-grid' %}
                 <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
                     <div class="grid gap-2 grid-cols-2">
-                        {% if block.settings.left_image %}
+                        {% if block.settings.left_grid_image_1 %}
                             <img
                                     class="rounded-lg object-cover"
-                                    style="width: 370px; height: 370px;"
-                                    alt="{{ block.settings.left_image.alt }}"
-                                    src="{{ block.settings.left_image | asset_url }}"
+                                    style="width: 370px; height: 368px;"
+                                    alt="{{ block.settings.left_grid_image_1.alt }}"
+                                    src="{{ block.settings.left_grid_image_1 | image_url: width: 370, height: 368 }}"
                                     width="370"
-                                    height="370"
+                                    height="368"
                                     loading="lazy"
                                     decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
                                  loading="lazy" decoding="async" />
                          {% endif %}
-                        {% if block.settings.left_image_2 %}
+                        {% if block.settings.left_grid_image_2 %}
                             <img
                                     class="rounded-lg object-cover"
-                                    style="width: 370px; height: 370px;"
-                                    alt="{{ block.settings.left_image_2.alt }}"
-                                    src="{{ block.settings.left_image_2 | asset_url }}"
+                                    style="width: 370px; height: 368px;"
+                                    alt="{{ block.settings.left_grid_image_2.alt }}"
+                                    src="{{ block.settings.left_grid_image_2 | image_url: width: 370, height: 368 }}"
                                     width="370"
-                                    height="370"
+                                    height="368"
                                     loading="lazy"
                                     decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
                                  loading="lazy" decoding="async" />
                         {% endif %}
-                        {% if block.settings.left_image_3 %}
+                        {% if block.settings.left_grid_image_3 %}
                             <img
                                     class="rounded-lg object-cover"
-                                    style="width: 370px; height: 370px;"
-                                    alt="{{ block.settings.left_image_3.alt }}"
-                                    src="{{ block.settings.left_image_3 | asset_url }}"
+                                    style="width: 370px; height: 368px;"
+                                    alt="{{ block.settings.left_grid_image_3.alt }}"
+                                    src="{{ block.settings.left_grid_image_3 | image_url: width: 370, height: 368 }}"
                                     width="370"
-                                    height="370"
+                                    height="368"
                                     loading="lazy"
                                     decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
                                  loading="lazy" decoding="async" />
                         {% endif %}
-                        {% if block.settings.left_image_4 %}
+                        {% if block.settings.left_grid_image_4 %}
                             <img
                                     class="rounded-lg object-cover"
-                                    style="width: 370px; height: 370px;"
-                                    alt="{{ block.settings.left_image_4.alt }}"
-                                    src="{{ block.settings.left_image_4 | asset_url }}"
+                                    style="width: 370px; height: 368px;"
+                                    alt="{{ block.settings.left_grid_image_4.alt }}"
+                                    src="{{ block.settings.left_grid_image_4 | image_url: width: 370, height: 368 }}"
                                     width="370"
-                                    height="370"
+                                    height="368"
                                     loading="lazy"
                                     decoding="async"
                             />
@@ -209,11 +210,11 @@
                     {% if block.settings.right_image %}
                         <img
                                 class="rounded-lg object-cover"
-                                style="width: 740px; height: 740px;"
-                                alt="{{ block.settings.left_image.alt }}"
-                                src="{{ block.settings.left_image.alt | asset_url }}"
+                                style="width: 740px; height: 744px;"
+                                alt="{{ block.settings.right_image.alt }}"
+                                src="{{ block.settings.right_image | image_url: width: 740, height: 744 }}"
                                 width="740"
-                                height="740"
+                                height="744"
                                 loading="lazy"
                                 decoding="async"
                         />
@@ -248,7 +249,7 @@
                         <img
                             class="rounded-lg mb-2"
                             alt="{{ block.settings.featured_image.alt }}"
-                            src="{{ block.settings.featured_image }}"
+                            src="{{ block.settings.featured_image | image_url: width: 1120, height: 1048 }}"
                             width="1120"
                             height="1048"
                             loading="lazy"
@@ -266,7 +267,7 @@
                                 class="rounded-lg mb-2"
                                 style="width: 370px; height: 370px;"
                                 alt="{{ block.settings.left_image.alt }}"
-                                src="{{ block.settings.left_image }}"
+                                src="{{ block.settings.left_image | image_url: width: 370, height: 370 }}"
                                 width="370"
                                 height="370"
                                 loading="lazy"
@@ -280,9 +281,9 @@
                             <img
                                     class="rounded-lg mb-2"
                                     alt="{{ block.settings.right_image.alt }}"
-                                    src="{{ block.settings.right_image }}"
-                                    width="1120"
-                                    height="1048"
+                                    src="{{ block.settings.right_image | image_url: width: 370, height: 370 }}"
+                                    width="370"
+                                    height="370"
                                     loading="lazy"
                                     decoding="async"
                             />
