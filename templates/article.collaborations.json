@@ -26,6 +26,7 @@
         "two-image-grid": {
           "type": "two-image-grid",
           "settings": {
+            "left_image": "shopify:\/\/shop_images\/520x712.jpg"
           }
         },
         "quote-section-2": {
