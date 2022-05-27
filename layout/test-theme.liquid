@@ -71,8 +71,12 @@
             elements.forEach(function (el) {
                 const container = el.querySelector('.inner')
                 const content = el.querySelector('.inner > *')
+                const style = window.getComputedStyle(content);
+                const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
 
-                const elWidth = content.offsetWidth;
+                const elWidth = content.offsetWidth + margin;
+                console.log(elWidth);
+
 
                 const clone = content.cloneNode(true)
                 container.appendChild(clone)

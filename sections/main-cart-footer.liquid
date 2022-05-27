@@ -33,11 +33,6 @@
 
                   <!-- Subtotals Section -->
                   {%- when 'subtotal' -%}
-                    {% comment %}<div class="flex mt-6 mb-7 justify-between items-center">{% endcomment %}
-                      {% comment %}<p class="uppercase text-xs md:text-sm">Sub Total</p>{% endcomment %}
-                      {% comment %}<p class="text-xs md:text-sm">$24.99</p>{% endcomment %}
-                    {% comment %}</div>{% endcomment %}
-
                     <div class="js-contents flex mt-6 mb-7 justify-between items-center" {{ block.shopify_attributes }}>
                         <h3 class="uppercase text-xs md:text-sm">{{ 'sections.cart.subtotal' | t }}</h3>
                         <p class="text-xs md:text-sm">{{ cart.total_price | money_with_currency }}</p>
