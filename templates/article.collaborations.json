@@ -40,7 +40,10 @@
           "type": "four-tile-grid",
           "settings": {
             "left_grid_image_1": "shopify:\/\/shop_images\/520x712.jpg",
-            "left_grid_image_2": "shopify:\/\/shop_images\/520x712.jpg"
+            "left_grid_image_2": "shopify:\/\/shop_images\/520x712.jpg",
+            "left_grid_image_3": "shopify:\/\/shop_images\/520x712.jpg",
+            "left_grid_image_4": "shopify:\/\/shop_images\/520x712.jpg",
+            "right_image": "shopify:\/\/shop_images\/mens-business-fashion.jpg"
           }
         },
         "featured-section": {
