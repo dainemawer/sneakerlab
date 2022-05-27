@@ -38,6 +38,8 @@
         "four-tile-grid": {
           "type": "four-tile-grid",
           "settings": {
+            "left_grid_image_1": "shopify:\/\/shop_images\/520x712.jpg",
+            "left_grid_image_2": "shopify:\/\/shop_images\/520x712.jpg"
           }
         },
         "featured-section": {
