@@ -265,3 +265,11 @@ a.ticker::after {
 .cart-item__price-wrapper .price {
     @apply text-xs md:text-sm !important;
 }
+
+.smooth-transition {
+    transition: all 300ms ease-in-out;
+}
+
+.border-red {
+    border-color: red;
+}

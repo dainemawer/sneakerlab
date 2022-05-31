@@ -725,6 +725,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 5rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mb-36 {
   margin-bottom: 9rem;
 }
@@ -751,10 +755,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-4 {
   margin-left: 1rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .mb-7 {
@@ -1460,6 +1460,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0;
 }
 
+.opacity-100 {
+  opacity: 1;
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1613,9 +1617,11 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
   opacity: 1;
 }
 
-.marquee-wrap .marquee .inner p {
-  margin: 0 2rem !important;
-}
+/*.marquee-wrap .marquee .inner p {*/
+
+/*    margin: 0 2rem !important;*/
+
+/*}*/
 
 .Accordion-panel[hidden] {
   display: none;
@@ -1894,6 +1900,14 @@ a.ticker::after {
     font-size: 0.875rem !important;
     line-height: 1.25rem !important;
   }
+}
+
+.smooth-transition {
+  transition: all 300ms ease-in-out;
+}
+
+.border-red {
+  border-color: red;
 }
 
 .placeholder\:text-5xl::-moz-placeholder {

@@ -19,7 +19,7 @@
     </figure>
     <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ product.title }}</h3>
     <div class="flex items-start justify-between">
-        <p class="uppercase text-sm max-w-[220] lg:max-w-none">Product Description / Snippet / Custom Meta field</p>
+        <p class="uppercase text-sm max-w-[220] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
         <p class="uppercase text-sm">{{ cart.currency.symbol }}{{ product.price | money_without_currency }}</p>
     </div>
 </article>
