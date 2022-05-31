@@ -96,6 +96,13 @@
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
+    "checkout_logo_image": "shopify:\/\/shop_images\/sneakerlab-logo-transparent-01.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_heading_font": "Raleway",
+    "checkout_body_font": "Raleway",
+    "checkout_accent_color": "#3dae2b",
+    "checkout_button_color": "#3dae2b",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
