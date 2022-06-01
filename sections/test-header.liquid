@@ -1,6 +1,9 @@
 {% comment %}
     Adding section for Sneaker Lab header
 {% endcomment %}
+<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
 <a class="sr-only focus:not-sr-only" href="#main-content">Skip to Main Content</a>
 <header aria-label="Site Header" role="banner" class="sticky bg-transparent z-10 top-[-1px] py-3 transition-all">
@@ -94,3 +97,5 @@
     {% render 'header-navigation' %}
     {% render 'account-modal' %}
 </header>
+
+{%- render 'cart-notification', color_scheme: section.settings.color_scheme -%}

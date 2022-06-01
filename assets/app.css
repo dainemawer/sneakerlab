@@ -689,6 +689,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0px;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -723,10 +727,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-20 {
   margin-bottom: 5rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .mb-36 {
@@ -981,6 +981,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 344px;
 }
 
+.max-w-\[412px\] {
+  max-width: 412px;
+}
+
+.max-w-\[325px\] {
+  max-width: 325px;
+}
+
+.max-w-\[980px\] {
+  max-width: 980px;
+}
+
 .max-w-\[438px\] {
   max-width: 438px;
 }
@@ -1096,16 +1108,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: space-between;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
 }
 
 .overflow-auto {
@@ -2087,6 +2099,11 @@ a.ticker::after {
     grid-column: span 6 / span 6;
   }
 
+  .md\:my-36 {
+    margin-top: 9rem;
+    margin-bottom: 9rem;
+  }
+
   .md\:mt-20 {
     margin-top: 5rem;
   }
@@ -2387,6 +2404,11 @@ a.ticker::after {
 
   .lg\:text-\[6\.875rem\] {
     font-size: 6.875rem;
+  }
+
+  .lg\:text-7xl {
+    font-size: 4.5rem;
+    line-height: 1;
   }
 
   .lg\:text-5xl {
