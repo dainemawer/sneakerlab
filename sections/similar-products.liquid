@@ -2,30 +2,15 @@
   <section class="col-span-12 mt-14 md:mt-36">
     <p class="uppercase text-xs md:text-sm mb-3 md:mb-5">[&nbsp;&nbsp;Similiar Products <sup>02</sup>&nbsp;&nbsp;]</p>
       <product-recommendations
-              style="display: grid !important;"
-              class="product-recommendations grid-cols-12 gap-2"
-              data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
+        style="display: grid !important;"
+        class="product-recommendations grid-cols-12 gap-2"
+        data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
       >
         {% if recommendations.performed and recommendations.products_count > 0 %}
             {% for recommendation in recommendations.products %}
               <div class="col-span-12 mb-6 md:mb-0 md:col-span-6">
-
-                {% comment %}
-                {% render 'card-product',
-                        card_product: recommendation,
-                        media_aspect_ratio: section.settings.image_ratio,
-                        show_secondary_image: section.settings.show_secondary_image,
-                        show_vendor: section.settings.show_vendor,
-                        show_rating: section.settings.show_rating
-                %}
-                {% endcomment %}
-
                 {% render 'similar-product-card',
-                        card_product: recommendation,
-                        media_aspect_ratio: section.settings.image_ratio,
-                        show_secondary_image: section.settings.show_secondary_image,
-                        show_vendor: section.settings.show_vendor,
-                        show_rating: section.settings.show_rating
+                        card_product: recommendation
                 %}
               </div>
             {% endfor %}
@@ -49,8 +34,6 @@
 {% render 'marquee-js' %}
 
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
-
 
 <script>
 class ProductRecommendations extends HTMLElement {
