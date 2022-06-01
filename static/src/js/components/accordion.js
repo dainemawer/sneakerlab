@@ -1,10 +1,3 @@
-/*
-*   This content is licensed according to the W3C Software License at
-*   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
-*
-*   Simple accordion pattern example
-*/
-
 const Accordion = () => {
   Array.prototype.slice.call(document.querySelectorAll('.accordion')).forEach(function (accordion) {
     const allowMultiple = accordion.hasAttribute('data-allow-multiple')

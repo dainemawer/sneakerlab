@@ -42,7 +42,8 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     @apply border-[#fff] bg-[#000]
 }
 
-.marquee-wrap:hover .marquee {
+.marquee-wrap:hover .marquee,
+.marquee-wrap:hover .marquee2 {
     @apply opacity-100
 }
 

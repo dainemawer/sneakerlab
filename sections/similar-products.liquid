@@ -29,13 +29,71 @@
 {% render 'modal' %}
 {% render 'cart-modal' %}
 {% render 'add-to-cart-js' %}
-{% render 'carousel-js' %}
-{% render 'shop-filter-js' %}
-{% render 'marquee-js' %}
-
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+{% render 'carousel-js' %}
+{% render 'accordion-js' %}
+
 
 <script>
+
+const Marquee2 = () => {
+  const elements = document.querySelectorAll('.marquee2')
+  const lastScrollPos = 0
+  let speed = 4
+  let timer
+
+  elements.forEach(function (el) {
+    const marqueeWrapper = el.parentNode;
+    const container = el.querySelector('.inner')
+    const content = el.querySelector('.inner > *')
+    const style = window.getComputedStyle(el.querySelector('.inner > p'));
+
+    const elWidth = container.offsetWidth;
+
+    const clone = content.cloneNode(true)
+    container.appendChild(clone)
+
+    let progress = 1
+    let isPlaying = false;
+    function loop () {
+      progress = progress - speed
+      if (progress <= elWidth * -1) {
+        progress = 0
+      }
+
+      container.style.transform = 'translateX(' + progress + 'px)'
+      container.style.transform += 'skewX(' + speed * 0.4 + 'deg)'
+      // window.requestAnimationFrame(loop)
+      if (isPlaying === true) requestAnimationFrame(loop);
+    }
+
+    marqueeWrapper.addEventListener('mouseenter', function () {
+      isPlaying = true;
+      loop();
+    });
+    marqueeWrapper.addEventListener('mouseleave', function () {
+      isPlaying = false;
+      loop();
+    });
+
+    loop()
+  })
+
+  window.addEventListener('scroll', function () {
+    const maxScrollValue = 12
+    const newScrollPos = window.scrollY
+    let scrollValue = newScrollPos - lastScrollPos
+    if (scrollValue > maxScrollValue) scrollValue = maxScrollValue
+    else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue
+    speed = scrollValue
+    clearTimeout(timer)
+    timer = setTimeout(handleSpeedClear, 10)
+  })
+
+  function handleSpeedClear () {
+    speed = 2
+  }
+}
 class ProductRecommendations extends HTMLElement {
   constructor() {
   super();
@@ -58,7 +116,11 @@ class ProductRecommendations extends HTMLElement {
         if (html.querySelector('.grid__item')) {
           this.classList.add('product-recommendations--loaded');
         }
-    }).catch(e => {
+    })
+    .then(() => {
+      Marquee2();
+    })
+    .catch(e => {
       console.error(e);
     });
   }
@@ -89,8 +151,8 @@ customElements.define('product-recommendations', ProductRecommendations);
       "type": "range",
       "id": "columns_desktop",
       "min": 2,
-      "max": 2,
-      "step": 2,
+      "max": 4,
+      "step": 1,
       "default": 2,
       "label": "t:sections.product-recommendations.settings.columns_desktop.label"
     }
