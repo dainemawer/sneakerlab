@@ -49,46 +49,25 @@
           "settings": {
           }
         },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
+        "88e1f050-6fc0-4cf5-bb4b-c4232f4ec027": {
+          "type": "product-accordion",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
+            "title": "Product Details",
+            "content": "<p>Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care brand that puts nature first.<\/p>"
           }
         },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
+        "2b4fd37e-adf0-45d5-bf56-0eb187213de4": {
+          "type": "product-accordion",
           "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
+            "title": "Sustainability",
+            "content": "<p>Sneaker Lab is the only shoe care brand that puts nature first. Our products are made fromenvironmentally friendly ingredients and are 100% biodegradable; making us the only shoe carebrand that puts nature first.<\/p>"
           }
         },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
+        "d06c1285-52a3-408a-ace6-c31f22f8c76f": {
+          "type": "product-accordion",
           "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
+            "title": "Delivery & Returns",
+            "content": "<p>Sneaker Lab is the only shoe care brand that puts nature first. Our products are made fromenvironmentally friendly ingredients and are 100% biodegradable; making us the only shoe carebrand that puts nature first.<\/p>"
           }
         }
       },
@@ -101,43 +80,29 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "88e1f050-6fc0-4cf5-bb4b-c4232f4ec027",
+        "2b4fd37e-adf0-45d5-bf56-0eb187213de4",
+        "d06c1285-52a3-408a-ace6-c31f22f8c76f"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "gallery_layout": "stacked",
-        "media_size": "large",
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "hide_variants": true
       }
     },
     "product-large-quote": {
-      "type": "product-large-quote"
+      "type": "product-large-quote",
+      "settings": {
+      }
     },
     "main-product-information": {
-      "type": "main-product-information"
+      "type": "main-product-information",
+      "settings": {
+      }
     },
     "similar-products": {
       "type": "similar-products",
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "columns_desktop": 4,
-        "color_scheme": "background-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "products_to_show": 2,
+        "columns_desktop": 4
       }
     }
   },
