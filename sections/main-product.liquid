@@ -1,4 +1,4 @@
-<section id="MainProduct-{{ section.id }}" class="grid grid-cols-12 gap-2 mt-4" data-section="{{ section.id }}">
+<div id="MainProduct-{{ section.id }}" class="grid grid-cols-12 gap-2 mt-4" data-section="{{ section.id }}">
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -24,10 +24,10 @@
     <!-- Desktop Product Gallery -->
     <div class="hidden md:block col-span-12 md:col-span-6">
       {% for image in product.images limit:5 %}
-        {% if forloop.index == 2 %}
+        {% if forloop.index == 3 %}
           <div class="grid grid-cols-3 gap-2 mb-2">
         {% endif %}
-        {% if forloop.index < 2 %}
+        {% if forloop.index < 3 %}
           <img
               style="width: 744px; height: 555px;"
               class="rounded-lg mb-2 object-contain"
@@ -49,7 +49,8 @@
               decoding="async"
           />
         {% endif %}
-        {% if forloop.index == 4 %}
+
+        {% if forloop.index == product.images.size %}
           </div>
         {% endif %}
       {% endfor %}
@@ -74,7 +75,6 @@
           {% comment %}</div>{% endcomment %}
         {% comment %}</div>{% endcomment %}
       {% comment %}</figure>{% endcomment %}
-    </div>
 
     <!-- Main Product Information -->
     <div class="col-span-12 md:col-span-6 relative">
@@ -198,27 +198,42 @@
 
       <!-- Single Product Accordion -->
       <div id="accordion" class="accordion mt-24 md:mt-44 mb-5" data-allow-multiple>
+        {% assign my_counter = 0 %}
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {% when 'product-accordion' %}
+
                 <h3 class="border-t border-silver text-xs md:text-sm">
                   <button
                       class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
-                      aria-expanded="true"
-                      aria-controls="accordion-item-1"
+                      {% if my_counter == 0 %}
+                        aria-expanded="true"
+                      {% else %}
+                        aria-expanded="false"
+                      {% endif %}
+                      aria-controls="accordion-item-{{ block.id }}"
                       id="accordion-title-{{ block.id }}"
                   >
                     {{ block.settings.title }}
-
+                    {{ variable }}
                     {% render 'accordion-toggle' %}
                   </button>
                 </h3>
 
-                <div id="accordion-item-{{ block.id }}" role="region" class="accordion-panel pb-5" aria-labelledby="accordion-title-{{ block.id }}">
+                <div
+                        id="accordion-item-{{ block.id }}"
+                        role="region"
+                        class="accordion-panel pb-5"
+                        aria-labelledby="accordion-title-{{ block.id }}"
+                        {% if my_counter != 0 %}
+                          hidden
+                        {% endif %}
+                >
                   <p class="text-sm">
                     {{ block.settings.content }}
                   </p>
                 </div>
+              {% assign my_counter = my_counter | plus: 1 %}
           {%- endcase -%}
         {%- endfor -%}
       </div>
@@ -254,6 +269,7 @@
         </div>
       </figure>
     </div>
+  </div>
 
     <div class="col-span-12">
       <div class="product">
