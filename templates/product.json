@@ -91,11 +91,19 @@
     "product-large-quote": {
       "type": "product-large-quote",
       "settings": {
+        "text": "We pride ourselves on our product line and lessening its impact on our Earth."
       }
     },
     "main-product-information": {
       "type": "main-product-information",
       "settings": {
+        "subtitle": "Product Information",
+        "left-block-title": "ENVIRONMENTALLY FRIENDLY",
+        "left-block-text": "The probacterial solution accelerates the breakdown of dirt and continues to clean for up to 3 days after application. Sneaker Cleaner contains no harmful chemicals or toxins and is GreenTag certified, meaning you can now clean your sneakers in the cleanest way possible.",
+        "right-block-title": "BIODEGRADABLE CLEANING SOLUTION",
+        "right-block-text": "Our products are biodegradable, contain no harsh chemicals, non-hazardous and non-toxic, cruelty free and Vegan.",
+        "bottom-block-quote": "100 PERCENT RECYCLABLE BOTTLES",
+        "bottom-block-text": "Our bottles are 100% recyclable (our Sneaker Wipe towelling is 100% recyclable too) and made up of up to 40% already recycled plastic."
       }
     },
     "similar-products": {
