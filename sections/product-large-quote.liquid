@@ -1,7 +1,22 @@
 <div class="grid grid-cols-12 gap-2 mt-4">
     <div class="col-span-12 mt-8 mb-12 md:my-36">
         <h3 class="uppercase text-4xl lg:text-7xl max-w-[980px] font-medium tracking-tighter">
-            We pride ourselves on our product line and lessening its impact on our Earth.
+            {{ section.settings.text }}
         </h3>
     </div>
 </div>
+
+{% schema %}
+  {
+    "name": "Large Quote",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Product Large Quote Text",
+        "default": "We pride ourselves on our product line and lessening its impact on our Earth."
+      }
+    ]
+  }
+{% endschema %}

@@ -51,6 +51,9 @@
         {% endif %}
 
         {% if forloop.index == product.images.size %}
+            {% if product.images.size > 3 %}
+              </div>
+            {% endif %}
           </div>
         {% endif %}
       {% endfor %}
