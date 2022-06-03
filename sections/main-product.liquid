@@ -200,69 +200,25 @@
       <div id="accordion" class="accordion mt-24 md:mt-44 mb-5" data-allow-multiple>
         {%- for block in section.blocks -%}
           {%- case block.type -%}
-            {% when 'product-details' %}
+            {% when 'product-accordion' %}
                 <h3 class="border-t border-silver text-xs md:text-sm">
                   <button
                       class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
                       aria-expanded="true"
                       aria-controls="accordion-item-1"
-                      id="accordion-title-1"
+                      id="accordion-title-{{ block.id }}"
                   >
-                    Product Details
+                    {{ block.settings.title }}
 
                     {% render 'accordion-toggle' %}
                   </button>
                 </h3>
 
-                <div id="accordion-item-1" role="region" class="accordion-panel pb-5" aria-labelledby="accordion-title-1">
+                <div id="accordion-item-{{ block.id }}" role="region" class="accordion-panel pb-5" aria-labelledby="accordion-title-{{ block.id }}">
                   <p class="text-sm">
-                    Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
-                    environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
-                    brand that puts nature first.
+                    {{ block.settings.content }}
                   </p>
                 </div>
-
-            {% when 'sustainability' %}
-              <h3 class="border-t border-silver text-xs md:text-sm">
-                <button
-                    class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
-                    aria-expanded="false"
-                    aria-controls="accordion-item-2"
-                    id="accordion-title-2"
-                >
-                  Sustainability
-                  {% render 'accordion-toggle' %}
-                </button>
-              </h3>
-
-              <div id="accordion-item-2" role="region" hidden class="accordion-panel pb-5" aria-labelledby="accordion-title-2">
-                <p class="text-sm">
-                  Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
-                  environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
-                  brand that puts nature first.
-                </p>
-              </div>
-
-            {% when 'delivery-returns' %}
-              <h3 class="border-t border-silver text-xs md:text-sm">
-                <button
-                    class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
-                    aria-expanded="false"
-                    aria-controls="accordion-item-3"
-                    id="accordion-title-3"
-                >
-                  Delivery &amp; Returns
-                  {% render 'accordion-toggle' %}
-                </button>
-              </h3>
-
-              <div id="accordion-item-3" role="region" hidden class="accordion-panel pb-5" aria-labelledby="accordion-title-3">
-                <p class="text-sm">
-                  Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
-                  environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
-                  brand that puts nature first.
-                </p>
-              </div>
           {%- endcase -%}
         {%- endfor -%}
       </div>
@@ -572,9 +528,22 @@
       "limit": 1
     },
     {
-      "type": "product-details",
-      "name": "Product Details",
-      "limit": 1
+      "type": "product-accordion",
+      "name": "Product Accordion",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Product Accordion",
+          "label": "Product Accordion Label"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Product Accordion Content"
+        }
+      ]
     },
     {
       "type": "sustainability",
