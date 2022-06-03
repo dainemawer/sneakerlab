@@ -741,6 +741,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 2rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .mb-20 {
   margin-bottom: 5rem;
 }
@@ -775,10 +779,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-7 {
   margin-bottom: 1.75rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
 }
 
 .mt-5 {
@@ -979,6 +979,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[300px\] {
   max-width: 300px;
+}
+
+.max-w-\[200px\] {
+  max-width: 200px;
 }
 
 .max-w-\[1000px\] {
@@ -1202,16 +1206,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.25rem;
 }
 
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
 .rounded-lg {
   border-radius: 0.5rem;
 }
 
 .rounded-3xl {
   border-radius: 1.5rem;
-}
-
-.rounded-md {
-  border-radius: 0.375rem;
 }
 
 .rounded-tr-lg {
@@ -1323,6 +1327,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 1rem;
 }
 
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1351,11 +1360,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .px-6 {
@@ -1499,12 +1503,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-style: normal;
 }
 
-.leading-none {
-  line-height: 1;
-}
-
 .leading-\[0\] {
   line-height: 0;
+}
+
+.leading-none {
+  line-height: 1;
 }
 
 .leading-normal {
@@ -1522,6 +1526,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-\[\#000\] {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-gray {
+  --tw-text-opacity: 1;
+  color: rgb(129 129 129 / var(--tw-text-opacity));
 }
 
 .text-eco-green {
@@ -1544,14 +1553,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(203 203 203 / var(--tw-text-opacity));
 }
 
-.text-gray {
-  --tw-text-opacity: 1;
-  color: rgb(129 129 129 / var(--tw-text-opacity));
-}
-
 .text-cod-gray {
   --tw-text-opacity: 1;
   color: rgb(26 26 26 / var(--tw-text-opacity));
+}
+
+.no-underline {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 
 .opacity-0 {
@@ -1731,7 +1740,15 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
   display: none;
 }
 
+.loading-overlay__spinner.Accordion-panel[hidden] {
+  display: none;
+}
+
 .accordion-trigger[aria-expanded="true"] .plus {
+  display: none;
+}
+
+.loading-overlay__spinner.accordion-trigger[aria-expanded="true"] .plus {
   display: none;
 }
 
@@ -1740,6 +1757,10 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 }
 
 .accordion-trigger[aria-expanded="false"] .minus {
+  display: none;
+}
+
+.loading-overlay__spinner.accordion-trigger[aria-expanded="false"] .minus {
   display: none;
 }
 
@@ -1898,6 +1919,10 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
   display: none;
 }
 
+.loading-overlay__spinner[id="account-modal"] legend {
+  display: none;
+}
+
 .input ~ .tab {
   display: none
 }
@@ -2012,6 +2037,85 @@ a.ticker::after {
 
 .border-red {
   border-color: red;
+}
+
+#cart-notification-wrapper.active {
+  display: block;
+  position: fixed !important;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.cart-notification {
+  position: fixed !important;
+  right: 0.5rem !important;
+  bottom: 0.5rem !important;
+  z-index: 40 !important;
+  width: 100% !important;
+  max-width: 300px !important;
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity)) !important;
+  padding: 0.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .cart-notification {
+    right: 1rem !important;
+    bottom: 1rem !important;
+    max-width: 385px !important;
+  }
+}
+
+.loading-overlay__spinner.hidden {
+  display: none;
+}
+
+.loading-overlay__spinner {
+  display: inline-flex;
+  width: 20px;
+  margin-left: 10px;
+  height: 20px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  border-bottom: 3px solid #fff;
+  transform: translateZ(10px);
+  -webkit-animation: load 1.1s infinite linear;
+  animation: load 1.1s infinite linear;
+}
+
+@-webkit-keyframes load {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.cart-notification-product {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 !important;
+}
+
+.view-cart-button:hover::after {
+  content: none !important;
 }
 
 .placeholder\:text-5xl::-moz-placeholder {
@@ -2648,10 +2752,6 @@ a.ticker::after {
     margin-top: 11rem;
   }
 
-  .xl\:ml-0 {
-    margin-left: 0px;
-  }
-
   .xl\:mb-0 {
     margin-bottom: 0px;
   }
@@ -2703,6 +2803,12 @@ a.ticker::after {
 
   .xl\:text-\[6\.875rem\] {
     font-size: 6.875rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:ml-0 {
+    margin-left: 0px;
   }
 }
 

@@ -1,76 +1,79 @@
 <section id="MainProduct-{{ section.id }}" class="grid grid-cols-12 gap-2 mt-4" data-section="{{ section.id }}">
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- assign product_form_id = 'product-form-' | append: section.id -%}
-    <!-- Main Product Gallery -->
-    <div id="product-carousel"  class="block md:hidden col-span-12">
-      <div class="slide">
-        <figure class="bg-light-gray h-full flex items-center justify-center p-4">
-          <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '43x360.jpg' | asset_url }}" width="343"
-               height="360"
-               decoding="async"
-          />
-        </figure>
-      </div>
-      <div class="slide">
-        <figure class="bg-light-gray h-full flex items-center justify-center p-4">
-          <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="343"
-               height="360"
-               decoding="async"
-          />
-        </figure>
-      </div>
-      <div class="slide">
-        <figure class="bg-light-gray h-full flex items-center justify-center p-4">
-          <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="343"
-               height="360"
-               decoding="async"
-          />
-        </figure>
-      </div>
-      <div class="slide">
-        <figure class="bg-light-gray h-full flex items-center justify-center p-4">
-          <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="343"
-               height="360"
-               decoding="async"
-          />
-        </figure>
-      </div>
-      <div class="slide">
-        <figure class="bg-light-gray h-full flex items-center justify-center p-4">
-          <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="343"
-               height="360"
-               decoding="async"
-          />
-        </figure>
-      </div>
-    </div>
 
     <!-- Mobile Product Gallery -->
-    <div class="hidden md:block col-span-12 md:col-span-6">
-      <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744" height="555" decoding="async" />
-      <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744" height="555" decoding="async" />
-      <div class="grid grid-cols-3 gap-2 mb-2">
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '240x382.jpg' | asset_url }}" width="240" height="382" loading="lazy" decoding="async" />
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '240x382.jpg' | asset_url }}" width="240" height="382" loading="lazy" decoding="async" />
-        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '240x382.jpg' | asset_url }}" width="240" height="382" loading="lazy" decoding="async" />
-      </div>
-      <figure
-        data-trigger-modal
-        id="how-to-video"
-        class="hidden md:block bg-light-gray relative overflow-hidden marquee-wrap"
-      >
-        <div>
-          <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744"
-               height="555" loading="lazy" decoding="async" />
+    <div id="product-carousel"  class="block md:hidden col-span-12">
+      {% for image in product.images limit:5 %}
+        <div class="slide">
+          <figure class="bg-light-gray h-full flex items-center justify-center p-4">
+            <img
+                  class="mb-2 object-contain rounded-lg"
+                  alt="SneakerLab Product 3"
+                  src="{{ '343x360.jpg' | asset_url }}"
+                  width="343"
+                  height="360"
+                  decoding="async"
+                  style="width: 343px; height: 360px;"
+            />
+          </figure>
         </div>
+      {% endfor %}
+    </div>
 
-        <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
-          <div class="inner relative w-full flex">
-            <p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>
-            <p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>
+    <!-- Desktop Product Gallery -->
+    <div class="hidden md:block col-span-12 md:col-span-6">
+      {% for image in product.images limit:5 %}
+        {% if forloop.index == 2 %}
+          <div class="grid grid-cols-3 gap-2 mb-2">
+        {% endif %}
+        {% if forloop.index < 2 %}
+          <img
+              style="width: 744px; height: 555px;"
+              class="rounded-lg mb-2 object-contain"
+              alt="SneakerLab Product 3"
+              src="{{ image.src | image_url }}"
+              width="744"
+              height="555"
+              decoding="async"
+          />
+        {% else %}
+          <img
+              alt=""
+              style="width: 240px; height: 382px;"
+              class="rounded-lg"
+              src="{{ '240x382.jpg' | asset_url }}"
+              width="240"
+              height="382"
+              loading="lazy"
+              decoding="async"
+          />
+        {% endif %}
+        {% if forloop.index == 4 %}
           </div>
-        </div>
-      </figure>
+        {% endif %}
+      {% endfor %}
+
+      {% comment %}
+        TODO: Decide where to put how to video thumbnail or if to make component
+      {% endcomment %}
+      {% comment %}<figure{% endcomment %}
+        {% comment %}data-trigger-modal{% endcomment %}
+        {% comment %}id="how-to-video"{% endcomment %}
+        {% comment %}class="hidden md:block bg-light-gray relative overflow-hidden marquee-wrap"{% endcomment %}
+      {% comment %}>{% endcomment %}
+        {% comment %}<div>{% endcomment %}
+          {% comment %}<img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744"{% endcomment %}
+               {% comment %}height="555" loading="lazy" decoding="async" />{% endcomment %}
+        {% comment %}</div>{% endcomment %}
+{% comment %}{% endcomment %}
+        {% comment %}<div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">{% endcomment %}
+          {% comment %}<div class="inner relative w-full flex">{% endcomment %}
+            {% comment %}<p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>{% endcomment %}
+            {% comment %}<p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>{% endcomment %}
+          {% comment %}</div>{% endcomment %}
+        {% comment %}</div>{% endcomment %}
+      {% comment %}</figure>{% endcomment %}
     </div>
 
     <!-- Main Product Information -->
@@ -91,41 +94,31 @@
 
       <div class="flex flex-nowrap items-center justify-between">
         <div class="w-full max-w-[124px] md:max-w-[146px]">
-          <!-- Quantity Input -->
-          {% render 'counter-item' %}
 
-          {% comment %}<div class="product-form__input product-form__quantity" {{ block.shopify_attributes }}>{% endcomment %}
-            {% comment %}<quantity-input class="quantity">{% endcomment %}
-              {% comment %}<button class="quantity__button no-js-hidden" name="minus" type="button">{% endcomment %}
-                {% comment %}<span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>{% endcomment %}
-                {% comment %}{% render 'icon-minus' %}{% endcomment %}
-              {% comment %}</button>{% endcomment %}
-              {% comment %}<input{% endcomment %}
-                {% comment %}class="quantity__input"{% endcomment %}
-                {% comment %}type="number"{% endcomment %}
-                {% comment %}name="quantity"{% endcomment %}
-                {% comment %}id="Quantity-{{ section.id }}"{% endcomment %}
-                {% comment %}min="1"{% endcomment %}
-                {% comment %}value="1"{% endcomment %}
-                {% comment %}form="{{ product_form_id }}"{% endcomment %}
-              {% comment %}>{% endcomment %}
-              {% comment %}<button class="quantity__button no-js-hidden" name="plus" type="button">{% endcomment %}
-                {% comment %}<span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>{% endcomment %}
-                {% comment %}{% render 'icon-plus' %}{% endcomment %}
-              {% comment %}</button>{% endcomment %}
-            {% comment %}</quantity-input>{% endcomment %}
-          {% comment %}</div>{% endcomment %}
+          <!-- Quantity Input -->
+          <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
+            <quantity-input class="quantity flex relative border border-silver rounded p-[1px]">
+              <button class="quantity__button no-js-hidden absolute left-0 w-10 h-10 hover:opacity-50 focus:opacity-50 transition-all" name="minus" type="button">
+                <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                -
+              </button>
+              <input class="text-center max-w-[100px] block my-0 mx-auto p-2 box-border"
+                     type="number"
+                     name="quantity"
+                     id="Quantity-{{ section.id }}"
+                     min="1"
+                     value="1"
+                     form="{{ product_form_id }}"
+              >
+              <button class="quantity__button no-js-hidden absolute hover:opacity-50 focus:opacity-50 transition-all right-0 w-10 h-10" name="plus" type="button">
+                <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                +
+              </button>
+            </quantity-input>
+          </div>
         </div>
 
-        <div class="w-full ml-2 xl:ml-0 max-w-[541px]">
-          <!-- Add to cart -->
-          {% comment %}<button{% endcomment %}
-            {% comment %}data-add-to-cart{% endcomment %}
-            {% comment %}class="bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green"{% endcomment %}
-          {% comment %}>{% endcomment %}
-            {% comment %}Add to cart{% endcomment %}
-          {% comment %}</button>{% endcomment %}
-
+        <div class="w-full ml-2 2xl:ml-0 max-w-[541px]">
           <!-- Shopify Add To Cart -->
           <div {{ block.shopify_attributes }}>
             <product-form class="product-form">
@@ -143,22 +136,18 @@
                 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
                 <div class="product-form__buttons">
                   <button
-                          {% comment %}
-                            TODO: MAke pop up modal dynamic with actual cart items
-                          {% endcomment %}
-
                           type="submit"
                           name="add"
-                          class="product-form__submit bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green"
+                          class="product-form__submit button bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green"
                     {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                   >
-                          <span>
-                            {%- if product.selected_or_first_available_variant.available -%}
-                              {{ 'products.product.add_to_cart' | t }}
-                            {%- else -%}
-                              {{ 'products.product.sold_out' | t }}
-                            {%- endif -%}
-                          </span>
+                      <span>
+                        {%- if product.selected_or_first_available_variant.available -%}
+                          {{ 'products.product.add_to_cart' | t }}
+                        {%- else -%}
+                          {{ 'products.product.sold_out' | t }}
+                        {%- endif -%}
+                      </span>
                     <div class="loading-overlay__spinner hidden">
                       <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                         <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
@@ -172,15 +161,16 @@
               {%- endform -%}
             </product-form>
 
+            {% comment %}
             {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
 
             {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities | where: 'pick_up_enabled', true -%}
 
             <pickup-availability class="product__pickup-availabilities no-js-hidden quick-add-hidden"
-                    {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %} available{% endif %}
-                                 data-root-url="{{ routes.root_url }}"
-                                 data-variant-id="{{ product.selected_or_first_available_variant.id }}"
-                                 data-has-only-default-variant="{{ product.has_only_default_variant }}"
+              {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %} available{% endif %}
+              data-root-url="{{ routes.root_url }}"
+              data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+              data-has-only-default-variant="{{ product.has_only_default_variant }}"
             >
               <template>
                 <pickup-availability-preview class="pickup-availability-preview">
@@ -192,6 +182,7 @@
                 </pickup-availability-preview>
               </template>
             </pickup-availability>
+            {% endcomment %}
           </div>
 
           <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
@@ -205,57 +196,79 @@
         </p>
       {%- endif -%}
 
+      <!-- Single Product Accordion -->
       <div id="accordion" class="accordion mt-24 md:mt-44 mb-5" data-allow-multiple>
-        <h3 class="border-t border-silver text-xs md:text-sm">
-          <button class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
-                  aria-expanded="true" aria-controls="accordion-item-1" id="accordion-title-1">
-            Product Details
-            {% render 'accordion-toggle' %}
-          </button>
-        </h3>
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {% when 'product-details' %}
+                <h3 class="border-t border-silver text-xs md:text-sm">
+                  <button
+                      class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
+                      aria-expanded="true"
+                      aria-controls="accordion-item-1"
+                      id="accordion-title-1"
+                  >
+                    Product Details
 
-        <div id="accordion-item-1" role="region" class="accordion-panel pb-5" aria-labelledby="accordion-title-1">
-          <p class="text-sm">
-            Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
-            environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
-            brand that puts nature first.
-          </p>
-        </div>
-        <h3 class="border-t border-silver text-xs md:text-sm">
-          <button class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
-                  aria-expanded="false" aria-controls="accordion-item-2" id="accordion-title-2">
-            Sustainability
-            {% render 'accordion-toggle' %}
-          </button>
-        </h3>
+                    {% render 'accordion-toggle' %}
+                  </button>
+                </h3>
 
-        <div id="accordion-item-2" role="region" hidden class="accordion-panel pb-5" aria-labelledby="accordion-title-2">
-          <p class="text-sm">
-            Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
-            environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
-            brand that puts nature first.
-          </p>
-        </div>
+                <div id="accordion-item-1" role="region" class="accordion-panel pb-5" aria-labelledby="accordion-title-1">
+                  <p class="text-sm">
+                    Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
+                    environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
+                    brand that puts nature first.
+                  </p>
+                </div>
 
-        <h3 class="border-t border-silver text-xs md:text-sm">
-          <button class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
-                  aria-expanded="false" aria-controls="accordion-item-3" id="accordion-title-3">
-            Delivery &amp; Returns
-            {% render 'accordion-toggle' %}
-          </button>
-        </h3>
+            {% when 'sustainability' %}
+              <h3 class="border-t border-silver text-xs md:text-sm">
+                <button
+                    class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
+                    aria-expanded="false"
+                    aria-controls="accordion-item-2"
+                    id="accordion-title-2"
+                >
+                  Sustainability
+                  {% render 'accordion-toggle' %}
+                </button>
+              </h3>
 
-        <div id="accordion-item-3" role="region" hidden class="accordion-panel pb-5" aria-labelledby="accordion-title-3">
-          <p class="text-sm">
-            Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
-            environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
-            brand that puts nature first.
-          </p>
-        </div>
+              <div id="accordion-item-2" role="region" hidden class="accordion-panel pb-5" aria-labelledby="accordion-title-2">
+                <p class="text-sm">
+                  Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
+                  environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
+                  brand that puts nature first.
+                </p>
+              </div>
+
+            {% when 'delivery-returns' %}
+              <h3 class="border-t border-silver text-xs md:text-sm">
+                <button
+                    class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
+                    aria-expanded="false"
+                    aria-controls="accordion-item-3"
+                    id="accordion-title-3"
+                >
+                  Delivery &amp; Returns
+                  {% render 'accordion-toggle' %}
+                </button>
+              </h3>
+
+              <div id="accordion-item-3" role="region" hidden class="accordion-panel pb-5" aria-labelledby="accordion-title-3">
+                <p class="text-sm">
+                  Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from
+                  environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care
+                  brand that puts nature first.
+                </p>
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
       </div>
 
       <!-- Secondary Add To Cart (sticky) -->
-      {% render 'add-to-cart' %}
+      {% render 'add-to-cart', product: product, product_form_id: product_form_id %}
     </div>
 
     <!-- Mobile Product How To Video -->
@@ -266,8 +279,15 @@
         class="bg-light-gray relative overflow-hidden marquee-wrap"
       >
         <div>
-          <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744"
-               height="555" loading="lazy" decoding="async" />
+          <img
+            class="rounded-lg"
+            alt="SneakerLab Product 3"
+            src="{{ '343x360.jpg' | asset_url }}"
+            width="744"
+            height="555"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
 
         <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
@@ -280,13 +300,13 @@
     </div>
 
     <div class="col-span-12">
-    <div class="product">
+      <div class="product">
       <!-- Product Gallery Shopify -->
-      <div class="grid__item product__media-wrapper">
-        <media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">
-          <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
-        </media-gallery>
-      </div>
+      {% comment %}<div class="grid__item product__media-wrapper">{% endcomment %}
+        {% comment %}<media-gallery id="MediaGallery-{{ section.id }}" role="region" {% if section.settings.enable_sticky_info %}class="product__media-gallery"{% endif %} aria-label="{{ 'products.product.media.gallery_viewer' | t }}" data-desktop-layout="{{ section.settings.gallery_layout }}">{% endcomment %}
+          {% comment %}<div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>{% endcomment %}
+        {% comment %}</media-gallery>{% endcomment %}
+      {% comment %}</div>{% endcomment %}
 
       <!-- Product Description Shopify -->
       <div class="product__info-wrapper">
@@ -307,10 +327,10 @@
                         <legend class="form__label">{{ option.name }}</legend>
                         {%- for value in option.values -%}
                           <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                                 name="{{ option.name }}"
-                                 value="{{ value | escape }}"
-                                 form="{{ product_form_id }}"
-                                 {% if option.selected_value == value %}checked{% endif %}
+                             name="{{ option.name }}"
+                             value="{{ value | escape }}"
+                             form="{{ product_form_id }}"
+                             {% if option.selected_value == value %}checked{% endif %}
                           >
                           <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
                             {{ value }}
@@ -330,10 +350,11 @@
                           {{ option.name }}
                         </label>
                         <div class="select">
-                          <select id="Option-{{ section.id }}-{{ forloop.index0 }}"
-                                  class="select__select"
-                                  name="options[{{ option.name | escape }}]"
-                                  form="{{ product_form_id }}"
+                          <select
+                            id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                            class="select__select"
+                            name="options[{{ option.name | escape }}]"
+                            form="{{ product_form_id }}"
                           >
                             {%- for value in option.values -%}
                               <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
@@ -382,7 +403,7 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -551,261 +572,19 @@
       "limit": 1
     },
     {
-      "type": "share",
-      "name": "t:sections.main-product.blocks.share.name",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "share_label",
-          "label": "t:sections.main-product.blocks.share.settings.text.label",
-          "default": "Share"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.main-product.blocks.share.settings.featured_image_info.content"
-        },
-        {
-          "type": "paragraph",
-          "content": "t:sections.main-product.blocks.share.settings.title_info.content"
-        }
-      ]
+      "type": "product-details",
+      "name": "Product Details",
+      "limit": 1
     },
     {
-      "type": "custom_liquid",
-      "name": "t:sections.main-product.blocks.custom_liquid.name",
-      "settings": [
-        {
-          "type": "liquid",
-          "id": "custom_liquid",
-          "label": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.label",
-          "info": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.info"
-        }
-      ]
+      "type": "sustainability",
+      "name": "Sustainability",
+      "limit": 1
     },
     {
-      "type": "collapsible_tab",
-      "name": "t:sections.main-product.blocks.collapsible_tab.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "heading",
-          "default": "Collapsible row",
-          "info": "t:sections.main-product.blocks.collapsible_tab.settings.heading.info",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label"
-        },
-        {
-          "type": "select",
-          "id": "icon",
-          "options": [
-            {
-              "value": "none",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
-            },
-            {
-              "value": "apple",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
-            },
-            {
-              "value": "banana",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
-            },
-            {
-              "value": "bottle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
-            },
-            {
-              "value": "box",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
-            },
-            {
-              "value": "carrot",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
-            },
-            {
-              "value": "chat_bubble",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
-            },
-            {
-              "value": "check_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
-            },
-            {
-              "value": "clipboard",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
-            },
-            {
-              "value": "dairy",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
-            },
-            {
-              "value": "dairy_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
-            },
-            {
-              "value": "dryer",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
-            },
-            {
-              "value": "eye",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
-            },
-            {
-              "value": "fire",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
-            },
-            {
-              "value": "gluten_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
-            },
-            {
-              "value": "heart",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
-            },
-            {
-              "value": "iron",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
-            },
-            {
-              "value": "leaf",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
-            },
-            {
-              "value": "leather",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
-            },
-            {
-              "value": "lightning_bolt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
-            },
-            {
-              "value": "lipstick",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
-            },
-            {
-              "value": "lock",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
-            },
-            {
-              "value": "map_pin",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
-            },
-            {
-              "value": "nut_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
-            },
-            {
-              "value": "pants",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
-            },
-            {
-              "value": "paw_print",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
-            },
-            {
-              "value": "pepper",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
-            },
-            {
-              "value": "perfume",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
-            },
-            {
-              "value": "plane",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
-            },
-            {
-              "value": "plant",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
-            },
-            {
-              "value": "price_tag",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
-            },
-            {
-              "value": "question_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
-            },
-            {
-              "value": "recycle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
-            },
-            {
-              "value": "return",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
-            },
-            {
-              "value": "ruler",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
-            },
-            {
-              "value": "serving_dish",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
-            },
-            {
-              "value": "shirt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
-            },
-            {
-              "value": "shoe",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
-            },
-            {
-              "value": "silhouette",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
-            },
-            {
-              "value": "snowflake",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
-            },
-            {
-              "value": "star",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
-            },
-            {
-              "value": "stopwatch",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
-            },
-            {
-              "value": "truck",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
-            },
-            {
-              "value": "washing",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
-            }
-          ],
-          "default": "check_mark",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.label"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label"
-        },
-        {
-          "type": "page",
-          "id": "page",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
-        }
-      ]
-    },
-    {
-      "type": "popup",
-      "name": "t:sections.main-product.blocks.popup.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "default": "Pop-up link text",
-          "label": "t:sections.main-product.blocks.popup.settings.link_label.label"
-        },
-        {
-          "id": "page",
-          "type": "page",
-          "label": "t:sections.main-product.blocks.popup.settings.page.label"
-        }
-      ]
+      "type": "delivery-returns",
+      "name": "Delivery & Returns",
+      "limit": 1
     },
     {
       "type": "rating",

@@ -274,3 +274,63 @@ a.ticker::after {
 .border-red {
     border-color: red;
 }
+
+#cart-notification-wrapper.active {
+    display: block;
+    position: fixed !important;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.cart-notification {
+    @apply fixed p-2 z-40 rounded-tr-lg rounded-bl-lg right-2 md:right-4 bottom-2 md:bottom-4 w-full max-w-[300px] md:max-w-[385px] bg-[#fff] !important;
+}
+
+.loading-overlay__spinner.hidden {
+    display: none;
+}
+
+.loading-overlay__spinner {
+    display: inline-flex;
+    width: 20px;
+    margin-left: 10px;
+    height: 20px;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    border-bottom: 3px solid #fff;
+    transform: translateZ(10px);
+    -webkit-animation: load 1.1s infinite linear;
+    animation: load 1.1s infinite linear;
+}
+
+@-webkit-keyframes load {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes load {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.cart-notification-product {
+    @apply flex justify-between items-center !important;
+}
+
+.cart-notification-product {
+    padding: 0 !important;
+}
+
+.view-cart-button:hover::after {
+    content: none !important;
+}

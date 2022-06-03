@@ -5,7 +5,7 @@ class CartNotification extends HTMLElement {
     this.notification = document.getElementById('cart-notification');
     this.header = document.querySelector('sticky-header');
     this.onBodyClick = this.handleBodyClick.bind(this);
-    
+
     this.notification.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
     this.querySelectorAll('button[type="button"]').forEach((closeButton) =>
       closeButton.addEventListener('click', this.close.bind(this))
@@ -14,6 +14,7 @@ class CartNotification extends HTMLElement {
 
   open() {
     this.notification.classList.add('animate', 'active');
+    document.getElementById('cart-notification-wrapper').classList.add('active');
 
     this.notification.addEventListener('transitionend', () => {
       this.notification.focus();
@@ -25,8 +26,10 @@ class CartNotification extends HTMLElement {
 
   close() {
     this.notification.classList.remove('active');
+    document.getElementById('cart-notification-wrapper').classList.remove('active');
 
     document.body.removeEventListener('click', this.onBodyClick);
+
 
     removeTrapFocus(this.activeElement);
   }
@@ -38,7 +41,6 @@ class CartNotification extends HTMLElement {
           this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
       }));
 
-      if (this.header) this.header.reveal();
       this.open();
   }
 
@@ -47,9 +49,6 @@ class CartNotification extends HTMLElement {
       {
         id: 'cart-notification-product',
         selector: `[id="cart-notification-product-${this.cartItemKey}"]`,
-      },
-      {
-        id: 'cart-notification-button'
       },
       {
         id: 'cart-icon-bubble'
@@ -65,7 +64,14 @@ class CartNotification extends HTMLElement {
 
   handleBodyClick(evt) {
     const target = evt.target;
+    console.log(evt);
     if (target !== this.notification && !target.closest('cart-notification')) {
+      const disclosure = target.closest('details-disclosure, header-menu');
+      this.activeElement = disclosure ? disclosure.querySelector('summary') : null;
+      this.close();
+    }
+
+    if (target === document.getElementById('cart-notification-wrapper')) {
       const disclosure = target.closest('details-disclosure, header-menu');
       this.activeElement = disclosure ? disclosure.querySelector('summary') : null;
       this.close();
