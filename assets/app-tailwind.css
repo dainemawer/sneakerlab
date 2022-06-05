@@ -334,3 +334,27 @@ a.ticker::after {
 .view-cart-button:hover::after {
     content: none !important;
 }
+
+.predictive-search {
+    background-color: white !important;
+    border: none !important;
+    @apply rounded-md shadow-md !important;
+}
+
+.predictive-search .icon.icon-arrow {
+    @apply h-6 w-6 !important;
+}
+
+a.predictive-search__item:after {
+    content: unset !important;
+}
+
+.predictive-search__list-item[aria-selected="true"] .predictive-search__item-heading,
+.predictive-search__list-item:hover .predictive-search__item-heading {
+    text-decoration: none !important;
+    @apply relative after:content-[''] after:absolute after:w-0 after:left-0 after:border-b after:border-solid after:border-[#000] after:block hover:after:w-full focus:after:w-full focus:outline-0 after:transition-all after:ease-in-out after:duration-300
+}
+
+.template-search__search {
+    @apply w-full m-0 max-w-[unset] !important;
+}

@@ -587,6 +587,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 8rem;
 }
 
+.right-0 {
+  right: 0px;
+}
+
 .top-\[-1px\] {
   top: -1px;
 }
@@ -609,10 +613,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .top-20 {
   top: 5rem;
-}
-
-.right-0 {
-  right: 0px;
 }
 
 .right-2 {
@@ -905,16 +905,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-5 {
   height: 1.25rem;
 }
 
 .h-\[33px\] {
   height: 33px;
-}
-
-.h-10 {
-  height: 2.5rem;
 }
 
 .max-h-0 {
@@ -949,6 +949,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 15%;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
 .w-5 {
   width: 1.25rem;
 }
@@ -963,10 +967,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-\[25\%\] {
   width: 25%;
-}
-
-.w-10 {
-  width: 2.5rem;
 }
 
 .w-2\/4 {
@@ -1033,6 +1033,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 124px;
 }
 
+.max-w-\[100px\] {
+  max-width: 100px;
+}
+
 .max-w-\[541px\] {
   max-width: 541px;
 }
@@ -1047,10 +1051,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[385px\] {
   max-width: 385px;
-}
-
-.max-w-\[100px\] {
-  max-width: 100px;
 }
 
 .max-w-\[695\] {
@@ -1257,6 +1257,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(61 174 43 / var(--tw-bg-opacity));
 }
 
+.bg-\[transparent\] {
+  background-color: transparent;
+}
+
 .bg-\[\#fff\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1269,10 +1273,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-\[\#fff\]\/50 {
   background-color: rgb(255 255 255 / 0.5);
-}
-
-.bg-\[transparent\] {
-  background-color: transparent;
 }
 
 .bg-\[\#fff\]\/90 {
@@ -1305,16 +1305,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding: 1rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
+.p-\[1px\] {
+  padding: 1px;
 }
 
 .p-2 {
   padding: 0.5rem;
 }
 
-.p-\[1px\] {
-  padding: 1px;
+.p-6 {
+  padding: 1.5rem;
 }
 
 .px-4 {
@@ -2116,6 +2116,66 @@ a.ticker::after {
 
 .view-cart-button:hover::after {
   content: none !important;
+}
+
+.predictive-search {
+  background-color: white !important;
+  border: none !important;
+  border-radius: 0.375rem !important;
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color) !important;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+}
+
+.predictive-search .icon.icon-arrow {
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+}
+
+a.predictive-search__item:after {
+  content: unset !important;
+}
+
+.predictive-search__list-item[aria-selected="true"] .predictive-search__item-heading,
+.predictive-search__list-item:hover .predictive-search__item-heading {
+  text-decoration: none !important;
+  position: relative
+}
+
+.predictive-search__list-item[aria-selected="true"] .predictive-search__item-heading::after, .predictive-search__list-item:hover .predictive-search__item-heading::after {
+  position: absolute;
+  left: 0px;
+  display: block;
+  width: 0px;
+  border-bottom-width: 1px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --tw-content: '';
+  content: var(--tw-content);
+}
+
+.predictive-search__list-item[aria-selected="true"] .predictive-search__item-heading:hover::after, .predictive-search__list-item:hover .predictive-search__item-heading:hover::after {
+  content: var(--tw-content);
+  width: 100%;
+}
+
+.predictive-search__list-item[aria-selected="true"] .predictive-search__item-heading:focus, .predictive-search__list-item:hover .predictive-search__item-heading:focus {
+  outline-width: 0px;
+}
+
+.predictive-search__list-item[aria-selected="true"] .predictive-search__item-heading:focus::after, .predictive-search__list-item:hover .predictive-search__item-heading:focus::after {
+  content: var(--tw-content);
+  width: 100%;
+}
+
+.template-search__search {
+  margin: 0px !important;
+  width: 100% !important;
+  max-width: unset !important;
 }
 
 .placeholder\:text-5xl::-moz-placeholder {
