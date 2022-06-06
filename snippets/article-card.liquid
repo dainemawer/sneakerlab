@@ -18,40 +18,57 @@
 
 {%- if article and article != empty -%}
     <article id="" class="" aria-label="{{ article.title }}">
-        <figure class="bg-light-gray relative overflow-hidden marquee-wrap rounded-lg ">
-            <a href="{{ article.url }}">
-                {% comment %}theme-check-disable{% endcomment %}
-                <img
-                    style="width: 760px; height: 567px;"
-                    class="object-cover"
-                    alt="{{ article.image.alt }}"
-                    src="{{ article.image | image_url }}"
-                    loading="lazy"
-                    decoding="async"
-                />
-                {% comment %}theme-check-enable{% endcomment %}
-            </a>
+        {% if article.image %}
+            <figure class="bg-light-gray relative overflow-hidden marquee-wrap rounded-lg ">
+                <a href="{{ article.url }}">
+                    {% comment %}theme-check-disable{% endcomment %}
+                    <img
+                        style="width: 760px; height: 567px;"
+                        class="object-cover"
+                        alt="{{ article.image.alt }}"
+                        src="{{ article.image | image_url }}"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    {% comment %}theme-check-enable{% endcomment %}
+                </a>
 
-            <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
-                <div class="inner relative w-full flex">
-                    <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [{{ article.title | truncate: 50 | escape }}]</p>
-                    <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [{{ article.title | truncate: 50 | escape }}]</p>
+                <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
+                    <div class="inner relative w-full flex">
+                        <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [{{ article.title | truncate: 50 | escape }}]</p>
+                        <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [{{ article.title | truncate: 50 | escape }}]</p>
+                    </div>
                 </div>
-            </div>
-        </figure>
-        <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ article.title | truncate: 50 | escape }}</h3>
+            </figure>
+        {% endif %}
+
+        <div>
+            <a href="{{ article.url }}">
+                <h3 class="inline-block uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">
+                    {{ article.title | truncate: 50 | escape }}
+                </h3>
+            </a>
+        </div>
+
         <div class="flex items-start justify-between">
-            <p class="uppercase text-sm max-w-[220px] lg:max-w-none">
+            <div class="uppercase text-sm max-w-[220px] lg:max-w-none">
                 {%- if show_date -%}
                     <span class="circle-divider">{{ article.published_at | time_tag: format: 'date' }}</span>
                 {%- endif -%}
-                {%- if show_author -%}
+                {%- if show_author and is_page != true -%}
                     <span>{{ article.author }}</span>
                 {%- endif -%}
-            </p>
+                {% if is_page == true %}
+                    <div class="">
+                        Page
+                    </div>
+                {% endif %}
+            </div>
             {%- if show_badge -%}
                 <div class="card__badge {{ settings.badge_position }}">
-                    <span class="badge color-background-1">{{ 'blogs.article.blog' | t }}</span>
+                    <span class="badge color-background-1">
+                        Article
+                    </span>
                 </div>
             {%- endif -%}
         </div>
