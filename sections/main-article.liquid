@@ -33,6 +33,7 @@
         {%- endif -%}
 
         {%- when 'title'-%}
+          {% comment %}
           <header class="page-width page-width--narrow" {{ block.shopify_attributes }}>
             <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
             {%- if block.settings.blog_show_date -%}
@@ -44,6 +45,13 @@
               </span>
             {%- endif -%}
           </header>
+          {% endcomment %}
+
+          <section class="col-span-12 max-w-[1200] mx-auto">
+            <h1 class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center mt-14 md:mt-20 mb-14 md:mb-28">
+              {{ article.title | escape }}
+            </h1>
+          </section>
 
         {%- when 'content'-%}
           <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{ block.shopify_attributes }}>
