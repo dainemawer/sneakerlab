@@ -805,12 +805,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 3.5rem;
 }
 
-.mb-40 {
-  margin-bottom: 10rem;
-}
-
 .mb-3 {
   margin-bottom: 0.75rem;
+}
+
+.mb-40 {
+  margin-bottom: 10rem;
 }
 
 .ml-2 {
@@ -1381,6 +1381,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
 }
 
 .pb-3 {
@@ -2199,6 +2203,31 @@ a.predictive-search__item:after {
   animation: load 1.1s infinite linear;
 }
 
+.article p {
+  padding-bottom: 1rem;
+}
+
+.article .article-subtitle p {
+  padding-bottom: 0;
+}
+
+.article .quote-paragraph p {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@media (min-width: 768px) {
+  .article .quote-paragraph p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.article .quote-paragraph p strong {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .placeholder\:text-5xl::-moz-placeholder {
   font-size: 3rem;
   line-height: 1;
@@ -2430,6 +2459,10 @@ a.predictive-search__item:after {
     grid-column: span 6 / span 6;
   }
 
+  .md\:float-right {
+    float: right;
+  }
+
   .md\:my-36 {
     margin-top: 9rem;
     margin-bottom: 9rem;
@@ -2491,6 +2524,10 @@ a.predictive-search__item:after {
     margin-bottom: 3rem;
   }
 
+  .md\:mb-5 {
+    margin-bottom: 1.25rem;
+  }
+
   .md\:mt-8 {
     margin-top: 2rem;
   }
@@ -2501,10 +2538,6 @@ a.predictive-search__item:after {
 
   .md\:mt-44 {
     margin-top: 11rem;
-  }
-
-  .md\:mb-5 {
-    margin-bottom: 1.25rem;
   }
 
   .md\:block {
@@ -2938,3 +2971,4 @@ a.predictive-search__item:after {
     flex-direction: row;
   }
 }
+
