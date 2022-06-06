@@ -22,6 +22,11 @@
             "small_paragraph": "<p>We are driven to CLEAN | CARE | PROTECT. We embody these core pillars to take care of you, your sneakers and the planet by creating products that merge nature with science through the use of biotechnology.<br\/><br\/>We keep cleaning in the most environmentally friendly and sustainable way possible. Our products are Global Green Tag certified, one of the world’s most trusted eco-labels. Our products are biodegradable, contain no harsh chemicals, non-hazardous and non-toxic, cruelty free and Vegan.<\/p>"
           }
         },
+        "fb6c1469-2d55-4714-9465-ee3c687595b1": {
+          "type": "two-image-grid",
+          "settings": {
+          }
+        },
         "3034096e-760c-4608-b6f1-61fe664c90d8": {
           "type": "quote-and-paragraph",
           "settings": {
@@ -45,6 +50,7 @@
         "title",
         "featured_image",
         "c799ce1e-b42a-4f56-945b-73daea841594",
+        "fb6c1469-2d55-4714-9465-ee3c687595b1",
         "3034096e-760c-4608-b6f1-61fe664c90d8",
         "content",
         "share"
