@@ -68,7 +68,7 @@
       {%- if settings.predictive_search_enabled -%}
         <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
       {%- endif -%}
-        <form action="{{ routes.search_url }}" method="get" role="search" class="search pt-20 pb-3 relative">
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search pb-3 relative">
           <div class="field">
             <input
                     autocomplete="off"
@@ -96,6 +96,12 @@
             <input name="options[prefix]" type="hidden" value="last">
 
             {%- if settings.predictive_search_enabled -%}
+              <style>
+                .spinner {
+                  animation: spin 500ms linear infinite;
+                  fill: black;
+                }
+              </style>
               <div class="predictive-search predictive-search--search-template" tabindex="-1" data-predictive-search>
                 <div class="predictive-search__loading-state">
                   <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -231,7 +237,7 @@
                     {%- assign lazy_load = true -%}
                   {%- endif -%}
 
-                  <div class="grid__item">
+                  <div class="">
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
                         {% render 'shop-card', product: item %}
@@ -242,7 +248,6 @@
                           show_date: section.settings.article_show_date,
                           show_author: section.settings.article_show_author,
                           show_badge: true,
-                          media_aspect_ratio: 1,
                           lazy_load: lazy_load
                         %}
                       {%- when 'page' -%}
@@ -257,8 +262,11 @@
                                   </h3>
                                 </div>
                                 <div class="card__badge {{ settings.badge_position }}">
-                                  <span class="badge color-background-1">{{ 'templates.search.page' | t }}</span>
+                                  <span class="badge color-background-1">
+                                    {{ 'templates.search.page' | t }}
+                                  </span>
                                 </div>
+                              </div>
                           </div>
                         </div>
                     {%- endcase -%}

@@ -1,4 +1,4 @@
-<article id="" class="" aria-label="Sneaker Wipes">
+<article id="" class="" aria-label="{{ product.title }}">
     <figure class="bg-light-gray relative overflow-hidden marquee-wrap rounded-lg ">
         <a href="{{ product.url }}">
             {% comment %}theme-check-disable{% endcomment %}
@@ -16,7 +16,7 @@
     </figure>
     <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ product.title }}</h3>
     <div class="flex items-start justify-between">
-        <p class="uppercase text-sm max-w-[220] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
+        <p class="uppercase text-sm max-w-[220px] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
         {% render 'new-price' product: card_product %}
     </div>
 </article>
