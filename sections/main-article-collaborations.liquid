@@ -18,24 +18,30 @@
                         {{ article.title | escape }}
                     </h1>
                 </header>
+                <div class="col-span-12 mx-auto w-full">
+                    <div class="flex items-center justify-between mb-5">
+                        <h2 class="uppercase text-xs md:text-sm">[&nbsp;&nbsp;Collaboration&nbsp;&nbsp;]</h2>
+                        <p class="uppercase text-xs md:text-sm">
+                            Article
+                            {%- if block.settings.blog_show_date -%}
+                                <time>
+                                    <span
+                                        class="circle-divider caption-with-letter-spacing"
+                                        itemprop="dateCreated pubdate datePublished"
+                                    >
+                                        {{ article.published_at | date: "%d.%m.%y" }}
+                                    </span>
+                                </time>
+                            {%- endif -%}
+                        </p>
+                    </div>
+                </div>
 
             <!-- Featured Image -->
             {%- when 'featured_image'-%}
                 {%- if article.image -%}
                     <figure class="col-span-12 mb-10 md:mb-16" itemprop="image">
-                        <div class="flex items-center justify-between mb-5">
-                            <h2 class="uppercase text-xs md:text-sm">[&nbsp;&nbsp;Collaboration&nbsp;&nbsp;]</h2>
-                            <p class="uppercase text-xs md:text-sm">
-                                Article
-                                {%- if block.settings.blog_show_date -%}
-                                    <time>
-                                        <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | date: "%d.%m.%y" }}</span>
-                                    </time>
-                                {%- endif -%}
-                            </p>
-                        </div>
                         {% comment %}<img class="rounded-lg" alt="{{ article.image.alt | escape }}" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />{% endcomment %}
-
                         <img
                             srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
                             {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
@@ -61,29 +67,7 @@
                             Play video
                         </a>
                     </figure>
-
-                {% else %}
-                    <figure class="col-span-12 mb-10 md:mb-16">
-                        <div class="flex items-center justify-between mb-5">
-                            <h2 class="uppercase text-xs md:text-sm">[&nbsp;&nbsp;Collaboration&nbsp;&nbsp;]</h2>
-                            <p class="uppercase text-xs md:text-sm">
-                                Article
-                                {%- if block.settings.blog_show_date -%}
-                                    <time>
-                                        <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated pubdate datePublished">{{ article.published_at | date: "%d.%m.%y" }}</span>
-                                    </time>
-                                {%- endif -%}
-                            </p>
-                        </div>
-                        <img class="rounded-lg object-cover" style="width: 1536px; height: 790px;" alt="SneakerLab Product 3" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />
-                        <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
-                            <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
-                            </svg>
-                            Play video
-                        </a>
-                    </figure>
-                {%- endif -%}
+                {% endif %}
 
             {%- when 'quote-section' -%}
                 {%- liquid
@@ -515,6 +499,49 @@
     {% endcomment %}
 </article>
 
+{% render 'modal' %}
+
+<script>
+    const CollaborationsFilter = () => {
+        const trigger = document.querySelector('[data-filter-trigger]');
+        const panel = document.getElementById('filter-dropdown');
+
+        trigger && trigger.addEventListener('click', () => {
+            if (!panel.classList.contains('filter-active')) {
+                trigger.innerHTML = 'Filter-'
+                trigger.setAttribute('aria-expanded', 'true')
+                panel.setAttribute('aria-hidden', 'false')
+                panel.classList.add('filter-active')
+            } else {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('mousedown', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+    }
+
+    CollaborationsFilter()
+</script>
+
 
 <script type="application/ld+json">
   {
@@ -755,46 +782,3 @@
   ]
 }
 {% endschema %}
-
-{% render 'modal' %}
-
-<script>
-    const CollaborationsFilter = () => {
-        const trigger = document.querySelector('[data-filter-trigger]');
-        const panel = document.getElementById('filter-dropdown');
-
-        trigger && trigger.addEventListener('click', () => {
-            if (!panel.classList.contains('filter-active')) {
-                trigger.innerHTML = 'Filter-'
-                trigger.setAttribute('aria-expanded', 'true')
-                panel.setAttribute('aria-hidden', 'false')
-                panel.classList.add('filter-active')
-            } else {
-                trigger.innerHTML = 'Filter+'
-                trigger.setAttribute('aria-expanded', 'false')
-                panel.setAttribute('aria-hidden', 'true')
-                panel.classList.remove('filter-active')
-            }
-        })
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                trigger.innerHTML = 'Filter+'
-                trigger.setAttribute('aria-expanded', 'false')
-                panel.setAttribute('aria-hidden', 'true')
-                panel.classList.remove('filter-active')
-            }
-        })
-
-        document.addEventListener('mousedown', (e) => {
-            if (!panel.contains(e.target) && e.target !== trigger) {
-                trigger.innerHTML = 'Filter+'
-                trigger.setAttribute('aria-expanded', 'false')
-                panel.setAttribute('aria-hidden', 'true')
-                panel.classList.remove('filter-active')
-            }
-        })
-    }
-
-    CollaborationsFilter()
-</script>

@@ -801,6 +801,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
 .mb-40 {
   margin-bottom: 10rem;
 }
@@ -823,10 +827,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-3 {
   margin-left: 0.75rem;
-}
-
-.mt-14 {
-  margin-top: 3.5rem;
 }
 
 .mt-11 {
@@ -1019,6 +1019,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[344px\] {
   max-width: 344px;
+}
+
+.max-w-\[1200px\] {
+  max-width: 1200px;
 }
 
 .max-w-\[412px\] {
