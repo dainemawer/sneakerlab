@@ -1,0 +1,126 @@
+{% comment %}
+    Renders markup for featured stories grid.
+{% endcomment %}
+
+<section class="xl:container xl:mx-auto mb-6">
+    <h2 class="uppercase text-sm mb-5">[ Featured Stories ]</h2>
+    <header class="relative flex justify-between items-center">
+        <button data-filter-trigger class="relative focus:opacity-50 hover:opacity-50 transition-all uppercase text-5xl" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
+
+        <a class="md:block button hidden rounded py-3 px-12 font-medium text-sm border border-silver hover:border-[#000] focus:border-[#000] transition-all" href="/blogs/stories">
+            View all stories
+        </a>
+
+        <div class="filter-dropdown absolute invisible opacity-0 pointer-events-none z-10 bg-[#fff]/70 backdrop-blur w-full left-0 p-5 -bottom-72" aria-hidden="true" id="filter-dropdown">
+            <ul>
+                <li class="text-5xl uppercase font-medium text-[#000]">
+                    <a role="button" class="filter-item hover:opacity-50 focus:opacity-50 transition-all" href="#all">
+                        All,
+                    </a>
+                </li>
+                <li class="text-5xl uppercase font-medium text-[#818181]">
+                    <a role="button" class="filter-item hover:opacity-50 focus:opacity-50 transition-all" href="#sneaker-care">
+                        Articles,
+                    </a>
+                </li>
+                <li class="text-5xl uppercase font-medium text-[#818181]">
+                    <a role="button" class="filter-item hover:opacity-50 focus:opacity-50 transition-all" href="#hat-care">
+                        Interviews,
+                    </a>
+                </li>
+                <li class="text-5xl uppercase font-medium text-[#818181]">
+                    <a role="button" class="filter-item hover:opacity-50 focus:opacity-50 transition-all" href="#sneaker-care">
+                        Videos
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    {% comment %}theme-check-disable{% endcomment %}
+    {%- liquid
+        assign blogs = blogs['stories'].articles | limit: 4
+    %}
+    {% comment %}theme-check-enable{% endcomment %}
+    {% for article in blogs %}
+        {%- liquid
+            assign modulus = forloop.index | modulo: 2
+        %}
+        {% if modulus == 1 %}
+            <div class="grid md:grid-cols-2 gap-4 mb-6 mt-6 border-silver border-t pt-6">
+        {% endif %}
+            <article class="flex flex-row ">
+                <figure class="basis-3/6">
+                    <a class="thumbnail" href="{{ article.url }}">
+                        {% if article.image %}
+                            <img class="rounded-lg" alt="{{ article.image.alt }}" src="{{ article.image | image_url: width: '372px', height: '263px' }}" width="372" height="263" decoding="async" loading="lazy" />
+                        {% else %}
+                            <img class="rounded-lg" alt="Featured Story 1" src="{{ '372x263.jpg' | asset_url }}" width="372" height="263" decoding="async" loading="lazy" />
+                        {% endif %}
+                    </a>
+                </figure>
+                <div class="ml-4 basis-3/6 relative">
+                    <h3 class="uppercase text-lg xs:text-xl leading-none lg:text-2xl xl:text-3xl md:max-w-[344]">
+                        {{ article.title }}
+                    </h3>
+                    <div class="absolute left-0 bottom-0 xs:flex w-full justify-between xl:justify-start">
+                        <span class="text-xs xs:text-sm block uppercase font-semibold">Article</span>
+                        <time class="text-xs xs:text-sm block xs:ml-2 uppercase">[ {{ article.published_at | date: format: 'abbreviated_date' }} ]</time>
+                    </div>
+                </div>
+            </article>
+        {% if modulus == 0 %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <a class="inline-block md:hidden rounded py-3 px-12 font-medium text-sm border border-silver" href="/stories">
+        View all stories
+    </a>
+</section>
+
+<script>
+    const FeaturedStoriesFilter = () => {
+        const trigger = document.querySelector('[data-filter-trigger]');
+        const panel = document.getElementById('filter-dropdown');
+
+        trigger && trigger.addEventListener('click', () => {
+            if (!panel.classList.contains('filter-active')) {
+                trigger.innerHTML = 'Filter-'
+                trigger.setAttribute('aria-expanded', 'true')
+                panel.setAttribute('aria-hidden', 'false')
+                panel.classList.add('filter-active')
+            } else {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('mousedown', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+    }
+
+    FeaturedStoriesFilter()
+</script>
+
+{% schema %}
+{
+  "name": "Featured Stories"
+}
+{% endschema %}

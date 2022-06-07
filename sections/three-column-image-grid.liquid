@@ -1,0 +1,66 @@
+{% comment %}
+    Three up component - Three Image grid layout on home page
+{% endcomment %}
+
+<section class="flex justify-between flex-col tn:flex-row">
+    {% for block in section.blocks %}
+        <article class="mb-6 tn:mb-0 tn:mr-2">
+            <figure class="relative overflow-hidden marquee-wrap">
+                <a href="{{ block.settings.link }}">
+                    {% if block.settings.image %}
+                        {% comment %}theme-check-disable{% endcomment %}
+                        <img src="{{ block.settings.image | image_url: width: 520, height: 712 }}" alt="{{ block.settings.image.alt }}" class="rounded-lg" decoding="async" loading="lazy" />
+                        {% comment %}theme-check-enable{% endcomment %}
+                    {% else %}
+                        <img class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" loading="lazy" />
+                    {% endif %}
+                </a>
+                <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">
+                    <div class="inner relative w-full flex">
+                        <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
+                            {{ block.settings.hover_text }}
+                        </p>
+                    </div>
+                </div>
+            </figure>
+            <h2 class="uppercase tracking-tighter text-xl xl:text-3xl leading-none max-w-[438px] mt-3">
+                {{ block.settings.title }}
+            </h2>
+        </article>
+    {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "Three Up Image Grid",
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image with link & title",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title underneath image"
+        },
+        {
+          "id": "link",
+          "type": "url",
+          "label": "URL link"
+        },
+        {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        },
+        {
+          "id": "hover_text",
+          "type": "text",
+          "label": "Hover text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

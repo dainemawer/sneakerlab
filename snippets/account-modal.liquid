@@ -5,7 +5,7 @@
     {% render 'account-modal' %}
 {% endcomment %}
 
-<div class="absolute p-6 z-20 rounded-tr-lg rounded-bl-lg right-4 top-4 w-full max-w-[385px] invisible opacity-0 bg-[#fff] pointer-events-none" id="account-modal" aria-hidden="true">
+<div class="absolute p-6 z-20 rounded-tr-lg rounded-bl-lg right-4 top-4 w-full max-w-[385px] invisible opacity-0 bg-[#fff] pointer-events-none hidden" id="account-modal" aria-hidden="true">
     <div class="relative">
         <p class="uppercase text-sm mb-6 text-[#000]">[&nbsp;&nbsp;Account&nbsp;&nbsp;]</p>
         <span class="bg-concrete absolute z-0 py-1 px-1 rounded-3xl w-[147px] h-[33px] left-[-5px] top-[41px]"></span>
@@ -28,10 +28,12 @@
     const QuickAccount = () => {
         const trigger = document.querySelector('[data-id="js-account-trigger"]')
         const panel = document.getElementById('account-modal')
+        // const loggedIn = trigger.getAttribute('data-logged-in');
 
         // Handle Click Event
         trigger && trigger.addEventListener('click', (e) => {
-            e.preventDefault()
+            e.preventDefault();
+
             if (!panel.classList.contains('account-active')) {
                 panel.classList.add('account-active')
                 document.body.classList.add('overlay-active')
@@ -66,4 +68,34 @@
     }
 
     QuickAccount()
+
+    function loginFormScript() {
+        document.addEventListener('DOMContentLoaded', function () {
+            const recover = document.getElementById('recover_password_form');
+            const loginFormInputs = document.getElementById('login_form_inputs');
+
+            const lostPasswordLink = document.getElementById('lost_password_link');
+            const cancelRecoverLink = document.getElementById('cancel_recover');
+            const signUpLink = document.getElementById('tab2');
+            const lostPasswordSubmit = document.getElementById('lost_password_submit');
+
+            function addHideRecoverListener(element) {
+                element.addEventListener('click', function () {
+                    recover.classList.add('hidden');
+                    loginFormInputs.classList.remove('hidden');
+                });
+            }
+
+            lostPasswordLink.addEventListener('click', function () {
+                recover.classList.remove('hidden');
+                loginFormInputs.classList.add('hidden');
+            });
+
+            addHideRecoverListener(cancelRecoverLink)
+            addHideRecoverListener(signUpLink)
+            // addHideRecoverListener(lostPasswordSubmit)
+        });
+    }
+
+    loginFormScript()
 </script>

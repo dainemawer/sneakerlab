@@ -1,4 +1,5 @@
 {
+  "layout": "old-layout",
   "sections": {
     "banner": {
       "type": "main-collection-banner",

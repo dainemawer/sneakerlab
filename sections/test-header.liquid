@@ -1,6 +1,9 @@
 {% comment %}
     Adding section for Sneaker Lab header
 {% endcomment %}
+<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}</noscript>
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
 <a class="sr-only focus:not-sr-only" href="#main-content">Skip to Main Content</a>
 <header aria-label="Site Header" role="banner" class="sticky bg-transparent z-10 top-[-1px] py-3 transition-all">
@@ -10,9 +13,9 @@
                 <li class="inline-block text-sm lg:hidden">
                     <a id="mobile-navigation-trigger" aria-controls="mobile-navigation" aria-expanded="false" href="#mobile-navigation" role="button">Menu</a>
                 </li>
-                <li class="mr-6 hidden text-sm lg:inline-block"><a href="../pages/shop.html">Shop</a></li>
+                <li class="mr-6 hidden text-sm lg:inline-block"><a href="/collections/shop">Shop</a></li>
                 <li class="mr-6 text-sm hidden lg:inline-block"><a href="../pages/how-to.html">How To</a></li>
-                <li class="text-sm hidden lg:inline-block"><a href="../pages/collaboration.html">Collaborations</a></li>
+                <li class="text-sm hidden lg:inline-block"><a href="/blogs/collaborations/">Collaborations</a></li>
             </ul>
         </nav>
         <div class="flex justify-center basis-2/6">
@@ -49,10 +52,40 @@
                         </svg>
                     </a>
                 </li>
-                <li class="mr-6 text-sm hidden lg:inline-block"><a data-id="js-account-trigger" aria-expanded="false" aria-controls="account-modal" role="button" href="#account">Account</a></li>
+                <li class="mr-6 text-sm hidden lg:inline-block">
+                    {%- if customer -%}
+                        <a
+                            aria-expanded="false"
+                            aria-controls="account-modal"
+                            role="button"
+                            data-logged-in="{%- if customer -%}true{%- else -%}false{%- endif -%}"
+                            href="{{ routes.account_url }}"
+                        >
+                            My Account
+                        </a>
+                    {%- else -%}
+                        <a
+                            data-id="js-account-trigger"
+                            aria-expanded="false"
+                            aria-controls="account-modal"
+                            role="button"
+                            data-logged-in="{%- if customer -%}true{%- else -%}false{%- endif -%}"
+                        >
+                            Account
+                        </a>
+                    {%- endif -%}
+                </li>
                 <li class="text-sm">
-                    <a href="../pages/cart.html" role="button">
-                        Cart<sup id="cart-count">0</sup>
+                    <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+                        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+                        {%- if cart != empty -%}
+                            <div class="cart-count-bubble">
+                                {%- if cart.item_count < 300 -%}
+                                    <span aria-hidden="true">Cart<sup id="cart-count">{{ cart.item_count }}</sup></span>
+                                {%- endif -%}
+                                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                            </div>
+                        {%- endif -%}
                     </a>
                 </li>
             </ul>
@@ -64,3 +97,5 @@
     {% render 'header-navigation' %}
     {% render 'account-modal' %}
 </header>
+
+{%- render 'cart-notification' -%}

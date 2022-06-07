@@ -1,0 +1,784 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+<article class="grid gap-2 grid-cols-12 mb-20 md:mb-36" itemscope itemtype="http://schema.org/BlogPosting">
+
+    {%- for block in section.blocks -%}
+        <!-- Render blocks -->
+        {%- case block.type -%}
+            {%- when '@app' -%}
+                <div class="page-width page-width--narrow">
+                    {% render block %}
+                </div>
+
+            {%- when 'title'-%}
+                <header {{ block.shopify_attributes }} class="col-span-12 max-w-[621px] mx-auto">
+                    <h1
+                        itemprop="headline"
+                        class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center md:text-center mt-20 mb-14 md:mb-28">
+                        {{ article.title | escape }}
+                    </h1>
+                </header>
+                <div class="col-span-12 mx-auto w-full">
+                    <div class="flex items-center justify-between mb-5">
+                        <h2 class="uppercase text-xs md:text-sm">[&nbsp;&nbsp;Collaboration&nbsp;&nbsp;]</h2>
+                        <p class="uppercase text-xs md:text-sm">
+                            Article
+                            {%- if block.settings.blog_show_date -%}
+                                <time>
+                                    <span
+                                        class="circle-divider caption-with-letter-spacing"
+                                        itemprop="dateCreated pubdate datePublished"
+                                    >
+                                        {{ article.published_at | date: "%d.%m.%y" }}
+                                    </span>
+                                </time>
+                            {%- endif -%}
+                        </p>
+                    </div>
+                </div>
+
+            <!-- Featured Image -->
+            {%- when 'featured_image'-%}
+                {%- if article.image -%}
+                    <figure class="col-span-12 mb-10 md:mb-16" itemprop="image">
+                        {% comment %}<img class="rounded-lg" alt="{{ article.image.alt | escape }}" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />{% endcomment %}
+                        <img
+                            srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                            {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                            {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                            {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                            {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                            {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                            {{ article.image | image_url }} {{ article.image.width }}w"
+                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                            src="{{ article.image | image_url: width: 1500 }}"
+                            loading="lazy"
+                            decoding="async"
+                            class="rounded-lg object-cover"
+                            style="width: 1536px; height: 790px;"
+                            width="{{ article.image.width }}"
+                            height="{{ article.image.height }}"
+                            alt="{{ article.image.alt | escape }}"
+                        >
+                        <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
+                            <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
+                            </svg>
+                            Play video
+                        </a>
+                    </figure>
+                {% endif %}
+
+            {%- when 'quote-section' -%}
+                {%- liquid
+                    if block.id == 'quote-section-2'
+                        assign class = 'max-w-[344px]'
+                    else
+                        assign class = ''
+                    endif
+                %}
+
+                <div class="col-span-12 md:col-span-6 mb-5 md:mb-12">
+                    <div class="text-xl md:text-3xl {{ class }}">
+                        {{ block.settings.quote_paragraph | raw }}
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 mb-8 md:mb-12">
+                    <div class="text-xs md:text-sm max-w-[344px] text-left md:text-right float-right">
+                        {{ block.settings.small_paragraph | raw }}
+                    </div>
+                </div>
+
+            {%- when 'two-image-grid' -%}
+                <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
+                    {% if block.settings.left_image %}
+                        <img
+                            class="rounded-lg object-cover"
+                            style="width: 740px; height: 740px;"
+                            alt="{{ block.settings.left_image.alt }}"
+                            src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}"
+                            width="740"
+                            height="740"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    {% else %}
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
+                             loading="lazy" decoding="async" />
+                    {% endif %}
+                </div>
+                <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
+                    {% if block.settings.right_image %}
+                        <img
+                                class="rounded-lg object-cover"
+                                style="width: 740px; height: 740px;"
+                                alt="{{ block.settings.left_image.alt }}"
+                                src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}"
+                                width="740"
+                                height="740"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                    {% else %}
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
+                             loading="lazy" decoding="async" />
+                    {% endif %}
+                </div>
+
+            {% when 'four-tile-grid' %}
+                <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
+                    <div class="grid gap-2 grid-cols-2">
+                        {% if block.settings.left_grid_image_1 %}
+                            <img
+                                    class="rounded-lg object-cover"
+                                    style="width: 370px; height: 368px;"
+                                    alt="{{ block.settings.left_grid_image_1.alt }}"
+                                    src="{{ block.settings.left_grid_image_1 | image_url: width: 370, height: 368 }}"
+                                    width="370"
+                                    height="368"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
+                                 loading="lazy" decoding="async" />
+                         {% endif %}
+                        {% if block.settings.left_grid_image_2 %}
+                            <img
+                                    class="rounded-lg object-cover"
+                                    style="width: 370px; height: 368px;"
+                                    alt="{{ block.settings.left_grid_image_2.alt }}"
+                                    src="{{ block.settings.left_grid_image_2 | image_url: width: 370, height: 368 }}"
+                                    width="370"
+                                    height="368"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
+                                 loading="lazy" decoding="async" />
+                        {% endif %}
+                        {% if block.settings.left_grid_image_3 %}
+                            <img
+                                    class="rounded-lg object-cover"
+                                    style="width: 370px; height: 368px;"
+                                    alt="{{ block.settings.left_grid_image_3.alt }}"
+                                    src="{{ block.settings.left_grid_image_3 | image_url: width: 370, height: 368 }}"
+                                    width="370"
+                                    height="368"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
+                                 loading="lazy" decoding="async" />
+                        {% endif %}
+                        {% if block.settings.left_grid_image_4 %}
+                            <img
+                                    class="rounded-lg object-cover"
+                                    style="width: 370px; height: 368px;"
+                                    alt="{{ block.settings.left_grid_image_4.alt }}"
+                                    src="{{ block.settings.left_grid_image_4 | image_url: width: 370, height: 368 }}"
+                                    width="370"
+                                    height="368"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async" />
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 mb-12">
+                    {% if block.settings.right_image %}
+                        <img
+                                class="rounded-lg object-cover"
+                                style="width: 740px; height: 744px;"
+                                alt="{{ block.settings.right_image.alt }}"
+                                src="{{ block.settings.right_image | image_url: width: 740, height: 744 }}"
+                                width="740"
+                                height="744"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                    {% else %}
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
+                             loading="lazy" decoding="async" />
+                    {% endif %}
+                </div>
+
+            {% when 'featured-section' %}
+                <div class="col-span-12 mb-8 md:mb-12">
+                    <h3 class="uppercase tracking-tighter font-medium text-4xl md:text-7xl md:max-w-[1048px]">
+                        {% if block.settings.title %}
+                            {{ block.settings.title }}
+                        {% endif %}
+                        Big shout out to Skate Moss, Briana King, Jennifer Charlene and the rest of the DC skate team.
+                    </h3>
+                </div>
+
+                <div class="hidden md:block md:col-span-3 mb-12"></div>
+                <div class="col-span-12 md:col-span-9 mb-12">
+                    <p class="text-xs md:text-sm max-w-[344px] mb-16 md:mb-10">
+                        {% if block.settings.paragraph %}
+                            {{ block.settings.paragraph }}
+                        {% endif %}
+                        We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to Skate Moss,
+                        Briana King,
+                        Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.
+                    </p>
+
+                    {% if block.settings.featured_image %}
+                        <img
+                            class="rounded-lg mb-2"
+                            alt="{{ block.settings.featured_image.alt }}"
+                            src="{{ block.settings.featured_image | image_url: width: 1120, height: 1048 }}"
+                            width="1120"
+                            height="1048"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    {% else %}
+                        <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '1120x1048.jpg' | asset_url }}" width="1120" height="1048"
+                             loading="lazy" decoding="async" />
+                    {% endif %}
+
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        {% if block.settings.left_image %}
+                            <img
+                                class="rounded-lg mb-2"
+                                style="width: 370px; height: 370px;"
+                                alt="{{ block.settings.left_image.alt }}"
+                                src="{{ block.settings.left_image | image_url: width: 370, height: 370 }}"
+                                width="370"
+                                height="370"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async" />
+                        {% endif %}
+                        {% if block.settings.right_image %}
+                            <img
+                                    class="rounded-lg mb-2"
+                                    alt="{{ block.settings.right_image.alt }}"
+                                    src="{{ block.settings.right_image | image_url: width: 370, height: 370 }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% else %}
+                            <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async" />
+                        {% endif %}
+                    </div>
+                </div>
+
+            {% when 'social' %}
+                <div class="col-span-12 md:col-span-3">
+                    <p class="uppercase text-xs md:text-sm">[&nbsp;&nbsp;Follow&nbsp;&nbsp;]</p>
+                </div>
+                <div class="col-span-12 md:col-span-9">
+                    <p class="text-xl md:text-3xl md:max-w-[696px]">
+                        {{ block.settings.social_html }}
+                    </p>
+                </div>
+
+            {% comment %}
+            {%- when 'content'-%}
+                <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{ block.shopify_attributes }}>
+                    {{ article.content }}
+                </div>
+
+            {%- when 'share' -%}
+                <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
+                    <share-button class="share-button" {{ block.shopify_attributes }}>
+                        <button class="share-button__button hidden">
+                            {% render 'icon-share' %}
+                            {{ block.settings.share_label | escape }}
+                        </button>
+                        <details id="Details-{{ block.id }}-{{ section.id }}">
+                            <summary class="share-button__button">
+                                {% render 'icon-share' %}
+                                {{ block.settings.share_label | escape }}
+                            </summary>
+                            <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
+                                <div class="field">
+                                    <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
+                                    </span>
+                                    <input type="text"
+                                           class="field__input"
+                                           id="url"
+                                           value="{{ request.origin | append: article.url }}"
+                                           placeholder="{{ 'general.share.share_url' | t }}"
+                                           onclick="this.select();"
+                                           readonly
+                                    >
+                                    <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
+                                </div>
+                                <button class="share-button__close hidden no-js-hidden">
+                                    {% render 'icon-close' %}
+                                    <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
+                                </button>
+                                <button class="share-button__copy no-js-hidden">
+                                    {% render 'icon-clipboard' %}
+                                    <span class="visually-hidden">{{ 'general.share.copy_to_clipboard' | t }}</span>
+                                </button>
+                            </div>
+                        </details>
+                    </share-button>
+                    <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+                </div>
+                {% endcomment %}
+        {%- endcase -%}
+    {%- endfor -%}
+
+
+    <!-- Back Button -->
+    {% comment %}
+    <div class="article-template__back element-margin-top center">
+        <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
+            <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+            {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
+        </a>
+    </div>
+    {% endcomment %}
+
+    {% comment %}
+    {%- if blog.comments_enabled? -%}
+        <div class="article-template__comment-wrapper background-secondary">
+            <div id="comments" class="page-width page-width--narrow">
+                {%- if article.comments_count > 0 -%}
+                    {%- assign anchorId = '#Comments-' | append: article.id -%}
+
+                    <h2 id="Comments-{{ article.id }}" tabindex="-1">{{ 'blogs.article.comments' | t: count: article.comments_count }}</h2>
+                    {% paginate article.comments by 5 %}
+                        <div class="article-template__comments">
+                            {%- if comment.status == 'pending' and comment.content -%}
+                                <article id="{{ comment.id }}" class="article-template__comments-comment">
+                                    {{ comment.content }}
+                                    <footer class="right">
+                                        <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span>
+                                    </footer>
+                                </article>
+                            {%- endif -%}
+
+                            {%- for comment in article.comments -%}
+                                <article id="{{ comment.id }}" class="article-template__comments-comment">
+                                    {{ comment.content }}
+                                    <footer class="right">
+                                        <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span><span class="caption-with-letter-spacing">{{ comment.created_at | time_tag: format: 'date' }}</span>
+                                    </footer>
+                                </article>
+                            {%- endfor -%}
+                            {% render 'pagination', paginate: paginate, anchor: anchorId %}
+                        </div>
+                    {% endpaginate %}
+                {%- endif -%}
+                {% form 'new_comment', article %}
+                    {%- liquid
+                        assign post_message = 'blogs.article.success'
+                        if blog.moderated? and comment.status == 'unapproved'
+                            assign post_message = 'blogs.article.success_moderated'
+                        endif
+                    -%}
+                    <h2>{{ 'blogs.article.comment_form_title' | t }}</h2>
+                    {%- if form.errors -%}
+                        <div class="form__message" role="alert">
+                            <h3 class="form-status caption-large text-body" tabindex="-1" autofocus>
+                                {% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}
+                            </h3>
+                        </div>
+                        <ul class="form-status-list caption-large">
+                            {%- for field in form.errors -%}
+                                <li>
+                                    <a href="#CommentForm-{{ field }}" class="link">
+                                        {%- if form.errors.translated_fields[field] contains 'author' -%}
+                                            {{ 'blogs.article.name' | t }}
+                                        {%- elsif form.errors.translated_fields[field] contains 'body'-%}
+                                            {{ 'blogs.article.message' | t }}
+                                        {%- else -%}
+                                            {{ form.errors.translated_fields[field] }}
+                                        {%- endif -%}
+                                        {{ form.errors.messages[field] }}
+                                    </a>
+                                </li>
+                            {%- endfor -%}
+                        </ul>
+                    {%- elsif form.posted_successfully? -%}
+                        <div class="form-status-list form__message" role="status">
+                            <h3 class="form-status" tabindex="-1" autofocus>{% render 'icon-success' %} {{ post_message | t }}</h3>
+                        </div>
+                    {%- endif -%}
+
+                    <div{% if blog.moderated? == false %} class="article-template__comments-fields"{% endif %}>
+                        <div class="article-template__comment-fields">
+                            <div class="field field--with-error">
+                                <input
+                                        type="text"
+                                        name="comment[author]"
+                                        id="CommentForm-author"
+                                        class="field__input"
+                                        autocomplete="name"
+                                        value="{{ form.author }}"
+                                        aria-required="true"
+                                        required
+                                        {% if form.errors contains 'author' %}
+                                            aria-invalid="true"
+                                            aria-describedby="CommentForm-author-error"
+                                        {% endif %}
+                                        placeholder="{{ 'blogs.article.name' | t }}"
+                                >
+                                <label class="field__label" for="CommentForm-author">{{ 'blogs.article.name' | t }} <span aria-hidden="true">*</span></label>
+                                {%- if form.errors contains 'author' -%}
+                                    <small id="CommentForm-author-error">
+                                        <span class="form__message">{% render 'icon-error' %}{{ 'blogs.article.name' | t }} {{ form.errors.messages['author'] }}.</span>
+                                    </small>
+                                {%- endif -%}
+                            </div>
+                            <div class="field field--with-error">
+                                <input
+                                        type="email"
+                                        name="comment[email]"
+                                        id="CommentForm-email"
+                                        autocomplete="email"
+                                        class="field__input"
+                                        value="{{ form.email }}"
+                                        autocorrect="off"
+                                        autocapitalize="off"
+                                        aria-required="true"
+                                        required
+                                        {% if form.errors contains 'email' %}
+                                            aria-invalid="true"
+                                            aria-describedby="CommentForm-email-error"
+                                        {% endif %}
+                                        placeholder="{{ 'blogs.article.email' | t }}"
+                                >
+                                <label class="field__label" for="CommentForm-email">{{ 'blogs.article.email' | t }} <span aria-hidden="true">*</span></label>
+                                {%- if form.errors contains 'email' -%}
+                                    <small id="CommentForm-email-error">
+                                        <span class="form__message">{% render 'icon-error' %}{{ 'blogs.article.email' | t }} {{ form.errors.messages['email'] }}.</span>
+                                    </small>
+                                {%- endif -%}
+                            </div>
+                        </div>
+                        <div class="field field--with-error">
+              <textarea
+                      rows="5"
+                      name="comment[body]"
+                      id="CommentForm-body"
+                      class="text-area field__input"
+                      aria-required="true"
+                      required
+                {% if form.errors contains 'body' %}
+                    aria-invalid="true"
+                    aria-describedby="CommentForm-body-error"
+                {% endif %}
+                placeholder="{{ 'blogs.article.message' | t }}"
+              >{{ form.body }}</textarea>
+                            <label class="form__label field__label" for="CommentForm-body">{{ 'blogs.article.message' | t }} <span aria-hidden="true">*</span></label>
+                        </div>
+                        {%- if form.errors contains 'body' -%}
+                            <small id="CommentForm-body-error">
+                                <span class="form__message">{% render 'icon-error' %}{{ 'blogs.article.message' | t }} {{ form.errors.messages['body'] }}.</span>
+                            </small>
+                        {%- endif -%}
+                    </div>
+                    {%- if blog.moderated? -%}
+                        <p class="article-template__comment-warning caption">{{ 'blogs.article.moderated' | t }}</p>
+                    {%- endif -%}
+                    <input type="submit" class="button" value="{{ 'blogs.article.post' | t }}">
+                {% endform %}
+            </div>
+        </div>
+    {%- endif -%}
+    {% endcomment %}
+</article>
+
+{% render 'modal' %}
+
+<script>
+    const CollaborationsFilter = () => {
+        const trigger = document.querySelector('[data-filter-trigger]');
+        const panel = document.getElementById('filter-dropdown');
+
+        trigger && trigger.addEventListener('click', () => {
+            if (!panel.classList.contains('filter-active')) {
+                trigger.innerHTML = 'Filter-'
+                trigger.setAttribute('aria-expanded', 'true')
+                panel.setAttribute('aria-hidden', 'false')
+                panel.classList.add('filter-active')
+            } else {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('mousedown', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+    }
+
+    CollaborationsFilter()
+</script>
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+      "image": [
+        {{ article | image_url: width: article.image.width | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      {% if settings.share_image %}
+        "logo": {
+          "@type": "ImageObject",
+          "height": {{ settings.share_image.height | json }},
+          "url": {{ settings.share_image | image_url: width: settings.share_image.width | prepend: "https:" | json }},
+          "width": {{ settings.share_image.width | json }}
+        },
+      {% endif %}
+      "name": {{ shop.name | json }}
+    }
+  }
+</script>
+
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
+    },
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "select",
+          "id": "image_height",
+          "options": [
+            {
+              "value": "adapt",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+            }
+          ],
+          "default": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label",
+          "info": "t:sections.main-article.blocks.featured_image.settings.image_height.info"
+        }
+      ]
+    },
+    {
+      "type": "quote-section",
+      "name": "Quote Section",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote_paragraph",
+          "label": "Quote Paragraph Text (Larger Text)"
+        },
+        {
+          "type": "richtext",
+          "id": "small_paragraph",
+          "label": "Smaller Paragraph"
+        }
+      ]
+    },
+    {
+      "type": "two-image-grid",
+      "name": "Two Image Grid",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "left_image",
+          "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "right_image",
+          "label": "Right Image (Below on mobile)"
+        }
+      ]
+    },
+    {
+      "type": "four-tile-grid",
+      "name": "Four Tile Grid",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "left_grid_image_1",
+          "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_grid_image_2",
+          "label": "Left Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_grid_image_3",
+          "label": "Left Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_grid_image_4",
+          "label": "Left Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "right_image",
+          "label": "Right Image (Below on mobile)"
+        }
+      ]
+    },
+    {
+      "type": "featured-section",
+      "name": "Featured Section",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "type": "image_picker",
+          "id": "featured_image",
+          "label": "Featured Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "left_image",
+          "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "right_image",
+          "label": "Right Image"
+        }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "Social",
+      "limit": 1,
+      "settings": [
+        {
+            "type": "html",
+            "id": "social_html",
+            "label": "Social HTML"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-article.blocks.share.settings.text.label",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.title_info.content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

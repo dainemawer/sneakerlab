@@ -11,4 +11,4 @@ jobs:
         with:
           theme_root: '.' # optional, could be './dist'
           token: ${{ github.token }}
-          base: main
+          base: trunk

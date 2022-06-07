@@ -1,0 +1,85 @@
+<div class="hidden w-full sticky top-20 rounded-lg p-2 shadow-lg bg-[#fff] lg:flex items-center justify-between" id="add-to-cart-sticky" aria-hidden="true">
+    <div class="flex items-center">
+        <figure class="bg-light-gray rounded-md py-2 px-4">
+            {% comment %}theme-check-disable{% endcomment %}
+            <img
+                style="width: 38px; height: 38px;"
+                class="object-contain"
+                width="38"
+                height="38"
+                alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
+                loading="lazy"
+                decoding="async"
+            />
+            {% comment %}theme-check-enable{% endcomment %}
+        </figure>
+        <p class="uppercase text-xs pl-3 font-medium relative after:content-[''] after:block after:absolute pr-4 after:h-[38px] after:top-[-10px] after:bottom-0 after:w-[1px] after:right-0 after:bg-silver">
+            {{ product.title }}
+        </p>
+
+        {% render 'add-to-cart-sticky-price', product: product %}
+    </div>
+    <div class="flex">
+        <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
+            <quantity-input class="quantity flex relative border border-silver rounded p-[1px]">
+                <button class="quantity__button no-js-hidden absolute left-0 w-10 h-10 hover:opacity-50 focus:opacity-50 transition-all" name="minus" type="button">
+                    <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
+                    -
+                </button>
+                <input class="text-center max-w-[100px] block my-0 mx-auto p-2 box-border"
+                       type="number"
+                       name="quantity"
+                       id="Quantity-{{ section.id }}"
+                       min="1"
+                       value="1"
+                       form="sticky-add-to-cart"
+                >
+                <button class="quantity__button no-js-hidden absolute hover:opacity-50 focus:opacity-50 transition-all right-0 w-10 h-10" name="plus" type="button">
+                    <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
+                    +
+                </button>
+            </quantity-input>
+        </div>
+
+        <product-form class="product-form  ml-3">
+            <div class="product-form__error-message-wrapper" role="alert" hidden>
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
+                    <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+                    <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+                    <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+                    <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+                </svg>
+                <span class="product-form__error-message"></span>
+            </div>
+
+            {%- form 'product', product, id: 'sticky-add-to-cart', class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+                <div class="product-form__buttons">
+                    <button
+                            type="submit"
+                            name="add"
+                            class="product-form__submit bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-6 rounded w-full hover:bg-forest-green"
+                            {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+                    >
+                      <span>
+                        {%- if product.selected_or_first_available_variant.available -%}
+                            {{ 'products.product.add_to_cart' | t }}
+                        {%- else -%}
+                            {{ 'products.product.sold_out' | t }}
+                        {%- endif -%}
+                      </span>
+                        <div class="loading-overlay__spinner hidden">
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                        </div>
+                    </button>
+                    {%- if block.settings.show_dynamic_checkout -%}
+                        {{ form | payment_button }}
+                    {%- endif -%}
+                </div>
+            {%- endform -%}
+        </product-form>
+    </div>
+</div>
+

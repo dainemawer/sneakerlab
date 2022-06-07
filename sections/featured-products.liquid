@@ -1,0 +1,50 @@
+{% comment %}
+    Renders the featured products block
+{% endcomment %}
+
+<h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[480px] xl:max-w-[900px] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">
+    Shop our advanced environmentally friendly products
+</h3>
+
+<section class="xl:container xl:mx-auto">
+    {% comment %}{{ section.settings.featured_products | json }}{% endcomment %}
+
+    <h2 class="uppercase text-sm mb-5">[ Featured Products <sup>{{ section.settings.featured_products.count | prepend: '00' | slice: -2, 2 }}</sup> ]</h2>
+    <div class="grid md:grid-cols-2 gap-4 mb-12 md:mb-16">
+
+        {% for product in section.settings.featured_products %}
+            <article>
+                <figure class="bg-light-gray rounded-lg">
+                    <a class="thumbnail" href="/products/{{ product.handle }}/">
+                        {% comment %}theme-check-disable{% endcomment %}
+                        <img style="width: 760px; height: 567px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
+                         loading="lazy" decoding="async" />
+                        {% comment %}theme-check-enable{% endcomment %}
+                    </a>
+                </figure>
+                <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ product.title }}</h3>
+                <div class="flex items-start justify-between">
+                    {% comment %} TODO: Add variations for products such as sneaker wipes {% endcomment %}
+                    <p class="uppercase text-sm max-w-[220] lg:max-w-none">Product Description / Snippet / Custom Meta field</p>
+                    <p class="uppercase text-sm">{{ cart.currency.symbol }}{{ product.price | money_without_currency }}</p>
+                </div>
+            </article>
+
+        {% endfor %}
+    </div>
+    <p class="text-left md:text-center uppercase text-xl md:text-2xl lg:text-3xl"><a href="/collections/all/">Shop All</a></p>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "featured_products",
+      "label": "Featured Products",
+      "limit": 4
+    }
+  ]
+}
+{% endschema %}

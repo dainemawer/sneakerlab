@@ -2,22 +2,163 @@
     Newsletter snippet
 {% endcomment %}
 
-<form aria-label="Newsletter Sign Up" role="form" method="" action="" class="lg:col-span-6 col-span-12 mb-20 xl:mb-0 max-w-[344px]">
+<form aria-label="Newsletter Sign Up" role="form" class="lg:col-span-6 col-span-12 mb-20 xl:mb-0 max-w-[344px]">
     <p class="uppercase text-xl xl:text-3xl xl:max-w-[336px] mb-8 xl:mb-16 leading-none">Subscribe to our newsletter to keep up to date with the latest.</p>
     <fieldset>
         <legend class="sr-only">SneakerLab Newsletter sign up</legend>
         <label class="block relative xl:max-w-[344px]" for="subscribe">
             <span class="sr-only">Enter your email address</span>
-            <input aria-describedby="help" class="input focus:outline-0 hover:opacity-50 transition-all text-sm border-b border-black w-full py-2 placeholder:text-gray placeholder:uppercase"
-                   name="subscribe" id="subscribe" placeholder="Email Address" autocomplete="off" />
+            <input
+                    id="subscribe"
+                    class="input focus:outline-0 hover:opacity-50 transition-all
+                    text-sm border-b border-black w-full py-2 placeholder:text-gray
+                    placeholder:uppercase smooth-transition"
+                    name="subscribe"
+                    aria-describedby="help"
+                    placeholder="Email Address"
+                    autocomplete="off"
+            />
             <p class="sr-only" id="help">Enter your email address in order to sign up for the SneakerLab newsletter.</p>
-            <button aria-label="Submit your email address" class="absolute right-0 top-2 hover:opacity-50 focus:opacity-50 transition-all" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewbox="0 0 20 20" fill="currentColor">
+            <p id="errors" class="text-sm mt-2 opacity-0 smooth-transition" style="color: red;">The email address you have entered is invalid, please enter a valid email address.</p>
+            <button
+                    id="submit-newsletter"
+                    class="absolute right-0 top-2 hover:opacity-50 focus:opacity-50 transition-all smooth-transition"
+                    aria-label="Submit your email address"
+                    type="submit"
+                    disabled
+            >
+                <svg id="submit-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 smooth-transition" viewbox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
                           d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                           clip-rule="evenodd" />
+                </svg>
+
+                <svg id="error-icon" class="opacity-0 smooth-transition hidden" style="margin-top: -5px; transform: scale(0.7); overflow:visible;enable-background:new 0 0 32 32" viewBox="0 0 32 32" width="32" height="32">
+                    <g>
+                        <g id="Error_1_">
+                            <g id="Error">
+                                <circle cx="16" cy="16" id="BG" r="16" style="fill: #FF0000"/>
+                                <path d="M14.5,25h3v-3h-3V25z M14.5,6v13h3V6H14.5z" id="Exclamatory_x5F_Sign" style="fill:#FFFFFF;"/>
+                            </g>
+                        </g>
+                    </g>
                 </svg>
             </button>
         </label>
     </fieldset>
 </form>
+
+<script>
+    let email = 'luke@bermont.digital';
+    window.addEventListener('load', function () {
+        const errorIcon = document.querySelector('#error-icon');
+        const submitArrow = document.querySelector('#submit-arrow');
+        const errorMessage = document.querySelector('#errors');
+        let subscribeInput = document.querySelector('#subscribe');
+        let submit = document.querySelector('#submit-newsletter');
+        let validEmail = false;
+        let userEmail = '';
+
+        function ValidateEmail(inputText) {
+            let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$/;
+
+            if(inputText.value.match(mailformat)) {
+                subscribeInput.focus();
+                validEmail = true;
+                return true;
+            } else {
+                subscribeInput.focus();
+                return false;
+            }
+        }
+
+        const alertDelay = 2000;
+
+        let timer = setTimeout(() => {}, alertDelay);
+
+        subscribeInput.addEventListener('input', function (e) {
+            let validEmail = ValidateEmail(e.target);
+
+            if (!validEmail) {
+                clearTimeout(timer);
+                submit.disabled = true;
+
+                // Invalid Email
+                timer = setTimeout(() => {
+                    console.log('invalid email');
+                    errorIcon.classList.remove('opacity-0');
+                    errorIcon.classList.add('opacity-100');
+                    errorIcon.classList.remove('hidden');
+
+                    submitArrow.classList.add('opacity-0');
+                    submitArrow.classList.remove('opacity-100');
+                    submitArrow.classList.add('hidden');
+
+                    subscribeInput.classList.remove('border-black');
+                    subscribeInput.classList.add('border-red');
+
+                    errorMessage.classList.remove('opacity-0');
+                    errorMessage.classList.add('opacity-100');
+                }, alertDelay);
+            } else {
+                clearTimeout(timer);
+                submit.disabled = false;
+
+                // Valid Email set to variable
+                userEmail = e.target.value;
+
+                timer = setTimeout(() => {
+                    console.log('valid email');
+                    errorIcon.classList.remove('opacity-100');
+                    errorIcon.classList.add('opacity-0');
+                    errorIcon.classList.add('hidden');
+
+                    submitArrow.classList.remove('opacity-0');
+                    submitArrow.classList.add('opacity-100');
+                    submitArrow.classList.remove('hidden');
+
+                    subscribeInput.classList.remove('border-red');
+                    subscribeInput.classList.add('border-black');
+
+                    errorMessage.classList.remove('opacity-100');
+                    errorMessage.classList.add('opacity-0');
+                }, alertDelay);
+            }
+        });
+
+        // options for the emailjs service
+        const options = {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {Accept: 'application/json', 'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                profiles: [
+                    {
+                        email: email
+                    }
+                ]
+            })
+        };
+
+        // send the request
+        function subscribeToForm() {
+            fetch('https://sneaker-lab-2022.myshopify.com/apps/klaviyo/api/v2/list/SM3efz/members?api_key=pk_eb6ded1974437a1dc389539dc85baaad87', options)
+                .then(response => response.json())
+                .then(response => console.log(response))
+                .catch(err => console.error(err));
+        }
+
+        submit.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if (validEmail) {
+                subscribeToForm();
+            }
+        });
+
+
+    });
+
+
+
+</script>

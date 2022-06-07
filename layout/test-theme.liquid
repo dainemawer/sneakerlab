@@ -8,6 +8,8 @@
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
+    {% render 'head' %}
+
     <title>
         {{ page_title }}
         {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -24,19 +26,11 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
-    {%- liquid
-        assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-        assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-        assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-    %}
-
-    {% if true %}
+    {% if page_title == 'About' %}
         {%- liquid
             assign color_scheme = 'page-inverted'
         %}
     {% endif %}
-
-    {{ "app.css" | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
         <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -57,15 +51,69 @@
     </script>
 </head>
 
-<body class="flex flex-col min-h-screen {% echo color_scheme %}">
-
+<body class="flex flex-col min-h-screen font-raleway {% echo color_scheme %}">
+    {% section 'announcement-bar' %}
     {% section 'test-header' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="main-content" class="xl:container xl:mx-auto px-4 lg:px-5" role="main" aria-label="Main Site Content">
         {{ content_for_layout }}
     </main>
 
     {% section 'test-footer' %}
     {% section 'foot' %}
+    <script>
+        const Marquee = () => {
+            const elements = document.querySelectorAll('.marquee')
+            const lastScrollPos = 0
+            let speed = 3
+            let timer
+
+            elements.forEach(function (el) {
+                const container = el.querySelector('.inner')
+                const content = el.querySelector('.inner > *')
+                const style = window.getComputedStyle(content);
+                const margin = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+
+                const elWidth = content.offsetWidth + margin;
+                console.log(elWidth);
+
+
+                const clone = content.cloneNode(true)
+                container.appendChild(clone)
+
+                let progress = 1
+                function loop () {
+                    progress = progress - speed
+                    if (progress <= elWidth * -1) {
+                        progress = 0
+                    }
+
+                    container.style.transform = 'translateX(' + progress + 'px)'
+                    container.style.transform += 'skewX(' + speed * 0.4 + 'deg)'
+                    window.requestAnimationFrame(loop)
+                }
+
+                loop()
+            })
+
+            window.addEventListener('scroll', function () {
+                const maxScrollValue = 12
+                const newScrollPos = window.scrollY
+                let scrollValue = newScrollPos - lastScrollPos
+                if (scrollValue > maxScrollValue) scrollValue = maxScrollValue
+                else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue
+                speed = scrollValue
+                clearTimeout(timer)
+                timer = setTimeout(handleSpeedClear, 10)
+            })
+
+            function handleSpeedClear () {
+                speed = 2
+            }
+        }
+
+        Marquee()
+
+    </script>
 </body>
 </html>

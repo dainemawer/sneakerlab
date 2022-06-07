@@ -1,0 +1,154 @@
+<div class="grid grid-cols-12 gap-2 mt-4">
+    <div class="col-span-12 md:col-span-6 mb-14 md:mb-0">
+        <p class="uppercase text-xs md:text-sm mb-5">[&nbsp;&nbsp;{{ section.settings.subtitle }}&nbsp;&nbsp;]</p>
+        {% if section.settings.left-block-image %}
+            <img
+                class="rounded-lg mb-3 object-cover"
+                src="{{ section.settings.left-block-image | image_url: width: 412, height: 415 }}"
+                width="412"
+                height="415"
+                alt="{{ section.settings.left-block-image.alt | escape }}"
+                loading="lazy"
+                decoding="async"
+            >
+        {% else %}
+            <img class="rounded-lg mb-3" src="{{ '412x415.jpg' | asset_url }}" width="412" height="415" alt="" loading="lazy" decoding="async">
+        {% endif %}
+
+        <h3 class="uppercase max-w-[412px] text-xl md:text-3xl mb-4">
+            {{ section.settings.left-block-title }}
+        </h3>
+        <p class="text-xs md:text-sm max-w-[412px]">
+            {{ section.settings.left-block-text }}
+        </p>
+    </div>
+    <div class="col-span-12 md:col-span-6">
+        {% if section.settings.right-block-image %}
+            <img
+                    style="width: 412px; height: 415px;"
+                    class="rounded-lg mb-3 object-cover"
+                    alt="{{ section.settings.right-block-image.alt | escape }}"
+                    src="{{ section.settings.right-block-image | image_url: width: 744, height: 555 }}"
+                    width="744"
+                    height="555"
+                    decoding="async"
+            />
+        {% else %}
+            <img class="rounded-lg mb-3" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744"
+                 height="555" decoding="async" />
+        {% endif %}
+
+        <h3 class="text-xl md:text-3xl uppercase mb-4">
+            {{ section.settings.right-block-title }}
+        </h3>
+        <p class="text-xs md:text-sm">
+            {{ section.settings.right-block-text }}
+        </p>
+    </div>
+    <div class="col-span-12 md:col-span-6 mt-16 md:mt-36">
+        <h3 class="uppercase text-4xl lg:text-7xl font-medium">
+            {{ section.settings.bottom-block-quote }}
+        </h3>
+    </div>
+    <div class="col-span-12 md:col-span-6 mt-8 md:mt-36">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            {% if section.settings.bottom-block-image-left %}
+                <img
+                        style="width: 145px; height: 185px;"
+                        class="rounded-lg mb-3 object-cover"
+                        alt="{{ section.settings.bottom-block-image-left.alt | escape }}"
+                        src="{{ section.settings.bottom-block-image-left | image_url: width: 145, height: 185 }}"
+                        width="145"
+                        height="185"
+                        decoding="async"
+                />
+            {% else %}
+                <img class="rounded-lg mb-3" alt="SneakerLab Product 3" src="{{ '185x145.jpg' | asset_url }}" width="185"
+                     height="145" decoding="async" />
+            {% endif %}
+
+            {% if section.settings.bottom-block-image-right %}
+                <img
+                        style="width: 145px; height: 185px;"
+                        class="rounded-lg mb-3 object-cover"
+                        alt="{{ section.settings.bottom-block-image-right.alt | escape }}"
+                        src="{{ section.settings.bottom-block-image-right | image_url: width: 145, height: 185 }}"
+                        width="145"
+                        height="185"
+                        decoding="async"
+                />
+            {% else %}
+                <img class="rounded-lg mb-3" alt="SneakerLab Product 3" src="{{ '185x145.jpg' | asset_url }}" width="185"
+                     height="145" decoding="async" />
+            {% endif %}
+        </div>
+        <p class="text-xs md:text-sm max-w-[325px]">
+            {{ section.settings.bottom-block-text }}
+        </p>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Information",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Small Title in brackets (Default Product Information)",
+      "default": "Product Information"
+    },
+    {
+      "type": "image_picker",
+      "id": "left-block-image",
+      "label": "Left Block Image"
+    },
+    {
+        "type": "text",
+        "id": "left-block-title",
+        "label": "Left Block Title"
+    },
+    {
+      "type": "text",
+      "id": "left-block-text",
+      "label": "Left Block Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "right-block-image",
+      "label": "Right Block Image"
+    },
+    {
+        "type": "text",
+        "id": "right-block-title",
+        "label": "Right Block Title"
+    },
+    {
+      "type": "text",
+      "id": "right-block-text",
+      "label": "Right Block Text"
+    },
+    {
+      "type": "text",
+      "id": "bottom-block-quote",
+      "label": "Bottom Block Quote"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom-block-image-left",
+      "label": "Bottom Block Image Left"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottom-block-image-right",
+      "label": "Bottom Block Image Right"
+    },
+    {
+      "type": "text",
+      "id": "bottom-block-text",
+      "label": "Bottom Block Text"
+    }
+  ]
+}
+{% endschema %}

@@ -2,7 +2,7 @@
 {%- if predictive_search.performed -%}
   <div id="predictive-search-results">
     {%- if predictive_search.resources.products.size > 0 -%} 
-      <h2 id="predictive-search-products" class="predictive-search__heading text-body caption-with-letter-spacing">
+      <h2 id="predictive-search-products" class="predictive-search__heading text-body caption-with-letter-spacing font-medium text-xl tracking-tighter uppercase">
         {{ 'templates.search.products' | t }}
 
         <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,9 @@
               {%- if settings.predictive_search_show_vendor -%} 
                 <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span><div class="predictive-search__item-vendor caption-with-letter-spacing">{{ product.vendor }}</div>
               {%- endif -%}
-              <h3 class="predictive-search__item-heading h5">{{ product.title }}</h3> 
+                <div>
+                    <h3 class="predictive-search__item-heading h5 inline-block">{{ product.title }}</h3>
+                </div>
               {%- if settings.predictive_search_show_price -%}
                 {% render 'price', product: product, use_variant: true, show_badges: false %} 
               {%- endif -%}

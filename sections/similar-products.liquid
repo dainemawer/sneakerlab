@@ -1,0 +1,161 @@
+<div class="grid grid-cols-12 gap-2 mt-4">
+  <section class="col-span-12 mt-14 md:mt-36">
+    <p class="uppercase text-xs md:text-sm mb-3 md:mb-5">[&nbsp;&nbsp;Similiar Products <sup>02</sup>&nbsp;&nbsp;]</p>
+      <product-recommendations
+        style="display: grid !important;"
+        class="product-recommendations grid-cols-12 gap-2"
+        data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
+      >
+        {% if recommendations.performed and recommendations.products_count > 0 %}
+            {% for recommendation in recommendations.products %}
+              <div class="col-span-12 mb-6 md:mb-0 md:col-span-6">
+                {% render 'similar-product-card',
+                        card_product: recommendation
+                %}
+              </div>
+            {% endfor %}
+        {% endif %}
+      </product-recommendations>
+  </section>
+
+  <div class="col-span-12">
+    <p class="text-left md:text-center mt-11 md:mt-20">
+      <a class="uppercase font-medium text-xl md:text-3xl" href="/collections/all/">
+        Shop All
+      </a>
+    </p>
+  </div>
+</div>
+{% render 'modal' %}
+{% render 'cart-modal' %}
+{% render 'add-to-cart-js' %}
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+{% render 'carousel-js' %}
+{% render 'accordion-js' %}
+
+
+<script>
+
+const Marquee2 = () => {
+  const elements = document.querySelectorAll('.marquee2')
+  const lastScrollPos = 0
+  let speed = 4
+  let timer
+
+  elements.forEach(function (el) {
+    const marqueeWrapper = el.parentNode;
+    const container = el.querySelector('.inner')
+    const content = el.querySelector('.inner > *')
+    const style = window.getComputedStyle(el.querySelector('.inner > p'));
+
+    const elWidth = container.offsetWidth;
+
+    const clone = content.cloneNode(true)
+    container.appendChild(clone)
+
+    let progress = 1
+    let isPlaying = false;
+    function loop () {
+      progress = progress - speed
+      if (progress <= elWidth * -1) {
+        progress = 0
+      }
+
+      container.style.transform = 'translateX(' + progress + 'px)'
+      container.style.transform += 'skewX(' + speed * 0.4 + 'deg)'
+      // window.requestAnimationFrame(loop)
+      if (isPlaying === true) requestAnimationFrame(loop);
+    }
+
+    marqueeWrapper.addEventListener('mouseenter', function () {
+      isPlaying = true;
+      loop();
+    });
+    marqueeWrapper.addEventListener('mouseleave', function () {
+      isPlaying = false;
+      loop();
+    });
+
+    loop()
+  })
+
+  window.addEventListener('scroll', function () {
+    const maxScrollValue = 12
+    const newScrollPos = window.scrollY
+    let scrollValue = newScrollPos - lastScrollPos
+    if (scrollValue > maxScrollValue) scrollValue = maxScrollValue
+    else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue
+    speed = scrollValue
+    clearTimeout(timer)
+    timer = setTimeout(handleSpeedClear, 10)
+  })
+
+  function handleSpeedClear () {
+    speed = 2
+  }
+}
+class ProductRecommendations extends HTMLElement {
+  constructor() {
+  super();
+
+  const handleIntersection = (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+    observer.unobserve(this);
+
+    fetch(this.dataset.url)
+      .then(response => response.text())
+      .then(text => {
+        const html = document.createElement('div');
+        html.innerHTML = text;
+        const recommendations = html.querySelector('product-recommendations');
+
+        if (recommendations && recommendations.innerHTML.trim().length) {
+          this.innerHTML = recommendations.innerHTML;
+        }
+
+        if (html.querySelector('.grid__item')) {
+          this.classList.add('product-recommendations--loaded');
+        }
+    })
+    .then(() => {
+      Marquee2();
+    })
+    .catch(e => {
+      console.error(e);
+    });
+  }
+
+  new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
+  }
+}
+
+customElements.define('product-recommendations', ProductRecommendations);
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.product-recommendations.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 2,
+      "step": 2,
+      "default": 2,
+      "label": "t:sections.product-recommendations.settings.products_to_show.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 2,
+      "label": "t:sections.product-recommendations.settings.columns_desktop.label"
+    }
+  ]
+}
+{% endschema %}

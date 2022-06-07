@@ -1,0 +1,5 @@
+package.json
+package-lock.json
+./static/package.json
+./static/package-lock.json
+./static/

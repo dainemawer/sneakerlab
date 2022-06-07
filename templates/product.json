@@ -49,46 +49,25 @@
           "settings": {
           }
         },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
+        "88e1f050-6fc0-4cf5-bb4b-c4232f4ec027": {
+          "type": "product-accordion",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
+            "title": "Product Details",
+            "content": "<p>Sneaker Lab is the only shoe care brand that puts nature first. Our products are made from environmentally friendly ingredients and are 100% biodegradable; making us the only shoe care brand that puts nature first.<\/p>"
           }
         },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
+        "2b4fd37e-adf0-45d5-bf56-0eb187213de4": {
+          "type": "product-accordion",
           "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
+            "title": "Sustainability",
+            "content": "<p>Sneaker Lab is the only shoe care brand that puts nature first. Our products are made fromenvironmentally friendly ingredients and are 100% biodegradable; making us the only shoe carebrand that puts nature first.<\/p>"
           }
         },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
+        "d06c1285-52a3-408a-ace6-c31f22f8c76f": {
+          "type": "product-accordion",
           "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
+            "title": "Delivery & Returns",
+            "content": "<p>Sneaker Lab is the only shoe care brand that puts nature first. Our products are made fromenvironmentally friendly ingredients and are 100% biodegradable; making us the only shoe carebrand that puts nature first.<\/p>"
           }
         }
       },
@@ -101,122 +80,44 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "88e1f050-6fc0-4cf5-bb4b-c4232f4ec027",
+        "2b4fd37e-adf0-45d5-bf56-0eb187213de4",
+        "d06c1285-52a3-408a-ace6-c31f22f8c76f"
       ],
       "settings": {
-        "enable_sticky_info": true,
-        "gallery_layout": "stacked",
-        "media_size": "large",
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "hide_variants": true
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "image-with-text-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "image-with-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
-      ],
+    "product-large-quote": {
+      "type": "product-large-quote",
       "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "text": "We pride ourselves on our product line and lessening its impact on our Earth."
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column-0": {
-          "type": "column",
-          "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column-1": {
-          "type": "column",
-          "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column-0",
-        "column-1"
-      ],
+    "main-product-information": {
+      "type": "main-product-information",
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "subtitle": "Product Information",
+        "left-block-title": "ENVIRONMENTALLY FRIENDLY",
+        "left-block-text": "The probacterial solution accelerates the breakdown of dirt and continues to clean for up to 3 days after application. Sneaker Cleaner contains no harmful chemicals or toxins and is GreenTag certified, meaning you can now clean your sneakers in the cleanest way possible.",
+        "right-block-title": "BIODEGRADABLE CLEANING SOLUTION",
+        "right-block-text": "Our products are biodegradable, contain no harsh chemicals, non-hazardous and non-toxic, cruelty free and Vegan.",
+        "bottom-block-quote": "100 PERCENT RECYCLABLE BOTTLES",
+        "bottom-block-text": "Our bottles are 100% recyclable (our Sneaker Wipe towelling is 100% recyclable too) and made up of up to 40% already recycled plastic."
       }
     },
-    "product-recommendations": {
-      "type": "product-recommendations",
+    "similar-products": {
+      "type": "similar-products",
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "columns_desktop": 4,
-        "color_scheme": "background-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "products_to_show": 2,
+        "columns_desktop": 4
       }
     }
   },
   "order": [
     "main",
-    "image-with-text",
-    "multicolumn",
-    "product-recommendations"
+    "product-large-quote",
+    "main-product-information",
+    "similar-products"
   ]
 }

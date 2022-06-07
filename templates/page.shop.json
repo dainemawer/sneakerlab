@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "shop-main": {
+      "type": "shop-product-grid-static",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "shop-main"
+  ]
+}

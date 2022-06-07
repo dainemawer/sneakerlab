@@ -1,0 +1,15 @@
+.article p {
+    padding-bottom: 1rem;
+}
+
+.article .article-subtitle p {
+    padding-bottom: 0;
+}
+
+.article .quote-paragraph p {
+    @apply md:text-sm text-xs;
+}
+
+.article .quote-paragraph p strong {
+    @apply text-base;
+}
