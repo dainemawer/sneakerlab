@@ -215,6 +215,33 @@
                     </div>
                 </div>
 
+            {% when 'content-two-column-images' %}
+                <div class="hidden md:block md:col-span-3 mb-12"></div>
+                <div class="col-span-12 md:col-span-9 mb-12">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        <img
+                                class="rounded-lg"
+                                alt="{{ block.settings.left-image.alt }}"
+                                style="width: 370px; height: 372px;"
+                                src="{{ block.settings.left-image | image_url }}"
+                                width="370"
+                                height="372"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                        <img
+                                class="rounded-lg"
+                                alt="{{ block.settings.right-image.alt }}"
+                                style="width: 370px; height: 372px;"
+                                src="{{ block.settings.right-image | image_url }}"
+                                width="370"
+                                height="372"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                    </div>
+                </div>
+
             {%- when 'large-offset-image' -%}
                 <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12">
@@ -239,6 +266,23 @@
                     {{ article.content }}
                 </div>
 
+            {%- when 'socials' -%}
+                <div class="col-span-12 md:col-span-3">
+                    <p class="uppercase text-xs md:text-sm">[&nbsp;&nbsp;Follow&nbsp;&nbsp;]</p>
+                </div>
+                <div class="col-span-12 md:col-span-9">
+                    <p class="text-xl md:text-3xl md:max-w-[696px]">
+                        Follow us to stay up to date with all things Sneaker LAB.
+                        <a href="https://instagram.com" target="_blank" rel="noopenner noreferrer">
+                            Instagram
+                        </a> and
+                        <a href="https://facebook.com" target="_blank" rel="noopenner noreferrer">
+                            Facebook
+                        </a>.
+                    </p>
+                </div>
+
+            {% comment %}
             {%- when 'share' -%}
                 <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
                     <share-button class="share-button" {{ block.shopify_attributes }}>
@@ -279,6 +323,7 @@
                     </share-button>
                     <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
                 </div>
+            {% endcomment %}
         {%- endcase -%}
     {%- endfor -%}
 
@@ -628,8 +673,30 @@
       ]
     },
     {
+      "type": "content-two-column-images",
+      "name": "Content 2 Col Images",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "left-image",
+          "label": "Left Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "right-image",
+          "label": "Right Image"
+        }
+      ]
+    },
+    {
       "type": "content",
       "name": "t:sections.main-article.blocks.content.name",
+      "limit": 1
+    },
+    {
+      "type": "socials",
+      "name": "Social Media Links",
       "limit": 1
     },
     {
