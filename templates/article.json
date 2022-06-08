@@ -74,10 +74,16 @@
             "paragraph-centered": "<p><strong>SNEAKER WIPES<\/strong><\/p><p>Our Sneaker Wipes are designed for on-the-go sneaker cleaning. They are small enough to be taken anywhere and are suitable on most materials including suede, nubuck, leather and canvas. Our Wipes are saturated with our biodegradable Sneaker Cleaner solution and the actual cloth inside the packaging is recyclable as well! The Sneaker Wipes have also been going through an environmental innovation as we have actively tried to make them as sustainable as possible. As we declared in our 2020 promises, our Wipes have gone from a 4 layer MPET to a 2 layer MPET.<br\/><br\/>Next year, we are taking massive strides forward in our green journey because in 2022 our Sneaker Wipes will be fully recyclable. The packaging, the individual Sneaker Wipes packaging and the wipe cloth itself will all be fully recyclable.<\/p><p><\/p><p><\/p><p><strong>RECYCLED BOTTLES<\/strong><\/p><p>Our bottles are 100% recyclable (our Sneaker Wipe towelling is 100% recyclable too) and made up of up to 40% already recycled plastic. What does this mean? It means when Sneaker LAB products find their way into your hands, you’re helping keep almost half of the plastic in that bottle out of the landfills and the oceans. On top of that what’s great about it is that all of it will live another life as a new product and so on and so on.<\/p><p><\/p><p><\/p><p><strong>SUSTAINABLE SET<\/strong><\/p><p>The set that was created for this shoot consisted of local plants and greenery that was sourced from Hout Bay, Cape Town. The set was built up on the day of shooting and we made sure that no damage occurred to the greenery. After the set everything that was used was planted back into its natural habitat, meaning that those plants' lifecycle could continue. We wanted to combine nature into a studio to capture the essence of our brand, playing with the blend between our environmentally conscious pillar but still communicating our place in the world of streetwear.<\/p>"
           }
         },
-        "share": {
-          "type": "share",
+        "8db3f815-8359-43ca-b437-84b0d5a3b147": {
+          "type": "content-two-column-images",
           "settings": {
-            "share_label": "Share"
+            "left-image": "shopify:\/\/shop_images\/mens-business-fashion.jpg",
+            "right-image": "shopify:\/\/shop_images\/man-dressed-in-monochrome-by-white-wall.jpg"
+          }
+        },
+        "942348b1-a671-415c-b9c8-f828e064952e": {
+          "type": "socials",
+          "settings": {
           }
         }
       },
@@ -93,7 +99,8 @@
         "edc5f0b2-525e-43f8-927f-7eb9ac40d739",
         "b8f26f8d-129d-4248-b081-00aa4f8da7ad",
         "8e259ef1-4859-491a-b7cb-72cff2ff1ce6",
-        "share"
+        "8db3f815-8359-43ca-b437-84b0d5a3b147",
+        "942348b1-a671-415c-b9c8-f828e064952e"
       ],
       "settings": {
       }
