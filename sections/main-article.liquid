@@ -210,7 +210,7 @@
             {%- when 'paragraph-centered' -%}
                 <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12 paragraph-centered">
-                    <div class="text-xs md:text-sm max-w-[660px] mb-10">
+                    <div class="text-xs md:text-sm max-w-[660px]">
                         {{ block.settings.paragraph-centered }}
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                     <!-- Large offest image -->
                     {% if block.settings.large-offset-image %}
                         <img
-                            class="rounded-lg mb-2"
+                            class="rounded-lg mb-2 object-cover"
                             alt="{{ block.settings.large-offset-image.alt }}"
                             style="width: 1120px; height: 1048px;"
                             src="{{ block.settings.large-offset-image | image_url }}"

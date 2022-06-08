@@ -389,9 +389,13 @@ a.predictive-search__item:after {
 }
 
 .article .paragraph-centered p {
-    @apply text-xs md:text-sm mb-12;
+    @apply text-xs md:text-sm;
 }
 
-.article .quote-paragraph p strong {
-    @apply uppercase font-medium mb-3 md:mb-4;
+.article .paragraph-centered p strong {
+    @apply uppercase font-medium;
+}
+
+.article .paragraph-centered p:last-child {
+    padding-bottom: 0 !important;
 }
