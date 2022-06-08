@@ -208,6 +208,7 @@
                 </div>
 
             {%- when 'paragraph-centered' -%}
+                <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12 paragraph-centered">
                     <div class="text-xs md:text-sm max-w-[660px] mb-10">
                         {{ block.settings.paragraph_centered }}
@@ -215,6 +216,7 @@
                 </div>
 
             {%- when 'large-offset-image' -%}
+                <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12">
                     <!-- Large offest image -->
                     {% if block.settings.large_offset_image %}
