@@ -1025,6 +1025,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 1200px;
 }
 
+.max-w-\[660px\] {
+  max-width: 660px;
+}
+
 .max-w-\[412px\] {
   max-width: 412px;
 }
@@ -2228,6 +2232,31 @@ a.predictive-search__item:after {
   line-height: 1.5rem;
 }
 
+.article .paragraph-centered p {
+  margin-bottom: 3rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@media (min-width: 768px) {
+  .article .paragraph-centered p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+.article .quote-paragraph p strong {
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .article .quote-paragraph p strong {
+    margin-bottom: 1rem;
+  }
+}
+
 .placeholder\:text-5xl::-moz-placeholder {
   font-size: 3rem;
   line-height: 1;
@@ -2528,12 +2557,12 @@ a.predictive-search__item:after {
     margin-bottom: 1.25rem;
   }
 
-  .md\:mt-8 {
-    margin-top: 2rem;
-  }
-
   .md\:mb-4 {
     margin-bottom: 1rem;
+  }
+
+  .md\:mt-8 {
+    margin-top: 2rem;
   }
 
   .md\:mt-44 {
@@ -2574,6 +2603,10 @@ a.predictive-search__item:after {
 
   .md\:max-w-\[696px\] {
     max-width: 696px;
+  }
+
+  .md\:max-w-\[1048\] {
+    max-width: 1048;
   }
 
   .md\:max-w-\[146px\] {
@@ -2971,4 +3004,3 @@ a.predictive-search__item:after {
     flex-direction: row;
   }
 }
-

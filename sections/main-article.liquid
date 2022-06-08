@@ -8,42 +8,43 @@
                     {% render block %}
                 </div>
             {%- when 'featured_image' -%}
-            {%- if article.image -%}
-                <figure class="col-span-12 mb-10 md:mb-16" itemprop="image">
-                    {% comment %}<img class="rounded-lg" alt="{{ article.image.alt | escape }}" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />{% endcomment %}
-                    <img
-                            srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                {%- if article.image -%}
+                    <figure class="col-span-12 mb-10 md:mb-16" itemprop="image">
+                        {% comment %}<img class="rounded-lg" alt="{{ article.image.alt | escape }}" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />{% endcomment %}
+                        <img
+                                srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
                             {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
                             {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
                             {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
                             {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
                             {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
                             {{ article.image | image_url }} {{ article.image.width }}w"
-                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
-                            src="{{ article.image | image_url: width: 1500 }}"
-                            loading="lazy"
-                            decoding="async"
-                            class="rounded-lg object-cover"
-                            style="width: 1536px; height: 790px;"
-                            width="{{ article.image.width }}"
-                            height="{{ article.image.height }}"
-                            alt="{{ article.image.alt | escape }}"
-                    >
-                    <a
-                        data-trigger-modal
-                        class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center"
-                        role="button"
-                        aria-controls="modal"
-                        aria-expanded="false"
-                        href="#"
-                    >
-                        <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
-                        </svg>
-                        Play video
-                    </a>
-                </figure>
-            {% endif %}
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                                src="{{ article.image | image_url: width: 1500 }}"
+                                loading="lazy"
+                                decoding="async"
+                                class="rounded-lg object-cover"
+                                style="width: 1536px; height: 790px;"
+                                width="{{ article.image.width }}"
+                                height="{{ article.image.height }}"
+                                alt="{{ article.image.alt | escape }}"
+                        >
+                        <a
+                                data-trigger-modal
+                                class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center"
+                                role="button"
+                                aria-controls="modal"
+                                aria-expanded="false"
+                                href="#"
+                        >
+                            <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black"/>
+                            </svg>
+                            Play video
+                        </a>
+                    </figure>
+                {% endif %}
 
             {%- when 'title' -%}
                 <header {{ block.shopify_attributes }} class="col-span-12 max-w-[1200px] mx-auto">
@@ -102,8 +103,9 @@
                                 decoding="async"
                         />
                     {% else %}
-                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
-                             loading="lazy" decoding="async" />
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}"
+                             width="740" height="740"
+                             loading="lazy" decoding="async"/>
                     {% endif %}
                 </div>
                 <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
@@ -119,8 +121,113 @@
                                 decoding="async"
                         />
                     {% else %}
-                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
-                             loading="lazy" decoding="async" />
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}"
+                             width="740" height="740"
+                             loading="lazy" decoding="async"/>
+                    {% endif %}
+                </div>
+
+            {%- when 'two-image-grid-subgrid' -%}
+                <!-- Two Image Grid Subgrid -->
+                <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
+                    <!-- Small grid of images -->
+                    <div class="grid gap-2 grid-cols-2">
+                        {% if block.settings.grid_image_1 %}
+                            <img
+                                    class="rounded-lg"
+                                    alt="{{ block.settings.grid_image_1.alt  }}"
+                                    style="width: 370px; height: 370px;"
+                                    src="{{ block.settings.grid_image_1 | image_url }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% endif %}
+                        {% if block.settings.grid_image_2 %}
+                            <img
+                                    class="rounded-lg"
+                                    alt="{{ block.settings.grid_image_2.alt  }}"
+                                    style="width: 370px; height: 370px;"
+                                    src="{{ block.settings.grid_image_2 | image_url }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% endif %}
+                        {% if block.settings.grid_image_3 %}
+                            <img
+                                    class="rounded-lg"
+                                    alt="{{ block.settings.grid_image_3.alt  }}"
+                                    style="width: 370px; height: 370px;"
+                                    src="{{ block.settings.grid_image_3 | image_url }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% endif %}
+                        {% if block.settings.grid_image_4 %}
+                            <img
+                                    class="rounded-lg"
+                                    alt="{{ block.settings.grid_image_4.alt }}"
+                                    style="width: 370px; height: 370px;"
+                                    src="{{ block.settings.grid_image_4 | image_url }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
+                            />
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Large Image -->
+                <div class="col-span-12 md:col-span-6 mb-8 md:mb-12">
+                    {% if block.settings.right_image %}
+                        <img
+                                class="rounded-lg"
+                                alt="{{ block.settings.right_image.alt }}"
+                                style="width: 740px; height: 740px;"
+                                src="{{ block.settings.right_image | image_url }}"
+                                width="740"
+                                height="740"
+                                loading="lazy"
+                        />
+                    {% endif %}
+                </div>
+
+            {% when 'large-quote' %}
+                <div class="col-span-12 mb-8 md:mb-12">
+                    {% if block.settings.large-quote %}
+                        <h3 class="uppercase tracking-tighter font-medium text-4xl md:text-7xl md:max-w-[1048px]">
+                            {{ block.settings.large-quote | raw }}
+                        </h3>
+                    {% endif %}
+                </div>
+
+            {%- when 'paragraph-centered' -%}
+                <div class="col-span-12 md:col-span-9 mb-12 paragraph-centered">
+                    <div class="text-xs md:text-sm max-w-[660px] mb-10">
+                        {{ block.settings.paragraph_centered }}
+                    </div>
+                </div>
+
+            {%- when 'large-offset-image' -%}
+                <div class="col-span-12 md:col-span-9 mb-12">
+                    <!-- Large offest image -->
+                    {% if block.settings.large_offset_image %}
+                        <img
+                            class="rounded-lg mb-2"
+                            alt="{{ block.settings.large_offset_image.alt }}"
+                            style="width: 1120px; height: 1048px;"
+                            src="{{ block.settings.large_offset_image | image_url }}"
+                            width="1120"
+                            height="1048"
+                            loading="lazy"
+                            decoding="async"
+                        />
                     {% endif %}
                 </div>
 
@@ -144,7 +251,8 @@
                             </summary>
                             <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
                                 <div class="field">
-                                    <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
+                                    <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden"
+                                          role="status">
                                     </span>
                                     <input type="text"
                                            class="field__input"
@@ -376,6 +484,8 @@
     }
   }
 
+
+
 </script>
 
 
@@ -433,7 +543,7 @@
     {
       "type": "two-image-grid",
       "name": "Two Image Grid",
-      "limit": 4,
+      "limit": 1,
       "settings": [
         {
           "type": "image_picker",
@@ -444,6 +554,62 @@
           "type": "image_picker",
           "id": "right_image",
           "label": "Right Image (Below on mobile)"
+        }
+      ]
+    },
+    {
+      "type": "two-image-grid-subgrid",
+      "name": "Two Image Multi Grid",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "grid_image_1",
+          "label": "Grid Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "grid_image_2",
+          "label": "Grid Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "grid_image_3",
+          "label": "Grid Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "grid_image_4",
+          "label": "Grid Image 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "right_image",
+          "label": "Right Image (Below on mobile)"
+        }
+      ]
+    },
+    {
+      "type": "large-quote",
+      "name": "Large Quote",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "large-quote",
+          "label": "Quote Text"
+        }
+      ]
+    },
+    {
+      "type": "paragraph-centered",
+      "name": "Content Paragraph",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content-paragraph",
+          "label": "Content Paragraph (Centered)"
         }
       ]
     },

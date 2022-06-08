@@ -388,3 +388,10 @@ a.predictive-search__item:after {
     @apply text-base;
 }
 
+.article .paragraph-centered p {
+    @apply text-xs md:text-sm mb-12;
+}
+
+.article .quote-paragraph p strong {
+    @apply uppercase font-medium mb-3 md:mb-4;
+}
