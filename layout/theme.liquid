@@ -42,7 +42,7 @@
 
     {{ "app.css" | asset_url | stylesheet_tag }}
 
-    {% if page_title == 'About' %}
+    {% if page_title == 'About' or request.page_type == '404' or page_title == 'Contact' %}
       {%- liquid
         assign color_scheme = 'page-inverted'
       %}
@@ -142,7 +142,6 @@
       });
 
       // Marquee()
-
     </script>
 
     <script>

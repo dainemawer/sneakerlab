@@ -583,6 +583,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: -5px;
 }
 
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
 .bottom-32 {
   bottom: 8rem;
 }
@@ -693,6 +697,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .float-right {
   float: right;
+}
+
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .mx-auto {
@@ -906,6 +915,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1.5rem;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .h-full {
   height: 100%;
 }
@@ -1032,6 +1045,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-\[660px\] {
   max-width: 660px;
+}
+
+.max-w-\[168px\] {
+  max-width: 168px;
 }
 
 .max-w-\[412px\] {
@@ -1258,6 +1275,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-silver {
   --tw-border-opacity: 1;
   border-color: rgb(203 203 203 / var(--tw-border-opacity));
+}
+
+.border-dark-gray {
+  --tw-border-opacity: 1;
+  border-color: rgb(108 108 108 / var(--tw-border-opacity));
 }
 
 .border-\[\#000\] {
@@ -1489,6 +1511,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-\[2\.625rem\] {
   font-size: 2.625rem;
+}
+
+.text-\[3\.375rem\] {
+  font-size: 3.375rem;
 }
 
 .text-4xl {
@@ -2401,6 +2427,11 @@ a.predictive-search__item:after {
   background-color: rgb(61 174 43 / var(--tw-bg-opacity));
 }
 
+.hover\:text-eco-green:hover {
+  --tw-text-opacity: 1;
+  color: rgb(61 174 43 / var(--tw-text-opacity));
+}
+
 .hover\:text-\[\#000\]:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -2434,6 +2465,11 @@ a.predictive-search__item:after {
 .focus\:bg-eco-green:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(61 174 43 / var(--tw-bg-opacity));
+}
+
+.focus\:text-eco-green:focus {
+  --tw-text-opacity: 1;
+  color: rgb(61 174 43 / var(--tw-text-opacity));
 }
 
 .focus\:text-\[\#fff\]:focus {
@@ -2500,6 +2536,11 @@ a.predictive-search__item:after {
 
   .md\:float-right {
     float: right;
+  }
+
+  .md\:my-12 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
   }
 
   .md\:my-36 {
@@ -2615,6 +2656,14 @@ a.predictive-search__item:after {
     max-width: 696px;
   }
 
+  .md\:max-w-\[340px\] {
+    max-width: 340px;
+  }
+
+  .md\:max-w-\[345px\] {
+    max-width: 345px;
+  }
+
   .md\:max-w-\[146px\] {
     max-width: 146px;
   }
@@ -2679,14 +2728,14 @@ a.predictive-search__item:after {
     line-height: 1;
   }
 
-  .md\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .md\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
   }
 
   .md\:text-5xl {
@@ -2718,6 +2767,10 @@ a.predictive-search__item:after {
 
   .lg\:top-\[-10px\] {
     top: -10px;
+  }
+
+  .lg\:bottom-20 {
+    bottom: 5rem;
   }
 
   .lg\:order-1 {
