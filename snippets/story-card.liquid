@@ -1,0 +1,24 @@
+<article class="border-t border-[#000] pt-3">
+    <a href="{{ article.url }}">
+        <p class="uppercase text-xs lg:text-sm font-medium">
+            {{ article.metafields.my_fields.article_type }}
+        </p>
+        <h3 class="text-xl lg:text-3xl font-medium uppercase mt-6">
+            {{ article.title }}
+        </h3>
+        <img
+                class="rounded my-4 object-cover"
+                style="width: 372px; height: 263px;"
+                src="{{ article.image | image_url }}"
+                width="372" height="263"
+                alt="{{ article.image.alt }}"
+                loading="lazy"
+                decoding="async"
+        />
+        {% if show_date %}
+            <time class="left-0 bottom-4 text-xs lg:text-sm uppercase">
+                [  {{ article.published_at | date: format: 'abbreviated_date' }}  ]
+            </time>
+        {% endif %}
+    </a>
+</article>

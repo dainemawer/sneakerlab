@@ -2,44 +2,38 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
+{{ 'sneakerlab-blog-card.css' | asset_url | stylesheet_tag }}
 
 {%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary">{{ blog.title | escape }}</h1>
+  <section class="xl:container xl:mx-auto mt-12 mb-6">
 
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+
+    <!-- Blog Title -->
+    <h2 class="uppercase text-sm mb-5">[&nbsp;&nbsp;{{ blog.title | escape }} <sup>{{ blog.articles.size }}</sup>&nbsp;&nbsp;]</h2>
+    <header class="relative flex justify-between items-center">
+      <button data-filter-trigger class="relative font-medium uppercase text-5xl focus:opacity-50 hover:opacity-50 transition-all" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
+      {% render 'filter' %}
+    </header>
+
+    <!-- Blog Grid -->
+    <div class="gap-4 grid lg:grid-cols-4 mb-6 md:grid-cols-2 mt-6 pt-6">
       {%- for article in blog.articles -%}
-        <div class="blog-articles__article article">
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true 
-          -%}
-        </div>
+        <!-- Individual Blog Card -->
+        {% render 'story-card', article: article, show_date: section.settings.show_date %}
       {%- endfor -%}
     </div>
+
+    <a
+        class="inline-block md:hidden rounded py-3 px-12 font-medium text-sm border border-silver"
+        href="{{ blog.url }}"
+    >
+      View all stories
+    </a>
 
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
-  </div>
+  </section>
 {%- endpaginate -%}
 
 {% schema %}
@@ -53,52 +47,10 @@
       "content": "t:sections.main-blog.settings.header.content"
     },
     {
-      "type": "select",
-      "id": "layout",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:sections.main-blog.settings.layout.options__1.label"
-        },
-        {
-          "value": "collage",
-          "label": "t:sections.main-blog.settings.layout.options__2.label"
-        }
-      ],
-      "default": "collage",
-      "label": "t:sections.main-blog.settings.layout.label",
-      "info": "t:sections.main-blog.settings.layout.info"
-    },
-    {
       "type": "checkbox",
       "id": "show_image",
       "default": true,
       "label": "t:sections.main-blog.settings.show_image.label"
-    },
-    {
-      "type": "select",
-      "id": "image_height",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-blog.settings.image_height.options__1.label"
-        },
-        {
-          "value": "small",
-          "label": "t:sections.main-blog.settings.image_height.options__2.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.main-blog.settings.image_height.options__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.main-blog.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "medium",
-      "label": "t:sections.main-blog.settings.image_height.label",
-      "info": "t:sections.main-blog.settings.image_height.info"
     },
     {
       "type": "checkbox",
@@ -119,26 +71,6 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
     }
   ]
 }
