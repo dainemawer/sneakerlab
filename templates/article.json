@@ -62,6 +62,12 @@
             "large-offset-image": "shopify:\/\/shop_images\/sneakerlab-green-banner.jpg"
           }
         },
+        "b8f26f8d-129d-4248-b081-00aa4f8da7ad": {
+          "type": "large-quote",
+          "settings": {
+            "large-quote": "<p>OUR SNEAKER WIPES ARE DESIGNED FOR ON-THE-GO SNEAKER CLEANING.<\/p>"
+          }
+        },
         "8e259ef1-4859-491a-b7cb-72cff2ff1ce6": {
           "type": "paragraph-centered",
           "settings": {
@@ -90,6 +96,7 @@
         "74c3f042-e0b3-4b74-9038-d4d9feff7dec",
         "98098d9a-b61d-4b79-932c-e1659e68a5e2",
         "edc5f0b2-525e-43f8-927f-7eb9ac40d739",
+        "b8f26f8d-129d-4248-b081-00aa4f8da7ad",
         "8e259ef1-4859-491a-b7cb-72cff2ff1ce6",
         "content",
         "share"
