@@ -50,6 +50,12 @@
             "large-quote": "<p>OUR PRODUCTS ARE GLOBAL GREEN TAG CERTIFIED, ONE OF THE WORLD’S MOST TRUSTED ECO-LABELS.<\/p>"
           }
         },
+        "98098d9a-b61d-4b79-932c-e1659e68a5e2": {
+          "type": "paragraph-centered",
+          "settings": {
+            "content-paragraph": "<p><strong>SNEAKER CLEANER<\/strong><\/p><p>Keep your sneakers clean with our environmentally friendly and biodegradable cleaning solution. The probacterial solution accelerates the breakdown of dirt and continues to clean for up to 3 days after application. Sneaker Cleaner contains no harmful chemicals or toxins and is GreenTag certified, meaning you can now clean your sneakers in the cleanest way possible.<\/p><p><\/p><p><strong>ODOR PROTECTOR<\/strong><\/p><p>Prevents and eliminates unwanted odor emitting bacteria. Our pro-bacterial formula continues to work long after application for fresh kicks and doesn't just mask the unwanted smells but actively eliminates the causes of smell. The solution contains no harmful chemicals or toxins and is also GreenTag certified.<\/p>"
+          }
+        },
         "content": {
           "type": "content",
           "settings": {
@@ -70,6 +76,7 @@
         "3034096e-760c-4608-b6f1-61fe664c90d8",
         "7ce6d6f7-4df6-4d41-8c2f-48d093a639ce",
         "74c3f042-e0b3-4b74-9038-d4d9feff7dec",
+        "98098d9a-b61d-4b79-932c-e1659e68a5e2",
         "content",
         "share"
       ],
