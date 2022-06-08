@@ -34,6 +34,16 @@
             "small_paragraph": "<p>We explore the environmentally conscious aspects of our Sneaker Cleaner, Sneaker Protector, Odor Protector, Leather Care, and Sneaker Wipes.<\/p><p><\/p><p><\/p><p><strong>SNEAKER CLEANER<\/strong><\/p><p>Keep your sneakers clean with our environmentally friendly and biodegradable cleaning solution. The probacterial solution accelerates the breakdown of dirt and continues to clean for up to 3 days after application. Sneaker Cleaner contains no harmful chemicals or toxins and is GreenTag certified, meaning you can now clean your sneakers in the cleanest way possible.<\/p><p><\/p><p><\/p><p><strong>ODOR PROTECTOR<\/strong><\/p><p>Prevents and eliminates unwanted odor emitting bacteria. Our pro-bacterial formula continues to work long after application for fresh kicks and doesn't just mask the unwanted smells but actively eliminates the causes of smell. The solution contains no harmful chemicals or toxins and is also GreenTag certified.<\/p>"
           }
         },
+        "7ce6d6f7-4df6-4d41-8c2f-48d093a639ce": {
+          "type": "two-image-grid-subgrid",
+          "settings": {
+            "grid_image_1": "shopify:\/\/shop_images\/sneakerlab-green-banner.jpg",
+            "grid_image_2": "shopify:\/\/shop_images\/mens-business-fashion.jpg",
+            "grid_image_3": "shopify:\/\/shop_images\/man-dressed-in-monochrome-by-white-wall.jpg",
+            "grid_image_4": "shopify:\/\/shop_images\/fashion-model-in-pink.jpg",
+            "right_image": "shopify:\/\/shop_images\/fashion-model-in-pink.jpg"
+          }
+        },
         "content": {
           "type": "content",
           "settings": {
@@ -52,6 +62,7 @@
         "c799ce1e-b42a-4f56-945b-73daea841594",
         "fb6c1469-2d55-4714-9465-ee3c687595b1",
         "3034096e-760c-4608-b6f1-61fe664c90d8",
+        "7ce6d6f7-4df6-4d41-8c2f-48d093a639ce",
         "content",
         "share"
       ],
