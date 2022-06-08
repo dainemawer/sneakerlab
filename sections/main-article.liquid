@@ -211,7 +211,7 @@
                 <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12 paragraph-centered">
                     <div class="text-xs md:text-sm max-w-[660px] mb-10">
-                        {{ block.settings.paragraph_centered }}
+                        {{ block.settings.paragraph-centered }}
                     </div>
                 </div>
 
@@ -219,12 +219,12 @@
                 <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12">
                     <!-- Large offest image -->
-                    {% if block.settings.large_offset_image %}
+                    {% if block.settings.large-offset-image %}
                         <img
                             class="rounded-lg mb-2"
-                            alt="{{ block.settings.large_offset_image.alt }}"
+                            alt="{{ block.settings.large-offset-image.alt }}"
                             style="width: 1120px; height: 1048px;"
-                            src="{{ block.settings.large_offset_image | image_url }}"
+                            src="{{ block.settings.large-offset-image | image_url }}"
                             width="1120"
                             height="1048"
                             loading="lazy"
@@ -605,13 +605,25 @@
     },
     {
       "type": "paragraph-centered",
-      "name": "Content Paragraph",
+      "name": "Paragraph Centered",
       "limit": 4,
       "settings": [
         {
           "type": "richtext",
-          "id": "content-paragraph",
+          "id": "paragraph-centered",
           "label": "Content Paragraph (Centered)"
+        }
+      ]
+    },
+    {
+      "type": "large-offset-image",
+      "name": "Large Offset Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "large-offset-image",
+          "label": "Large Offset Image"
         }
       ]
     },
