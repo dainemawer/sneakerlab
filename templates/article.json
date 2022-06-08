@@ -44,6 +44,12 @@
             "right_image": "shopify:\/\/shop_images\/fashion-model-in-pink.jpg"
           }
         },
+        "74c3f042-e0b3-4b74-9038-d4d9feff7dec": {
+          "type": "large-quote",
+          "settings": {
+            "large-quote": "<p>OUR PRODUCTS ARE GLOBAL GREEN TAG CERTIFIED, ONE OF THE WORLD’S MOST TRUSTED ECO-LABELS.<\/p>"
+          }
+        },
         "content": {
           "type": "content",
           "settings": {
@@ -63,6 +69,7 @@
         "fb6c1469-2d55-4714-9465-ee3c687595b1",
         "3034096e-760c-4608-b6f1-61fe664c90d8",
         "7ce6d6f7-4df6-4d41-8c2f-48d093a639ce",
+        "74c3f042-e0b3-4b74-9038-d4d9feff7dec",
         "content",
         "share"
       ],
