@@ -104,9 +104,13 @@
       ],
       "settings": {
       }
+    },
+    "featured-stories": {
+      "type": "featured-stories"
     }
   },
   "order": [
-    "main"
+    "main",
+    "featured-stories"
   ]
 }

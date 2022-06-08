@@ -215,33 +215,6 @@
                     </div>
                 </div>
 
-            {% when 'content-two-column-images' %}
-                <div class="hidden md:block md:col-span-3 mb-12"></div>
-                <div class="col-span-12 md:col-span-9 mb-12">
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
-                        <img
-                                class="rounded-lg"
-                                alt="{{ block.settings.left-image.alt }}"
-                                style="width: 370px; height: 372px;"
-                                src="{{ block.settings.left-image | image_url }}"
-                                width="370"
-                                height="372"
-                                loading="lazy"
-                                decoding="async"
-                        />
-                        <img
-                                class="rounded-lg"
-                                alt="{{ block.settings.right-image.alt }}"
-                                style="width: 370px; height: 372px;"
-                                src="{{ block.settings.right-image | image_url }}"
-                                width="370"
-                                height="372"
-                                loading="lazy"
-                                decoding="async"
-                        />
-                    </div>
-                </div>
-
             {%- when 'large-offset-image' -%}
                 <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12">
@@ -258,6 +231,33 @@
                             decoding="async"
                         />
                     {% endif %}
+                </div>
+
+            {% when 'content-two-column-images' %}
+                <div class="hidden md:block md:col-span-3 mb-12"></div>
+                <div class="col-span-12 md:col-span-9 mb-12">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                        <img
+                                class="rounded-lg object-cover"
+                                alt="{{ block.settings.left-image.alt }}"
+                                style="width: 370px; height: 372px;"
+                                src="{{ block.settings.left-image | image_url }}"
+                                width="370"
+                                height="372"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                        <img
+                                class="rounded-lg object-cover"
+                                alt="{{ block.settings.right-image.alt }}"
+                                style="width: 370px; height: 372px;"
+                                src="{{ block.settings.right-image | image_url }}"
+                                width="370"
+                                height="372"
+                                loading="lazy"
+                                decoding="async"
+                        />
+                    </div>
                 </div>
 
             {%- when 'content' -%}
@@ -327,13 +327,6 @@
         {%- endcase -%}
     {%- endfor -%}
 
-    <!-- Back to blogs listing -->
-    <div class="article-template__back element-margin-top center">
-        <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
-            <span class="icon-wrap">{% render 'icon-arrow' %}</span>
-            {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
-        </a>
-    </div>
     <!-- Article Comments -->
     {%- if blog.comments_enabled? -%}
         <div class="article-template__comment-wrapper background-secondary">
