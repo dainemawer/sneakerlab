@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-collaborations",
+      "type": "main-how-to-blog",
       "settings": {
         "show_date": true
       }

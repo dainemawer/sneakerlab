@@ -4,41 +4,35 @@
 
 {{ 'sneakerlab-blog-card.css' | asset_url | stylesheet_tag }}
 
-{% assign blog_handles = "collaborations,how-tos,stories" | split: "," %}
-{% assign blog_count = 0 %}
+{%- paginate blog.articles by 6 -%}
+    <section class="xl:container xl:mx-auto mt-12 mb-6">
+        <!-- Blog Title -->
+        <h2 class="uppercase text-sm mb-5">[&nbsp;&nbsp;{{ blog.title | escape }} <sup>{{ blog.articles.size }}</sup>&nbsp;&nbsp;]</h2>
+        <header class="relative flex justify-between items-center">
+            <button data-filter-trigger class="relative font-medium uppercase text-5xl focus:opacity-50 hover:opacity-50 transition-all" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
+            {% render 'blog-filter' %}
+        </header>
 
-{% for handle in blog_handles %}
-    {% for article in blogs[handle].articles %}
-        {% if article.published_at %}
-            {% assign blog_count = blog_count | plus: 1 %}
-        {% endif %}
-    {% endfor %}
-{% endfor %}
-
-<section class="xl:container xl:mx-auto mt-12 mb-6">
-    <!-- Blog Title -->
-    <h2 class="uppercase text-sm mb-5">[&nbsp;&nbsp;Articles <sup>{{ blog_count }}</sup>&nbsp;&nbsp;]</h2>
-    <header class="relative flex justify-between items-center">
-        <button data-filter-trigger class="relative font-medium uppercase text-5xl focus:opacity-50 hover:opacity-50 transition-all" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
-        {% render 'blog-filter' %}
-    </header>
-    <!-- Blog Grid -->
-    <div class="gap-4 grid lg:grid-cols-4 mb-6 md:grid-cols-2 mt-6 pt-6">
-        {% for handle in blog_handles %}
-            {% for article in blogs[handle].articles %}
-                <!-- Individual Blog Card -->
-                {% render 'story-card', article: article, show_date: section.settings.show_date %}
+        <!-- Blog Grid -->
+        <div class="grid md:grid-cols-2 gap-4 mb-6 mt-6 border-silver border-t pt-6">
+            {%- for article in blog.articles -%}
+                <!-- Individual How To Card -->
+                {% render 'how-to-card', article: article, show_date: section.settings.show_date %}
             {%- endfor -%}
-        {% endfor %}
-    </div>
+        </div>
 
-    <a
-            class="inline-block md:hidden rounded py-3 px-12 font-medium text-sm border border-silver"
-            href="{{ blog.url }}"
-    >
-        View all stories
-    </a>
-</section>
+        <a
+                class="inline-block md:hidden rounded py-3 px-12 font-medium text-sm border border-silver"
+                href="{{ blog.url }}"
+        >
+            View all stories
+        </a>
+
+        {%- if paginate.pages > 1 -%}
+            {%- render 'pagination', paginate: paginate -%}
+        {%- endif -%}
+    </section>
+{%- endpaginate -%}
 
 <script>
     const BlogFilter = () => {

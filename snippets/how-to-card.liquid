@@ -1,0 +1,31 @@
+<article class="flex flex-row border-silver border-b pb-6 md:pb-0 md:border-0">
+    <figure class="basis-3/6">
+        <a class="thumbnail" href="{{ article.url }}">
+            <img
+                    class="rounded-lg object-cover"
+                    style="width: 372px; height: 263px;"
+                    src="{{ article.image | image_url }}"
+                    width="372" height="263"
+                    alt="{{ article.image.alt }}"
+                    loading="lazy"
+                    decoding="async"
+            />
+        </a>
+    </figure>
+    <div class="ml-4 basis-3/6 relative">
+        <a href="{{ article.url }}">
+            <h3 class="uppercase text-sm md:text-xl leading-none lg:text-2xl xl:text-3xl md:max-w-[344px]">
+                {{ article.title }}
+            </h3>
+        </a>
+        <div class="absolute left-0 bottom-0 md:flex w-full justify-between xl:justify-start">
+            <span class="text-xs sm:text-sm block uppercase font-semibold">Article</span>
+            <time class="text-xs sm:text-sm block md:ml-2 uppercase">
+                {% if show_date %}
+                    [  {{ article.published_at | date: format: 'abbreviated_date' }}  ]
+                {% endif %}
+            </time>
+        </div>
+    </div>
+</article>
+
