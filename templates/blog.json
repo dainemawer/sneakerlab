@@ -3,7 +3,7 @@
     "main": {
       "type": "main-blog",
       "settings": {
-        "show_date": true,
+        "show_date": true
       }
     }
   },
