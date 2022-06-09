@@ -6,7 +6,7 @@
     {% if collection.all_tags.size > 0 %}
         <ul class="tag-filters">
             <li class="text-5xl uppercase font-medium text-[#000]">
-                {{ 'All,' | link_to: '/collections/shop/', class: "filter-item hover:opacity-50 focus:opacity-50 transition-all" }}
+                {{ 'All,' | link_to: '/collections/all/', class: "filter-item hover:opacity-50 focus:opacity-50 transition-all" }}
             </li>
             {% for tag in collection.all_tags %}
                 <li class="text-5xl uppercase font-medium text-[#000]">

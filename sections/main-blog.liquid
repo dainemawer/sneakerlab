@@ -6,13 +6,11 @@
 
 {%- paginate blog.articles by 6 -%}
   <section class="xl:container xl:mx-auto mt-12 mb-6">
-
-
     <!-- Blog Title -->
     <h2 class="uppercase text-sm mb-5">[&nbsp;&nbsp;{{ blog.title | escape }} <sup>{{ blog.articles.size }}</sup>&nbsp;&nbsp;]</h2>
     <header class="relative flex justify-between items-center">
       <button data-filter-trigger class="relative font-medium uppercase text-5xl focus:opacity-50 hover:opacity-50 transition-all" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
-      {% render 'filter' %}
+      {% render 'blog-filter' %}
     </header>
 
     <!-- Blog Grid -->
@@ -35,6 +33,47 @@
     {%- endif -%}
   </section>
 {%- endpaginate -%}
+
+<script>
+  const BlogFilter = () => {
+    const trigger = document.querySelector('[data-filter-trigger]');
+    const panel = document.getElementById('filter-dropdown');
+
+    trigger && trigger.addEventListener('click', () => {
+      if (!panel.classList.contains('filter-active')) {
+        trigger.innerHTML = 'Filter-'
+        trigger.setAttribute('aria-expanded', 'true')
+        panel.setAttribute('aria-hidden', 'false')
+        panel.classList.add('filter-active')
+      } else {
+        trigger.innerHTML = 'Filter+'
+        trigger.setAttribute('aria-expanded', 'false')
+        panel.setAttribute('aria-hidden', 'true')
+        panel.classList.remove('filter-active')
+      }
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        trigger.innerHTML = 'Filter+'
+        trigger.setAttribute('aria-expanded', 'false')
+        panel.setAttribute('aria-hidden', 'true')
+        panel.classList.remove('filter-active')
+      }
+    })
+
+    document.addEventListener('mousedown', (e) => {
+      if (!panel.contains(e.target) && e.target !== trigger) {
+        trigger.innerHTML = 'Filter+'
+        trigger.setAttribute('aria-expanded', 'false')
+        panel.setAttribute('aria-hidden', 'true')
+        panel.classList.remove('filter-active')
+      }
+    })
+  }
+
+  BlogFilter()
+</script>
 
 {% schema %}
 {

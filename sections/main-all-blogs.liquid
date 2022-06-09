@@ -1,0 +1,119 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+{{ 'sneakerlab-blog-card.css' | asset_url | stylesheet_tag }}
+
+{%- paginate blog.articles by 6 -%}
+    <section class="xl:container xl:mx-auto mt-12 mb-6">
+        <!-- Blog Title -->
+        <h2 class="uppercase text-sm mb-5">[&nbsp;&nbsp;{{ blog.title | escape }} <sup>{{ blog.articles.size }}</sup>&nbsp;&nbsp;]</h2>
+        <header class="relative flex justify-between items-center">
+            <button data-filter-trigger class="relative font-medium uppercase text-5xl focus:opacity-50 hover:opacity-50 transition-all" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
+            {% render 'blog-filter' %}
+        </header>
+
+        {% assign blog_handles = "collaborations,how-tos,stories" | split: "," %}
+        <!-- Blog Grid -->
+        <div class="gap-4 grid lg:grid-cols-4 mb-6 md:grid-cols-2 mt-6 pt-6">
+            {% for handle in blog_handles %}
+                {% for article in blogs[handle].articles %}
+                    <!-- Individual Blog Card -->
+                    {% render 'story-card', article: article, show_date: section.settings.show_date %}
+                {%- endfor -%}
+            {% endfor %}
+        </div>
+
+        <a
+                class="inline-block md:hidden rounded py-3 px-12 font-medium text-sm border border-silver"
+                href="{{ blog.url }}"
+        >
+            View all stories
+        </a>
+
+        {%- if paginate.pages > 1 -%}
+            {%- render 'pagination', paginate: paginate -%}
+        {%- endif -%}
+    </section>
+{%- endpaginate -%}
+
+<script>
+    const BlogFilter = () => {
+        const trigger = document.querySelector('[data-filter-trigger]');
+        const panel = document.getElementById('filter-dropdown');
+
+        trigger && trigger.addEventListener('click', () => {
+            if (!panel.classList.contains('filter-active')) {
+                trigger.innerHTML = 'Filter-'
+                trigger.setAttribute('aria-expanded', 'true')
+                panel.setAttribute('aria-hidden', 'false')
+                panel.classList.add('filter-active')
+            } else {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('mousedown', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+    }
+
+    BlogFilter()
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    }
+  ]
+}
+{% endschema %}
