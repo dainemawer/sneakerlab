@@ -1,0 +1,18 @@
+<div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-20">
+    <div class="col-span-12">
+        <h1 class="font-semibold text-5xl md:text-8xl uppercase">FAQ</h1>
+        <p class="uppercase text-sm mt-4 mb-16 md:my-12 max-w-[253] md:max-w-[340px]">[&nbsp;&nbsp;This page has the answers to the most frequently asked questions&nbsp;&nbsp;]</p>
+    </div>
+    <div class="col-span-12 md:col-span-6 mb-14 md:mb-0">
+        <ul>
+            <li>
+                <a class="uppercase text-sm" href="/pages/faq/">Frequently Asked Questions</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-span-12 md:col-span-6">
+        {% render 'accordion' %}
+    </div>
+</div>
+
+{% render 'accordion-js' %}

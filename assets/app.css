@@ -1051,6 +1051,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 168px;
 }
 
+.max-w-\[253\] {
+  max-width: 253;
+}
+
 .max-w-\[412px\] {
   max-width: 412px;
 }
@@ -1389,6 +1393,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-9 {
   padding-left: 2.25rem;
   padding-right: 2.25rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .py-1 {
