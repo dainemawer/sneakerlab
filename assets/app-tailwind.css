@@ -206,6 +206,11 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     @apply block;
 }
 
+#main-tab1:checked ~ .tab.main-tab-item-1,
+#main-tab2:checked ~ .tab.main-tab-item-2 {
+    @apply block;
+}
+
 .grid-active {
     @apply text-[#000]
 }

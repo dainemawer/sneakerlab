@@ -1,0 +1,15 @@
+<div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-10 md:mt-20 mb-40">
+  <div class="md:col-span-3">
+    <h1 class="text-xs md:text-sm uppercase mb-10">[&nbsp;&nbsp;My Account&nbsp;&nbsp;]</h1>
+  </div>
+  <div class="md:col-span-9">
+    <p class="bg-concrete inline-block py-1 px-1 rounded-3xl">
+      <button class="flex items-center leading-none">
+        <span class="text-xs uppercase rounded-3xl transition-all hover:bg-eco-green hover:text-[#fff] focus:bg-eco-green focus:text-[#fff] bg-eco-green text-[#fff] py-1 px-3">Login</span>
+        <span class="text-xs uppercase py-1 px-3 rounded-3xl transition-all hover:bg-eco-green hover:text-[#fff] focus:bg-eco-green focus:text-[#fff]">Sign Up</span>
+      </button>
+    </p>
+
+    {% render 'login-form' %}
+  </div>
+</div>

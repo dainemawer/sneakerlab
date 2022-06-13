@@ -1,44 +1,55 @@
-<!doctype html>
-<html class="no-js" lang="en-ZA">
-
-<head>
-    <title>Legals | SneakerLab</title>
-    <meta property="og:title" content="">
-    <meta property="og:url" content="">
-    <include src="src/components/head.html"></include>
-</head>
-
-<body class="font-raleway">
-<include src="src/components/header.html"></include>
-<main id="main-content" class="xl:container xl:mx-auto px-4 lg:px-5" role="main" aria-label="Main Site Content">
-    <div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-20">
-        <div class="col-span-12">
-            <h1 class="font-semibold text-5xl md:text-8xl uppercase">Legals</h1>
-            <p class="uppercase text-xs max-w-[253] md:text-sm mt-4 mb-16 md:my-12 md:max-w-[340px]">[&nbsp;&nbsp;This page tells you the terms by which you may make use of this website.&nbsp;&nbsp;]</p>
-        </div>
-        <div class="col-span-12 md:col-span-6 mb-14 md:mb-0">
-            <ul class="horizontal-scroll relative overflow-x-scroll overflow-y-hidden whitespace-nowrap w-[288px] xs:w-[343] sm:w-[468]">
-                <li class="inline-block mr-2 md:mr-0 md:block mb-0 md:mb-3">
-                    <a class="uppercase text-sm" href="/orders-and-returns">Orders &amp; Returns</a>
-                </li>
-                <li class="inline-block mr-2 md:mr-0 md:block mb-0 md:mb-3">
-                    <a class="uppercase text-sm" href="/refund-policy">Refund Policy</a>
-                </li>
-                <li class="inline-block mr-2 md:mr-0 md:block mb-0 md:mb-3">
-                    <a class="uppercase text-sm" href="/terms">Terms of Service</a>
-                </li>
-                <li class="inline-block md:block mb-0 md:mb-3">
-                    <a class="uppercase text-sm" href="/privacy">Privacy Statement</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-span-12 md:col-span-6">
-            <include src="src/components/accordion.html"></include>
-        </div>
+<div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-20">
+    <div class="col-span-12">
+        <h1 class="font-semibold text-5xl md:text-8xl uppercase">
+            {{ page.title }}
+        </h1>
+        <p class="uppercase text-xs max-w-[253px] md:text-sm mt-4 mb-16 md:my-12 md:max-w-[340px]">
+            [&nbsp;&nbsp;{{ section.settings.subtitle }}&nbsp;&nbsp;]
+        </p>
     </div>
-</main>
-<include src="src/components/footer.html"></include>
-<include src="src/components/foot.html"></include>
-</body>
+    <div class="col-span-12 md:col-span-6 mb-14 md:mb-0">
+        <ul class="horizontal-scroll relative overflow-x-scroll overflow-y-hidden whitespace-nowrap w-[288px] xs:w-[343px] sm:w-[468px]">
+            <li class="inline-block mr-2 md:mr-0 md:block mb-0 md:mb-3">
+                <a class="uppercase text-sm" href="/pages/orders-returns">
+                    Orders &amp; Returns
+                </a>
+            </li>
+            <li class="inline-block mr-2 md:mr-0 md:block mb-0 md:mb-3">
+                <a class="uppercase text-sm" href="/pages/refund-policy/">
+                    Refund Policy
+                </a>
+            </li>
+            <li class="inline-block mr-2 md:mr-0 md:block mb-0 md:mb-3">
+                <a class="uppercase text-sm" href="/pages/terms-of-service/">
+                    Terms of Service
+                </a>
+            </li>
+            <li class="inline-block md:block mb-0 md:mb-3">
+                <a class="uppercase text-sm" href="/pages/privacy-statement/">
+                    Privacy Statement
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-span-12 md:col-span-6">
+        {% render 'accordion' %}
+    </div>
+</div>
 
-</html>
+{% render 'accordion-js' %}
+
+{% schema %}
+{
+  "name": "Legals page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "id": "subtitle",
+      "label": "Subtitle",
+      "type": "text",
+      "default": "This page tells you the terms by which you may make use of this website."
+    }
+  ]
+}
+{% endschema %}

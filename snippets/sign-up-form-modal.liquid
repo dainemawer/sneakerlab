@@ -45,43 +45,43 @@
             <p class="mt-8 mb-10 font-normal max-w-[300]">Please enter your details below to create an account.</p>
         </legend>
         <div class="block w-full mb-8">
-            <label for="MainRegisterForm-FirstName">
+            <label for="RegisterForm-FirstName">
                 <span class="block uppercase text-xs mb-1.5 text-cod-gray">{{ 'customer.register.first_name' | t }}*</span>
                 <input
-                    class="border border-silver p-1.5 hover:border-[#000] focus:border-[#000] text-[#000] outline-none block w-full rounded transition-all"
-                    type="email"
-                    name="customer[first_name]"
-                    id="MainRegisterForm-FirstName"
-                    required
-                    {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
-                    autocomplete="given-name"
+                        class="border border-silver p-1.5 hover:border-[#000] focus:border-[#000] text-[#000] outline-none block w-full rounded transition-all"
+                        type="email"
+                        name="customer[first_name]"
+                        id="RegisterForm-FirstName"
+                        required
+                        {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+                        autocomplete="given-name"
                 />
             </label>
         </div>
 
         <div class="block w-full mb-8">
-            <label for="MainRegisterForm-LastName">
+            <label for="RegisterForm-LastName">
                 <span class="block uppercase text-xs mb-1.5 text-cod-gray">{{ 'customer.register.last_name' | t }}*</span>
                 <input
-                    class="border border-silver p-1.5 hover:border-[#000] focus:border-[#000] text-[#000] outline-none block w-full rounded transition-all"
-                    required
-                    type="text"
-                    name="customer[last_name]"
-                    id="MainRegisterForm-LastName"
-                    {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
-                    autocomplete="family-name"
+                        class="border border-silver p-1.5 hover:border-[#000] focus:border-[#000] text-[#000] outline-none block w-full rounded transition-all"
+                        required
+                        type="text"
+                        name="customer[last_name]"
+                        id="RegisterForm-LastName"
+                        {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+                        autocomplete="family-name"
                 />
             </label>
         </div>
 
         <div class="block w-full mb-8">
-            <label for="MainRegisterForm-email">
+            <label for="RegisterForm-email">
                 <span class="block uppercase text-xs mb-1.5 text-cod-gray">{{ 'customer.register.email' | t }}*</span>
                 <input
                         class="border border-silver p-1.5 hover:border-[#000] focus:border-[#000] text-[#000] outline-none block w-full rounded transition-all"
                         type="email"
                         name="customer[email]"
-                        id="MainRegisterForm-email"
+                        id="RegisterForm-email"
                         {% if form.email %} value="{{ form.email }}"{% endif %}
                         spellcheck="false"
                         autocapitalize="off"
@@ -106,24 +106,24 @@
 
 
         <div class="block w-full mb-8">
-            <label for="MainRegisterForm-password">
+            <label for="RegisterForm-password">
                 <span class="block uppercase text-xs mb-1.5 text-cod-gray">{{ 'customer.register.password' | t }}*</span>
                 <input
-                    class="border border-silver hover:border-[#000] focus:border-[#000] text-[#000] outline-none p-1.5 block w-full rounded transition-all"
-                    required
-                    type="password"
-                    name="customer[password]"
-                    id="MainRegisterForm-password"
-                    aria-required="true"
-                    {% if form.errors contains 'password' %}
-                        aria-invalid="true"
-                        aria-describedby="MainRegisterForm-password-error"
-                    {% endif %}
+                        class="border border-silver hover:border-[#000] focus:border-[#000] text-[#000] outline-none p-1.5 block w-full rounded transition-all"
+                        required
+                        type="password"
+                        name="customer[password]"
+                        id="RegisterForm-password"
+                        aria-required="true"
+                        {% if form.errors contains 'password' %}
+                            aria-invalid="true"
+                            aria-describedby="RegisterForm-password-error"
+                        {% endif %}
                 />
             </label>
         </div>
         {%- if form.errors contains 'password' -%}
-            <span id="MainRegisterForm-password-error" class="form__message">
+            <span id="RegisterForm-password-error" class="form__message">
                 <svg aria-hidden="true" focusable="false" role="presentation">
                   <use href="#icon-error" />
                 </svg>

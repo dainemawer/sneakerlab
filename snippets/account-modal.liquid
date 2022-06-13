@@ -15,11 +15,11 @@
         <label class="inline-block rounded-3xl transition-all hover:bg-eco-green hover:text-[#fff] text-[#000] focus:bg-eco-green focus:text-[#fff] relative z-10 text-xs uppercase py-1 px-3 cursor-pointer" for="tab2">Sign Up</label>
 
         <div class="mt-6 tab tab-item-1">
-            {% render 'login-form', email: 'lf-md-firstname', password: 'lf-md-lastname' %}
+            {% render 'login-form-modal', email: 'lf-md-firstname', password: 'lf-md-lastname' %}
         </div>
 
         <div class="mt-6 tab tab-item-2">
-            {% render 'sign-up-form', firstname: 'su-md-firstname', lastname: 'su-md-lastname', email: 'su-md-email', password: 'su-md-password' %}
+            {% render 'sign-up-form-modal', firstname: 'su-md-firstname', lastname: 'su-md-lastname', email: 'su-md-email', password: 'su-md-password' %}
         </div>
     </div>
 </div>

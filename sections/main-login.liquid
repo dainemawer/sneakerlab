@@ -1,0 +1,64 @@
+<div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-10 md:mt-20 mb-40">
+    <div class="md:col-span-3">
+        <h1 class="text-xs md:text-sm uppercase mb-10">[&nbsp;&nbsp;My Account&nbsp;&nbsp;]</h1>
+    </div>
+    <div class="md:col-span-9">
+        <div class="relative">
+            <span class="bg-concrete absolute z-0 py-1 px-1 rounded-3xl w-[147px] h-[33px] left-[-5px] top-[0]"></span>
+            <input class="hidden input" type="radio" name="main-tabs" id="main-tab1" checked />
+            <label
+                class="top-[3px] inline-block rounded-3xl text-[#000] transition-all hover:bg-eco-green hover:text-[#fff] focus:bg-eco-green focus:text-[#fff] relative text-xs uppercase py-1 px-3 cursor-pointer"
+                for="main-tab1"
+            >
+                Login
+            </label>
+            <input class="hidden input" type="radio" name="main-tabs" id="main-tab2" />
+            <label
+                class="top-[3px] inline-block rounded-3xl transition-all hover:bg-eco-green hover:text-[#fff] text-[#000] focus:bg-eco-green focus:text-[#fff] relative text-xs uppercase py-1 px-3 cursor-pointer"
+                for="main-tab2"
+            >
+                Sign Up
+            </label>
+
+            <div class="mt-6 tab main-tab-item-1">
+                {% render 'login-form', email: 'lf-md-firstname', password: 'lf-md-lastname' %}
+            </div>
+
+            <div class="mt-6 tab main-tab-item-2">
+                {% render 'sign-up-form', firstname: 'su-md-firstname', lastname: 'su-md-lastname', email: 'su-md-email', password: 'su-md-password' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loginFormScript() {
+        document.addEventListener('DOMContentLoaded', function () {
+            const recover = document.getElementById('main_recover_password_form');
+            const loginFormInputs = document.getElementById('main_login_form_inputs');
+
+            const lostPasswordLink = document.getElementById('main_lost_password_link');
+            const cancelRecoverLink = document.getElementById('main_cancel_recover');
+            const signUpLink = document.getElementById('main-tab2');
+            const lostPasswordSubmit = document.getElementById('main_lost_password_submit');
+
+            function addHideRecoverListener(element) {
+                element.addEventListener('click', function () {
+                    recover.classList.add('hidden');
+                    loginFormInputs.classList.remove('hidden');
+                });
+            }
+
+            lostPasswordLink.addEventListener('click', function () {
+                recover.classList.remove('hidden');
+                loginFormInputs.classList.add('hidden');
+            });
+
+            addHideRecoverListener(cancelRecoverLink)
+            addHideRecoverListener(signUpLink)
+            // addHideRecoverListener(lostPasswordSubmit)
+        });
+    }
+
+    loginFormScript()
+</script>
