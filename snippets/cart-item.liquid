@@ -1,106 +1,107 @@
-<article data-cart-item class="flex items-center justify-between py-2 last:border-b border-t border-silver">
-    <div class="w-[60%] xl:w-[65%] flex items-start md:items-center justify-start">
+<article data-cart-item class="flex flex-col items-center justify-between py-2 border-t last:border-b border-silver md:flex-row">
+    <div class="w-full justify-start flex items-start md:items-center md:w-[60%] xl:w-[65%]">
 
         {% if item.image %}
             {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
             <a href="{{ item.url }}" aria-hidden="true" tabindex="-1">
-                <img class="rounded object-contain" src="{{ item.image | image_url: width: 300 }}" style="width: 72px; height: 56px;" width="72" height="56" loading="lazy" alt="{{ item.image.alt | escape }}" decoding="async" />
+                <img class="object-contain rounded" src="{{ item.image | image_url: width: 300 }}" style="width: 72px; height: 56px;" width="72" height="56" loading="lazy" alt="{{ item.image.alt | escape }}" decoding="async" />
             </a>
         {% endif %}
 
-        <p class="md:flex justify-between uppercase text-xs ml-4 md:w-2/4">
+        <p class="justify-between ml-4 text-xs uppercase md:flex md:w-2/4">
             <a href="{{ item.url }}">
                 <span class="block md:inline-block">{{ item.product.title | escape }}</span>
             </a>
             {% comment %}<span class="block md:inline-block">4.2 FL OZ</span>{% endcomment %}
-            <a href="{{ item.url_to_remove }}" class="md:hidden mt-5 block uppercase text-xs ml-auto" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+            <a href="{{ item.url_to_remove }}" class="block mt-5 ml-auto text-xs uppercase md:hidden" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                 <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
                     Remove
                 </cart-remove-button>
             </a>
         </p>
     </div>
-    <div class="w-[25%] xl:w-[20%] flex items-center">
+    <div class="flex flex-row">
+        <div class="w-full flex items-center md:w-[25%] xl:w-[20%]">
 
-        <!-- Quantity Input -->
-        <quantity-input class="quantity flex relative border border-silver rounded p-[1px] text-xs md:text-sm">
-            <button name="minus" data-cart-decrement class="quantity__button absolute left-0 w-10 h-10 hover:opacity-50 focus:opacity-50 transition-all" type="button">-</button>
-            <input
-                class="quantity__input text-center max-w-[100px] block my-0 mx-auto p-2 box-border"
-                type="number"
-                value="{{ item.quantity }}"
-                name="updates[]"
-                min="0"
-                aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                id="Quantity-{{ item.index | plus: 1 }}"
-                data-index="{{ item.index | plus: 1 }}"
-            />
-            <button data-cart-increment class="quantity__button absolute hover:opacity-50 focus:opacity-50 transition-all right-0 w-10 h-10" name="plus" type="button">+</button>
-        </quantity-input>
-        <!-- Remove Button -->
-        <a href="{{ item.url_to_remove }}" class="hidden md:inline-block uppercase text-xs ml-auto" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
-            <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
-                Remove
-            </cart-remove-button>
-        </a>
-    </div>
-    <div class="w-[15%] text-right text-sm">
-        <div class="cart-item__totals">
-            <div class="loading-overlay hidden">
-                <div class="loading-overlay__spinner">
-                    <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                    </svg>
+            <!-- Quantity Input -->
+            <quantity-input class="quantity flex relative border border-silver rounded p-[1px] text-xs md:text-sm">
+                <button name="minus" data-cart-decrement class="absolute left-0 w-10 h-10 transition-all quantity__button hover:opacity-50 focus:opacity-50" type="button">-</button>
+                <input
+                    class="quantity__input text-center max-w-[100px] block my-0 mx-auto p-2 box-border"
+                    type="number"
+                    value="{{ item.quantity }}"
+                    name="updates[]"
+                    min="0"
+                    aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                    id="Quantity-{{ item.index | plus: 1 }}"
+                    data-index="{{ item.index | plus: 1 }}"
+                />
+                <button data-cart-increment class="absolute right-0 w-10 h-10 transition-all quantity__button hover:opacity-50 focus:opacity-50" name="plus" type="button">+</button>
+            </quantity-input>
+            <!-- Remove Button -->
+            <a href="{{ item.url_to_remove }}" class="hidden ml-auto text-xs uppercase md:inline-block" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+                <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
+                    Remove
+                </cart-remove-button>
+            </a>
+        </div>
+        <div class="w-full text-right text-sm md:w-[15%]">
+            <div class="cart-item__totals">
+                <div class="hidden loading-overlay">
+                    <div class="loading-overlay__spinner">
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                    </div>
+                </div>
+                <div class="cart-item__price-wrapper">
+                    {%- if item.original_line_price != item.final_line_price -%}
+                        <dl class="cart-item__discounted-prices">
+                            <dt class="visually-hidden">
+                                {{ 'products.product.price.regular_price' | t }}
+                            </dt>
+                            <dd>
+                                <s style="margin-top: 0 !important;" class="cart-item__old-price price price--end">
+                                    {{ item.original_line_price | money }}
+                                </s>
+                            </dd>
+                            <dt class="visually-hidden">
+                                {{ 'products.product.price.sale_price' | t }}
+                            </dt>
+                            <dd style="margin-top: 0 !important;" class="price price--end">
+                                {{ item.final_line_price | money }}
+                            </dd>
+                        </dl>
+                    {%- else -%}
+                        <span style="margin-top: 0 !important;" class="price price--end">
+                            {{ item.original_line_price | money }}
+                        </span>
+                    {%- endif -%}
                 </div>
             </div>
-            <div class="cart-item__price-wrapper">
-                {%- if item.original_line_price != item.final_line_price -%}
-                    <dl class="cart-item__discounted-prices">
-                        <dt class="visually-hidden">
-                            {{ 'products.product.price.regular_price' | t }}
-                        </dt>
-                        <dd>
-                            <s style="margin-top: 0 !important;" class="cart-item__old-price price price--end">
-                                {{ item.original_line_price | money }}
-                            </s>
-                        </dd>
-                        <dt class="visually-hidden">
-                            {{ 'products.product.price.sale_price' | t }}
-                        </dt>
-                        <dd style="margin-top: 0 !important;" class="price price--end">
-                            {{ item.final_line_price | money }}
-                        </dd>
-                    </dl>
-                {%- else -%}
-                    <span style="margin-top: 0 !important;" class="price price--end">
-                        {{ item.original_line_price | money }}
+            <!-- Single Item Price -->
+            {% comment %}
+            {%- if item.original_price != item.final_price -%}
+                <div>
+                    <span class="visually-hidden">
+                        {{ 'products.product.price.regular_price' | t }}
                     </span>
-                {%- endif -%}
-            </div>
+                    <s >
+                        {{- item.original_price | money -}}
+                    </s>
+                    <span class="visually-hidden">
+                        {{ 'products.product.price.sale_price' | t }}
+                    </span>
+                    <strong>
+                        {{ item.final_price | money }}
+                    </strong>
+                </div>
+            {%- else -%}
+                <div>
+                    {{ item.original_price | money }}
+                </div>
+            {%- endif -%}
+            {% endcomment %}
         </div>
-        <!-- Single Item Price -->
-        {% comment %}
-        {%- if item.original_price != item.final_price -%}
-            <div>
-                <span class="visually-hidden">
-                    {{ 'products.product.price.regular_price' | t }}
-                </span>
-                <s >
-                    {{- item.original_price | money -}}
-                </s>
-                <span class="visually-hidden">
-                    {{ 'products.product.price.sale_price' | t }}
-                </span>
-                <strong>
-                    {{ item.final_price | money }}
-                </strong>
-            </div>
-        {%- else -%}
-            <div>
-                {{ item.original_price | money }}
-            </div>
-        {%- endif -%}
-        {% endcomment %}
     </div>
 </article>
-
