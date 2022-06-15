@@ -96,8 +96,8 @@
             </label>
         </div>
         {%- if form.errors contains 'email' -%}
-            <span id="RegisterForm-email-error" class="form__message">
-                <svg aria-hidden="true" focusable="false" role="presentation">
+            <span class="flex flex-row items-center gap-4 pb-4" id="RegisterForm-email-error" class="form__message">
+                <svg class="h-8 w-8" aria-hidden="true" focusable="false" role="presentation">
                   <use href="#icon-error" />
                 </svg>
                 {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
@@ -123,8 +123,8 @@
             </label>
         </div>
         {%- if form.errors contains 'password' -%}
-            <span id="MainRegisterForm-password-error" class="form__message">
-                <svg aria-hidden="true" focusable="false" role="presentation">
+            <span class="flex flex-row items-center gap-4 pb-4" id="MainRegisterForm-password-error" class="form__message">
+                <svg "h-8 w-8" aria-hidden="true" focusable="false" role="presentation">
                   <use href="#icon-error" />
                 </svg>
                 {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
