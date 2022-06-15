@@ -404,3 +404,9 @@ a.predictive-search__item:after {
 .article .paragraph-centered p:last-child {
     padding-bottom: 0 !important;
 }
+
+
+.product-info iframe {
+	width: 100% !important;
+}
+  
