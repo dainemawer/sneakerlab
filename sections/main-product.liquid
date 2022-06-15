@@ -3,7 +3,7 @@
   {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
     <!-- Mobile Product Gallery -->
-    <div id="product-carousel"  class="block overflow-none md:hidden col-span-12">
+    <div id="product-carousel"  class="block overflow-hidden md:hidden col-span-12">
       {% for image in product.images limit:5 %}
         <div class="slide">
           <figure class="bg-light-gray h-full flex items-center justify-center p-4">
