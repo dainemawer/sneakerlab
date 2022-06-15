@@ -253,7 +253,7 @@ a.ticker::after {
 }
 /* dots are lines */
 .flickity-page-dots .dot {
-    height: 4px;
+    height: 10px;
     width: 40px;
     margin: 0;
     border-radius: 0;
