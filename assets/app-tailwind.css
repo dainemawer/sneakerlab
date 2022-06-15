@@ -232,6 +232,9 @@ a.ticker::after {
     bottom: 12px !important;
     right: 12px !important;
     width: auto !important;
+  	display: flex;
+  	flex-direction: row;
+  	justify-content: center;
 }
 /* white circles */
 .flickity-page-dots .dot {
