@@ -943,6 +943,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1.25rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -991,16 +995,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1.25rem;
 }
 
-.w-\[60\%\] {
-  width: 60%;
-}
-
-.w-\[25\%\] {
-  width: 25%;
-}
-
 .w-2\/4 {
   width: 50%;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .w-4\/5 {
@@ -2058,6 +2058,9 @@ a.ticker::after {
   bottom: 12px !important;
   right: 12px !important;
   width: auto !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 /* white circles */
@@ -2086,7 +2089,7 @@ a.ticker::after {
 /* dots are lines */
 
 .flickity-page-dots .dot {
-  height: 4px;
+  height: 10px;
   width: 40px;
   margin: 0;
   border-radius: 0;
@@ -2328,6 +2331,10 @@ a.predictive-search__item:after {
 
 .article .paragraph-centered p:last-child {
   padding-bottom: 0 !important;
+}
+
+.product-info iframe {
+  width: 100% !important;
 }
 
 .placeholder\:text-5xl::-moz-placeholder {
@@ -2698,8 +2705,20 @@ a.predictive-search__item:after {
     width: 35%;
   }
 
+  .md\:w-\[60\%\] {
+    width: 60%;
+  }
+
   .md\:w-2\/4 {
     width: 50%;
+  }
+
+  .md\:w-\[25\%\] {
+    width: 25%;
+  }
+
+  .md\:w-\[15\%\] {
+    width: 15%;
   }
 
   .md\:max-w-\[344\] {
@@ -2748,6 +2767,10 @@ a.predictive-search__item:after {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:items-center {
@@ -3146,3 +3169,4 @@ a.predictive-search__item:after {
     flex-direction: row;
   }
 }
+  
