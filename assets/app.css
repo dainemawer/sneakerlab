@@ -563,6 +563,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: 45%;
 }
 
+.top-\[100\%\] {
+  top: 100%;
+}
+
 .left-0 {
   left: 0px;
 }
@@ -1647,6 +1651,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(26 26 26 / var(--tw-text-opacity));
 }
 
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .no-underline {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
@@ -2553,6 +2562,10 @@ a.predictive-search__item:after {
 @media (min-width: 768px) {
   .md\:static {
     position: static;
+  }
+
+  .md\:absolute {
+    position: absolute;
   }
 
   .md\:relative {

@@ -7,9 +7,14 @@
             const triggers = Array.prototype.slice.call(accordion.querySelectorAll('.accordion-trigger'))
 
             accordion.addEventListener('click', function (event) {
-                const target = event.target
+                let target;
+                if (event.target.classList.contains('accordion-trigger')) {
+                    target = event.target
+                } else {
+                    target = event.target.closest('.accordion-trigger')
+                }
 
-                if (target.classList.contains('accordion-trigger')) {
+                if (target.classList.contains('accordion-trigger') || target.classList.contains('accordion-button')) {
                     const isExpanded = target.getAttribute('aria-expanded') === 'true'
                     const active = accordion.querySelector('[aria-expanded="true"]')
 

@@ -7,6 +7,17 @@
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
+<style>
+  .cart__login-paragraph a {
+    text-decoration: underline;
+  }
+
+  .cart__login-paragraph a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.filter-item):hover::after {
+    content: '';
+    width: 0 !important;
+  }
+</style>
+
 <cart-items class="{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
   <div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-10 md:mt-20 mb-40 px-4 lg:px-5">
     <div class="md:col-span-3">
@@ -17,7 +28,7 @@
     <div class="md:col-span-9">
       <div class="cart__warnings">
         <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-        <a href="{{ routes.all_products_collection_url }}" class="button">
+        <a href="{{ routes.all_products_collection_url }}" class="button underline">
           {{ 'general.continue_shopping' | t }}
         </a>
 
