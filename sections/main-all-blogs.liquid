@@ -4,8 +4,10 @@
 
 {{ 'sneakerlab-blog-card.css' | asset_url | stylesheet_tag }}
 
-{% assign blog_handles = "collaborations,how-tos,stories" | split: "," %}
-{% assign blog_count = 0 %}
+{%- liquid
+    assign blog_handles = "collaborations,how-tos,stories" | split: ","
+    assign blog_count = 0
+-%}
 
 {% for handle in blog_handles %}
     {% for article in blogs[handle].articles %}

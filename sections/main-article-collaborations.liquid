@@ -10,11 +10,11 @@
                     {% render block %}
                 </div>
 
-            {%- when 'title'-%}
+            {%- when 'title' -%}
                 <header {{ block.shopify_attributes }} class="col-span-12 max-w-[621px] mx-auto">
                     <h1
-                        itemprop="headline"
-                        class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center md:text-center mt-20 mb-14 md:mb-28">
+                            itemprop="headline"
+                            class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center md:text-center mt-20 mb-14 md:mb-28">
                         {{ article.title | escape }}
                     </h1>
                 </header>
@@ -26,8 +26,8 @@
                             {%- if block.settings.blog_show_date -%}
                                 <time>
                                     <span
-                                        class="circle-divider caption-with-letter-spacing"
-                                        itemprop="dateCreated pubdate datePublished"
+                                            class="circle-divider caption-with-letter-spacing"
+                                            itemprop="dateCreated pubdate datePublished"
                                     >
                                         {{ article.published_at | date: "%d.%m.%y" }}
                                     </span>
@@ -37,32 +37,35 @@
                     </div>
                 </div>
 
-            <!-- Featured Image -->
-            {%- when 'featured_image'-%}
+                <!-- Featured Image -->
+            {%- when 'featured_image' -%}
                 {%- if article.image -%}
                     <figure class="col-span-12 mb-10 md:mb-16" itemprop="image">
                         {% comment %}<img class="rounded-lg" alt="{{ article.image.alt | escape }}" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />{% endcomment %}
                         <img
-                            srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                                srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
                             {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
                             {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
                             {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
                             {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
                             {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
                             {{ article.image | image_url }} {{ article.image.width }}w"
-                            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
-                            src="{{ article.image | image_url: width: 1500 }}"
-                            loading="lazy"
-                            decoding="async"
-                            class="rounded-lg object-cover"
-                            style="width: 1536px; height: 790px;"
-                            width="{{ article.image.width }}"
-                            height="{{ article.image.height }}"
-                            alt="{{ article.image.alt | escape }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                                src="{{ article.image | image_url: width: 1500 }}"
+                                loading="lazy"
+                                decoding="async"
+                                class="rounded-lg object-cover"
+                                style="width: 1536px; height: 790px;"
+                                width="{{ article.image.width }}"
+                                height="{{ article.image.height }}"
+                                alt="{{ article.image.alt | escape }}"
                         >
-                        <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
-                            <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
+                        <a data-trigger-modal
+                           class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center"
+                           role="button" aria-controls="modal" aria-expanded="false" href="#">
+                            <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black"/>
                             </svg>
                             Play video
                         </a>
@@ -80,12 +83,12 @@
 
                 <div class="col-span-12 md:col-span-6 mb-5 md:mb-12">
                     <div class="text-xl md:text-3xl {{ class }}">
-                        {{ block.settings.quote_paragraph | raw }}
+                        {{ block.settings.quote_paragraph }}
                     </div>
                 </div>
                 <div class="col-span-12 md:col-span-6 mb-8 md:mb-12">
                     <div class="text-xs md:text-sm max-w-[344px] text-left md:text-right float-right">
-                        {{ block.settings.small_paragraph | raw }}
+                        {{ block.settings.small_paragraph }}
                     </div>
                 </div>
 
@@ -93,18 +96,19 @@
                 <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
                     {% if block.settings.left_image %}
                         <img
-                            class="rounded-lg object-cover"
-                            style="width: 740px; height: 740px;"
-                            alt="{{ block.settings.left_image.alt }}"
-                            src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}"
-                            width="740"
-                            height="740"
-                            loading="lazy"
-                            decoding="async"
+                                class="rounded-lg object-cover"
+                                style="width: 740px; height: 740px;"
+                                alt="{{ block.settings.left_image.alt }}"
+                                src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}"
+                                width="740"
+                                height="740"
+                                loading="lazy"
+                                decoding="async"
                         />
                     {% else %}
-                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
-                             loading="lazy" decoding="async" />
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}"
+                             width="740" height="740"
+                             loading="lazy" decoding="async"/>
                     {% endif %}
                 </div>
                 <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
@@ -120,8 +124,9 @@
                                 decoding="async"
                         />
                     {% else %}
-                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
-                             loading="lazy" decoding="async" />
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}"
+                             width="740" height="740"
+                             loading="lazy" decoding="async"/>
                     {% endif %}
                 </div>
 
@@ -140,9 +145,10 @@
                                     decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
-                                 loading="lazy" decoding="async" />
-                         {% endif %}
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}"
+                                 width="370" height="368"
+                                 loading="lazy" decoding="async"/>
+                        {% endif %}
                         {% if block.settings.left_grid_image_2 %}
                             <img
                                     class="rounded-lg object-cover"
@@ -155,8 +161,9 @@
                                     decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
-                                 loading="lazy" decoding="async" />
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}"
+                                 width="370" height="368"
+                                 loading="lazy" decoding="async"/>
                         {% endif %}
                         {% if block.settings.left_grid_image_3 %}
                             <img
@@ -170,8 +177,9 @@
                                     decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="368"
-                                 loading="lazy" decoding="async" />
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}"
+                                 width="370" height="368"
+                                 loading="lazy" decoding="async"/>
                         {% endif %}
                         {% if block.settings.left_grid_image_4 %}
                             <img
@@ -185,8 +193,9 @@
                                     decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
-                                 loading="lazy" decoding="async" />
+                            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}"
+                                 width="370" height="370"
+                                 loading="lazy" decoding="async"/>
                         {% endif %}
                     </div>
                 </div>
@@ -203,8 +212,9 @@
                                 decoding="async"
                         />
                     {% else %}
-                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740" height="740"
-                             loading="lazy" decoding="async" />
+                        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}"
+                             width="740" height="740"
+                             loading="lazy" decoding="async"/>
                     {% endif %}
                 </div>
 
@@ -224,42 +234,45 @@
                         {% if block.settings.paragraph %}
                             {{ block.settings.paragraph }}
                         {% endif %}
-                        We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to Skate Moss,
+                        We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to
+                        Skate Moss,
                         Briana King,
                         Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.
                     </p>
 
                     {% if block.settings.featured_image %}
                         <img
-                            class="rounded-lg mb-2"
-                            alt="{{ block.settings.featured_image.alt }}"
-                            src="{{ block.settings.featured_image | image_url: width: 1120, height: 1048 }}"
-                            width="1120"
-                            height="1048"
-                            loading="lazy"
-                            decoding="async"
+                                class="rounded-lg mb-2"
+                                alt="{{ block.settings.featured_image.alt }}"
+                                src="{{ block.settings.featured_image | image_url: width: 1120, height: 1048 }}"
+                                width="1120"
+                                height="1048"
+                                loading="lazy"
+                                decoding="async"
                         />
                     {% else %}
-                        <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '1120x1048.jpg' | asset_url }}" width="1120" height="1048"
-                             loading="lazy" decoding="async" />
+                        <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '1120x1048.jpg' | asset_url }}"
+                             width="1120" height="1048"
+                             loading="lazy" decoding="async"/>
                     {% endif %}
 
 
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
                         {% if block.settings.left_image %}
                             <img
-                                class="rounded-lg mb-2"
-                                style="width: 370px; height: 370px;"
-                                alt="{{ block.settings.left_image.alt }}"
-                                src="{{ block.settings.left_image | image_url: width: 370, height: 370 }}"
-                                width="370"
-                                height="370"
-                                loading="lazy"
-                                decoding="async"
+                                    class="rounded-lg mb-2"
+                                    style="width: 370px; height: 370px;"
+                                    alt="{{ block.settings.left_image.alt }}"
+                                    src="{{ block.settings.left_image | image_url: width: 370, height: 370 }}"
+                                    width="370"
+                                    height="370"
+                                    loading="lazy"
+                                    decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
-                                 loading="lazy" decoding="async" />
+                            <img class="rounded-lg mb-2" alt="SneakerLab Product 3"
+                                 src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async"/>
                         {% endif %}
                         {% if block.settings.right_image %}
                             <img
@@ -272,8 +285,9 @@
                                     decoding="async"
                             />
                         {% else %}
-                            <img class="rounded-lg mb-2" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
-                                 loading="lazy" decoding="async" />
+                            <img class="rounded-lg mb-2" alt="SneakerLab Product 3"
+                                 src="{{ '370x370.jpg' | asset_url }}" width="370" height="370"
+                                 loading="lazy" decoding="async"/>
                         {% endif %}
                     </div>
                 </div>
@@ -288,52 +302,52 @@
                     </p>
                 </div>
 
-            {% comment %}
-            {%- when 'content'-%}
-                <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{ block.shopify_attributes }}>
-                    {{ article.content }}
-                </div>
+                {% comment %}
+                {%- when 'content'-%}
+                    <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{ block.shopify_attributes }}>
+                        {{ article.content }}
+                    </div>
 
-            {%- when 'share' -%}
-                <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
-                    <share-button class="share-button" {{ block.shopify_attributes }}>
-                        <button class="share-button__button hidden">
-                            {% render 'icon-share' %}
-                            {{ block.settings.share_label | escape }}
-                        </button>
-                        <details id="Details-{{ block.id }}-{{ section.id }}">
-                            <summary class="share-button__button">
+                {%- when 'share' -%}
+                    <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
+                        <share-button class="share-button" {{ block.shopify_attributes }}>
+                            <button class="share-button__button hidden">
                                 {% render 'icon-share' %}
                                 {{ block.settings.share_label | escape }}
-                            </summary>
-                            <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
-                                <div class="field">
-                                    <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
-                                    </span>
-                                    <input type="text"
-                                           class="field__input"
-                                           id="url"
-                                           value="{{ request.origin | append: article.url }}"
-                                           placeholder="{{ 'general.share.share_url' | t }}"
-                                           onclick="this.select();"
-                                           readonly
-                                    >
-                                    <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
+                            </button>
+                            <details id="Details-{{ block.id }}-{{ section.id }}">
+                                <summary class="share-button__button">
+                                    {% render 'icon-share' %}
+                                    {{ block.settings.share_label | escape }}
+                                </summary>
+                                <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
+                                    <div class="field">
+                                        <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status">
+                                        </span>
+                                        <input type="text"
+                                               class="field__input"
+                                               id="url"
+                                               value="{{ request.origin | append: article.url }}"
+                                               placeholder="{{ 'general.share.share_url' | t }}"
+                                               onclick="this.select();"
+                                               readonly
+                                        >
+                                        <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
+                                    </div>
+                                    <button class="share-button__close hidden no-js-hidden">
+                                        {% render 'icon-close' %}
+                                        <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
+                                    </button>
+                                    <button class="share-button__copy no-js-hidden">
+                                        {% render 'icon-clipboard' %}
+                                        <span class="visually-hidden">{{ 'general.share.copy_to_clipboard' | t }}</span>
+                                    </button>
                                 </div>
-                                <button class="share-button__close hidden no-js-hidden">
-                                    {% render 'icon-close' %}
-                                    <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
-                                </button>
-                                <button class="share-button__copy no-js-hidden">
-                                    {% render 'icon-clipboard' %}
-                                    <span class="visually-hidden">{{ 'general.share.copy_to_clipboard' | t }}</span>
-                                </button>
-                            </div>
-                        </details>
-                    </share-button>
-                    <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
-                </div>
-                {% endcomment %}
+                            </details>
+                        </share-button>
+                        <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
+                    </div>
+                    {% endcomment %}
         {%- endcase -%}
     {%- endfor -%}
 
@@ -549,8 +563,8 @@
     "@type": "Article",
     "articleBody": {{ article.content | strip_html | json }},
     "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": {{ request.origin | append: page.url | json }}
+        "@type": "WebPage",
+        "@id": {{ request.origin | append: page.url | json }}
     },
     "headline": {{ article.title | json }},
     {% if article.excerpt != blank %}
@@ -580,6 +594,7 @@
       "name": {{ shop.name | json }}
     }
   }
+
 </script>
 
 
@@ -747,9 +762,9 @@
       "limit": 1,
       "settings": [
         {
-            "type": "html",
-            "id": "social_html",
-            "label": "Social HTML"
+          "type": "html",
+          "id": "social_html",
+          "label": "Social HTML"
         }
       ]
     },

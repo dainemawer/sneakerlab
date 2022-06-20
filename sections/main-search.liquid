@@ -247,7 +247,8 @@
                           show_date: section.settings.article_show_date,
                           show_author: section.settings.article_show_author,
                           show_badge: true,
-                          is_page: false
+                          is_page: false,
+                          lazy_load: lazy_load
                         %}
                       {%- when 'page' -%}
                       {% render 'article-card',

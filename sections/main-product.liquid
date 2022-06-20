@@ -4,17 +4,18 @@
 
     <!-- Mobile Product Gallery -->
     <div id="product-carousel"  class="block overflow-hidden md:hidden col-span-12">
-      {% for image in product.images limit:5 %}
-        <div class="slide">
-          <figure class="bg-light-gray h-full flex items-center justify-center p-4">
+      {% for image in product.images limit: 5 %}
+        <div class="slide carousel-cell ">
+          <figure class="bg-light-gray h-full flex items-center justify-center">
             <img
-                  class="mb-2 object-contain rounded-lg"
+                  class="object-cover rounded-lg"
                   alt="SneakerLab Product 3"
                   src="{{ '343x360.jpg' | asset_url }}"
                   width="343"
                   height="360"
                   decoding="async"
                   style="width: 100%; height: 360px;"
+                  loading="lazy"
             />
           </figure>
         </div>
@@ -23,7 +24,7 @@
 
     <!-- Desktop Product Gallery -->
     <div class="hidden md:block col-span-12 md:col-span-6">
-      {% for image in product.images limit:5 %}
+      {% for image in product.images limit: 5 %}
         {% if forloop.index == 3 %}
           <div class="grid grid-cols-3 gap-2 mb-2">
         {% endif %}
@@ -36,6 +37,7 @@
               width="744"
               height="555"
               decoding="async"
+              loading="lazy"
           />
         {% else %}
           <img
@@ -218,7 +220,6 @@
                       id="accordion-title-{{ block.id }}"
                   >
                     {{ block.settings.title }}
-                    {{ variable }}
                     {% render 'accordion-toggle' %}
                   </button>
                 </h3>

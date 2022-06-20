@@ -27,7 +27,9 @@
                         class="object-cover"
                         alt="{{ article.image.alt }}"
                         src="{{ article.image | image_url }}"
-                        loading="lazy"
+                        {% if lazy_load %}
+                            loading="lazy"
+                        {% endif %}
                         decoding="async"
                     />
                     {% comment %}theme-check-enable{% endcomment %}

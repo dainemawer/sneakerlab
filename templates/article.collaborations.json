@@ -19,31 +19,31 @@
         "quote-section": {
           "type": "quote-section",
           "settings": {
-            "quote_paragraph": "<p>Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.<\/p>",
-            "small_paragraph": "<p>The DC x The_ONES E. Tribeka Vachetta is made of premium untreatedleather that ages over time like an old baseball mitt. Buttery softand ready to be made yours. This limited edition sneaker comes witha Sneaker Lab Deluxe cleaning kit that includes all leather care essentials.<\/p>"
+            "quote_paragraph": "<p>Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.</p>",
+            "small_paragraph": "<p>The DC x The_ONES E. Tribeka Vachetta is made of premium untreatedleather that ages over time like an old baseball mitt. Buttery softand ready to be made yours. This limited edition sneaker comes witha Sneaker Lab Deluxe cleaning kit that includes all leather care essentials.</p>"
           }
         },
         "two-image-grid": {
           "type": "two-image-grid",
           "settings": {
-            "left_image": "shopify:\/\/shop_images\/520x712.jpg"
+            "left_image": "shopify://shop_images/520x712.jpg"
           }
         },
         "quote-section-2": {
           "type": "quote-section",
           "settings": {
-            "quote_paragraph": "<p>This was a skater event down to the bone.<\/p>",
-            "small_paragraph": "<p>The DC x We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to Skate Moss, Briana King, Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.<\/p>"
+            "quote_paragraph": "<p>This was a skater event down to the bone.</p>",
+            "small_paragraph": "<p>The DC x We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to Skate Moss, Briana King, Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.</p>"
           }
         },
         "four-tile-grid": {
           "type": "four-tile-grid",
           "settings": {
-            "left_grid_image_1": "shopify:\/\/shop_images\/520x712.jpg",
-            "left_grid_image_2": "shopify:\/\/shop_images\/520x712.jpg",
-            "left_grid_image_3": "shopify:\/\/shop_images\/520x712.jpg",
-            "left_grid_image_4": "shopify:\/\/shop_images\/520x712.jpg",
-            "right_image": "shopify:\/\/shop_images\/mens-business-fashion.jpg"
+            "left_grid_image_1": "shopify://shop_images/520x712.jpg",
+            "left_grid_image_2": "shopify://shop_images/520x712.jpg",
+            "left_grid_image_3": "shopify://shop_images/520x712.jpg",
+            "left_grid_image_4": "shopify://shop_images/520x712.jpg",
+            "right_image": "shopify://shop_images/mens-business-fashion.jpg"
           }
         },
         "featured-section": {
@@ -51,15 +51,15 @@
           "settings": {
             "title": "",
             "paragraph": "",
-            "featured_image": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
-            "left_image": "shopify:\/\/shop_images\/fashion-model-in-pink.jpg",
-            "right_image": "shopify:\/\/shop_images\/woman-holding-coffee-mug.jpg"
+            "featured_image": "shopify://shop_images/rack-of-womens-clothing.jpg",
+            "left_image": "shopify://shop_images/fashion-model-in-pink.jpg",
+            "right_image": "shopify://shop_images/woman-holding-coffee-mug.jpg"
           }
         },
         "social": {
           "type": "social",
           "settings": {
-            "social_html": "Follow us to stay up to date with all things Sneaker LAB.\n                        <a href=\"https:\/\/www.instagram.com\/sneakerlab\/\" target=\"_blank\" rel=\"noopenner noreferrer\">Instagram<\/a> and <a href=\"https:\/\/www.facebook.com\/SneakerLab.StayFresh\" target=\"_blank\" rel=\"noopenner noreferrer\">Facebook<\/a>."
+            "social_html": "Follow us to stay up to date with all things Sneaker LAB.\n                        <a href=\"https://www.instagram.com/sneakerlab/\" target=\"_blank\" rel=\"noopenner noreferrer\">Instagram</a> and <a href=\"https://www.facebook.com/SneakerLab.StayFresh\" target=\"_blank\" rel=\"noopenner noreferrer\">Facebook</a>."
           }
         },
         "content": {

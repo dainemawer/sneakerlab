@@ -26,13 +26,13 @@
     </p>
   </div>
 </div>
-{% render 'modal' %}
-{% render 'cart-modal' %}
-{% render 'add-to-cart-js' %}
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-{% render 'carousel-js' %}
-{% render 'accordion-js' %}
 
+{%- liquid
+  render 'modal'
+  render 'add-to-cart-js'
+  render 'carousel-js'
+  render 'accordion-js'
+-%}
 
 <script>
 

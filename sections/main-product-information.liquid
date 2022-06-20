@@ -3,16 +3,17 @@
         <p class="uppercase text-xs md:text-sm mb-5">[&nbsp;&nbsp;{{ section.settings.subtitle }}&nbsp;&nbsp;]</p>
         {% if section.settings.left-block-image %}
             <img
-                class="rounded-lg mb-3 object-cover"
-                src="{{ section.settings.left-block-image | image_url: width: 412, height: 415 }}"
-                width="412"
-                height="415"
-                alt="{{ section.settings.left-block-image.alt | escape }}"
-                loading="lazy"
-                decoding="async"
+                    class="rounded-lg mb-3 object-cover"
+                    src="{{ section.settings.left-block-image | image_url: width: 412, height: 415 }}"
+                    width="412"
+                    height="415"
+                    alt="{{ section.settings.left-block-image.alt | escape }}"
+                    loading="lazy"
+                    decoding="async"
             >
         {% else %}
-            <img class="rounded-lg mb-3" src="{{ '412x415.jpg' | asset_url }}" width="412" height="415" alt="" loading="lazy" decoding="async">
+            <img class="rounded-lg mb-3" src="{{ '412x415.jpg' | asset_url }}" width="412" height="415" alt=""
+                 loading="lazy" decoding="async">
         {% endif %}
 
         <h3 class="uppercase max-w-[412px] text-xl md:text-3xl mb-4">
@@ -32,10 +33,18 @@
                     width="744"
                     height="555"
                     decoding="async"
+                    loading="lazy"
             />
         {% else %}
-            <img class="rounded-lg mb-3" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744"
-                 height="555" decoding="async" />
+            <img
+                    class="rounded-lg mb-3"
+                    alt="SneakerLab Product 3"
+                    src="{{ '343x360.jpg' | asset_url }}"
+                    width="744"
+                    height="555"
+                    decoding="async"
+                    loading="lazy"
+            />
         {% endif %}
 
         <h3 class="text-xl md:text-3xl uppercase mb-4">
@@ -61,10 +70,18 @@
                         width="145"
                         height="185"
                         decoding="async"
+                        loading="lazy"
                 />
             {% else %}
-                <img class="rounded-lg mb-3" alt="SneakerLab Product 3" src="{{ '185x145.jpg' | asset_url }}" width="185"
-                     height="145" decoding="async" />
+                <img
+                        class="rounded-lg mb-3"
+                        alt="SneakerLab Product 3"
+                        src="{{ '185x145.jpg' | asset_url }}"
+                        width="185"
+                        height="145"
+                        decoding="async"
+                        loading="lazy"
+                />
             {% endif %}
 
             {% if section.settings.bottom-block-image-right %}
@@ -76,10 +93,18 @@
                         width="145"
                         height="185"
                         decoding="async"
+                        loading="lazy"
                 />
             {% else %}
-                <img class="rounded-lg mb-3" alt="SneakerLab Product 3" src="{{ '185x145.jpg' | asset_url }}" width="185"
-                     height="145" decoding="async" />
+                <img
+                        class="rounded-lg mb-3"
+                        alt="SneakerLab Product 3"
+                        src="{{ '185x145.jpg' | asset_url }}"
+                        width="185"
+                        height="145"
+                        decoding="async"
+                        loading="lazy"
+                />
             {% endif %}
         </div>
         <p class="text-xs md:text-sm max-w-[325px]">
@@ -105,9 +130,9 @@
       "label": "Left Block Image"
     },
     {
-        "type": "text",
-        "id": "left-block-title",
-        "label": "Left Block Title"
+      "type": "text",
+      "id": "left-block-title",
+      "label": "Left Block Title"
     },
     {
       "type": "text",
@@ -120,9 +145,9 @@
       "label": "Right Block Image"
     },
     {
-        "type": "text",
-        "id": "right-block-title",
-        "label": "Right Block Title"
+      "type": "text",
+      "id": "right-block-title",
+      "label": "Right Block Title"
     },
     {
       "type": "text",

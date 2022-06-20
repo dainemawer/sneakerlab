@@ -999,6 +999,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1.25rem;
 }
 
+.w-\[60\%\] {
+  width: 60%;
+}
+
+.w-\[25\%\] {
+  width: 25%;
+}
+
 .w-2\/4 {
   width: 50%;
 }
@@ -1371,10 +1379,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .p-5 {
   padding: 1.25rem;
-}
-
-.p-4 {
-  padding: 1rem;
 }
 
 .p-\[1px\] {
@@ -2063,6 +2067,14 @@ a.ticker::after {
   height: 360px;
 }
 
+.slide:not(:last-child) {
+  margin-right: 10px;
+}
+
+#product-carousel:focus-visible {
+  outline: none !important;
+}
+
 .flickity-page-dots {
   bottom: 12px !important;
   right: 12px !important;
@@ -2344,6 +2356,7 @@ a.predictive-search__item:after {
 
 .product-info iframe {
   width: 100% !important;
+  margin-top: 2rem;
 }
 
 .placeholder\:text-5xl::-moz-placeholder {
@@ -2718,20 +2731,8 @@ a.predictive-search__item:after {
     width: 35%;
   }
 
-  .md\:w-\[60\%\] {
-    width: 60%;
-  }
-
   .md\:w-2\/4 {
     width: 50%;
-  }
-
-  .md\:w-\[25\%\] {
-    width: 25%;
-  }
-
-  .md\:w-\[15\%\] {
-    width: 15%;
   }
 
   .md\:max-w-\[344\] {
@@ -2780,10 +2781,6 @@ a.predictive-search__item:after {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .md\:flex-row {
-    flex-direction: row;
   }
 
   .md\:items-center {
@@ -3182,4 +3179,3 @@ a.predictive-search__item:after {
     flex-direction: row;
   }
 }
-  

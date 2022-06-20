@@ -5,7 +5,8 @@ const Carousel = () => {
     return new Flickity(carousel, {
       cellAlign: 'center',
       resize: true,
-      prevNextButtons: false
+      prevNextButtons: false,
+      contain: true
     })
   }
 }

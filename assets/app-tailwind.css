@@ -228,6 +228,14 @@ a.ticker::after {
     height: 360px;
 }
 
+.slide:not(:last-child) {
+    margin-right: 10px;
+}
+
+#product-carousel:focus-visible {
+    outline: none !important;
+}
+
 .flickity-page-dots {
     bottom: 12px !important;
     right: 12px !important;
@@ -413,4 +421,3 @@ a.predictive-search__item:after {
 	width: 100% !important;
   	margin-top: 2rem;
 }
-  

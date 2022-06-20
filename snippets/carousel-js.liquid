@@ -1,15 +1,21 @@
-<script>
-    const Carousel = () => {
-        console.log('Carousel')
-        const carousel = document.getElementById('product-carousel')
-        if (carousel) {
-            return new Flickity(carousel, {
-                cellAlign: 'center',
-                resize: true,
-                prevNextButtons: false
-            })
-        }
-    }
+<script id="flickityscript" src="{{ 'flickity.js' | asset_url }}" async></script>
 
-    Carousel()
+<script>
+    const flickityScript = document.querySelector('#flickityscript');
+    flickityScript.addEventListener("load", function() {
+        const Carousel = () => {
+            console.log('Carousel')
+            const carousel = document.getElementById('product-carousel')
+            if (carousel) {
+                return new Flickity(carousel, {
+                    cellAlign: 'center',
+                    resize: true,
+                    prevNextButtons: false
+                })
+            }
+        }
+
+        Carousel()
+    });
+
 </script>
