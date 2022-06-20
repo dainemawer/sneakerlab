@@ -58,6 +58,11 @@
         ]
       }
     },
+    "commitment": {
+      "type": "home-commitment",
+      "settings": {
+      }
+    },
     "featured-collaborations": {
       "type": "featured-collaborations",
       "settings": {
@@ -73,6 +78,7 @@
     "hero",
     "three-column-image-grid",
     "featured-products",
+    "commitment",
     "featured-collaborations",
     "featured-stories"
   ]

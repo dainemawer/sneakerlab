@@ -2,52 +2,59 @@
     Renders markup for collaborations section.
 {% endcomment %}
 
-{% comment %}{{ section.settings.featured_products.count | prepend: '00' | slice: -2, 2 }}{% endcomment %}
-<div class="mb-20 xl:mb-36 mt-20 xl:mt-44 ">
-  <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[1000px] tracking-tighter">
-    At Sneaker LAB we are committed to being as environmentally friendly as we can.
-  </h3>
-  <img
-    width="320"
-    height="68"
-    class="mt-4" src="{{ 'efb-home-newest1.svg' | asset_url }}"
-    alt="Environmentally Friendly Biotechnology"
-    loading="lazy"
-  >
-</div>
-
-
 <section class="xl:container xl:mx-auto mb-36">
   <h2 class="uppercase text-sm mb-5">
-    [ Collaborations <sup>03</sup> ]
+    [ {{ section.settings.collaborations_title }} <sup>{{ section.settings.collaborations_count }}</sup> ]
   </h2>
   <div class="grid md:grid-cols-12 gap-4">
+    <!-- Large Featured Collaboration -->
     <article class="md:col-span-6">
       <figure class="relative overflow-hidden marquee-wrap">
-        <a href="/blogs/collaborations/reebok">
-          <img
-              class="rounded-lg"
-              alt="SneakerLab Product 3"
-              src="{{ '760x700.jpg' | asset_url }}"
-              width="760"
-              height="700"
-              loading="lazy"
-              decoding="async"
-          />
-        </a>
+        {% if section.settings.collaborations_large_featured_article %}
+          <a href="{{ section.settings.collaborations_large_featured_article.url }}">
+            <img
+                src="{{ section.settings.collaborations_large_featured_article.image.src }}"
+                alt="{{ section.settings.collaborations_large_featured_article.image.alt }}"
+                class="rounded-lg object-cover"
+                width="760"
+                height="700"
+                loading="lazy"
+                decoding="async"
+                style="width: 760px; height: 700px;"
+            >
+          </a>
+        {% else %}
+          <a href="/blogs/collaborations/reebok">
+            <img
+                    class="rounded-lg"
+                    alt="SneakerLab Product 3"
+                    src="{{ '760x700.jpg' | asset_url }}"
+                    width="760"
+                    height="700"
+                    loading="lazy"
+                    decoding="async"
+            />
+          </a>
+        {% endif %}
 
         <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
           <div class="inner relative w-full flex">
             <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
-              View [Reebok]
+              {% if section.settings.collaborations_large_featured_article %}
+                View [{{ section.settings.collaborations_large_featured_article.title }}]
+              {% endif %}
             </p>
           </div>
         </div>
       </figure>
       <h3 class="flex-1 w-full uppercase text-sm mt-2">
-        [ Reebok ]
+        {% if section.settings.collaborations_large_featured_article %}
+        [ {{ section.settings.collaborations_large_featured_article.title }} ]
+        {% endif %}
       </h3>
     </article>
+
+    <!-- Medium Featured Collaboration -->
     <article class="md:col-span-6 relative">
       <div class="flex flex-wrap justify-between">
         <figure class="basis-[49%] md:col-span-3 relative overflow-hidden marquee-wrap">
@@ -94,19 +101,41 @@
       </div>
       <h4 class="hidden md:block text-xl md:text-lg xl:text-3xl lg:absolute lg:bottom-[24%] font-medium">
         See our latest creative and limited edition brand collaborations including,
-        <a href="../pages/collaboration.html">New Balance</a>,
-        <a href="../pages/collaboration.html">Fila</a>,
-        <a href="/eytys">Eytys</a>,
-        <a href="../pages/collaboration.html">Reebok</a> and
-        <a href="/arigato">Arigato</a>.
+        <a href="/blogs/collaborations/">New Balance</a>,
+        <a href="/blogs/collaborations/">Fila</a>,
+        <a href="/blogs/collaborations/">Eytys</a>,
+        <a href="/blogs/collaborations/">Reebok</a> and
+        <a href="/blogs/collaborations/">Arigato</a>.
       </h4>
-      <a class="uppercase block mt-16 lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:text-2xl xl:text-3xl" href="/blogs/collaborations">View all</a>
+      <a class="uppercase block mt-16 lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:text-2xl xl:text-3xl" href="/blogs/collaborations/">
+        View all
+      </a>
     </article>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Collaborations Section"
+  "name": "Collaborations Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "collaborations_title",
+      "label": "Collaborations Title",
+      "default": "Collaborations"
+    },
+    {
+      "type": "text",
+      "id": "collaborations_count",
+      "label": "Collaborations Count",
+      "default": "03"
+    },
+    {
+      "type": "article",
+      "id": "collaborations_large_featured_article",
+      "label": "Collaborations Large Featured Article"
+    }
+  ]
 }
 {% endschema %}

@@ -1,0 +1,27 @@
+<div class="mb-20 xl:mb-36 mt-20 xl:mt-44 ">
+    <h3 class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-none max-w-[1000px] tracking-tighter">
+        {{ section.settings.text }}
+    </h3>
+    <img
+            width="320"
+            height="68"
+            class="mt-4" src="{{ 'efb-home-newest1.svg' | asset_url }}"
+            alt="Environmentally Friendly Biotechnology"
+            loading="lazy"
+    >
+</div>
+
+{% schema %}
+{
+  "name": "Commitment Section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Large Quote",
+      "default": "AT SNEAKER LAB WE ARE COMMITTED TO BEING AS ENVIRONMENTALLY FRIENDLY AS WE CAN."
+    }
+  ]
+}
+{% endschema %}
