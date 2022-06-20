@@ -13,7 +13,7 @@
         {% if section.settings.collaborations_large_featured_article %}
           <a href="{{ section.settings.collaborations_large_featured_article.url }}">
             <img
-                src="{{ section.settings.collaborations_large_featured_article.image.src }}"
+                src="{{ section.settings.collaborations_large_featured_article.image.src | image_url }}"
                 alt="{{ section.settings.collaborations_large_featured_article.image.alt }}"
                 class="rounded-lg object-cover"
                 width="760"
@@ -58,48 +58,88 @@
     <article class="md:col-span-6 relative">
       <div class="flex flex-wrap justify-between">
         <figure class="basis-[49%] md:col-span-3 relative overflow-hidden marquee-wrap">
-          <a href="/blogs/collaborations/new-balance">
-            <img
-                class="rounded-lg"
-                alt="SneakerLab Product 3"
-                src="{{ '370x340.jpg' | asset_url }}"
-                width="370" height="340"
-                loading="lazy"
-                decoding="async"
-            />
-          </a>
+          {% if section.settings.collaborations_medium_1_featured_article %}
+            <a href="{{ section.settings.collaborations_medium_1_featured_article.url }}">
+              <img
+                      src="{{ section.settings.collaborations_medium_1_featured_article.image.src | image_url }}"
+                      alt="{{ section.settings.collaborations_medium_1_featured_article.image.alt }}"
+                      class="rounded-lg object-cover"
+                      width="370"
+                      height="340"
+                      loading="lazy"
+                      decoding="async"
+                      style="width: 370px; height: 340px;"
+              >
+            </a>
+          {% else %}
+            <a href="/blogs/collaborations/new-balance">
+              <img
+                  class="rounded-lg"
+                  alt="SneakerLab Product 3"
+                  src="{{ '370x340.jpg' | asset_url }}"
+                  width="370"
+                  height="340"
+                  loading="lazy"
+                  decoding="async"
+              />
+            </a>
+          {% endif %}
+
           <div class="marquee absolute top-[45%] opacity-0 transition-opacity pointer-events-none">
             <div class="inner relative w-full flex">
               <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
-                View [New Balance]
+                {% if section.settings.collaborations_medium_1_featured_article %}
+                View [{{ section.settings.collaborations_medium_1_featured_article.title }}]
+                {% endif %}
               </p>
             </div>
           </div>
         </figure>
         <figure class="basis-[49%] md:col-span-3 relative overflow-hidden marquee-wrap">
-          <a href="/blogs/collaborations/new-balance">
-            <img
-                class="rounded-lg"
-                alt="SneakerLab Product 3"
-                src="{{ '370x340.jpg' | asset_url }}"
-                width="370"
-                height="340"
-                loading="lazy"
-                decoding="async" />
-          </a>
+          {% if section.settings.collaborations_medium_2_featured_article %}
+            <a href="{{ section.settings.collaborations_medium_2_featured_article.url }}">
+              <img
+                      src="{{ section.settings.collaborations_medium_2_featured_article.image.src | image_url }}"
+                      alt="{{ section.settings.collaborations_medium_2_featured_article.image.alt }}"
+                      class="rounded-lg object-cover"
+                      width="370"
+                      height="340"
+                      loading="lazy"
+                      decoding="async"
+                      style="width: 370px; height: 340px;"
+              >
+            </a>
+          {% else %}
+            <a href="/blogs/collaborations/new-balance">
+              <img
+                      class="rounded-lg"
+                      alt="SneakerLab Product 3"
+                      src="{{ '370x340.jpg' | asset_url }}"
+                      width="370"
+                      height="340"
+                      loading="lazy"
+                      decoding="async"
+              />
+            </a>
+          {% endif %}
           <div class="marquee absolute top-[45%] opacity-0 transition-opacity pointer-events-none">
             <div class="inner relative w-full flex">
               <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
-                View [New Balance]
+                {% if section.settings.collaborations_medium_2_featured_article %}
+                  View [{{ section.settings.collaborations_medium_2_featured_article.title }}]
+                {% endif %}
               </p>
             </div>
           </div>
         </figure>
         <h3 class="flex-1 w-full uppercase text-sm mt-2">
-          [ New Balance ]
+          {% if section.settings.collaborations_medium_1_featured_article %}
+            [ {{ section.settings.collaborations_medium_1_featured_article.title }} ]
+          {% endif %}
         </h3>
       </div>
       <h4 class="hidden md:block text-xl md:text-lg xl:text-3xl lg:absolute lg:bottom-[24%] font-medium">
+        {{ section.settings.collaborations_description }}
         See our latest creative and limited edition brand collaborations including,
         <a href="/blogs/collaborations/">New Balance</a>,
         <a href="/blogs/collaborations/">Fila</a>,
@@ -107,8 +147,8 @@
         <a href="/blogs/collaborations/">Reebok</a> and
         <a href="/blogs/collaborations/">Arigato</a>.
       </h4>
-      <a class="uppercase block mt-16 lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:text-2xl xl:text-3xl" href="/blogs/collaborations/">
-        View all
+      <a class="uppercase block mt-16 lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:text-2xl xl:text-3xl" href="{{ section.settings.view_all_link_url }}">
+        {{ section.settings.ollaborations_view_all_link_text }}
       </a>
     </article>
   </div>
@@ -135,6 +175,31 @@
       "type": "article",
       "id": "collaborations_large_featured_article",
       "label": "Collaborations Large Featured Article"
+    },
+    {
+      "type": "article",
+      "id": "collaborations_medium_1_featured_article",
+      "label": "Collaborations Medium 1 Featured Article"
+    },
+    {
+      "type": "article",
+      "id": "collaborations_medium_2_featured_article",
+      "label": "Collaborations Medium 2 Featured Article"
+    },
+    {
+      "type": "richtext",
+      "id": "collaborations_description",
+      "label": "Collaborations Description"
+    },
+    {
+      "type": "text",
+      "id": "collaborations_view_all_link_text",
+      "label": "Collaborations View All Link"
+    },
+    {
+      "type": "text",
+      "id": "collaborations_view_all_link_url",
+      "label": "Collaborations View All Link URL"
     }
   ]
 }
