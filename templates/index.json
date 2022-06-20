@@ -15,8 +15,8 @@
           "type": "image",
           "settings": {
             "title": "Keep it clean. Make it last. Natural shoe care solutions",
-            "link": "shopify://collections/shop",
-            "image": "shopify://shop_images/520x712.jpg",
+            "link": "shopify:\/\/collections\/shop",
+            "image": "shopify:\/\/shop_images\/520x712.jpg",
             "hover_text": "View [Products]"
           }
         },
@@ -24,8 +24,8 @@
           "type": "image",
           "settings": {
             "title": "Creative and limited edition brand collaborations.",
-            "link": "shopify://blogs/collaborations",
-            "image": "shopify://shop_images/520x712.jpg",
+            "link": "shopify:\/\/blogs\/collaborations",
+            "image": "shopify:\/\/shop_images\/520x712.jpg",
             "hover_text": "View [Collaborations]"
           }
         },
@@ -33,8 +33,8 @@
           "type": "image",
           "settings": {
             "title": "Better for your sneakers, better for your earth.",
-            "link": "shopify://blogs/how-to",
-            "image": "shopify://shop_images/520x712.jpg",
+            "link": "shopify:\/\/blogs\/how-to",
+            "image": "shopify:\/\/shop_images\/520x712.jpg",
             "hover_text": "View [How To]"
           }
         }
@@ -69,7 +69,12 @@
       "settings": {
         "collaborations_title": "Collaborations",
         "collaborations_count": "03",
-        "collaborations_large_featured_article": "collaborations/reebok"
+        "collaborations_large_featured_article": "collaborations\/reebok",
+        "collaborations_medium_1_featured_article": "collaborations\/new-balance",
+        "collaborations_medium_2_featured_article": "collaborations\/new-balance",
+        "collaborations_description": "<p>See our latest creative and limited edition brand collaborations including, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">New Balance<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Fila<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Eytys<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Reebok<\/a> and <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Arigato<\/a>.<\/p>",
+        "collaborations_view_all_link_text": "View All",
+        "collaborations_view_all_link_url": "\/blogs\/collaborations\/"
       }
     },
     "featured-stories": {
