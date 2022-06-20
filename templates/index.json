@@ -73,7 +73,8 @@
         "collaborations_medium_1_featured_article": "collaborations\/new-balance",
         "collaborations_medium_2_featured_article": "collaborations\/new-balance",
         "collaborations_description": "<p>See our latest creative and limited edition brand collaborations including, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">New Balance<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Fila<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Eytys<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Reebok<\/a> and <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Arigato<\/a>.<\/p>",
-        "collaborations_view_all_link_text": "View All"
+        "collaborations_view_all_link_text": "View All",
+        "collaborations_view_all_link_url": "\/blogs\/collaborations\/"
       }
     },
     "featured-stories": {
