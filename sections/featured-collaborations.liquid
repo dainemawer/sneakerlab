@@ -140,15 +140,9 @@
       </div>
       <h4 class="hidden md:block text-xl md:text-lg xl:text-3xl lg:absolute lg:bottom-[24%] font-medium">
         {{ section.settings.collaborations_description }}
-        See our latest creative and limited edition brand collaborations including,
-        <a href="/blogs/collaborations/">New Balance</a>,
-        <a href="/blogs/collaborations/">Fila</a>,
-        <a href="/blogs/collaborations/">Eytys</a>,
-        <a href="/blogs/collaborations/">Reebok</a> and
-        <a href="/blogs/collaborations/">Arigato</a>.
       </h4>
       <a class="uppercase block mt-16 lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:text-2xl xl:text-3xl" href="{{ section.settings.view_all_link_url }}">
-        {{ section.settings.ollaborations_view_all_link_text }}
+        {{ section.settings.collaborations_view_all_link_text }}
       </a>
     </article>
   </div>
@@ -194,12 +188,13 @@
     {
       "type": "text",
       "id": "collaborations_view_all_link_text",
-      "label": "Collaborations View All Link"
+      "label": "Collaborations Link Text",
+      "default": "View All"
     },
     {
-      "type": "text",
+      "type": "url",
       "id": "collaborations_view_all_link_url",
-      "label": "Collaborations View All Link URL"
+      "label": "Collaborations Link URL"
     }
   ]
 }
