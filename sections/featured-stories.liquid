@@ -37,11 +37,9 @@
         </div>
     </header>
     {% comment %}theme-check-disable{% endcomment %}
-    {%- liquid
-        assign blogs = blogs['stories'].articles | limit: 4
-    %}
+    {%- liquid assign blogs = blogs['stories'].articles %}
     {% comment %}theme-check-enable{% endcomment %}
-    {% for article in blogs %}
+    {% for article in blogs limit: 4 %}
         {%- liquid
             assign modulus = forloop.index | modulo: 2
         %}

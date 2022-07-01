@@ -12,13 +12,14 @@
     "type": "git",
     "url": "git+https://github.com/dainemawer/sneakerlab.git"
   },
-  "keywords": [
-
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dainemawer/sneakerlab/issues"
   },
-  "homepage": "https://github.com/dainemawer/sneakerlab#readme"
+  "homepage": "https://github.com/dainemawer/sneakerlab#readme",
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.0"
+  }
 }

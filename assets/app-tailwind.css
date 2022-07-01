@@ -224,6 +224,62 @@ a.ticker::after {
     display: none !important
 }
 
+.order p,
+.order time {
+    @apply text-xs md:text-sm !important;
+}
+
+.customer th {
+    padding: 0 1rem !important;
+    @apply uppercase text-xs md:text-sm font-semibold mb-5 md:mb-10 !important;
+}
+
+.customer th:first-of-type, .customer td:first-of-type {
+    padding-left: 0.5rem !important;
+}
+
+.order thead th:nth-last-child(-n + 3), .order td:nth-last-child(-n + 3) {
+    padding-right: 0.5rem !important;
+}
+
+.order-details {
+    border: 1px solid black !important;
+}
+
+.order-details thead tr th {
+    border: 1px solid black !important;
+}
+
+.order-details tbody tr td {
+    border: 1px solid black !important;
+    padding-left: 0.5rem;
+    border-top: 0 !important;
+}
+
+.order-details tfoot tr {
+    border-bottom: 1px solid black !important;
+}
+
+.customer tbody td a,
+.customer tbody td {
+    @apply py-4 text-xs md:text-sm !important;
+    vertical-align: unset !important;
+    line-height: unset !important;
+}
+
+.customer tbody td a {
+    padding: 0 !important;
+}
+
+.customer tfoot tr:first-of-type td {
+    @apply text-xs md:text-sm !important;
+}
+
+.order tfoot tr:last-of-type td, .order tfoot tr:last-of-type th {
+    @apply text-xs md:text-sm font-bold uppercase !important;
+    padding-bottom: 1.5rem !important;
+}
+
 .slide {
     height: 360px;
 }
