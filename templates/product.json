@@ -91,7 +91,8 @@
     "product-large-quote": {
       "type": "product-large-quote",
       "settings": {
-        "text": "We pride ourselves on our product line and lessening its impact on our Earth."
+        "text": "{{ product.metafields.custom.first_large_quote.value }}"
+//        "text": "We pride ourselves on our product line and lessening its impact on our Earth."
       }
     },
     "main-product-information": {

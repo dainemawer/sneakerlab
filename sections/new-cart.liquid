@@ -1,19 +1,19 @@
 <main id="main-content" class="xl:container xl:mx-auto" role="main" aria-label="Main Site Content">
     <div class="grid md:grid-cols-12 gap-4 xl:container xl:mx-auto mt-10 md:mt-20 px-4 lg:px-5">
         <div class="md:col-span-3">
-            <h1 class="text-xs md:text-sm uppercase mb-8 md:mb-10">[&nbsp;&nbsp;Your Cart&nbsp;&nbsp;]</h1>
+            <h1 class="mb-8 text-xs uppercase md:text-sm md:mb-10">[&nbsp;&nbsp;Your Cart&nbsp;&nbsp;]</h1>
         </div>
         <!-- Product Line Items headings -->
         <div class="md:col-span-9">
             <div class="flex">
                 <div class="w-[65%]">
-                    <span class="uppercase font-semibold text-xs md:text-sm inline-block mb-3 md:mb-4">Product</span>
+                    <span class="inline-block mb-3 text-xs font-semibold uppercase md:text-sm md:mb-4">Product</span>
                 </div>
                 <div class="w-[20%]">
-                    <span class="uppercase hidden font-semibold text-xs md:text-sm md:inline-block mb-4">QTY</span>
+                    <span class="hidden mb-4 text-xs font-semibold uppercase md:text-sm md:inline-block">QTY</span>
                 </div>
                 <div class="w-[15%] text-right">
-                    <span class="uppercase hidden font-semibold text-xs md:text-sm md:inline-block mb-4">Price</span>
+                    <span class="hidden mb-4 text-xs font-semibold uppercase md:text-sm md:inline-block">Price</span>
                 </div>
             </div>
 
@@ -22,9 +22,9 @@
             {% render 'cart-item' %}
 
             <!-- Cart Totals -->
-            <div class="md:flex items-end justify-between">
-                <p class="mt-10 md:mt-0 mb-2">
-                    <a class="uppercase text-xs md:text-sm" href="{{ routes.all_products_collection_url }}">Keep Shopping</a>
+            <div class="items-end justify-between md:flex">
+                <p class="mt-10 mb-2 md:mt-0">
+                    <a class="text-xs uppercase md:text-sm" href="{{ routes.all_products_collection_url }}">Keep Shopping</a>
                 </p>
                 <div class="static bottom-0 w-full md:w-[35%]">
                     <div class="flex mt-6 mb-7 justify-between items-center">
@@ -68,4 +68,3 @@
 
     </script>
 </main>
-

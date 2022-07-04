@@ -1,13 +1,13 @@
 <div class="grid grid-cols-12 gap-2 mt-4">
     <div class="col-span-12 md:col-span-6 mb-14 md:mb-0">
         <p class="uppercase text-xs md:text-sm mb-5">[&nbsp;&nbsp;{{ section.settings.subtitle }}&nbsp;&nbsp;]</p>
-        {% if section.settings.left-block-image %}
+        {% if product.metafields.custom.product_information_image_left %}
             <img
                     class="rounded-lg mb-3 object-cover"
-                    src="{{ section.settings.left-block-image | image_url: width: 412, height: 415 }}"
+                    src="{{ product.metafields.custom.product_information_image_left | image_url: width: 412, height: 415 }}"
                     width="412"
                     height="415"
-                    alt="{{ section.settings.left-block-image.alt | escape }}"
+                    alt="{{ product.metafields.custom.product_information_image_left.alt | escape }}"
                     loading="lazy"
                     decoding="async"
             >
@@ -17,10 +17,10 @@
         {% endif %}
 
         <h3 class="uppercase max-w-[412px] text-xl md:text-3xl mb-4">
-            {{ section.settings.left-block-title }}
+            {{ product.metafields.custom.prod_info_left_subtitle }}
         </h3>
         <p class="text-xs md:text-sm max-w-[412px]">
-            {{ section.settings.left-block-text }}
+            {{ product.metafields.custom.left-block-text }}
         </p>
     </div>
     <div class="col-span-12 md:col-span-6">

@@ -1,19 +1,19 @@
-<article data-cart-item class="flex items-center justify-between py-2 last:border-b border-t border-silver">
+<article data-cart-item class="flex items-center justify-between py-2 border-t last:border-b border-silver">
     <div class="w-[60%] xl:w-[65%] flex items-start md:items-center justify-start">
 
         {% if item.image %}
             {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
             <a href="{{ item.url }}" aria-hidden="true" tabindex="-1">
-                <img class="rounded object-contain" src="{{ item.image | image_url: width: 300 }}" style="width: 72px; height: 56px;" width="72" height="56" loading="lazy" alt="{{ item.image.alt | escape }}" decoding="async" />
+                <img class="object-contain rounded" src="{{ item.image | image_url: width: 300 }}" style="width: 72px; height: 56px;" width="72" height="56" loading="lazy" alt="{{ item.image.alt | escape }}" decoding="async" />
             </a>
         {% endif %}
 
-        <p class="md:flex justify-between uppercase text-xs ml-4 md:w-2/4">
+        <p class="justify-between ml-4 text-xs uppercase md:flex md:w-2/4">
             <a href="{{ item.url }}">
                 <span class="block md:inline-block">{{ item.product.title | escape }}</span>
             </a>
             {% comment %}<span class="block md:inline-block">4.2 FL OZ</span>{% endcomment %}
-            <a href="{{ item.url_to_remove }}" class="md:hidden mt-5 block uppercase text-xs ml-auto" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+            <a href="{{ item.url_to_remove }}" class="block mt-5 ml-auto text-xs uppercase md:hidden" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
                 <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
                     Remove
                 </cart-remove-button>
@@ -24,7 +24,7 @@
 
         <!-- Quantity Input -->
         <quantity-input class="quantity flex relative border border-silver rounded p-[1px] text-xs md:text-sm">
-            <button name="minus" data-cart-decrement class="quantity__button absolute left-0 w-10 h-10 hover:opacity-50 focus:opacity-50 transition-all" type="button">-</button>
+            <button name="minus" data-cart-decrement class="absolute left-0 w-10 h-10 transition-all quantity__button hover:opacity-50 focus:opacity-50" type="button">-</button>
             <input
                 class="quantity__input text-center max-w-[100px] block my-0 mx-auto p-2 box-border"
                 type="number"
@@ -35,10 +35,10 @@
                 id="Quantity-{{ item.index | plus: 1 }}"
                 data-index="{{ item.index | plus: 1 }}"
             />
-            <button data-cart-increment class="quantity__button absolute hover:opacity-50 focus:opacity-50 transition-all right-0 w-10 h-10" name="plus" type="button">+</button>
+            <button data-cart-increment class="absolute right-0 w-10 h-10 transition-all quantity__button hover:opacity-50 focus:opacity-50" name="plus" type="button">+</button>
         </quantity-input>
         <!-- Remove Button -->
-        <a href="{{ item.url_to_remove }}" class="hidden md:inline-block uppercase text-xs ml-auto" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
+        <a href="{{ item.url_to_remove }}" class="hidden ml-auto text-xs uppercase md:inline-block" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">
             <cart-remove-button id="Remove-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
                 Remove
             </cart-remove-button>
@@ -46,7 +46,7 @@
     </div>
     <div class="w-[15%] text-right text-sm">
         <div class="cart-item__totals">
-            <div class="loading-overlay hidden">
+            <div class="hidden loading-overlay">
                 <div class="loading-overlay__spinner">
                     <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                         <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
@@ -103,4 +103,3 @@
         {% endcomment %}
     </div>
 </article>
-
