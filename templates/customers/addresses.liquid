@@ -40,7 +40,9 @@
                     aria-expanded="false"
                     aria-controls="AddAddress"
             >
-                {{ 'customer.addresses.add_new' | t }}
+                <a>
+                    {{ 'customer.addresses.add_new' | t }}
+                </a>
             </button>
 
             <div id="AddAddress" class="mb-8 max-w-[695px]">
@@ -243,7 +245,9 @@
                     {%- if address == customer.default_address -%}
                         <h2 class="uppercase text-xs md:text-sm font-semibold mb-4">{{ 'customer.addresses.default' | t }}</h2>
                     {%- endif -%}
-                    {{ address | format_address }}
+                    <div class="mb-4">
+                        {{ address | format_address }}
+                    </div>
                     <button
                             type="button"
                             id="EditFormButton_{{ address.id }}"
@@ -251,8 +255,11 @@
                             aria-controls="EditAddress_{{ address.id }}"
                             aria-expanded="false"
                             data-address-id="{{ address.id }}"
+                            class="mr-4"
                     >
-                        {{ 'customer.addresses.edit' | t }}
+                        <a>
+                            {{ 'customer.addresses.edit' | t }}
+                        </a>
                     </button>
                     <button
                             type="button"
@@ -260,10 +267,14 @@
                             data-target="{{ address.url }}"
                             data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
                     >
-                        {{ 'customer.addresses.delete' | t }}
+                        <a>
+                            {{ 'customer.addresses.delete' | t }}
+                        </a>
                     </button>
-                    <div id="EditAddress_{{ address.id }}">
-                        <h2>{{ 'customer.addresses.edit_address' | t }}</h2>
+                    <div id="EditAddress_{{ address.id }}" class="my-4">
+                        <h2 class="uppercase text-xs md:text-sm font-semibold mb-4">
+                            {{ 'customer.addresses.edit_address' | t }}
+                        </h2>
                         {%- form 'customer_address', address -%}
                             <div class="field">
                                 <input type="text" id="AddressFirstName_{{ form.id }}" name="address[first_name]"
@@ -356,9 +367,17 @@
                                     {{ 'customer.addresses.set_default' | t }}
                                 </label>
                             </div>
-                            <div>
-                                <button>{{ 'customer.addresses.update' | t }}</button>
-                                <button type="reset">{{ 'customer.addresses.cancel' | t }}</button>
+                            <div class="mt-4">
+                                <button class="mr-4">
+                                    <a>
+                                        {{ 'customer.addresses.update' | t }}
+                                    </a>
+                                </button>
+                                <button type="reset">
+                                    <a>
+                                        {{ 'customer.addresses.cancel' | t }}
+                                    </a>
+                                </button>
                             </div>
                         {%- endform -%}
                     </div>
