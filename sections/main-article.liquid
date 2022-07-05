@@ -64,12 +64,12 @@
                             <time>
                                 {%- if block.settings.blog_show_date -%}
                                     <time>
-                                <span
-                                        class="circle-divider caption-with-letter-spacing"
-                                        itemprop="dateCreated pubdate datePublished"
-                                >
-                                    {{ article.published_at | date: "%d.%m.%y" }}
-                                </span>
+                                        <span
+                                                class="circle-divider caption-with-letter-spacing"
+                                                itemprop="dateCreated pubdate datePublished"
+                                        >
+                                            {{ article.published_at | date: "%d.%m.%y" }}
+                                        </span>
                                     </time>
                                 {%- endif -%}
                             </time>
@@ -80,23 +80,23 @@
             {%- when 'quote-and-paragraph' -%}
                 <div class="col-span-12 md:col-span-6 mb-5 md:mb-12">
                     <div class="text-xl md:text-3xl">
-                        {{ block.settings.quote_paragraph }}
+                        {{ article.metafields.custom.left_quote }}
                     </div>
                 </div>
                 <div class="col-span-12 md:col-span-6 mb-8 md:mb-12 quote-paragraph">
                     <div class="max-w-[344px] md:float-right text-left">
-                        {{ block.settings.small_paragraph }}
+                        {{ article.metafields.custom.small_right_quote }}
                     </div>
                 </div>
 
             {%- when 'two-image-grid' -%}
                 <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
-                    {% if block.settings.left_image %}
+                    {% if article.metafields.custom.image_1 %}
                         <img
                                 class="rounded-lg object-cover"
                                 style="width: 740px; height: 740px;"
-                                alt="{{ block.settings.left_image.alt }}"
-                                src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}"
+                                alt="{{ article.metafields.custom.image_1.alt }}"
+                                src="{{ article.metafields.custom.image_1 | image_url: width: 740, height: 740 }}"
                                 width="740"
                                 height="740"
                                 loading="lazy"
@@ -109,12 +109,12 @@
                     {% endif %}
                 </div>
                 <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
-                    {% if block.settings.right_image %}
+                    {% if article.metafields.custom.image_2 %}
                         <img
                                 class="rounded-lg object-cover"
                                 style="width: 740px; height: 740px;"
-                                alt="{{ block.settings.left_image.alt }}"
-                                src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}"
+                                alt="{{ article.metafields.custom.image_2.alt }}"
+                                src="{{ article.metafields.custom.image_1 | image_url: width: 740, height: 740 }}"
                                 width="740"
                                 height="740"
                                 loading="lazy"
@@ -132,48 +132,48 @@
                 <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
                     <!-- Small grid of images -->
                     <div class="grid gap-2 grid-cols-2">
-                        {% if block.settings.grid_image_1 %}
+                        {% if article.metafields.custom.small_quad_grid_image_1 %}
                             <img
                                     class="rounded-lg object-cover"
-                                    alt="{{ block.settings.grid_image_1.alt }}"
+                                    alt="{{ article.metafields.custom.small_quad_grid_image_1.alt }}"
                                     style="width: 370px; height: 370px;"
-                                    src="{{ block.settings.grid_image_1 | image_url }}"
+                                    src="{{ article.metafields.custom.small_quad_grid_image_1 | image_url }}"
                                     width="370"
                                     height="370"
                                     loading="lazy"
                                     decoding="async"
                             />
                         {% endif %}
-                        {% if block.settings.grid_image_2 %}
+                        {% if article.metafields.custom.small_quad_grid_image_2 %}
                             <img
                                     class="rounded-lg object-cover"
-                                    alt="{{ block.settings.grid_image_2.alt }}"
+                                    alt="{{ article.metafields.custom.small_quad_grid_image_2.alt }}"
                                     style="width: 370px; height: 370px;"
-                                    src="{{ block.settings.grid_image_2 | image_url }}"
+                                    src="{{ article.metafields.custom.small_quad_grid_image_2 | image_url }}"
                                     width="370"
                                     height="370"
                                     loading="lazy"
                                     decoding="async"
                             />
                         {% endif %}
-                        {% if block.settings.grid_image_3 %}
+                        {% if article.metafields.custom.small_quad_grid_image_3 %}
                             <img
                                     class="rounded-lg object-cover"
-                                    alt="{{ block.settings.grid_image_3.alt }}"
+                                    alt="{{ article.metafields.custom.small_quad_grid_image_3.alt }}"
                                     style="width: 370px; height: 370px;"
-                                    src="{{ block.settings.grid_image_3 | image_url }}"
+                                    src="{{ article.metafields.custom.small_quad_grid_image_3 | image_url }}"
                                     width="370"
                                     height="370"
                                     loading="lazy"
                                     decoding="async"
                             />
                         {% endif %}
-                        {% if block.settings.grid_image_4 %}
+                        {% if article.metafields.custom.small_quad_grid_image_4 %}
                             <img
                                     class="rounded-lg object-cover"
-                                    alt="{{ block.settings.grid_image_4.alt }}"
+                                    alt="{{ article.metafields.custom.small_quad_grid_image_4.alt }}"
                                     style="width: 370px; height: 370px;"
-                                    src="{{ block.settings.grid_image_4 | image_url }}"
+                                    src="{{ article.metafields.custom.small_quad_grid_image_4 | image_url }}"
                                     width="370"
                                     height="370"
                                     loading="lazy"
@@ -185,12 +185,12 @@
 
                 <!-- Large Image -->
                 <div class="col-span-12 md:col-span-6 mb-8 md:mb-12">
-                    {% if block.settings.right_image %}
+                    {% if article.metafields.custom.right_image_next_to_quad_grid %}
                         <img
                                 class="rounded-lg object-cover"
-                                alt="{{ block.settings.right_image.alt }}"
+                                alt="{{ article.metafields.custom.right_image_next_to_quad_grid.alt }}"
                                 style="width: 740px; height: 748px;"
-                                src="{{ block.settings.right_image | image_url }}"
+                                src="{{ article.metafields.custom.right_image_next_to_quad_grid | image_url }}"
                                 width="740"
                                 height="740"
                                 loading="lazy"
@@ -200,9 +200,9 @@
 
             {% when 'large-quote' %}
                 <div class="col-span-12 mb-8 md:mb-12">
-                    {% if block.settings.large-quote %}
+                    {% if article.metafields.custom.second_large_quote %}
                         <h3 class="uppercase tracking-tighter font-medium text-4xl md:text-7xl md:max-w-[1048px]">
-                            {{ block.settings.large-quote }}
+                            {{ article.metafields.custom.second_large_quote }}
                         </h3>
                     {% endif %}
                 </div>
@@ -211,7 +211,7 @@
                 <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12 paragraph-centered">
                     <div class="text-xs md:text-sm max-w-[660px]">
-                        {{ block.settings.paragraph-centered }}
+                        {{ article.metafields.custom.paragraph_2 }}
                     </div>
                 </div>
 
@@ -219,12 +219,12 @@
                 <div class="hidden md:block md:col-span-3 mb-12"></div>
                 <div class="col-span-12 md:col-span-9 mb-12">
                     <!-- Large offest image -->
-                    {% if block.settings.large-offset-image %}
+                    {% if article.metafields.custom.large_image_off_center %}
                         <img
                                 class="rounded-lg mb-2 object-cover"
-                                alt="{{ block.settings.large-offset-image.alt }}"
+                                alt="{{ article.metafields.custom.large_image_off_center.alt }}"
                                 style="width: 1120px; height: 1048px;"
-                                src="{{ block.settings.large-offset-image | image_url }}"
+                                src="{{ article.metafields.custom.large_image_off_center | image_url }}"
                                 width="1120"
                                 height="1048"
                                 loading="lazy"
@@ -239,9 +239,9 @@
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
                         <img
                                 class="rounded-lg object-cover"
-                                alt="{{ block.settings.left-image.alt }}"
+                                alt="{{ article.metafields.custom.small_sub_image_1.alt }}"
                                 style="width: 370px; height: 372px;"
-                                src="{{ block.settings.left-image | image_url }}"
+                                src="{{ article.metafields.custom.small_sub_image_1 | image_url }}"
                                 width="370"
                                 height="372"
                                 loading="lazy"
@@ -249,9 +249,9 @@
                         />
                         <img
                                 class="rounded-lg object-cover"
-                                alt="{{ block.settings.right-image.alt }}"
+                                alt="{{ article.metafields.custom.small_sub_image_2.alt }}"
                                 style="width: 370px; height: 372px;"
-                                src="{{ block.settings.right-image | image_url }}"
+                                src="{{ article.metafields.custom.small_sub_image_2 | image_url }}"
                                 width="370"
                                 height="372"
                                 loading="lazy"
