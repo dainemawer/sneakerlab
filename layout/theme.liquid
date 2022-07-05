@@ -57,7 +57,9 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
-  </head>
+  
+  {% render 'shogun-head' %}
+</head>
 
   <body class="flex flex-col min-h-screen font-raleway {% echo color_scheme %}">
     <a class="skip-to-content-link button visually-hidden sr-only" href="#MainContent">
