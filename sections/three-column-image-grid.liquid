@@ -10,14 +10,13 @@
                     {% if block.settings.image %}
                         {% comment %}theme-check-disable{% endcomment %}
                         <img
-                            style="width: 328px; height: 712px;"
                             src="{{ block.settings.image | image_url: width: 520, height: 712 }}"
                             alt="{{ block.settings.image.alt }}"
                             class="rounded-lg"
                             decoding="async" />
                         {% comment %}theme-check-enable{% endcomment %}
                     {% else %}
-                        <img style="width: 328px; height: 712px;" class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" />
+                        <img class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" />
                     {% endif %}
                 </a>
                 <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">
