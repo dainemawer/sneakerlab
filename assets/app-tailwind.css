@@ -348,6 +348,7 @@ a.ticker::after {
 }
 
 #cart-notification-wrapper.active {
+    top: 0;
     display: block;
     position: fixed !important;
     width: 100%;
