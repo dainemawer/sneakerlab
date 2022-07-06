@@ -25,72 +25,72 @@
                 <a class="uppercase text-xs md:text-sm" href="{{ routes.all_products_collection_url }}">Keep Shopping</a>
               </p>
 
-              <div class="md:absolute bottom-0 md:static w-full md:w-[35%]">
+              <div class="md:static w-full md:w-[35%]">
                 {% for block in section.blocks %}
-                {%- case block.type -%}
-                  {%- when '@app' -%}
-                    {% render block %}
+                  {%- case block.type -%}
+                    {%- when '@app' -%}
+                      {% render block %}
 
-                  <!-- Subtotals Section -->
-                  {%- when 'subtotal' -%}
-                    <div class="js-contents flex mt-6 mb-7 justify-between items-center" {{ block.shopify_attributes }}>
-                        <h3 class="uppercase text-xs md:text-sm">{{ 'sections.cart.subtotal' | t }}</h3>
-                        <p class="text-xs md:text-sm">{{ cart.total_price | money_with_currency }}</p>
-                    </div>
-                    <div>
-                      <!-- Discount Divs -->
+                    <!-- Subtotals Section -->
+                    {%- when 'subtotal' -%}
+                      <div class="js-contents flex mt-6 mb-7 justify-between items-center" {{ block.shopify_attributes }}>
+                          <h3 class="uppercase text-xs md:text-sm">{{ 'sections.cart.subtotal' | t }}</h3>
+                          <p class="text-xs md:text-sm">{{ cart.total_price | money_with_currency }}</p>
+                      </div>
                       <div>
-                        {%- if cart.cart_level_discount_applications.size > 0 -%}
-                          <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
-                            {%- for discount in cart.cart_level_discount_applications -%}
-                              <li class="discounts__discount discounts__discount--position">
-                                {%- render 'icon-discount' -%}
-                                {{ discount.title }}
-                                (-{{ discount.total_allocated_amount | money }})
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        {%- endif -%}
-                      </div>
-
-                      <div class="mt-2 mb-4">
-                        <!-- Tax and Shipping notes -->
-                        <small class="text-left">
-                          {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
-                            {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                          {%- elsif cart.taxes_included -%}
-                            {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
-                          {%- elsif shop.shipping_policy.body != blank -%}
-                            {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
-                          {%- else -%}
-                            {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                        <!-- Discount Divs -->
+                        <div>
+                          {%- if cart.cart_level_discount_applications.size > 0 -%}
+                            <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                              {%- for discount in cart.cart_level_discount_applications -%}
+                                <li class="discounts__discount discounts__discount--position">
+                                  {%- render 'icon-discount' -%}
+                                  {{ discount.title }}
+                                  (-{{ discount.total_allocated_amount | money }})
+                                </li>
+                              {%- endfor -%}
+                            </ul>
                           {%- endif -%}
-                        </small>
+                        </div>
+
+                        <div class="mt-2 mb-4">
+                          <!-- Tax and Shipping notes -->
+                          <small class="text-left">
+                            {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                              {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                            {%- elsif cart.taxes_included -%}
+                              {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                            {%- elsif shop.shipping_policy.body != blank -%}
+                              {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+                            {%- else -%}
+                              {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                            {%- endif -%}
+                          </small>
+                        </div>
                       </div>
-                    </div>
 
-                  {%- else -%}
+                    {%- else -%}
 
-                  <!-- Checkout button -->
-                    <div class="cart__ctas" {{ block.shopify_attributes }}>
-                      <noscript>
-                        <button type="submit" class="cart__update-button button button--secondary" form="cart">
-                          {{ 'sections.cart.update' | t }}
+                    <!-- Checkout button -->
+                      <div class="cart__ctas" {{ block.shopify_attributes }}>
+                        <noscript>
+                          <button type="submit" class="cart__update-button button button--secondary" form="cart">
+                            {{ 'sections.cart.update' | t }}
+                          </button>
+                        </noscript>
+
+                        <button type="submit" id="checkout" class="cart__checkout-button button bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
+                          {{ 'sections.cart.checkout' | t }}
                         </button>
-                      </noscript>
-
-                      <button type="submit" id="checkout" class="cart__checkout-button button bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
-                        {{ 'sections.cart.checkout' | t }}
-                      </button>
-                    </div>
-
-                    {%- if additional_checkout_buttons -%}
-                      <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
-                        {{ content_for_additional_checkout_buttons }}
                       </div>
-                    {%- endif -%}
-                {%- endcase -%}
-              {% endfor %}
+
+                      {%- if additional_checkout_buttons -%}
+                        <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                          {{ content_for_additional_checkout_buttons }}
+                        </div>
+                      {%- endif -%}
+                  {%- endcase -%}
+                {% endfor %}
               </div>
             </div>
             <div id="cart-errors"></div>

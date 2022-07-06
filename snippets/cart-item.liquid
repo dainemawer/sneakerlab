@@ -1,5 +1,5 @@
 <article data-cart-item class="flex items-center justify-between py-2 border-t last:border-b border-silver">
-    <div class="w-[60%] xl:w-[65%] flex items-start md:items-center justify-start">
+    <div class="w-[45%] xl:w-[65%] flex items-start md:items-center justify-start">
 
         {% if item.image %}
             {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
@@ -24,7 +24,7 @@
 
         <!-- Quantity Input -->
         <quantity-input class="quantity flex relative border border-silver rounded p-[1px] text-xs md:text-sm">
-            <button name="minus" data-cart-decrement class="absolute left-0 w-10 h-10 transition-all quantity__button hover:opacity-50 focus:opacity-50" type="button">-</button>
+            <button name="minus" data-cart-decrement class="absolute left-0 w-10 h-full sm:h-10 transition-all quantity__button hover:opacity-50 focus:opacity-50" type="button">-</button>
             <input
                 class="quantity__input text-center max-w-[100px] block my-0 mx-auto p-2 box-border"
                 type="number"
@@ -35,7 +35,7 @@
                 id="Quantity-{{ item.index | plus: 1 }}"
                 data-index="{{ item.index | plus: 1 }}"
             />
-            <button data-cart-increment class="absolute right-0 w-10 h-10 transition-all quantity__button hover:opacity-50 focus:opacity-50" name="plus" type="button">+</button>
+            <button data-cart-increment class="absolute right-0 w-10 h-full sm:h-10 transition-all quantity__button hover:opacity-50 focus:opacity-50" name="plus" type="button">+</button>
         </quantity-input>
         <!-- Remove Button -->
         <a href="{{ item.url_to_remove }}" class="hidden ml-auto text-xs uppercase md:inline-block" aria-label="{{ 'sections.cart.remove_title' | t: title: item.title }}">

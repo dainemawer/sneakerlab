@@ -482,3 +482,14 @@ a.predictive-search__item:after {
 /*.pagination__item::after {*/
 /*    content: unset !important;*/
 /*}*/
+
+#grid-toggle.md\:grid-cols-4 article h3 {
+    @apply text-xl !important;
+}
+
+
+@media (max-width: 600px) {
+    #grid-toggle.md\:grid-cols-4 article img {
+        max-height: 250px;
+    }
+}

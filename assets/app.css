@@ -1093,8 +1093,8 @@ video {
   width: 1.25rem;
 }
 
-.w-\[60\%\] {
-  width: 60%;
+.w-\[45\%\] {
+  width: 45%;
 }
 
 .w-\[25\%\] {
@@ -2605,6 +2605,17 @@ a.predictive-search__item:after {
 
 /*}*/
 
+#grid-toggle.md\:grid-cols-4 article h3 {
+  font-size: 1.25rem !important;
+  line-height: 1.75rem !important;
+}
+
+@media (max-width: 600px) {
+  #grid-toggle.md\:grid-cols-4 article img {
+    max-height: 250px;
+  }
+}
+
 .placeholder\:text-5xl::-moz-placeholder {
   font-size: 3rem;
   line-height: 1;
@@ -2803,6 +2814,10 @@ a.predictive-search__item:after {
 }
 
 @media (min-width: 640px) {
+  .sm\:h-10 {
+    height: 2.5rem;
+  }
+
   .sm\:w-\[468px\] {
     width: 468px;
   }
