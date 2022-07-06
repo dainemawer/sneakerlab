@@ -25,9 +25,10 @@
     <!-- Desktop Product Gallery -->
     <div class="hidden md:block col-span-12 md:col-span-6">
       {% for image in product.images limit: 5 %}
-        {% if forloop.index == 3 %}
+        {% if forloop.index == 3 and product.images.size > 3 %}
           <div class="grid grid-cols-3 gap-2 mb-2">
         {% endif %}
+
         {% if forloop.index < 3 %}
           <img
               style="width: 744px; height: 555px;"
@@ -52,9 +53,11 @@
           />
         {% endif %}
 
-        {% if forloop.index == product.images.size %}
+
+
+        {% if forloop.index == product.images.size or forloop.index == 5 %}
             {% if product.images.size > 3 %}
-              </div>
+                </div>
             {% endif %}
           </div>
         {% endif %}

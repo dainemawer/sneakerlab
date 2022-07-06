@@ -142,7 +142,7 @@
 
         // send the request
         function subscribeToForm() {
-            fetch('https://sneaker-lab-2022.myshopify.com/apps/klaviyo/api/v2/list/SM3efz/members?api_key=pk_eb6ded1974437a1dc389539dc85baaad87', options)
+            fetch('https://sneaker-lab-2022.myshopify.com/apps/klaviyo/api/v2/list/SM3efz/subscribe?api_key=pk_eb6ded1974437a1dc389539dc85baaad87', options)
                 .then(response => response.json())
                 .then(response => console.log(response))
                 .catch(err => console.error(err));
@@ -155,10 +155,5 @@
                 subscribeToForm();
             }
         });
-
-
     });
-
-
-
 </script>
