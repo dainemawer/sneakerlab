@@ -11,12 +11,12 @@
                 if (event.target.classList.contains('accordion-trigger')) {
                     target = event.target
                 } else {
-                    target = event.target.closest('.accordion-trigger')
+                    target = event.target.parentNode('.accordion-trigger')
                 }
 
                 if (target.classList.contains('accordion-trigger') || target.classList.contains('accordion-button')) {
                     const isExpanded = target.getAttribute('aria-expanded') === 'true'
-                    const active = accordion.querySelector('[aria-expanded="true"]')
+                    let active = accordion.querySelector('[aria-expanded="true"]')
 
                     if (!allowMultiple && active && active !== target) {
                         active.setAttribute('aria-expanded', 'false')
@@ -29,6 +29,7 @@
 
                     if (!isExpanded) {
                         target.setAttribute('aria-expanded', 'true')
+                        console.log(document.getElementById(target.getAttribute('aria-controls')));
                         document.getElementById(target.getAttribute('aria-controls')).removeAttribute('hidden')
 
                         if (!allowToggle) {

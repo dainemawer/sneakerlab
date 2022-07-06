@@ -222,7 +222,7 @@
                       id="accordion-title-{{ block.id }}"
                   >
                     {{ block.settings.title }}
-                    {% render 'accordion-toggle' %}
+                    {% render 'accordion-toggle', block_id: block.id %}
                   </button>
                 </h3>
 
