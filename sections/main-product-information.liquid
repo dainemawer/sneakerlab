@@ -17,10 +17,18 @@
         {% endif %}
 
         <h3 class="uppercase max-w-[412px] text-xl md:text-3xl mb-4">
-            {{ product.metafields.custom.prod_info_left_subtitle }}
+            {% if product.metafields.custom.prod_info_left_subtitle %}
+                {{ product.metafields.custom.prod_info_left_subtitle }}
+            {% else %}
+                {{ section.settings.left-block-title }}
+            {% endif %}
         </h3>
         <p class="text-xs md:text-sm max-w-[412px]">
-            {{ product.metafields.custom.left-block-text }}
+            {% if product.metafields.custom.left-block-text %}
+                {{ product.metafields.custom.left-block-text }}
+            {% else %}
+                {{ section.settings.left-block-text }}
+            {% endif %}
         </p>
     </div>
     <div class="col-span-12 md:col-span-6">
@@ -48,15 +56,27 @@
         {% endif %}
 
         <h3 class="text-xl md:text-3xl uppercase mb-4">
-            {{ product.metafields.custom.right_image_subtitle }}
+            {% if product.metafields.custom.right_image_subtitle %}
+                {{ product.metafields.custom.right_image_subtitle }}
+            {% else %}
+                {{ section.settings.right-block-title }}
+            {% endif %}
         </h3>
         <p class="text-xs md:text-sm">
-            {{ product.metafields.custom.right_block_of_text }}
+            {% if product.metafields.custom.right_block_of_text %}
+                {{ product.metafields.custom.right_block_of_text }}
+            {% else %}
+                {{ section.settings.right-block-text }}
+            {% endif %}
         </p>
     </div>
     <div class="col-span-12 md:col-span-6 mt-16 md:mt-36">
         <h3 class="uppercase text-4xl lg:text-7xl font-medium">
-            {{ product.metafields.custom.left_smaller_quote_block }}
+            {% if product.metafields.custom.left_smaller_quote_block %}
+                {{ product.metafields.custom.left_smaller_quote_block }}
+            {% else %}
+                {{ section.settings.bottom-block-quote }}
+            {% endif %}
         </h3>
     </div>
     <div class="col-span-12 md:col-span-6 mt-8 md:mt-36">
@@ -108,7 +128,11 @@
             {% endif %}
         </div>
         <p class="text-xs md:text-sm max-w-[325px]">
-            {{ product.metafields.custom.small_image_grid_sub_paragraph }}
+            {% if product.metafields.custom.small_image_grid_sub_paragraph %}
+                {{ product.metafields.custom.small_image_grid_sub_paragraph }}
+            {% else %}
+                {{ section.settings.bottom-block-text }}
+            {% endif %}
         </p>
     </div>
 </div>
