@@ -527,6 +527,7 @@ a.predictive-search__item:after {
     @apply text-sm flex gap-2;
 }
 
-div.errors {
-    @apply text-[#ff0000];
+div.errors,
+small#RecoverEmail-email-error {
+    @apply text-sm text-[#ff0000];
 }
