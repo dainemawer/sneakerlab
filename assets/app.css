@@ -2622,7 +2622,7 @@ a.predictive-search__item:after {
   position: sticky;
   width: 100%;
   top: 0;
-  /*z-index: 30;*/
+  z-index: 30;
   background-color: #fff;
 }
 
