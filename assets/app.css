@@ -1037,10 +1037,6 @@ video {
   height: 1.25rem;
 }
 
-.h-8 {
-  height: 2rem;
-}
-
 .max-h-0 {
   max-height: 0px;
 }
@@ -1103,10 +1099,6 @@ video {
 
 .w-2\/4 {
   width: 50%;
-}
-
-.w-8 {
-  width: 2rem;
 }
 
 .w-4\/5 {
@@ -2644,6 +2636,15 @@ a.predictive-search__item:after {
   height: 100%;
   z-index: 32;
   background-color: rgb(0, 0, 0, 0.5);
+}
+
+.customer .form__message {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 0 0 / var(--tw-text-opacity));
 }
 
 .placeholder\:text-5xl::-moz-placeholder {

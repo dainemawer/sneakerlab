@@ -522,3 +522,11 @@ a.predictive-search__item:after {
     z-index: 32;
     background-color: rgb(0, 0, 0, 0.5);
 }
+
+.customer .form__message {
+    @apply text-sm flex gap-2;
+}
+
+div.errors {
+    @apply text-[#ff0000];
+}
