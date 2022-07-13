@@ -49,7 +49,7 @@ This file can be re-written at any time.
 
     {{ "app.css" | asset_url | stylesheet_tag }}
 
-    {% if page_title == 'About' or request.page_type == '404' or page_title == 'Contact' %}
+    {% if page_title == 'About' or request.page_type == '404' or page_title == 'Contact' or page_title == 'Become a stockist' %}
       {%- liquid
         assign color_scheme = 'page-inverted'
       %}
