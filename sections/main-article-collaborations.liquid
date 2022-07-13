@@ -513,7 +513,7 @@
     {% endcomment %}
 </article>
 
-{% render 'modal' %}
+{% render 'modal', video_id: article.metafields.my_fields.video_link %}
 
 <script>
     const CollaborationsFilter = () => {

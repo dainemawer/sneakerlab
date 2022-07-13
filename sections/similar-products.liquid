@@ -27,8 +27,9 @@
   </div>
 </div>
 
+{% render 'modal', video_id: product.metafields.custom.how_to_video_link %}
+
 {%- liquid
-  render 'modal'
   render 'add-to-cart-js'
   render 'carousel-js'
   render 'accordion-js'
