@@ -2100,7 +2100,7 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 
 .overlay-active::after, 
 .search-active::after {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   height: 100%;
@@ -2622,7 +2622,7 @@ a.predictive-search__item:after {
   position: sticky;
   width: 100%;
   top: 0;
-  z-index: 20;
+  /*z-index: 30;*/
   background-color: #fff;
 }
 

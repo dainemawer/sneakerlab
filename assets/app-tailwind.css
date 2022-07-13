@@ -175,7 +175,7 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
 
 .overlay-active,
 .search-active {
-    @apply overflow-hidden after:content-[''] after:w-full after:h-full after:absolute after:top-0 after:left-0 z-10 after:bg-[#000]/50
+    @apply overflow-hidden after:content-[''] after:w-full after:h-full after:fixed after:top-0 after:left-0 z-10 after:bg-[#000]/50
 }
 
 .atc-overlay-active {
@@ -499,7 +499,6 @@ a.predictive-search__item:after {
     position: sticky;
     width: 100%;
     top: 0;
-    z-index: 20;
+    /*z-index: 30;*/
     background-color: #fff;
-    
 }
