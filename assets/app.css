@@ -2616,6 +2616,14 @@ a.predictive-search__item:after {
   }
 }
 
+#shopify-section-test-header {
+  align-self: flex-start;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
+
 .placeholder\:text-5xl::-moz-placeholder {
   font-size: 3rem;
   line-height: 1;
@@ -2836,10 +2844,6 @@ a.predictive-search__item:after {
 @media (min-width: 768px) {
   .md\:static {
     position: static;
-  }
-
-  .md\:absolute {
-    position: absolute;
   }
 
   .md\:relative {
