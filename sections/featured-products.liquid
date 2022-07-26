@@ -2,37 +2,46 @@
     Renders the featured products block
 {% endcomment %}
 
-<p class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-[0.85] font-medium max-w-[480px] xl:max-w-[900px] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">
+<p class="uppercase text-[2rem] md:text-[2.1875rem] xl:text-[80px] leading-[0.95] md:leading-[0.85] font-medium max-w-[480px] xl:max-w-[900px] mb-20 xl:mb-36 mt-20 xl:mt-44 tracking-tighter">
     Shop our advanced environmentally friendly products
 </p>
 
 <section class="xl:container xl:mx-auto">
     {% comment %}{{ section.settings.featured_products | json }}{% endcomment %}
 
-    <h2 class="mb-5 text-sm font-medium uppercase">[ &nbsp;Featured Products <sup>{{ section.settings.featured_products.count | prepend: '00' | slice: -2, 2 }}</sup> &nbsp;]</h2>
+    <h2 class="mb-5 text-sm font-medium uppercase">[ &nbsp;&nbsp;Featured Products <sup>{{ section.settings.featured_products.count | prepend: '00' | slice: -2, 2 }}</sup> &nbsp;&nbsp;]</h2>
     <div class="grid gap-4 mb-12 md:grid-cols-2 md:mb-16">
 
         {% for product in section.settings.featured_products %}
             <article>
-                <figure class="rounded-lg bg-light-gray">
+                <figure class="relative overflow-hidden rounded-lg bg-light-gray marquee-wrap">
                     <a class="thumbnail" href="/products/{{ product.handle }}/">
                         {% comment %}theme-check-disable{% endcomment %}
                         <img style="width: 760px; height: 567px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
                          loading="lazy" decoding="async" />
                         {% comment %}theme-check-enable{% endcomment %}
                     </a>
+                    <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">
+                        <div class="relative flex w-full inner">
+                            <p class="uppercase text-eco-green whitespace-nowrap text-7xl">
+                                VIEW [{{ product.title }}]
+                            </p>
+                        </div>
+                    </div>
                 </figure>
-                <h3 class="mt-2 text-xl tracking-tighter uppercase md:text-2xl lg:text-3xl">{{ product.title }}</h3>
-                <div class="flex items-start justify-between">
-                    {% comment %} TODO: Add variations for products such as sneaker wipes {% endcomment %}
-                    <p class="uppercase text-sm max-w-[220] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
-                    <p class="text-sm uppercase">{{ cart.currency.symbol }}{{ product.price | money_without_currency }}</p>
-                </div>
+                <div class="lg:px-2">
+                    <h3 class="mt-2 text-xl font-medium tracking-tighter uppercase md:text-2xl lg:text-3xl">{{ product.title }}</h3>
+                    <div class="flex items-start justify-between">
+                        {% comment %} TODO: Add variations for products such as sneaker wipes {% endcomment %}
+                        <p class="uppercase text-sm max-w-[220] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
+                        <p class="text-sm uppercase">{{ cart.currency.symbol }}{{ product.price | money_without_currency }}</p>
+                    </div>
+                <div>
             </article>
 
         {% endfor %}
     </div>
-    <p class="text-xl text-left uppercase md:text-center md:text-2xl lg:text-3xl"><a href="/collections/all/">Shop All</a></p>
+    <p class="text-xl font-medium tracking-tighter text-left uppercase md:text-center md:text-2xl lg:text-3xl"><a class="border-b-2 hover:border-none" href="/collections/all/">Shop All</a></p>
 </section>
 
 {% schema %}

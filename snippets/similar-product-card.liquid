@@ -2,7 +2,7 @@
     <!-- Card wrapper for hover effects -->
     <article id="" class="card-wrapper" aria-label="Sneaker Wipes">
         <!-- product card -->
-            <figure class="rounded-lg bg-light-gray relative overflow-hidden marquee-wrap">
+            <figure class="relative overflow-hidden rounded-lg bg-light-gray marquee-wrap">
                 <a href="{{ card_product.url }}">
                     {%- if card_product.featured_media -%}
                         <img
@@ -11,7 +11,7 @@
                             alt="{{ card_product.featured_media.alt | escape }}"
                             width="760"
                             height="567"
-                            class="motion-reduce object-contain"
+                            class="object-contain motion-reduce"
                             loading="lazy"
                             decoding="async"
                         >
@@ -29,21 +29,23 @@
                 </a>
 
                 <div class="marquee2 absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
-                    <div class="inner relative w-full flex">
-                        <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [{{ card_product.title | escape }}]</p>
-                        <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [{{ card_product.title | escape }}]</p>
+                    <div class="relative flex w-full inner">
+                        <p class="uppercase text-eco-green whitespace-nowrap text-7xl">View [{{ card_product.title | escape }}]</p>
+                        <p class="uppercase text-eco-green whitespace-nowrap text-7xl">View [{{ card_product.title | escape }}]</p>
                     </div>
                 </div>
             </figure>
 
-        <div>
-            <a class="inline-block" href="{{ card_product.url }}">
-                <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ card_product.title | escape }}</h3>
-            </a>
-        </div>
-        <div class="flex items-start justify-between">
-            <p class="uppercase text-xs md:text-sm max-w-[220] lg:max-w-none">{{ card_product.metafields.descriptors.subtitle | escape }}</p>
-            {% render 'new-price' product: card_product %}
+        <div class="font-medium lg:px-2">
+            <div>
+                <a class="inline-block" href="{{ card_product.url }}">
+                    <h3 class="mt-2 text-xl tracking-tighter uppercase md:text-2xl lg:text-3xl">{{ card_product.title | escape }}</h3>
+                </a>
+            </div>
+            <div class="flex items-start justify-between">
+                <p class="uppercase text-xs md:text-sm max-w-[220] lg:max-w-none">{{ card_product.metafields.descriptors.subtitle | escape }}</p>
+                {% render 'new-price' product: card_product %}
+            </div>
         </div>
     </article>
 {%- endif -%}

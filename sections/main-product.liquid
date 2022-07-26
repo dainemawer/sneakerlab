@@ -87,11 +87,11 @@
     <!-- Main Product Information -->
     <div class="relative col-span-12 md:col-span-6 product-info">
       <!-- Product Title -->
-      <h1 class="mb-2 text-3xl font-medium uppercase md:text-5xl">
+      <h1 class="mb-2 text-3xl leading-[1] md:leading-none font-medium uppercase md:text-5xl">
         {{ product.title }}
       </h1>
 
-      <div class="flex items-center justify-between pb-3 mb-4 border-b border-silver">
+      <div class="flex items-center justify-between pb-3 mb-4 font-medium border-b border-silver">
         <!-- Product Subtitle -->
         <h2 class="text-xs uppercase md:text-sm">
           {{ product.metafields.descriptors.subtitle }}
@@ -110,7 +110,7 @@
                 <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
                 -
               </button>
-              <input class="text-center max-w-[100px] block my-0 mx-auto p-2 box-border"
+              <input class="text-center max-w-[100px] text-[0.875rem] md:text-[2rem] font-medium block my-0 mx-auto p-2 box-border"
                      type="number"
                      name="quantity"
                      id="Quantity-{{ section.id }}"
@@ -146,7 +146,7 @@
                   <button style="height: 44px;"
                           type="submit"
                           name="add"
-                          class="product-form__submit button  bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green"
+                          class="product-form__submit button  bg-eco-green text-[0.875rem] font-medium text-[#fff] md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green"
                     {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                   >
                       <span>
@@ -212,7 +212,7 @@
             {% when 'product-accordion' %}
                 <h3 class="text-xs border-t border-silver md:text-sm">
                   <button
-                      class="flex items-center justify-between w-full py-3 text-left uppercase accordion-trigger"
+                      class="flex items-center justify-between w-full py-3 font-medium text-left uppercase accordion-trigger"
                       {% if my_counter == 0 %}
                         aria-expanded="true"
                       {% else %}

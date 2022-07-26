@@ -6,7 +6,7 @@
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
 <a class="sr-only focus:not-sr-only" href="#main-content">Skip to Main Content</a>
-<header aria-label="Site Header" role="banner" class="sticky bg-transparent z-10 top-[-1px] py-3 transition-all">
+<header id="testing" aria-label="Site Header" role="banner" class="sticky z-10 top-[-1px] py-3 transition-all">
     <div class="menu-overlay"></div>
     <div class="flex flex-wrap justify-between px-4 lg:px-5 xl:container xl:mx-auto">
         <nav class="basis-2/6">
@@ -103,10 +103,18 @@
 
 <script>
     const about_url = '/pages/about'
-    const search = document.getElementById("js-trigger-search");
+    const search = document.getElementById("testing");
+    const border_bottom = document.getElementById("search");
+    const about_close = document.getElementById("close-search");
+    const search_text = document.getElementById("query");
+    console.log(search);
     if (window.location.pathname === about_url) {
-        search.classList.add('page-inverted')
+        search.classList.add('bg-black' )
+        border_bottom.classList.add('border-b', 'border-white' )
+        search_text.classList.add('text-white')
+        about_close.classList.add('invert')
     } else {
-        modal.classList.add('bg-white')
+        search.classList.add('bg-transparent')
+        search_text.classList.add('text-black')
     }
 </script>

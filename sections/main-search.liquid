@@ -68,7 +68,7 @@
       {%- if settings.predictive_search_enabled -%}
         <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
       {%- endif -%}
-        <form action="{{ routes.search_url }}" method="get" role="search" class="search pb-3 relative">
+        <form action="{{ routes.search_url }}" method="get" role="search" class="relative pb-3 search">
           <div class="field">
             <input
                     autocomplete="off"
@@ -141,13 +141,13 @@
   <!-- Search Heading -->
   {%- if search.performed -%}
     <div class="mt-12">
-      <h1 class="text-xs md:text-sm uppercase mb-2 lg:mb-5">
+      <h1 class="mb-2 text-xs uppercase md:text-sm lg:mb-5">
         [&nbsp;&nbsp;Search Results <sup>{{ search.results_count }}</sup>&nbsp;&nbsp;]
       </h1>
     </div>
   {%- else -%}
     <div class="mt-12">
-      <h1 class="text-xs md:text-sm uppercase mb-2 lg:mb-5">
+      <h1 class="mb-2 text-xs uppercase md:text-sm lg:mb-5">
         [&nbsp;&nbsp;Search&nbsp;&nbsp;]
       </h1>
     </div>
@@ -230,7 +230,7 @@
           {% paginate search.results by 24 %}
             <div class="template-search__results collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}" id="product-grid" data-id="{{ section.id }}">
               <div class="loading-overlay gradient"></div>
-              <section class="grid md:grid-cols-2 gap-4">
+              <section class="grid gap-4 md:grid-cols-2">
                 {%- for item in search.results -%}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}

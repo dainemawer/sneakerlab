@@ -3,37 +3,35 @@
 {% endcomment %}
 
 <form aria-label="Newsletter Sign Up" role="form" class="lg:col-span-6 col-span-12 mb-20 xl:mb-0 max-w-[344px]">
-    <p class="uppercase text-xl xl:text-3xl xl:max-w-[336px] mb-8 xl:mb-16 leading-none">Subscribe to our newsletter to keep up to date with the latest.</p>
+    <p class="uppercase text-xl xl:text-3xl font-medium tracking-tighter xl:max-w-[336px] mb-8 xl:mb-16 leading-[0.95]">Subscribe to our newsletter to keep up to date with the latest.</p>
     <fieldset>
         <legend class="sr-only">SneakerLab Newsletter sign up</legend>
         <label class="block relative xl:max-w-[344px]" for="subscribe">
             <span class="sr-only">Enter your email address</span>
             <input
                     id="subscribe"
-                    class="input focus:outline-0 hover:opacity-50 transition-all
-                    text-sm border-b border-black w-full py-2 placeholder:text-gray
-                    placeholder:uppercase smooth-transition"
+                    class="w-full py-2 text-sm transition-all border-b border-black input focus:outline-0 hover:opacity-50 placeholder:text-gray placeholder:uppercase smooth-transition"
                     name="subscribe"
                     aria-describedby="help"
                     placeholder="Email Address"
                     autocomplete="off"
             />
             <p class="sr-only" id="help">Enter your email address in order to sign up for the SneakerLab newsletter.</p>
-            <p id="errors" class="text-sm mt-2 opacity-0 smooth-transition" style="color: red;">The email address you have entered is invalid, please enter a valid email address.</p>
+            <p id="errors" class="mt-2 text-sm opacity-0 smooth-transition" style="color: red;">The email address you have entered is invalid, please enter a valid email address.</p>
             <button
                     id="submit-newsletter"
-                    class="absolute right-0 top-2 hover:opacity-50 focus:opacity-50 transition-all smooth-transition"
+                    class="absolute right-0 transition-all top-2 hover:opacity-50 focus:opacity-50 smooth-transition"
                     aria-label="Submit your email address"
                     type="submit"
                     disabled
             >
-                <svg id="submit-arrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 smooth-transition" viewbox="0 0 20 20" fill="currentColor">
+                <svg id="submit-arrow" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 smooth-transition" viewbox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
                           d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                           clip-rule="evenodd" />
                 </svg>
 
-                <svg id="error-icon" class="opacity-0 smooth-transition hidden" style="margin-top: -5px; transform: scale(0.7); overflow:visible;enable-background:new 0 0 32 32" viewBox="0 0 32 32" width="32" height="32">
+                <svg id="error-icon" class="hidden opacity-0 smooth-transition" style="margin-top: -5px; transform: scale(0.7); overflow:visible;enable-background:new 0 0 32 32" viewBox="0 0 32 32" width="32" height="32">
                     <g>
                         <g id="Error_1_">
                             <g id="Error">
