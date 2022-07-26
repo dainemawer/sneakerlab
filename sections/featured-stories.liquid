@@ -3,11 +3,11 @@
 {% endcomment %}
 
 <section class="mb-6 xl:container xl:mx-auto">
-    <h2 class="mb-5 text-sm uppercase">[ Featured Stories ]</h2>
+    <h2 class="mb-5 text-sm font-medium uppercase">[ &nbsp;&nbsp;Featured Stories&nbsp;&nbsp; ]</h2>
     <header class="relative flex items-center justify-between">
-        <button data-filter-trigger class="relative text-5xl uppercase transition-all focus:opacity-50 hover:opacity-50" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
+        <button data-filter-trigger class="relative text-5xl font-medium tracking-tighter uppercase transition-all focus:opacity-50 hover:opacity-50" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
 
-        <a class="md:block button hidden rounded py-3 px-12 font-medium text-sm border border-silver hover:border-[#000] focus:border-[#000] transition-all" href="/blogs/stories">
+        <a class="md:block button hidden rounded py-3 px-12 leading-[1] font-medium text-sm border border-silver hover:border-[#000] focus:border-[#000] transition-all" href="/blogs/stories">
             View all stories
         </a>
 
@@ -57,12 +57,12 @@
                     </a>
                 </figure>
                 <div class="relative ml-4 basis-3/6">
-                    <h3 class="uppercase text-lg leading-none lg:text-2xl xl:text-3xl md:max-w-[344]">
+                    <h3 class="uppercase text-xl leading-[0.95] md:leading-none font-medium tracking-tighter lg:text-2xl xl:text-3xl md:max-w-[344]">
                         {{ article.title }}
                     </h3>
                     <div class="absolute bottom-0 left-0 justify-between w-full xs:flex xl:justify-start">
                         <span class="block text-xs font-semibold uppercase xs:text-sm">Article</span>
-                        <time class="block text-xs uppercase xs:text-sm xs:ml-2">[ {{ article.published_at | date: format: 'abbreviated_date' }} ]</time>
+                        <time class="block text-xs font-medium uppercase xs:text-sm xs:ml-2">[ &nbsp;&nbsp;{{ article.published_at | date: format: 'abbreviated_date' }}&nbsp;&nbsp; ]</time>
                     </div>
                 </div>
             </article>

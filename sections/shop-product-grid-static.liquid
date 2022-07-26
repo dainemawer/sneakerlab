@@ -4,7 +4,7 @@
     <div class="mt-12">
         <h1 class="mb-2 text-xs uppercase md:text-sm lg:mb-5">[&nbsp;&nbsp;All Products <sup>{{ collection.products.count }}</sup>&nbsp;&nbsp;]</h1>
         <div class="relative flex items-center justify-between pb-3 mb-8 border-b border-silver">
-            <button data-filter-trigger class="text-4xl font-medium uppercase transition-all lg:text-5xl focus:opacity-50 hover:opacity-50" aria-expanded="false" aria-controls="filter-dropdown" type="button">Filter+</button>
+            <button data-filter-trigger class="text-4xl font-medium tracking-tighter uppercase transition-all lg:text-5xl focus:opacity-50 hover:opacity-50" aria-expanded="false" aria-controls="filter-dropdown" type="button">Filter+</button>
 
             {% render 'shop-filter' %}
 
@@ -49,7 +49,7 @@
             </div>
         </div>
     </div>
-    <section id="grid-toggle" class="grid gap-4 md:grid-cols-2">
+    <section id="grid-toggle" class="grid gap-8 md:gap-4 md:grid-cols-2">
         {% for product in collection.products %}
             {% render 'shop-card', product: product %}
         {% endfor %}

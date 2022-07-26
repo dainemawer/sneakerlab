@@ -5,13 +5,13 @@
     {% render 'header-search' %}
 {% endcomment %}
 
-{% comment %}<div class="invisible opacity-0 pointer-events-none max-h-0 transition-all" id="search" aria-hidden="true">{% endcomment %}
-<div class="invisible opacity-0 pointer-events-none transition-all hidden" id="search" aria-hidden="true">
-    {% comment %}<form class="pt-20 pb-3 relative" role="searchform" action="" method="">{% endcomment %}
+{% comment %}<div class="invisible transition-all opacity-0 pointer-events-none max-h-0" id="search" aria-hidden="true">{% endcomment %}
+<div class="invisible hidden transition-all opacity-0 pointer-events-none" id="search" aria-hidden="true">
+    {% comment %}<form class="relative pt-20 pb-3" role="searchform" action="" method="">{% endcomment %}
         {% comment %}<input autocomplete="off" name="search" id="query" type="search" placeholder="Search"{% endcomment %}
                {% comment %}class="placeholder:uppercase placeholder:text-medium-gray bg-[transparent] placeholder:text-5xl text-5xl placeholder:font-medium w-full focus:outline-none"/>{% endcomment %}
         {% comment %}<button id="close-search" class="absolute right-0 bottom-7" type="button">{% endcomment %}
-            {% comment %}<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">{% endcomment %}
+            {% comment %}<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">{% endcomment %}
                 {% comment %}<path fill-rule="evenodd"{% endcomment %}
                       {% comment %}d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"{% endcomment %}
                       {% comment %}clip-rule="evenodd"/>{% endcomment %}
@@ -19,19 +19,18 @@
         {% comment %}</button>{% endcomment %}
     {% comment %}</form>{% endcomment %}
 
-    <form action="{{ routes.search_url }}" class="pt-20 pb-3 relative" role="searchform">
+    <form action="{{ routes.search_url }}" class="relative pt-20 pb-3" role="searchform">
         <input
                 autocomplete="off"
                 name="q"
                 id="query"
                 class="placeholder:uppercase placeholder:text-medium-gray bg-[transparent] placeholder:text-5xl text-5xl placeholder:font-medium w-full focus:outline-none"
                 type="search"
-                style="color: #000;"
                 placeholder="Search"
                 value="{{ search.terms | escape }}"
         >
         <button id="close-search" class="absolute right-0 bottom-7" type="button">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="#000">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="#000">
                 <path fill-rule="evenodd"
                       d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                       clip-rule="evenodd"/>

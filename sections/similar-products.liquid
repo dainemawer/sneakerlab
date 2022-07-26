@@ -1,14 +1,14 @@
 <div class="grid grid-cols-12 gap-2 mt-4">
   <section class="col-span-12 mt-14 md:mt-36">
-    <p class="mb-3 text-xs uppercase md:text-sm md:mb-5">[&nbsp;&nbsp;Similiar Products <sup>02</sup>&nbsp;&nbsp;]</p>
+    <p class="mb-3 text-xs font-medium uppercase md:text-sm md:mb-5">[&nbsp;&nbsp;Similiar Products <sup>02</sup>&nbsp;&nbsp;]</p>
       <product-recommendations
         style="display: grid !important;"
-        class="grid-cols-12 gap-2 product-recommendations"
+        class="grid-cols-12 gap-8 lg:gap-2 product-recommendations"
         data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
       >
         {% if recommendations.performed and recommendations.products_count > 0 %}
             {% for recommendation in recommendations.products %}
-              <div class="col-span-12 mb-6 md:mb-0 md:col-span-6">
+              <div class="col-span-12 md:mb-0 md:col-span-6">
                 {% render 'similar-product-card',
                         card_product: recommendation
                 %}
@@ -19,8 +19,8 @@
   </section>
 
   <div class="col-span-12">
-    <p class="text-left md:text-center mt-11 md:mt-20">
-      <a class="text-xl font-medium tracking-tighter underline uppercase md:text-3xl lg:no-underline" href="/collections/all/">
+    <p class="mt-8 mb-16 text-left border-b lg:mx-auto hover:border-none max-w-fit md:text-center md:mb-0 md:mt-20">
+      <a class="text-xl font-medium tracking-tighter uppercase md:text-3xl" href="/collections/all/">
         Shop All
       </a>
     </p>

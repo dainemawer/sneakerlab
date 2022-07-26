@@ -877,8 +877,8 @@ video {
   margin-top: 0.5rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .mb-20 {
@@ -899,6 +899,10 @@ video {
 
 .ml-4 {
   margin-left: 1rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .mb-7 {
@@ -933,8 +937,8 @@ video {
   margin-bottom: 0.75rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
+.mt-\[2\.5rem\] {
+  margin-top: 2.5rem;
 }
 
 .ml-2 {
@@ -947,10 +951,6 @@ video {
 
 .ml-3 {
   margin-left: 0.75rem;
-}
-
-.mt-11 {
-  margin-top: 2.75rem;
 }
 
 .mt-auto {
@@ -1201,6 +1201,12 @@ video {
   max-width: 980px;
 }
 
+.max-w-fit {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
 .max-w-\[438px\] {
   max-width: 438px;
 }
@@ -1400,6 +1406,10 @@ video {
 
 .border-b {
   border-bottom-width: 1px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
 }
 
 .border-t {
@@ -1652,11 +1662,6 @@ video {
   line-height: 1;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-\[2\.625rem\] {
   font-size: 2.625rem;
 }
@@ -1675,6 +1680,10 @@ video {
   line-height: 2.25rem;
 }
 
+.text-\[0\.875rem\] {
+  font-size: 0.875rem;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1683,6 +1692,11 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-semibold {
@@ -1725,8 +1739,12 @@ video {
   line-height: 0;
 }
 
-.leading-\[0\.85\] {
-  line-height: 0.85;
+.leading-\[0\.95\] {
+  line-height: 0.95;
+}
+
+.leading-\[1\] {
+  line-height: 1;
 }
 
 .leading-\[0\.92\] {
@@ -1735,6 +1753,10 @@ video {
 
 .leading-4 {
   line-height: 1rem;
+}
+
+.leading-\[1\.2\] {
+  line-height: 1.2;
 }
 
 .leading-normal {
@@ -1819,6 +1841,11 @@ video {
 
 .blur {
   --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.invert {
+  --tw-invert: invert(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
@@ -2165,7 +2192,7 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.dark-mode.search-active [role="banner"] {
+.page-inverted.search-active [role="banner"] {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   color: white;
@@ -2699,6 +2726,22 @@ small#RecoverEmail-email-error {
   color: rgb(255 0 0 / var(--tw-text-opacity));
 }
 
+/* Testing font features */
+
+body {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'pnum' on, 'lnum' on, 'ordn' on, 'ss09' on, 'ss02' on, 'ss05' on;
+}
+
+/* Enviromentally friendly image sizing */
+
+@media (max-width: 768px) {
+  .enviro-size img {
+    width: 225px;
+    height: 60px;
+  }
+}
+
 .placeholder\:text-5xl::-moz-placeholder {
   font-size: 3rem;
   line-height: 1;
@@ -2816,6 +2859,10 @@ small#RecoverEmail-email-error {
 
 .last\:border-b:last-child {
   border-bottom-width: 1px;
+}
+
+.hover\:border-none:hover {
+  border-style: none;
 }
 
 .hover\:border-\[\#000\]:hover {
@@ -2979,6 +3026,10 @@ small#RecoverEmail-email-error {
     margin-bottom: 7rem;
   }
 
+  .md\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .md\:mb-16 {
     margin-bottom: 4rem;
   }
@@ -2989,10 +3040,6 @@ small#RecoverEmail-email-error {
 
   .md\:mb-40 {
     margin-bottom: 10rem;
-  }
-
-  .md\:mt-16 {
-    margin-top: 4rem;
   }
 
   .md\:mt-0 {
@@ -3186,9 +3233,21 @@ small#RecoverEmail-email-error {
     line-height: 1;
   }
 
+  .md\:text-\[2rem\] {
+    font-size: 2rem;
+  }
+
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:leading-\[0\.85\] {
+    line-height: 0.85;
+  }
+
+  .md\:leading-none {
+    line-height: 1;
   }
 
   .md\:tracking-tighter {
@@ -3238,6 +3297,11 @@ small#RecoverEmail-email-error {
     margin-bottom: 3rem;
   }
 
+  .lg\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .lg\:mt-0 {
     margin-top: 0px;
   }
@@ -3256,10 +3320,6 @@ small#RecoverEmail-email-error {
 
   .lg\:mb-5 {
     margin-bottom: 1.25rem;
-  }
-
-  .lg\:mb-2 {
-    margin-bottom: 0.5rem;
   }
 
   .lg\:mt-32 {
@@ -3318,6 +3378,10 @@ small#RecoverEmail-email-error {
     gap: 3.5rem;
   }
 
+  .lg\:gap-2 {
+    gap: 0.5rem;
+  }
+
   .lg\:gap-16 {
     gap: 4rem;
   }
@@ -3325,6 +3389,11 @@ small#RecoverEmail-email-error {
   .lg\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  .lg\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   .lg\:px-0 {
@@ -3364,6 +3433,10 @@ small#RecoverEmail-email-error {
     font-size: 6.875rem;
   }
 
+  .lg\:text-\[5rem\] {
+    font-size: 5rem;
+  }
+
   .lg\:text-7xl {
     font-size: 4.5rem;
     line-height: 1;
@@ -3372,6 +3445,18 @@ small#RecoverEmail-email-error {
   .lg\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .lg\:font-medium {
+    font-weight: 500;
+  }
+
+  .lg\:leading-\[0\.85\] {
+    line-height: 0.85;
+  }
+
+  .lg\:tracking-tighter {
+    letter-spacing: -0.05em;
   }
 
   .lg\:no-underline {

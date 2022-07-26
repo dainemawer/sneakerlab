@@ -1,9 +1,9 @@
 <div class="grid grid-cols-12 gap-2 mt-4">
     <div class="col-span-12 md:col-span-6 mb-14 md:mb-0">
-        <p class="uppercase text-xs md:text-sm mb-5">[&nbsp;&nbsp;{{ section.settings.subtitle }}&nbsp;&nbsp;]</p>
+        <p class="mb-5 text-xs font-medium uppercase md:text-sm">[&nbsp;&nbsp;{{ section.settings.subtitle }}&nbsp;&nbsp;]</p>
         {% if product.metafields.custom.product_information_image_left %}
             <img
-                    class="rounded-lg mb-3 object-cover"
+                    class="object-cover mb-3 rounded-lg"
                     src="{{ product.metafields.custom.product_information_image_left | image_url: width: 412, height: 415 }}"
                     width="412"
                     height="415"
@@ -12,18 +12,18 @@
                     decoding="async"
             >
         {% else %}
-            <img class="rounded-lg mb-3" src="{{ '412x415.jpg' | asset_url }}" width="412" height="415" alt=""
+            <img class="mb-3 rounded-lg" src="{{ '412x415.jpg' | asset_url }}" width="412" height="415" alt=""
                  loading="lazy" decoding="async">
         {% endif %}
 
-        <h3 class="uppercase max-w-[412px] text-xl md:text-3xl mb-4">
+        <h3 class="uppercase max-w-[412px] font-medium leading-[0.95] tracking-tighter text-xl md:text-3xl mb-4">
             {% if product.metafields.custom.prod_info_left_subtitle %}
                 {{ product.metafields.custom.prod_info_left_subtitle }}
             {% else %}
                 {{ section.settings.left-block-title }}
             {% endif %}
         </h3>
-        <p class="text-xs md:text-sm max-w-[412px]">
+        <p class="text-xs md:text-sm leading-[1.2] max-w-[412px]">
             {% if product.metafields.custom.left-block-text %}
                 {{ product.metafields.custom.left-block-text }}
             {% else %}
@@ -35,7 +35,7 @@
         {% if product.metafields.custom.right_large_image %}
             <img
                     style="width: 744px; height: 555px;"
-                    class="rounded-lg mb-3 object-cover"
+                    class="object-cover mb-3 rounded-lg"
                     alt="{{ product.metafields.custom.right_large_image.alt | escape }}"
                     src="{{ product.metafields.custom.right_large_image | image_url: width: 744, height: 555 }}"
                     width="744"
@@ -45,7 +45,7 @@
             />
         {% else %}
             <img
-                    class="rounded-lg mb-3"
+                    class="mt-[2.5rem] mb-3 rounded-lg"
                     alt="SneakerLab Product 3"
                     src="{{ '343x360.jpg' | asset_url }}"
                     width="744"
@@ -55,14 +55,14 @@
             />
         {% endif %}
 
-        <h3 class="text-xl md:text-3xl uppercase mb-4">
+        <h3 class="mb-4 text-xl font-medium tracking-tighter uppercase leading-[0.95] md:text-3xl">
             {% if product.metafields.custom.right_image_subtitle %}
                 {{ product.metafields.custom.right_image_subtitle }}
             {% else %}
                 {{ section.settings.right-block-title }}
             {% endif %}
         </h3>
-        <p class="text-xs md:text-sm">
+        <p class="text-xs md:text-sm leading-[1.2]">
             {% if product.metafields.custom.right_block_of_text %}
                 {{ product.metafields.custom.right_block_of_text }}
             {% else %}
@@ -70,8 +70,8 @@
             {% endif %}
         </p>
     </div>
-    <div class="col-span-12 md:col-span-6 mt-16 md:mt-36">
-        <h3 class="uppercase text-4xl lg:text-7xl font-medium">
+    <div class="col-span-12 mt-16 md:col-span-6 md:mt-36">
+        <h3 class="text-4xl font-medium uppercase tracking-tighter lg:text-[5rem] leading-[0.95] lg:leading-[0.85]">
             {% if product.metafields.custom.left_smaller_quote_block %}
                 {{ product.metafields.custom.left_smaller_quote_block }}
             {% else %}
@@ -79,12 +79,12 @@
             {% endif %}
         </h3>
     </div>
-    <div class="col-span-12 md:col-span-6 mt-8 md:mt-36">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+    <div class="col-span-12 mt-8 md:col-span-6 md:mt-36">
+        <div class="grid grid-cols-2 gap-2 md:grid-cols-4">
             {% if product.metafields.custom.right_grid_image_1 %}
                 <img
                         style="width: 145px; height: 185px;"
-                        class="rounded-lg mb-3 object-cover"
+                        class="object-cover mb-3 rounded-lg"
                         alt="{{ product.metafields.custom.right_grid_image_1.alt | escape }}"
                         src="{{ product.metafields.custom.right_grid_image_1 | image_url: width: 145, height: 185 }}"
                         width="145"
@@ -94,7 +94,7 @@
                 />
             {% else %}
                 <img
-                        class="rounded-lg mb-3"
+                        class="mb-3 rounded-lg"
                         alt="SneakerLab Product 3"
                         src="{{ '185x145.jpg' | asset_url }}"
                         width="185"
@@ -107,7 +107,7 @@
             {% if product.metafields.custom.small_grid_image_2 %}
                 <img
                         style="width: 145px; height: 185px;"
-                        class="rounded-lg mb-3 object-cover"
+                        class="object-cover mb-3 rounded-lg"
                         alt="{{ product.metafields.custom.small_grid_image_2.alt | escape }}"
                         src="{{ product.metafields.custom.small_grid_image_2 | image_url: width: 145, height: 185 }}"
                         width="145"
@@ -117,7 +117,7 @@
                 />
             {% else %}
                 <img
-                        class="rounded-lg mb-3"
+                        class="mb-3 rounded-lg"
                         alt="SneakerLab Product 3"
                         src="{{ '185x145.jpg' | asset_url }}"
                         width="185"
@@ -127,7 +127,7 @@
                 />
             {% endif %}
         </div>
-        <p class="text-xs md:text-sm max-w-[325px]">
+        <p class="text-xs md:text-sm leading-[1.2] max-w-[325px]">
             {% if product.metafields.custom.small_image_grid_sub_paragraph %}
                 {{ product.metafields.custom.small_image_grid_sub_paragraph }}
             {% else %}

@@ -190,7 +190,7 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     @apply bg-[#fff]
 }
 
-.dark-mode.search-active [role="banner"] {
+.page-inverted.search-active [role="banner"] {
     @apply bg-[#000];
     color: white;
 }
@@ -537,4 +537,19 @@ a.predictive-search__item:after {
 div.errors,
 small#RecoverEmail-email-error {
     @apply text-sm text-[#ff0000];
+}
+
+/* Testing font features */
+body {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'pnum' on, 'lnum' on, 'ordn' on, 'ss09' on, 'ss02' on, 'ss05' on;
+
+}
+
+/* Enviromentally friendly image sizing */
+@media (max-width: 768px) {
+    .enviro-size img {
+        width: 225px;
+        height: 60px;
+    }
 }
