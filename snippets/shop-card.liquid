@@ -1,23 +1,22 @@
 <article id="" class="" aria-label="{{ product.title }}">
-    <figure class="bg-light-gray relative overflow-hidden marquee-wrap rounded-lg ">
+    <figure class="relative overflow-hidden rounded-lg bg-light-gray marquee-wrap ">
         <a href="{{ product.url }}">
             {% comment %}theme-check-disable{% endcomment %}
-            <img style="width: 760px; height: 567px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
+            <img style="width: 760px; height: 450px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
             loading="lazy" decoding="async" />
             {% comment %}theme-check-enable{% endcomment %}
         </a>
 
         <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
-            <div class="inner relative w-full flex">
-                <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [{{ product.title }}]</p>
-                <p class="text-eco-green uppercase whitespace-nowrap text-7xl">View [{{ product.title }}]</p>
+            <div class="relative flex w-full inner">
+                <p class="uppercase text-eco-green whitespace-nowrap text-7xl">View [{{ product.title }}]</p>
+                <p class="uppercase text-eco-green whitespace-nowrap text-7xl">View [{{ product.title }}]</p>
             </div>
         </div>
     </figure>
-    <h3 class="uppercase text-xl md:text-2xl lg:text-3xl tracking-tighter mt-2">{{ product.title }}</h3>
+    <h3 class="mt-2 text-xl tracking-tighter uppercase md:text-2xl lg:text-3xl">{{ product.title }}</h3>
     <div class="flex items-start justify-between">
         <p class="uppercase text-sm max-w-[220px] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
         {% render 'new-price' product: card_product %}
     </div>
 </article>
-

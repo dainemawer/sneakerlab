@@ -8,9 +8,9 @@
 {% endif %}
 
 
-<div id="modal" aria-hidden="true" data-modal class="fixed flex items-center justify-center invisible opacity-0 pointer-events-none z-10 left-0 top-0 w-full h-full overflow-auto bg-[#fff]/90 backdrop-blur" role="dialog">
-    <div class="p-5 w-4/5 mx-auto text-center">
-        <lite-vimeo videoid="{{ video_id }}"></lite-vimeo>
+<div id="modal" aria-hidden="true" data-modal class="fixed flex items-center justify-center invisible opacity-0 pointer-events-none z-50 left-0 top-0 w-full h-full overflow-auto bg-[#fff]/90 backdrop-blur" role="dialog">
+    <div class="w-4/5 p-5 mx-auto text-center">
+        <lite-vimeo class="mx-auto mt-[35vh] w-full lg:mt-32 lg:max-w-[90%]" videoid="{{ video_id }}"></lite-vimeo>
     </div>
     <a data-close-modal aria-controls="modal" class="uppercase absolute text-3xl right-4 top-4 text-[#000]" href="#" role="button">Close</a>
 </div>
@@ -21,6 +21,9 @@
         const triggers = document.querySelectorAll('[data-trigger-modal]')
         const close = document.querySelector('[data-close-modal]')
         const modal = document.querySelector('[data-modal]')
+        const about_url = '/pages/about'
+
+        console.log(window.location.pathname)
 
         triggers && triggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
@@ -38,6 +41,12 @@
                     modal.setAttribute('aria-hidden', 'true')
                 }
             })
+
+            if (window.location.pathname === about_url) {
+                modal.classList.add('page-inverted')
+            }   else {
+                modal.classList.add('bg-white')
+            }
 
             document.addEventListener('mousedown', (e) => {
                 if (!modal.contains(e.target) && e.target !== trigger) {

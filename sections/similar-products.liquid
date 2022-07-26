@@ -1,9 +1,9 @@
 <div class="grid grid-cols-12 gap-2 mt-4">
   <section class="col-span-12 mt-14 md:mt-36">
-    <p class="uppercase text-xs md:text-sm mb-3 md:mb-5">[&nbsp;&nbsp;Similiar Products <sup>02</sup>&nbsp;&nbsp;]</p>
+    <p class="mb-3 text-xs uppercase md:text-sm md:mb-5">[&nbsp;&nbsp;Similiar Products <sup>02</sup>&nbsp;&nbsp;]</p>
       <product-recommendations
         style="display: grid !important;"
-        class="product-recommendations grid-cols-12 gap-2"
+        class="grid-cols-12 gap-2 product-recommendations"
         data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
       >
         {% if recommendations.performed and recommendations.products_count > 0 %}
@@ -20,7 +20,7 @@
 
   <div class="col-span-12">
     <p class="text-left md:text-center mt-11 md:mt-20">
-      <a class="uppercase font-medium text-xl md:text-3xl" href="/collections/all/">
+      <a class="text-xl font-medium tracking-tighter underline uppercase md:text-3xl lg:no-underline" href="/collections/all/">
         Shop All
       </a>
     </p>

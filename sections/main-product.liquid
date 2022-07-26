@@ -3,10 +3,10 @@
   {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
     <!-- Mobile Product Gallery -->
-    <div id="product-carousel"  class="block overflow-hidden md:hidden col-span-12">
+    <div id="product-carousel"  class="block col-span-12 overflow-hidden md:hidden">
       {% for image in product.images limit: 5 %}
         <div class="slide carousel-cell ">
-          <figure class="bg-light-gray h-full flex items-center justify-center">
+          <figure class="flex items-center justify-center h-full bg-light-gray">
             <img
                   class="object-cover rounded-lg"
                   alt="SneakerLab Product 3"
@@ -23,7 +23,7 @@
     </div>
 
     <!-- Desktop Product Gallery -->
-    <div class="hidden md:block col-span-12 md:col-span-6">
+    <div class="hidden col-span-12 md:block md:col-span-6">
       {% for image in product.images limit: 5 %}
         {% if forloop.index == 3 and product.images.size > 3 %}
           <div class="grid grid-cols-3 gap-2 mb-2">
@@ -32,7 +32,7 @@
         {% if forloop.index < 3 %}
           <img
               style="width: 744px; height: 555px;"
-              class="rounded-lg mb-2 object-contain"
+              class="object-contain mb-2 rounded-lg bg-[#F5F5F5]"
               alt="SneakerLab Product 3"
               src="{{ image.src | image_url }}"
               width="744"
@@ -69,7 +69,7 @@
       {% comment %}<figure{% endcomment %}
         {% comment %}data-trigger-modal{% endcomment %}
         {% comment %}id="how-to-video"{% endcomment %}
-        {% comment %}class="hidden md:block bg-light-gray relative overflow-hidden marquee-wrap"{% endcomment %}
+        {% comment %}class="relative hidden overflow-hidden md:block bg-light-gray marquee-wrap"{% endcomment %}
       {% comment %}>{% endcomment %}
         {% comment %}<div>{% endcomment %}
           {% comment %}<img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744"{% endcomment %}
@@ -77,7 +77,7 @@
         {% comment %}</div>{% endcomment %}
 {% comment %}{% endcomment %}
         {% comment %}<div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">{% endcomment %}
-          {% comment %}<div class="inner relative w-full flex">{% endcomment %}
+          {% comment %}<div class="relative flex w-full inner">{% endcomment %}
             {% comment %}<p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>{% endcomment %}
             {% comment %}<p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>{% endcomment %}
           {% comment %}</div>{% endcomment %}
@@ -85,28 +85,28 @@
       {% comment %}</figure>{% endcomment %}
 
     <!-- Main Product Information -->
-    <div class="col-span-12 md:col-span-6 relative product-info">
+    <div class="relative col-span-12 md:col-span-6 product-info">
       <!-- Product Title -->
-      <h1 class="mb-2 uppercase text-3xl md:text-5xl font-medium">
+      <h1 class="mb-2 text-3xl font-medium uppercase md:text-5xl">
         {{ product.title }}
       </h1>
 
-      <div class="border-b flex items-center justify-between border-silver pb-3 mb-4">
+      <div class="flex items-center justify-between pb-3 mb-4 border-b border-silver">
         <!-- Product Subtitle -->
-        <h2 class="uppercase text-xs md:text-sm">
+        <h2 class="text-xs uppercase md:text-sm">
           {{ product.metafields.descriptors.subtitle }}
         </h2>
           <!-- Product Price -->
           {% render 'new-price' %}
       </div>
 
-      <div class="flex flex-nowrap items-center justify-between">
+      <div class="flex items-center justify-between flex-nowrap">
         <div class="w-full max-w-[124px] md:max-w-[146px]">
 
           <!-- Quantity Input -->
           <div class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}" {{ block.shopify_attributes }}>
             <quantity-input class="quantity flex relative border border-silver rounded p-[1px]">
-              <button class="quantity__button no-js-hidden absolute left-0 w-10 h-10 hover:opacity-50 focus:opacity-50 transition-all" name="minus" type="button">
+              <button class="absolute left-0 w-10 h-10 transition-all quantity__button no-js-hidden hover:opacity-50 focus:opacity-50" name="minus" type="button">
                 <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: product.title | escape }}</span>
                 -
               </button>
@@ -118,7 +118,7 @@
                      value="1"
                      form="{{ product_form_id }}"
               >
-              <button class="quantity__button no-js-hidden absolute hover:opacity-50 focus:opacity-50 transition-all right-0 w-10 h-10" name="plus" type="button">
+              <button class="absolute right-0 w-10 h-10 transition-all quantity__button no-js-hidden hover:opacity-50 focus:opacity-50" name="plus" type="button">
                 <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: product.title | escape }}</span>
                 +
               </button>
@@ -143,10 +143,10 @@
               {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
                 <div class="product-form__buttons">
-                  <button
+                  <button style="height: 44px;"
                           type="submit"
                           name="add"
-                          class="product-form__submit button bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green"
+                          class="product-form__submit button  bg-eco-green text-[#fff] text-xs md:text-sm py-3 px-9 rounded w-full hover:bg-forest-green"
                     {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                   >
                       <span>
@@ -156,7 +156,7 @@
                           {{ 'products.product.sold_out' | t }}
                         {%- endif -%}
                       </span>
-                    <div class="loading-overlay__spinner hidden">
+                    <div class="hidden loading-overlay__spinner">
                       <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                         <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                       </svg>
@@ -199,20 +199,20 @@
       </div>
       <!-- Product Description -->
       {%- if product.description != blank -%}
-        <p class="text-xs md:text-sm mt-4">
+        <p class="mt-4 text-xs md:text-sm">
           {{ product.description }}
         </p>
       {%- endif -%}
 
       <!-- Single Product Accordion -->
-      <div id="accordion" class="accordion mt-24 md:mt-44 mb-5" data-allow-multiple>
+      <div id="accordion" class="mt-24 mb-5 accordion md:mt-44" data-allow-multiple>
         {% assign my_counter = 0 %}
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {% when 'product-accordion' %}
-                <h3 class="border-t border-silver text-xs md:text-sm">
+                <h3 class="text-xs border-t border-silver md:text-sm">
                   <button
-                      class="flex accordion-trigger justify-between items-center w-full uppercase py-3 text-left"
+                      class="flex items-center justify-between w-full py-3 text-left uppercase accordion-trigger"
                       {% if my_counter == 0 %}
                         aria-expanded="true"
                       {% else %}
@@ -229,7 +229,7 @@
                 <div
                         id="accordion-item-{{ block.id }}"
                         role="region"
-                        class="accordion-panel pb-5"
+                        class="pb-5 accordion-panel"
                         aria-labelledby="accordion-title-{{ block.id }}"
                         {% if my_counter != 0 %}
                           hidden
@@ -249,11 +249,11 @@
     </div>
 
     <!-- Mobile Product How To Video -->
-    <div class="col-span-12 md:hidden block">
+    <div class="block col-span-12 md:hidden">
       <figure
         data-trigger-modal
         id="how-to-video-mobile"
-        class="bg-light-gray relative overflow-hidden marquee-wrap"
+        class="relative overflow-hidden bg-light-gray marquee-wrap"
       >
         <div>
           <img
@@ -268,7 +268,7 @@
         </div>
 
         <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
-          <div class="inner relative w-full flex">
+          <div class="relative flex w-full inner">
             <p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>
             <p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>
           </div>

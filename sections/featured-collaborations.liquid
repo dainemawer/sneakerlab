@@ -3,10 +3,10 @@
 {% endcomment %}
 
 <section class="xl:container xl:mx-auto mb-36">
-  <h2 class="uppercase text-sm mb-5">
+  <h2 class="mb-5 text-sm font-medium uppercase">
     [ {{ section.settings.collaborations_title }} <sup>{{ section.settings.collaborations_count }}</sup> ]
   </h2>
-  <div class="grid md:grid-cols-12 gap-4">
+  <div class="grid gap-4 md:grid-cols-12">
     <!-- Large Featured Collaboration -->
     <article class="md:col-span-6">
       <figure class="relative overflow-hidden marquee-wrap">
@@ -15,7 +15,7 @@
             <img
                 src="{{ section.settings.collaborations_large_featured_article.image.src | image_url }}"
                 alt="{{ section.settings.collaborations_large_featured_article.image.alt }}"
-                class="rounded-lg object-cover"
+                class="object-cover rounded-lg"
                 width="760"
                 height="700"
                 loading="lazy"
@@ -38,8 +38,8 @@
         {% endif %}
 
         <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
-          <div class="inner relative w-full flex">
-            <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
+          <div class="relative flex w-full inner">
+            <p class="uppercase text-eco-green whitespace-nowrap text-7xl">
               {% if section.settings.collaborations_large_featured_article %}
                 View [{{ section.settings.collaborations_large_featured_article.title }}]
               {% endif %}
@@ -47,7 +47,7 @@
           </div>
         </div>
       </figure>
-      <h3 class="flex-1 w-full uppercase text-sm mt-2">
+      <h3 class="flex-1 w-full mt-2 text-sm uppercase">
         {% if section.settings.collaborations_large_featured_article %}
         [ {{ section.settings.collaborations_large_featured_article.title }} ]
         {% endif %}
@@ -55,7 +55,7 @@
     </article>
 
     <!-- Medium Featured Collaboration -->
-    <article class="md:col-span-6 relative">
+    <article class="relative md:col-span-6">
       <div class="flex flex-wrap justify-between">
         <figure class="basis-[49%] md:col-span-3 relative overflow-hidden marquee-wrap">
           {% if section.settings.collaborations_medium_1_featured_article %}
@@ -63,12 +63,12 @@
               <img
                       src="{{ section.settings.collaborations_medium_1_featured_article.image.src | image_url }}"
                       alt="{{ section.settings.collaborations_medium_1_featured_article.image.alt }}"
-                      class="rounded-lg object-cover"
+                      class="object-cover rounded-lg"
                       width="370"
                       height="340"
                       loading="lazy"
                       decoding="async"
-                      style="width: 370px; height: 340px;"
+                      style="width: 370px; height: 300px;"
               >
             </a>
           {% else %}
@@ -86,8 +86,8 @@
           {% endif %}
 
           <div class="marquee absolute top-[45%] opacity-0 transition-opacity pointer-events-none">
-            <div class="inner relative w-full flex">
-              <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
+            <div class="relative flex w-full inner">
+              <p class="uppercase text-eco-green whitespace-nowrap text-7xl">
                 {% if section.settings.collaborations_medium_1_featured_article %}
                 View [{{ section.settings.collaborations_medium_1_featured_article.title }}]
                 {% endif %}
@@ -101,12 +101,12 @@
               <img
                       src="{{ section.settings.collaborations_medium_2_featured_article.image.src | image_url }}"
                       alt="{{ section.settings.collaborations_medium_2_featured_article.image.alt }}"
-                      class="rounded-lg object-cover"
+                      class="object-cover rounded-lg"
                       width="370"
                       height="340"
                       loading="lazy"
                       decoding="async"
-                      style="width: 370px; height: 340px;"
+                      style="width: 370px; height: 300px;"
               >
             </a>
           {% else %}
@@ -123,8 +123,8 @@
             </a>
           {% endif %}
           <div class="marquee absolute top-[45%] opacity-0 transition-opacity pointer-events-none">
-            <div class="inner relative w-full flex">
-              <p class="text-eco-green uppercase whitespace-nowrap text-7xl">
+            <div class="relative flex w-full inner">
+              <p class="uppercase text-eco-green whitespace-nowrap text-7xl">
                 {% if section.settings.collaborations_medium_2_featured_article %}
                   View [{{ section.settings.collaborations_medium_2_featured_article.title }}]
                 {% endif %}
@@ -132,7 +132,7 @@
             </div>
           </div>
         </figure>
-        <h3 class="flex-1 w-full uppercase text-sm mt-2">
+        <h3 class="flex-1 w-full mt-2 text-sm uppercase">
           {% if section.settings.collaborations_medium_1_featured_article %}
             [ {{ section.settings.collaborations_medium_1_featured_article.title }} ]
           {% endif %}
@@ -141,7 +141,7 @@
       <h4 class="hidden md:block text-xl md:text-lg xl:text-3xl lg:absolute lg:bottom-[24%] font-medium">
         {{ section.settings.collaborations_description }}
       </h4>
-      <a class="uppercase block mt-16 lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:text-2xl xl:text-3xl" href="{{ section.settings.collaborations_view_all_link_url }}">
+      <a class="uppercase block mt-16 font-medium tracking-tighter underline lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:no-underline lg:text-2xl xl:text-3xl" href="{{ section.settings.collaborations_view_all_link_url }}">
         {{ section.settings.collaborations_view_all_link_text }}
       </a>
     </article>
