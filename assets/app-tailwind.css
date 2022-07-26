@@ -42,6 +42,10 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
     @apply border-[#fff] bg-[#000]
 }
 
+.modal-active.page-inverted a {
+    color: #fff;
+}
+
 .marquee-wrap:hover .marquee,
 .marquee-wrap:hover .marquee2 {
     @apply opacity-100
@@ -454,7 +458,7 @@ a.predictive-search__item:after {
 }
 
 .article .quote-paragraph p {
-    @apply md:text-sm text-xs;
+    @apply text-xs md:text-sm;
 }
 
 .article .quote-paragraph p strong {
@@ -466,7 +470,7 @@ a.predictive-search__item:after {
 }
 
 .article .paragraph-centered p strong {
-    @apply uppercase font-medium;
+    @apply font-medium uppercase;
 }
 
 .article .paragraph-centered p:last-child {
@@ -490,7 +494,7 @@ a.predictive-search__item:after {
 
 @media (max-width: 600px) {
     #grid-toggle.md\:grid-cols-4 article img {
-        max-height: 250px;
+        max-height: 180px;
     }
 }
 
@@ -524,7 +528,7 @@ a.predictive-search__item:after {
 }
 
 .customer .form__message {
-    @apply text-sm flex gap-2;
+    @apply flex gap-2 text-sm;
 }
 
 div.errors,

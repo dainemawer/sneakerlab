@@ -1,27 +1,27 @@
 <section>
-    <div class="grid grid-cols-12 gap-2 md:gap-4 xl:container xl:mx-auto mt-20 mb-10 md:mb-40">
+    <div class="grid grid-cols-12 gap-2 mt-20 mb-10 md:gap-4 xl:container xl:mx-auto md:mb-40">
         <div class="col-span-12 lg:col-span-6">
-            <h1 class="font-semibold text-5xl md:text-8xl uppercase">{{ section.settings.heading1 }}</h1>
+            <h1 class="text-5xl font-semibold uppercase md:text-8xl">{{ section.settings.heading1 }}</h1>
             <p class="uppercase text-xs max-w-[255px] md:text-sm mt-4 lg:mb-16 lg:my-12 lg:max-w-[161px]">
                 [&nbsp;&nbsp;{{ section.settings.subtitle1 }}&nbsp;&nbsp;]
             </p>
         </div>
         <div class="col-span-12 lg:col-span-6">
-            <p class="text-xl lg:text-3xl mb-10 lg:mb-20 mt-10 lg:mt-36">
+            <p class="mt-10 mb-10 text-xl lg:text-3xl lg:mb-20 lg:mt-36">
                 {{ section.settings.subheading_lg_1 }}
             </p>
         </div>
         <div class="col-span-12 md:col-span-6">
 
             {% if section.settings.image1 %}
-                <img class="rounded-lg" src="{{ section.settings.image1 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image1.alt | escape }}" loading="lazy" decoding="async" />
+                <img class="rounded-lg lg:max-h-[795px]" src="{{ section.settings.image1 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image1.alt | escape }}" loading="lazy" decoding="async" />
             {% else %}
                 <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async"/>
             {% endif %}
         </div>
         <div class="col-span-12 md:col-span-6">
             {% if section.settings.image2 %}
-                <img class="rounded-lg" src="{{ section.settings.image2 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image2.alt | escape }}" loading="lazy" decoding="async" />
+                <img class="rounded-lg lg:max-h-[795px]" src="{{ section.settings.image2 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image2.alt | escape }}" loading="lazy" decoding="async" />
             {% else %}
                 <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async"/>
             {% endif %}
@@ -38,7 +38,7 @@
 
         </div>
         <div class="col-span-12">
-            <span class="block mb-6 uppercase text-xs md:text-sm">[&nbsp;&nbsp;{{ section.settings.subtitle2 }}&nbsp;&nbsp;]</span>
+            <span class="block mb-6 text-xs uppercase md:text-sm">[&nbsp;&nbsp;{{ section.settings.subtitle2 }}&nbsp;&nbsp;]</span>
             <h2 class="font-medium text-4xl md:text-7xl uppercase max-w-[1048px] mb-7 md:mb-16">{{ section.settings.heading2 }}</h2>
         </div>
         <div class="col-span-12 md:col-span-6">
@@ -49,7 +49,7 @@
                 <img class="rounded-lg" src="{{ '412x415.jpg' | asset_url }}" width="412" height="415" alt="" loading="lazy" decoding="async" />
             {% endif %}
 
-            <a data-trigger-modal class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-sm inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
+            <a data-trigger-modal class="inline-flex items-center justify-start mt-4 text-sm transition-all play-video hover:opacity-50 focus:opacity-50" role="button" aria-controls="modal" aria-expanded="false" href="#">
                 <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="white" />
                 </svg>
@@ -57,7 +57,7 @@
             </a>
         </div>
         <div class="col-span-12 md:col-span-6">
-            <h3 class="text-xl lg:text-3xl mt-5 md:mt-0 mb-10">
+            <h3 class="mt-5 mb-10 text-xl lg:text-3xl md:mt-0">
                 {{ section.settings.subheading_lg_2 }}
             </h3>
             <br />
@@ -70,13 +70,13 @@
             </p>
         </div>
         <div class="col-span-12 mt-16 md:mt-32">
-            <span class="block mb-6 uppercase text-xs md:text-sm">[&nbsp;&nbsp;{{ section.settings.subtitle3 }}&nbsp;&nbsp;]</span>
+            <span class="block mb-6 text-xs uppercase md:text-sm">[&nbsp;&nbsp;{{ section.settings.subtitle3 }}&nbsp;&nbsp;]</span>
             <h2 class="font-medium mb-5 text-4xl md:text-7xl uppercase max-w-[1048px]">
                 {{ section.settings.heading3 }}
             </h2>
         </div>
-        <div class="col-span-12 lg:col-span-6 relative">
-            <div class="lg:absolute left-0 bottom-32">
+        <div class="relative col-span-12 lg:col-span-6">
+            <div class="left-0 lg:absolute bottom-32">
                 <p class="text-xs md:text-sm max-w-[345px]">
                     {{ section.settings.sm_paragraph5 }}
                 </p>
@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="col-span-12 lg:col-span-6">
-            <p class="text-xl md:text-3xl mb-10 md:mb-20 mt-10 md:mt-36">
+            <p class="mt-10 mb-10 text-xl md:text-3xl md:mb-20 md:mt-36">
                 {{ section.settings.subheading_lg_3 }}
             </p>
             {% if section.settings.image4 %}
@@ -96,14 +96,14 @@
                 <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async" />
             {% endif %}
 
-            <a data-trigger-modal class="mt-4 text-sm play-video hover:opacity-50 focus:opacity-50 transition-all inline-flex justify-start items-center" role="button" aria-controls="modal" aria-expanded="false" href="#">
+            <a data-trigger-modal class="inline-flex items-center justify-start mt-4 text-sm transition-all play-video hover:opacity-50 focus:opacity-50" role="button" aria-controls="modal" aria-expanded="false" href="#">
                 <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="white" />
                 </svg>
                 Play video
             </a>
             <p class="mt-16">
-                <a class="uppercase text-3xl font-medium" href="{{ section.settings.cta_link }}">
+                <a class="text-3xl font-medium uppercase" href="{{ section.settings.cta_link }}">
                     {{ section.settings.cta_text }}
                 </a>
             </p>
@@ -243,4 +243,3 @@
   ]
 }
 {% endschema %}
-

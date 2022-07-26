@@ -769,20 +769,12 @@ video {
   z-index: 40;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .z-20 {
   z-index: 20;
-}
-
-.order-2 {
-  order: 2;
-}
-
-.order-1 {
-  order: 1;
-}
-
-.order-3 {
-  order: 3;
 }
 
 .col-span-12 {
@@ -791,6 +783,10 @@ video {
 
 .col-span-6 {
   grid-column: span 6 / span 6;
+}
+
+.col-span-1 {
+  grid-column: span 1 / span 1;
 }
 
 .float-right {
@@ -973,8 +969,16 @@ video {
   margin-left: auto;
 }
 
+.-mt-4 {
+  margin-top: -1rem;
+}
+
 .mr-1 {
   margin-right: 0.25rem;
+}
+
+.mt-\[35vh\] {
+  margin-top: 35vh;
 }
 
 .mt-7 {
@@ -1328,6 +1332,14 @@ video {
   gap: 2rem;
 }
 
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
 .overflow-auto {
   overflow: auto;
 }
@@ -1426,6 +1438,11 @@ video {
 
 .bg-\[\#fff\]\/70 {
   background-color: rgb(255 255 255 / 0.7);
+}
+
+.bg-\[\#F5F5F5\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
 .bg-\[transparent\] {
@@ -1574,6 +1591,10 @@ video {
   padding-bottom: 2.5rem;
 }
 
+.pt-40 {
+  padding-top: 10rem;
+}
+
 .pt-8 {
   padding-top: 2rem;
 }
@@ -1654,6 +1675,11 @@ video {
   line-height: 2.25rem;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1697,6 +1723,18 @@ video {
 
 .leading-\[0\] {
   line-height: 0;
+}
+
+.leading-\[0\.85\] {
+  line-height: 0.85;
+}
+
+.leading-\[0\.92\] {
+  line-height: 0.92;
+}
+
+.leading-4 {
+  line-height: 1rem;
 }
 
 .leading-normal {
@@ -1924,6 +1962,10 @@ a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.fi
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.modal-active.page-inverted a {
+  color: #fff;
 }
 
 .marquee-wrap:hover .marquee, 
@@ -2604,7 +2646,7 @@ a.predictive-search__item:after {
 
 @media (max-width: 600px) {
   #grid-toggle.md\:grid-cols-4 article img {
-    max-height: 250px;
+    max-height: 180px;
   }
 }
 
@@ -2859,6 +2901,10 @@ small#RecoverEmail-email-error {
     width: 468px;
   }
 
+  .sm\:text-center {
+    text-align: center;
+  }
+
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -3065,12 +3111,24 @@ small#RecoverEmail-email-error {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
   .md\:items-center {
     align-items: center;
   }
 
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
   .md\:gap-4 {
     gap: 1rem;
+  }
+
+  .md\:gap-8 {
+    gap: 2rem;
   }
 
   .md\:border-0 {
@@ -3083,10 +3141,6 @@ small#RecoverEmail-email-error {
 
   .md\:text-center {
     text-align: center;
-  }
-
-  .md\:text-right {
-    text-align: right;
   }
 
   .md\:text-sm {
@@ -3155,24 +3209,16 @@ small#RecoverEmail-email-error {
     left: 1.5rem;
   }
 
+  .lg\:top-\[-15px\] {
+    top: -15px;
+  }
+
   .lg\:top-\[-10px\] {
     top: -10px;
   }
 
   .lg\:bottom-20 {
     bottom: 5rem;
-  }
-
-  .lg\:order-1 {
-    order: 1;
-  }
-
-  .lg\:order-2 {
-    order: 2;
-  }
-
-  .lg\:order-3 {
-    order: 3;
   }
 
   .lg\:col-span-6 {
@@ -3208,6 +3254,14 @@ small#RecoverEmail-email-error {
     margin-bottom: 1.25rem;
   }
 
+  .lg\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .lg\:mt-32 {
+    margin-top: 8rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -3224,6 +3278,10 @@ small#RecoverEmail-email-error {
     display: none;
   }
 
+  .lg\:max-h-\[795px\] {
+    max-height: 795px;
+  }
+
   .lg\:max-w-none {
     max-width: none;
   }
@@ -3236,6 +3294,10 @@ small#RecoverEmail-email-error {
     max-width: 161px;
   }
 
+  .lg\:max-w-\[90\%\] {
+    max-width: 90%;
+  }
+
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -3244,17 +3306,34 @@ small#RecoverEmail-email-error {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
+  .lg\:items-center {
+    align-items: center;
+  }
+
+  .lg\:gap-14 {
+    gap: 3.5rem;
+  }
+
+  .lg\:gap-16 {
+    gap: 4rem;
+  }
+
   .lg\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+  }
+
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .lg\:pt-36 {
     padding-top: 9rem;
   }
 
-  .lg\:text-right {
-    text-align: right;
+  .lg\:text-left {
+    text-align: left;
   }
 
   .lg\:text-2xl {
@@ -3289,6 +3368,11 @@ small#RecoverEmail-email-error {
   .lg\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+
+  .lg\:no-underline {
+    -webkit-text-decoration-line: none;
+            text-decoration-line: none;
   }
 }
 
@@ -3384,12 +3468,12 @@ small#RecoverEmail-email-error {
     max-width: 344px;
   }
 
-  .xl\:justify-start {
-    justify-content: flex-start;
+  .xl\:flex-row {
+    flex-direction: row;
   }
 
-  .xl\:text-left {
-    text-align: left;
+  .xl\:justify-start {
+    justify-content: flex-start;
   }
 
   .xl\:text-3xl {
@@ -3413,16 +3497,8 @@ small#RecoverEmail-email-error {
 }
 
 @media (min-width: 375px) {
-  .xs\:col-span-6 {
-    grid-column: span 6 / span 6;
-  }
-
   .xs\:ml-2 {
     margin-left: 0.5rem;
-  }
-
-  .xs\:mt-4 {
-    margin-top: 1rem;
   }
 
   .xs\:flex {
@@ -3451,10 +3527,6 @@ small#RecoverEmail-email-error {
 @media (min-width: 520px) {
   .tn\:mb-0 {
     margin-bottom: 0px;
-  }
-
-  .tn\:mr-2 {
-    margin-right: 0.5rem;
   }
 
   .tn\:flex-row {
