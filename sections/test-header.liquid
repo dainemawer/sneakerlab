@@ -6,7 +6,9 @@
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
 <a class="sr-only focus:not-sr-only" href="#main-content">Skip to Main Content</a>
-<header id="testing" aria-label="Site Header" role="banner" class="sticky z-10 top-[-1px] py-3 transition-all">
+<header id="testing" aria-label="Site Header" role="banner" class="sticky z-10 top-[-1px] py-3 transition-all
+    {% if template.name == 'product' %} border-b border-silver {% endif %}
+">
     <div class="menu-overlay"></div>
     <div class="flex flex-wrap justify-between px-4 lg:px-5 xl:container xl:mx-auto">
         <nav class="basis-2/6">
@@ -91,7 +93,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="relative w-full">
+        <div class="w-full fixed left-0 bg-[#fff] mt-8">
             {% render 'header-search' %}
         </div>
     </div>

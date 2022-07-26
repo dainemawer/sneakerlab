@@ -749,6 +749,14 @@ video {
   bottom: 1rem;
 }
 
+.top-\[12px\] {
+  top: 12px;
+}
+
+.left-\[12px\] {
+  left: 12px;
+}
+
 .top-full {
   top: 100%;
 }
@@ -1039,6 +1047,10 @@ video {
 
 .h-10 {
   height: 2.5rem;
+}
+
+.h-\[150px\] {
+  height: 150px;
 }
 
 .max-h-0 {
@@ -1472,6 +1484,11 @@ video {
   background-color: rgb(255 255 255 / 0.9);
 }
 
+.bg-\[\#000\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1559,6 +1576,16 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-\[4px\] {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.py-\[1px\] {
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .pb-4 {
@@ -1876,6 +1903,13 @@ video {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+/* Testing font features */
+
+body {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'pnum' on, 'lnum' on, 'ordn' on, 'ss09' on, 'ss02' on, 'ss05' on;
 }
 
 a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.filter-item):not(.pagination__item) {
@@ -2724,13 +2758,6 @@ small#RecoverEmail-email-error {
   line-height: 1.25rem;
   --tw-text-opacity: 1;
   color: rgb(255 0 0 / var(--tw-text-opacity));
-}
-
-/* Testing font features */
-
-body {
-  font-variant-numeric: lining-nums;
-  font-feature-settings: 'pnum' on, 'lnum' on, 'ordn' on, 'ss09' on, 'ss02' on, 'ss05' on;
 }
 
 /* Enviromentally friendly image sizing */
