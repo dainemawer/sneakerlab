@@ -1,6 +1,7 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
 <article class="grid grid-cols-12 gap-2 mb-20 article md:mb-36" itemscope itemtype="http://schema.org/BlogPosting">
+
     {%- for block in section.blocks -%}
     {%- case block.type -%}
     {%- when '@app' -%}
