@@ -111,7 +111,154 @@
     </div>
 </section>
 
-{% render 'modal', video_type: section.settings.video_type, video_id: section.settings.modal_video_id %}
+<div id="modal-1" aria-hidden="true" data-modal-1 class="fixed flex items-center justify-center invisible opacity-0 pointer-events-none z-50 left-0 top-0 w-full h-full overflow-auto bg-[#fff]/90 backdrop-blur" role="dialog">
+    <div class="w-4/5 p-5 mx-auto text-center">
+        {% if section.settings.video_type_1 == 'YouTube' %}
+            <lite-youtube class="mx-auto mt-[35vh] w-full lg:mt-8 lg:max-w-[90%]" videoid="{{ section.settings.video_id_1 }}"></lite-youtube>
+        {% endif %}
+        {% if section.settings.video_type_1 == 'Vimeo' %}
+            <lite-vimeo class="mx-auto mt-[35vh] w-full lg:mt-16 lg:max-w-[90%]" videoid="{{ section.settings.video_id_1 }}"></lite-vimeo>
+        {% endif %}
+    </div>
+    <a data-close-modal-1 aria-controls="modal-1" class="uppercase absolute text-3xl right-4 top-4 text-[#000]" href="#" role="button">Close</a>
+</div>
+
+<div id="modal-2" aria-hidden="true" data-modal-2 class="fixed flex items-center justify-center invisible opacity-0 pointer-events-none z-50 left-0 top-0 w-full h-full overflow-auto bg-[#fff]/90 backdrop-blur" role="dialog">
+    <div class="w-4/5 p-5 mx-auto text-center">
+        {% if section.settings.video_type_2 == 'YouTube' %}
+            <lite-youtube class="mx-auto mt-[35vh] w-full lg:mt-8 lg:max-w-[90%]" videoid="{{ section.settings.video_id_2 }}"></lite-youtube>
+        {% endif %}
+        {% if section.settings.video_type_2 == 'Vimeo' %}
+            <lite-vimeo class="mx-auto mt-[35vh] w-full lg:mt-16 lg:max-w-[90%]" videoid="{{ section.settings.video_id_2 }}"></lite-vimeo>
+        {% endif %}
+    </div>
+    <a data-close-modal-2 aria-controls="modal-2" class="uppercase absolute text-3xl right-4 top-4 text-[#000]" href="#" role="button">Close</a>
+</div>
+
+
+<script>
+    const Modal1 = () => {
+        const triggers = document.querySelectorAll('[data-trigger-modal-1]')
+        const close = document.querySelector('[data-close-modal-1]')
+        const modal = document.querySelector('[data-modal-1]')
+        const about_url = '/pages/about'
+
+        console.log(window.location.pathname)
+
+        triggers && triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault()
+
+                if (!modal.classList.contains('modal-active')) {
+                    modal.classList.add('modal-active')
+                    document.body.style.overflow = 'hidden'
+                    e.target.setAttribute('aria-expanded', 'true')
+                    modal.setAttribute('aria-hidden', 'false')
+                } else {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    e.target.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+
+            if (window.location.pathname === about_url) {
+                modal.classList.add('page-inverted')
+            }   else {
+                modal.classList.add('bg-white')
+            }
+
+            document.addEventListener('mousedown', (e) => {
+                if (!modal.contains(e.target) && e.target !== trigger) {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    trigger.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+
+            close && close.addEventListener('click', (e) => {
+                e.preventDefault()
+                modal.classList.remove('modal-active')
+                document.body.style.overflow = 'auto'
+                trigger.setAttribute('aria-expanded', 'false')
+                modal.setAttribute('aria-hidden', 'true')
+            })
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    trigger.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+        })
+    }
+
+    Modal1()
+
+    const Modal2 = () => {
+        const triggers = document.querySelectorAll('[data-trigger-modal-2]')
+        const close = document.querySelector('[data-close-modal-2]')
+        const modal = document.querySelector('[data-modal-2]')
+        const about_url = '/pages/about'
+
+        console.log(window.location.pathname)
+
+        triggers && triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault()
+
+                if (!modal.classList.contains('modal-active')) {
+                    modal.classList.add('modal-active')
+                    document.body.style.overflow = 'hidden'
+                    e.target.setAttribute('aria-expanded', 'true')
+                    modal.setAttribute('aria-hidden', 'false')
+                } else {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    e.target.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+
+            if (window.location.pathname === about_url) {
+                modal.classList.add('page-inverted')
+            }   else {
+                modal.classList.add('bg-white')
+            }
+
+            document.addEventListener('mousedown', (e) => {
+                if (!modal.contains(e.target) && e.target !== trigger) {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    trigger.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+
+            close && close.addEventListener('click', (e) => {
+                e.preventDefault()
+                modal.classList.remove('modal-active')
+                document.body.style.overflow = 'auto'
+                trigger.setAttribute('aria-expanded', 'false')
+                modal.setAttribute('aria-hidden', 'true')
+            })
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modal.classList.remove('modal-active')
+                    document.body.style.overflow = 'auto'
+                    trigger.setAttribute('aria-expanded', 'false')
+                    modal.setAttribute('aria-hidden', 'true')
+                }
+            })
+        })
+    }
+
+    Modal2()
+</script>
 
 {% schema %}
 {
@@ -178,8 +325,8 @@
     },
     {
       "type": "select",
-      "id": "video_type",
-      "label": "Modal Video Type (YouTube or Vimeo)",
+      "id": "video_type_1",
+      "label": "First Modal Video Type (YouTube or Vimeo)",
       "options": [
         {
           "value": "YouTube",
@@ -194,8 +341,8 @@
     },
     {
       "type": "text",
-      "id": "video_id",
-      "label": "Modal Video ID"
+      "id": "video_id_1",
+      "label": "First Modal Video ID"
     },
     {
       "type": "text",
@@ -249,6 +396,27 @@
       "id": "sm_paragraph6",
       "label": "Small Paragraph 6",
       "default": "Sneaker LAB contributes a portion of every unit sold in support of the initiative’s vision to uplift African youth. This empowering NGO aims to bring about sustained community change through positive peer to peer programs. With peer education at the core of their model, gold builds young leaders with character and purpose, who in turn will have an impact in their community."
+    },
+    {
+      "type": "select",
+      "id": "video_type_2",
+      "label": "Second Modal Video Type (YouTube or Vimeo)",
+      "options": [
+        {
+          "value": "YouTube",
+          "label": "YouTube"
+        },
+        {
+          "value": "Vimeo",
+          "label": "Vimeo"
+        }
+      ],
+      "default": "YouTube"
+    },
+    {
+      "type": "text",
+      "id": "video_id_2",
+      "label": "First Modal Video ID"
     },
     {
       "type": "text",

@@ -9,10 +9,6 @@
 
 <div id="modal" aria-hidden="true" data-modal class="fixed flex items-center justify-center invisible opacity-0 pointer-events-none z-50 left-0 top-0 w-full h-full overflow-auto bg-[#fff]/90 backdrop-blur" role="dialog">
     <div class="w-4/5 p-5 mx-auto text-center">
-        <div class="text-[#fff]">
-            {{ video_type }}
-            {{ video_id }}
-        </div>
         {% if video_type == 'YouTube' %}
             <lite-youtube class="mx-auto mt-[35vh] w-full lg:mt-8 lg:max-w-[90%]" videoid="{{ video_id }}"></lite-youtube>
         {% endif %}
