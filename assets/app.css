@@ -1697,6 +1697,10 @@ video {
   line-height: 1;
 }
 
+.text-\[0\.75rem\] {
+  font-size: 0.75rem;
+}
+
 .text-\[2\.625rem\] {
   font-size: 2.625rem;
 }
@@ -2852,6 +2856,10 @@ sup {
   font-size: 64%;
 }
 
+/* .product-info p {
+    font-size: 0.875rem;
+} */
+
 .placeholder\:text-5xl::-moz-placeholder {
   font-size: 3rem;
   line-height: 1;
@@ -3545,14 +3553,14 @@ sup {
     line-height: 2.25rem;
   }
 
-  .lg\:text-8xl {
-    font-size: 6rem;
-    line-height: 1;
-  }
-
   .lg\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .lg\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
   }
 
   .lg\:text-\[6\.875rem\] {

@@ -1,13 +1,37 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="grid grid-cols-12 gap-2 mb-20 article md:mb-36" itemscope itemtype="http://schema.org/BlogPosting">
-
+<article class="grid grid-cols-12 gap-2 mb-20 md:mb-36" itemscope itemtype="http://schema.org/BlogPosting">
     {%- for block in section.blocks -%}
+    <!-- Render blocks -->
     {%- case block.type -%}
     {%- when '@app' -%}
     <div class="page-width page-width--narrow">
         {% render block %}
     </div>
+
+    {%- when 'title' -%}
+    <header {{ block.shopify_attributes }} class="col-span-12 max-w-[621px] mx-auto">
+        <h1 itemprop="headline"
+            class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center md:text-center mt-20 mb-14 md:mb-28">
+            {{ article.title | escape }}
+        </h1>
+    </header>
+    <div class="w-full col-span-12 mx-auto">
+        <div class="flex items-center justify-between mb-5">
+            <h2 class="text-xs uppercase md:text-sm">[&nbsp;&nbsp;Collaboration&nbsp;&nbsp;]</h2>
+            <p class="text-xs uppercase md:text-sm">
+                Article
+                <time>
+                    <span class="circle-divider caption-with-letter-spacing"
+                        itemprop="dateCreated pubdate datePublished">
+                        {{ article.published_at | date: "%d.%m.%y" }}
+                    </span>
+                </time>
+            </p>
+        </div>
+    </div>
+
+    <!-- Featured Image -->
     {%- when 'featured_image' -%}
     {%- if article.image -%}
     <figure class="col-span-12 mb-10 md:mb-16" itemprop="image">
@@ -35,65 +59,41 @@
     </figure>
     {% endif %}
 
-    {%- when 'title' -%}
-    <header {{ block.shopify_attributes }} class="col-span-12 max-w-[1200px] mx-auto">
-        <h1
-            class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center mt-14 md:mt-20 mb-14 md:mb-28">
-            {% if article.title %}
-            {{ article.title | escape }}
-            {% endif %}
-        </h1>
-    </header>
-    <div class="col-span-12 article-subtitle">
-        <div class="flex items-center justify-between mb-3 md:mb-5">
-            <p class="pb-0 text-xs uppercase md:text-sm">
-                [&nbsp;&nbsp;Collaboration&nbsp;&nbsp;]
-            </p>
-            <p class="pb-0 text-xs uppercase md:text-sm">
-                Interview
-                <time>
-                    {%- if block.settings.blog_show_date -%}
-                    <time>
-                        <span class="circle-divider caption-with-letter-spacing"
-                            itemprop="dateCreated pubdate datePublished">
-                            {{ article.published_at | date: "%d.%m.%y" }}
-                        </span>
-                    </time>
-                    {%- endif -%}
-                </time>
-            </p>
-        </div>
-    </div>
+    {%- when 'quote-section' -%}
+    {%- liquid
+        assign left_quote = article.metafields.custom.left_quote
+    -%}
 
-    {%- when 'quote-and-paragraph' -%}
+    {%- liquid
+    if block.id == 'quote-section-2'
+    assign class = 'max-w-[344px]'
+    else
+    assign class = ''
+    endif
+    %}
+
     <div class="col-span-12 mb-5 md:col-span-6 md:mb-12">
-        <div class="text-xl md:text-3xl">
-            {% if article.metafields.custom.left_quote %}
-            {{ article.metafields.custom.left_quote }}
+        <div class="text-xl md:text-3xl {{ class }}">
+            {% if left_quote %}
+            {{ left_quote }}
             {% else %}
-            Sneaker Lab dfgdf recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker
-            culture,to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
+            Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to
+            host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
             {% endif %}
         </div>
     </div>
-    <div class="col-span-12 mb-8 md:col-span-6 md:mb-12 quote-paragraph">
-        <div class="max-w-[344px] md:float-right text-left">
-            {% if article.metafields.custom.small_right_quote %}
-            {{ article.metafields.custom.small_right_quote }}
-            {% else %}
-            The DC x The_ONES E. Tribeka Vachetta is made of premium untreatedleather that ages over time like an old
-            baseball mitt. Buttery softand ready to be made yours. This limited edition sneaker comes witha Sneaker Lab
-            Deluxe cleaning kit that includes all leather care essentials.
-            {% endif %}
+    <div class="col-span-12 mb-8 md:col-span-6 md:mb-12">
+        <div class="text-xs md:text-sm max-w-[344px] text-left float-right">
+            {{ block.settings.small_paragraph }}
         </div>
     </div>
 
     {%- when 'two-image-grid' -%}
     <div class="col-span-12 mb-0 md:col-span-6 md:mb-12">
-        {% if article.metafields.custom.image_1 %}
+        {% if block.settings.left_image %}
         <img class="object-cover rounded-lg" style="width: 740px; height: 740px;"
-            alt="{{ article.metafields.custom.image_1.alt }}"
-            src="{{ article.metafields.custom.image_1 | image_url: width: 740, height: 740 }}" width="740" height="740"
+            alt="{{ block.settings.left_image.alt }}"
+            src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}" width="740" height="740"
             loading="lazy" decoding="async" />
         {% else %}
         <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740"
@@ -101,10 +101,10 @@
         {% endif %}
     </div>
     <div class="col-span-12 mb-10 md:col-span-6 md:mb-12">
-        {% if article.metafields.custom.image_2 %}
+        {% if block.settings.right_image %}
         <img class="object-cover rounded-lg" style="width: 740px; height: 740px;"
-            alt="{{ article.metafields.custom.image_2.alt }}"
-            src="{{ article.metafields.custom.image_1 | image_url: width: 740, height: 740 }}" width="740" height="740"
+            alt="{{ block.settings.left_image.alt }}"
+            src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}" width="740" height="740"
             loading="lazy" decoding="async" />
         {% else %}
         <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740"
@@ -112,157 +112,128 @@
         {% endif %}
     </div>
 
-    {%- when 'two-image-grid-subgrid' -%}
-    <!-- Two Image Grid Subgrid -->
+    {% when 'four-tile-grid' %}
     <div class="col-span-12 mb-0 md:col-span-6 md:mb-12">
-        <!-- Small grid of images -->
         <div class="grid grid-cols-2 gap-2">
-            {% if article.metafields.custom.small_quad_grid_image_1 %}
-            <img class="object-cover rounded-lg" alt="{{ article.metafields.custom.small_quad_grid_image_1.alt }}"
-                style="width: 370px; height: 370px;"
-                src="{{ article.metafields.custom.small_quad_grid_image_1 | image_url }}" width="370" height="370"
-                loading="lazy" decoding="async" />
+            {% if block.settings.left_grid_image_1 %}
+            <img class="object-cover rounded-lg" style="width: 370px; height: 368px;"
+                alt="{{ block.settings.left_grid_image_1.alt }}"
+                src="{{ block.settings.left_grid_image_1 | image_url: width: 370, height: 368 }}" width="370"
+                height="368" loading="lazy" decoding="async" />
             {% else %}
-            <img class="object-cover rounded-lg" alt="{{ block.settings.grid_image_1.alt  }}"
-                style="width: 370px; height: 370px;" src="{{ block.settings.grid_image_1 | image_url }}" width="370"
-                height="370" loading="lazy" decoding="async" />
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
+                height="368" loading="lazy" decoding="async" />
             {% endif %}
-            {% if article.metafields.custom.small_quad_grid_image_2 %}
-            <img class="object-cover rounded-lg" alt="{{ article.metafields.custom.small_quad_grid_image_2.alt }}"
-                style="width: 370px; height: 370px;"
-                src="{{ article.metafields.custom.small_quad_grid_image_2 | image_url }}" width="370" height="370"
-                loading="lazy" decoding="async" />
+            {% if block.settings.left_grid_image_2 %}
+            <img class="object-cover rounded-lg" style="width: 370px; height: 368px;"
+                alt="{{ block.settings.left_grid_image_2.alt }}"
+                src="{{ block.settings.left_grid_image_2 | image_url: width: 370, height: 368 }}" width="370"
+                height="368" loading="lazy" decoding="async" />
             {% else %}
-            <img class="object-cover rounded-lg" alt="{{ block.settings.grid_image_2.alt  }}"
-                style="width: 370px; height: 370px;" src="{{ block.settings.grid_image_2 | image_url }}" width="370"
-                height="370" loading="lazy" decoding="async" />
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
+                height="368" loading="lazy" decoding="async" />
             {% endif %}
-            {% if article.metafields.custom.small_quad_grid_image_3 %}
-            <img class="object-cover rounded-lg" alt="{{ article.metafields.custom.small_quad_grid_image_3.alt }}"
-                style="width: 370px; height: 370px;"
-                src="{{ article.metafields.custom.small_quad_grid_image_3 | image_url }}" width="370" height="370"
-                loading="lazy" decoding="async" />
+            {% if block.settings.left_grid_image_3 %}
+            <img class="object-cover rounded-lg" style="width: 370px; height: 368px;"
+                alt="{{ block.settings.left_grid_image_3.alt }}"
+                src="{{ block.settings.left_grid_image_3 | image_url: width: 370, height: 368 }}" width="370"
+                height="368" loading="lazy" decoding="async" />
             {% else %}
-            <img class="object-cover rounded-lg" alt="{{ block.settings.grid_image_3.alt  }}"
-                style="width: 370px; height: 370px;" src="{{ block.settings.grid_image_3 | image_url }}" width="370"
-                height="370" loading="lazy" decoding="async" />
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
+                height="368" loading="lazy" decoding="async" />
             {% endif %}
-            {% if article.metafields.custom.small_quad_grid_image_4 %}
-            <img class="object-cover rounded-lg" alt="{{ article.metafields.custom.small_quad_grid_image_4.alt }}"
-                style="width: 370px; height: 370px;"
-                src="{{ article.metafields.custom.small_quad_grid_image_4 | image_url }}" width="370" height="370"
-                loading="lazy" decoding="async" />
+            {% if block.settings.left_grid_image_4 %}
+            <img class="object-cover rounded-lg" style="width: 370px; height: 368px;"
+                alt="{{ block.settings.left_grid_image_4.alt }}"
+                src="{{ block.settings.left_grid_image_4 | image_url: width: 370, height: 368 }}" width="370"
+                height="368" loading="lazy" decoding="async" />
             {% else %}
-            <img class="object-cover rounded-lg" alt="{{ block.settings.grid_image_4.alt  }}"
-                style="width: 370px; height: 370px;" src="{{ block.settings.grid_image_4 | image_url }}" width="370"
+            <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
                 height="370" loading="lazy" decoding="async" />
             {% endif %}
         </div>
     </div>
-
-    <!-- Large Image -->
-    <div class="col-span-12 mb-8 md:col-span-6 md:mb-12">
-        {% if article.metafields.custom.right_image_next_to_quad_grid %}
-        <img class="object-cover rounded-lg" alt="{{ article.metafields.custom.right_image_next_to_quad_grid.alt }}"
-            style="width: 740px; height: 748px;"
-            src="{{ article.metafields.custom.right_image_next_to_quad_grid | image_url }}" width="740" height="740"
-            loading="lazy" />
-        {% else %}
-        <img class="object-cover rounded-lg" alt="{{ block.settings.right_image.alt }}"
-            style="width: 740px; height: 748px;" src="{{ block.settings.right_image | image_url }}" width="740"
-            height="740" loading="lazy" />
-        {% endif %}
-    </div>
-
-    {% when 'large-quote' %}
-    <div class="col-span-12 mb-8 md:mb-12">
-        {% if article.metafields.custom.second_large_quote %}
-        <h3 class="uppercase tracking-tighter font-medium text-4xl md:text-7xl md:max-w-[1048px]">
-            {% if article.metafields.custom.second_large_quote %}
-            {{ article.metafields.custom.second_large_quote }}
-            {% else %}
-            {{ block.settings.large-quote }}
-            {% endif %}
-        </h3>
-        {% endif %}
-    </div>
-
-    {%- when 'paragraph-centered' -%}
-    <div class="hidden mb-12 md:block md:col-span-3"></div>
-    <div class="col-span-12 mb-12 md:col-span-9 paragraph-centered">
-        <div class="text-xs md:text-sm max-w-[660px]">
-            {% if article.metafields.custom.paragraph_2 %}
-            {{ article.metafields.custom.paragraph_2 }}
-            {% else %}
-            {{ block.settings.paragraph-centered }}
-            {% endif %}
-        </div>
-    </div>
-
-    {%- when 'large-offset-image' -%}
-    <div class="hidden mb-12 md:block md:col-span-3"></div>
-    <div class="col-span-12 mb-12 md:col-span-9">
-        <!-- Large offest image -->
-        {% if article.metafields.custom.large_image_off_center %}
-        <img class="object-cover mb-2 rounded-lg" alt="{{ article.metafields.custom.large_image_off_center.alt }}"
-            style="width: 1120px; height: 1048px;"
-            src="{{ article.metafields.custom.large_image_off_center | image_url }}" width="1120" height="1048"
+    <div class="col-span-12 mb-12 md:col-span-6">
+        {% if block.settings.right_image %}
+        <img class="object-cover rounded-lg" style="width: 740px; height: 744px;"
+            alt="{{ block.settings.right_image.alt }}"
+            src="{{ block.settings.right_image | image_url: width: 740, height: 744 }}" width="740" height="744"
             loading="lazy" decoding="async" />
         {% else %}
-        <img class="object-cover mb-2 rounded-lg" alt="{{ block.settings.large-offset-image.alt }}"
-            style="width: 1120px; height: 1048px;" src="{{ block.settings.large-offset-image | image_url }}"
-            width="1120" height="1048" loading="lazy" decoding="async" />
+        <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740"
+            height="740" loading="lazy" decoding="async" />
         {% endif %}
     </div>
 
-    {% when 'content-two-column-images' %}
+    {% when 'featured-section' %}
+    <div class="col-span-12 mb-8 md:mb-12">
+        <h3 class="uppercase tracking-tighter font-medium text-4xl md:text-7xl md:max-w-[1048px]">
+            {% if block.settings.title %}
+            {{ block.settings.title }}
+            {% endif %}
+            Big shout out to Skate Moss, Briana King, Jennifer Charlene and the rest of the DC skate team.
+        </h3>
+    </div>
+
     <div class="hidden mb-12 md:block md:col-span-3"></div>
     <div class="col-span-12 mb-12 md:col-span-9">
-        <div class="grid grid-cols-2 gap-2 md:grid-cols-3">
-            {% if article.metafields.custom.small_sub_image_1 %}
-            <img class="object-cover rounded-lg" alt="{{ article.metafields.custom.small_sub_image_1.alt }}"
-                style="width: 370px; height: 372px;" src="{{ article.metafields.custom.small_sub_image_1 | image_url }}"
-                width="370" height="372" loading="lazy" decoding="async" />
-            {% else %}
-            <img class="object-cover rounded-lg" alt="{{ block.settings.left-image.alt }}"
-                style="width: 370px; height: 372px;" src="{{ block.settings.left-image | image_url }}" width="370"
-                height="372" loading="lazy" decoding="async" />
+        <p class="text-xs md:text-sm max-w-[344px] mb-16 md:mb-10">
+            {% if block.settings.paragraph %}
+            {{ block.settings.paragraph }}
             {% endif %}
-            {% if article.metafields.custom.small_sub_image_2 %}
-            <img class="object-cover rounded-lg" alt="{{ article.metafields.custom.small_sub_image_2.alt }}"
-                style="width: 370px; height: 372px;" src="{{ article.metafields.custom.small_sub_image_2 | image_url }}"
-                width="370" height="372" loading="lazy" decoding="async" />
+            We offered skateboard parking and shoe cleanings to anyone that came through — big shout out to
+            Skate Moss,
+            Briana King,
+            Jennifer Charlene and the rest of the DC skate team for coming out and showing some love.
+        </p>
+
+        {% if block.settings.featured_image %}
+        <img class="mb-2 rounded-lg" alt="{{ block.settings.featured_image.alt }}"
+            src="{{ block.settings.featured_image | image_url: width: 1120, height: 1048 }}" width="1120" height="1048"
+            loading="lazy" decoding="async" />
+        {% else %}
+        <img class="mb-2 rounded-lg" alt="SneakerLab Product 3" src="{{ '1120x1048.jpg' | asset_url }}" width="1120"
+            height="1048" loading="lazy" decoding="async" />
+        {% endif %}
+
+
+        <div class="grid grid-cols-2 gap-2 md:grid-cols-3">
+            {% if block.settings.left_image %}
+            <img class="mb-2 rounded-lg" style="width: 370px; height: 370px;" alt="{{ block.settings.left_image.alt }}"
+                src="{{ block.settings.left_image | image_url: width: 370, height: 370 }}" width="370" height="370"
+                loading="lazy" decoding="async" />
             {% else %}
-            <img class="object-cover rounded-lg" alt="{{ block.settings.right-image.alt }}"
-                style="width: 370px; height: 372px;" src="{{ block.settings.right-image | image_url }}" width="370"
-                height="372" loading="lazy" decoding="async" />
+            <img class="mb-2 rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
+                height="370" loading="lazy" decoding="async" />
+            {% endif %}
+            {% if block.settings.right_image %}
+            <img class="mb-2 rounded-lg" alt="{{ block.settings.right_image.alt }}"
+                src="{{ block.settings.right_image | image_url: width: 370, height: 370 }}" width="370" height="370"
+                loading="lazy" decoding="async" />
+            {% else %}
+            <img class="mb-2 rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
+                height="370" loading="lazy" decoding="async" />
             {% endif %}
         </div>
     </div>
 
-    {%- when 'content' -%}
-    <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{
-        block.shopify_attributes }}>
-        {{ article.content }}
-    </div>
-
-    {%- when 'socials' -%}
+    {% when 'social' %}
     <div class="col-span-12 md:col-span-3">
         <p class="text-xs uppercase md:text-sm">[&nbsp;&nbsp;Follow&nbsp;&nbsp;]</p>
     </div>
     <div class="col-span-12 md:col-span-9">
         <p class="text-xl md:text-3xl md:max-w-[696px]">
-            Follow us to stay up to date with all things Sneaker LAB.
-            <a href="https://instagram.com" target="_blank" rel="noopenner noreferrer">
-                Instagram
-            </a> and
-            <a href="https://facebook.com" target="_blank" rel="noopenner noreferrer">
-                Facebook
-            </a>.
+            {{ block.settings.social_html }}
         </p>
     </div>
 
     {% comment %}
+    {%- when 'content'-%}
+    <div class="article-template__content page-width page-width--narrow rte" itemprop="articleBody" {{
+        block.shopify_attributes }}>
+        {{ article.content }}
+    </div>
+
     {%- when 'share' -%}
     <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
         <share-button class="share-button" {{ block.shopify_attributes }}>
@@ -301,7 +272,18 @@
     {%- endcase -%}
     {%- endfor -%}
 
-    <!-- Article Comments -->
+
+    <!-- Back Button -->
+    {% comment %}
+    <div class="article-template__back element-margin-top center">
+        <a href="{{ blog.url }}" class="article-template__link link animate-arrow">
+            <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+            {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
+        </a>
+    </div>
+    {% endcomment %}
+
+    {% comment %}
     {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
         <div id="comments" class="page-width page-width--narrow">
@@ -355,7 +337,7 @@
                     <a href="#CommentForm-{{ field }}" class="link">
                         {%- if form.errors.translated_fields[field] contains 'author' -%}
                         {{ 'blogs.article.name' | t }}
-                        {%- elsif form.errors.translated_fields[field] contains 'body' -%}
+                        {%- elsif form.errors.translated_fields[field] contains 'body'-%}
                         {{ 'blogs.article.message' | t }}
                         {%- else -%}
                         {{ form.errors.translated_fields[field] }}
@@ -379,8 +361,8 @@
                             form.errors contains 'author' %} aria-invalid="true"
                             aria-describedby="CommentForm-author-error" {% endif %}
                             placeholder="{{ 'blogs.article.name' | t }}">
-                        <label class="field__label" for="CommentForm-author">{{ 'blogs.article.name' | t }}
-                            <span aria-hidden="true">*</span></label>
+                        <label class="field__label" for="CommentForm-author">{{ 'blogs.article.name' | t }} <span
+                                aria-hidden="true">*</span></label>
                         {%- if form.errors contains 'author' -%}
                         <small id="CommentForm-author-error">
                             <span class="form__message">{% render 'icon-error' %}{{ 'blogs.article.name' | t }} {{
@@ -394,8 +376,8 @@
                             aria-required="true" required {% if form.errors contains 'email' %} aria-invalid="true"
                             aria-describedby="CommentForm-email-error" {% endif %}
                             placeholder="{{ 'blogs.article.email' | t }}">
-                        <label class="field__label" for="CommentForm-email">{{ 'blogs.article.email' | t }}
-                            <span aria-hidden="true">*</span></label>
+                        <label class="field__label" for="CommentForm-email">{{ 'blogs.article.email' | t }} <span
+                                aria-hidden="true">*</span></label>
                         {%- if form.errors contains 'email' -%}
                         <small id="CommentForm-email-error">
                             <span class="form__message">{% render 'icon-error' %}{{ 'blogs.article.email' | t }} {{
@@ -427,10 +409,53 @@
     </div>
     </div>
     {%- endif -%}
+    {% endcomment %}
 </article>
 
 {% render 'modal', video_type: article.metafields.custom.modal_video_type, video_id:
 article.metafields.custom.modal_video_id %}
+
+<script>
+    const CollaborationsFilter = () => {
+        const trigger = document.querySelector('[data-filter-trigger]');
+        const panel = document.getElementById('filter-dropdown');
+
+        trigger && trigger.addEventListener('click', () => {
+            if (!panel.classList.contains('filter-active')) {
+                trigger.innerHTML = 'Filter-'
+                trigger.setAttribute('aria-expanded', 'true')
+                panel.setAttribute('aria-hidden', 'false')
+                panel.classList.add('filter-active')
+            } else {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+
+        document.addEventListener('mousedown', (e) => {
+            if (!panel.contains(e.target) && e.target !== trigger) {
+                trigger.innerHTML = 'Filter+'
+                trigger.setAttribute('aria-expanded', 'false')
+                panel.setAttribute('aria-hidden', 'true')
+                panel.classList.remove('filter-active')
+            }
+        })
+    }
+
+    CollaborationsFilter()
+</script>
+
 
 <script type="application/ld+json">
   {
@@ -438,8 +463,8 @@ article.metafields.custom.modal_video_id %}
     "@type": "Article",
     "articleBody": {{ article.content | strip_html | json }},
     "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": {{ request.origin | append: page.url | json }}
+        "@type": "WebPage",
+        "@id": {{ request.origin | append: page.url | json }}
     },
     "headline": {{ article.title | json }},
     {% if article.excerpt != blank %}
@@ -469,6 +494,7 @@ article.metafields.custom.modal_video_id %}
       "name": {{ shop.name | json }}
     }
   }
+
 </script>
 
 
@@ -482,24 +508,10 @@ article.metafields.custom.modal_video_id %}
 "type": "@app"
 },
 {
-"type": "featured_image",
-"name": "t:sections.main-article.blocks.featured_image.name",
-"limit": 1,
-"settings": [
-
-]
-},
-{
 "type": "title",
 "name": "t:sections.main-article.blocks.title.name",
 "limit": 1,
 "settings": [
-{
-"type": "checkbox",
-"id": "blog_show_date",
-"default": true,
-"label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
-},
 {
 "type": "checkbox",
 "id": "blog_show_author",
@@ -509,8 +521,46 @@ article.metafields.custom.modal_video_id %}
 ]
 },
 {
-"type": "quote-and-paragraph",
-"name": "Quote with Paragraph",
+"type": "featured_image",
+"name": "t:sections.main-article.blocks.featured_image.name",
+"limit": 1,
+"settings": [
+{
+"type": "checkbox",
+"id": "blog_show_date",
+"default": true,
+"label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+},
+{
+"type": "select",
+"id": "image_height",
+"options": [
+{
+"value": "adapt",
+"label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+},
+{
+"value": "small",
+"label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+},
+{
+"value": "medium",
+"label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+},
+{
+"value": "large",
+"label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+}
+],
+"default": "adapt",
+"label": "t:sections.main-article.blocks.featured_image.settings.image_height.label",
+"info": "t:sections.main-article.blocks.featured_image.settings.image_height.info"
+}
+]
+},
+{
+"type": "quote-section",
+"name": "Quote Section",
 "limit": 4,
 "settings": [
 {
@@ -528,7 +578,7 @@ article.metafields.custom.modal_video_id %}
 {
 "type": "two-image-grid",
 "name": "Two Image Grid",
-"limit": 1,
+"limit": 4,
 "settings": [
 {
 "type": "image_picker",
@@ -543,29 +593,29 @@ article.metafields.custom.modal_video_id %}
 ]
 },
 {
-"type": "two-image-grid-subgrid",
-"name": "Two Image Multi Grid",
-"limit": 1,
+"type": "four-tile-grid",
+"name": "Four Tile Grid",
+"limit": 4,
 "settings": [
 {
 "type": "image_picker",
-"id": "grid_image_1",
-"label": "Grid Image 1"
+"id": "left_grid_image_1",
+"label": "Left Image"
 },
 {
 "type": "image_picker",
-"id": "grid_image_2",
-"label": "Grid Image 2"
+"id": "left_grid_image_2",
+"label": "Left Image 2"
 },
 {
 "type": "image_picker",
-"id": "grid_image_3",
-"label": "Grid Image 3"
+"id": "left_grid_image_3",
+"label": "Left Image 3"
 },
 {
 "type": "image_picker",
-"id": "grid_image_4",
-"label": "Grid Image 4"
+"id": "left_grid_image_4",
+"label": "Left Image 4"
 },
 {
 "type": "image_picker",
@@ -575,66 +625,52 @@ article.metafields.custom.modal_video_id %}
 ]
 },
 {
-"type": "large-quote",
-"name": "Large Quote",
+"type": "featured-section",
+"name": "Featured Section",
 "limit": 2,
 "settings": [
 {
 "type": "richtext",
-"id": "large-quote",
-"label": "Quote Text"
-}
-]
+"id": "title",
+"label": "Title"
 },
-{
-"type": "paragraph-centered",
-"name": "Paragraph Centered",
-"limit": 4,
-"settings": [
 {
 "type": "richtext",
-"id": "paragraph-centered",
-"label": "Content Paragraph (Centered)"
-}
-]
+"id": "paragraph",
+"label": "Paragraph"
 },
 {
-"type": "large-offset-image",
-"name": "Large Offset Image",
-"limit": 1,
-"settings": [
-{
 "type": "image_picker",
-"id": "large-offset-image",
-"label": "Large Offset Image"
-}
-]
+"id": "featured_image",
+"label": "Featured Image"
 },
 {
-"type": "content-two-column-images",
-"name": "Content 2 Col Images",
-"limit": 1,
-"settings": [
-{
 "type": "image_picker",
-"id": "left-image",
+"id": "left_image",
 "label": "Left Image"
 },
 {
 "type": "image_picker",
-"id": "right-image",
+"id": "right_image",
 "label": "Right Image"
+}
+]
+},
+{
+"type": "social",
+"name": "Social",
+"limit": 1,
+"settings": [
+{
+"type": "html",
+"id": "social_html",
+"label": "Social HTML"
 }
 ]
 },
 {
 "type": "content",
 "name": "t:sections.main-article.blocks.content.name",
-"limit": 1
-},
-{
-"type": "socials",
-"name": "Social Media Links",
 "limit": 1
 },
 {
@@ -655,34 +691,6 @@ article.metafields.custom.modal_video_id %}
 {
 "type": "paragraph",
 "content": "t:sections.main-article.blocks.share.settings.title_info.content"
-}
-]
-}
-],
-"presets": [
-{
-"name": "Article",
-"blocks": [
-{
-"type": "title"
-},
-{
-"type": "featured_image"
-},
-{
-"type": "quote-and-paragraph"
-},
-{
-"type": "two-image-grid"
-},
-{
-"type": "quote-and-paragraph"
-},
-{
-"type": "content"
-},
-{
-"type": "share"
 }
 ]
 }

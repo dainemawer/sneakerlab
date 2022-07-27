@@ -74,7 +74,7 @@
           {% if product.metafields.custom.how_to_video_thumbnail %}
             <img
                     style="width: 744px; height: 555px;"
-                    class="rounded-lg object-cover"
+                    class="object-cover rounded-lg"
                     alt="{{ product.metafields.custom.how_to_video_thumbnail.alt }}"
                     src="{{ product.metafields.custom.how_to_video_thumbnail | image_url }}"
                     width="744"
@@ -219,13 +219,13 @@
       </div>
       <!-- Product Description -->
       {%- if product.description != blank -%}
-        <p class="mt-4 text-xs md:text-sm">
+        <div class="mt-4 text-[0.75rem] leading-[1.2] md:leading-none md:text-sm">
           {{ product.description }}
-        </p>
+        </div>
       {%- endif -%}
 
       <!-- Single Product Accordion -->
-      <div id="accordion" class="mt-24 mb-5 accordion md:mt-44 border-b border-silver" data-allow-multiple>
+      <div id="accordion" class="mt-24 mb-5 border-b accordion md:mt-44 border-silver" data-allow-multiple>
         {% assign my_counter = 0 %}
         {%- for block in section.blocks -%}
           {%- case block.type -%}
@@ -279,7 +279,7 @@
           {% if product.metafields.custom.how_to_video_thumbnail %}
             <img
                     style="width: 744px; height: 555px;"
-                    class="rounded-lg object-cover"
+                    class="object-cover rounded-lg"
                     alt="{{ product.metafields.custom.how_to_video_thumbnail.alt }}"
                     src="{{ product.metafields.custom.how_to_video_thumbnail | image_url }}"
                     width="744"
