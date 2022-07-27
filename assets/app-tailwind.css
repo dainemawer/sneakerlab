@@ -340,6 +340,7 @@ a.ticker::after {
     @apply border-[#fff] hover:opacity-50 focus:opacity-50 transition-all !important
 }
 
+[data-close-modal],
 [data-close-modal-1],
 [data-close-modal-2] {
     position: absolute !important

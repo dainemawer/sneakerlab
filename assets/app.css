@@ -2470,6 +2470,7 @@ a.ticker::after {
   opacity: 0.5 !important;
 }
 
+[data-close-modal],
 [data-close-modal-1],
 [data-close-modal-2] {
   position: absolute !important
