@@ -59,30 +59,50 @@
             {% if product.images.size > 3 %}
                 </div>
             {% endif %}
-          </div>
         {% endif %}
       {% endfor %}
 
       {% comment %}
         TODO: Decide where to put how to video thumbnail or if to make component
       {% endcomment %}
-      {% comment %}<figure{% endcomment %}
-        {% comment %}data-trigger-modal{% endcomment %}
-        {% comment %}id="how-to-video"{% endcomment %}
-        {% comment %}class="relative hidden overflow-hidden md:block bg-light-gray marquee-wrap"{% endcomment %}
-      {% comment %}>{% endcomment %}
-        {% comment %}<div>{% endcomment %}
-          {% comment %}<img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '343x360.jpg' | asset_url }}" width="744"{% endcomment %}
-               {% comment %}height="555" loading="lazy" decoding="async" />{% endcomment %}
-        {% comment %}</div>{% endcomment %}
-{% comment %}{% endcomment %}
-        {% comment %}<div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">{% endcomment %}
-          {% comment %}<div class="relative flex w-full inner">{% endcomment %}
-            {% comment %}<p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>{% endcomment %}
-            {% comment %}<p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>{% endcomment %}
-          {% comment %}</div>{% endcomment %}
-        {% comment %}</div>{% endcomment %}
-      {% comment %}</figure>{% endcomment %}
+      <figure
+        data-trigger-modal
+        id="how-to-video"
+        class="relative hidden overflow-hidden md:block bg-light-gray marquee-wrap"
+      >
+        <div>
+          {% if product.metafields.custom.how_to_video_thumbnail %}
+            <img
+                    style="width: 744px; height: 555px;"
+                    class="rounded-lg object-cover"
+                    alt="{{ product.metafields.custom.how_to_video_thumbnail.alt }}"
+                    src="{{ product.metafields.custom.how_to_video_thumbnail | image_url }}"
+                    width="744"
+                    height="555"
+                    loading="lazy"
+                    decoding="async"
+            />
+          {% else %}
+            <img
+                class="rounded-lg"
+                alt="SneakerLab Product 3"
+                src="{{ '343x360.jpg' | asset_url }}"
+                width="744"
+                height="555"
+                loading="lazy"
+                decoding="async"
+            />
+          {% endif %}
+        </div>
+
+        <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
+          <div class="relative flex w-full inner">
+            <p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>
+            <p class="text-[#fff] uppercase whitespace-nowrap text-7xl">Watch [How To Video]</p>
+          </div>
+        </div>
+      </figure>
+    </div>
 
     <!-- Main Product Information -->
     <div class="relative col-span-12 md:col-span-6 product-info">

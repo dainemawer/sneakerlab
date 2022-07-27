@@ -111,7 +111,7 @@
     </div>
 </section>
 
-{% render 'modal' %}
+{% render 'modal', video_type: section.settings.modal.video_type, video_id: section.settings.modal_video_id %}
 
 {% schema %}
 {
@@ -175,6 +175,27 @@
       "type": "image_picker",
       "id": "image3",
       "label": "Image 3 (recommended size w: 412px, h: 415px)"
+    },
+    {
+      "type": "select",
+      "id": "video_type",
+      "label": "Modal Video Type (YouTube or Vimeo)",
+      "options": [
+        {
+          "value": "YouTube",
+          "label": "YouTube"
+        },
+        {
+          "value": "Vimeo",
+          "label": "Vimeo"
+        }
+      ],
+      "default": "YouTube"
+    },
+    {
+      "type": "text",
+      "id": "video_id",
+      "label": "Modal Video ID"
     },
     {
       "type": "text",
