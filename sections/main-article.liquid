@@ -591,7 +591,7 @@
     {%- endif -%}
 </article>
 
-{% render 'modal', video_id: article.metafields.my_fields.video_link %}
+{% render 'modal', video_type: article.metafields.custom.modal_video_type, video_id: article.metafields.custom.modal_video_id %}
 
 <script type="application/ld+json">
   {

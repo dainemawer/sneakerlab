@@ -8,14 +8,14 @@
         <div class="slide carousel-cell ">
           <figure class="flex items-center justify-center h-full bg-light-gray">
             <img
-                  class="object-cover rounded-lg"
-                  alt="SneakerLab Product 3"
-                  src="{{ '343x360.jpg' | asset_url }}"
-                  width="343"
-                  height="360"
-                  decoding="async"
-                  style="width: 100%; height: 360px;"
-                  loading="lazy"
+                    style="width: 343px; height: 360px;"
+                    class="object-cover rounded-lg bg-[#F5F5F5]"
+                    alt="{{ image.alt }}"
+                    src="{{ image.src | image_url }}"
+                    width="343"
+                    height="360"
+                    decoding="async"
+                    loading="lazy"
             />
           </figure>
         </div>
@@ -271,20 +271,33 @@
     <!-- Mobile Product How To Video -->
     <div class="block col-span-12 md:hidden">
       <figure
-        data-trigger-modal
-        id="how-to-video-mobile"
-        class="relative overflow-hidden bg-light-gray marquee-wrap"
+              data-trigger-modal
+              id="how-to-video"
+              class="relative hidden overflow-hidden md:block bg-light-gray marquee-wrap"
       >
         <div>
-          <img
-            class="rounded-lg"
-            alt="SneakerLab Product 3"
-            src="{{ '343x360.jpg' | asset_url }}"
-            width="744"
-            height="555"
-            loading="lazy"
-            decoding="async"
-          />
+          {% if product.metafields.custom.how_to_video_thumbnail %}
+            <img
+                    style="width: 744px; height: 555px;"
+                    class="rounded-lg object-cover"
+                    alt="{{ product.metafields.custom.how_to_video_thumbnail.alt }}"
+                    src="{{ product.metafields.custom.how_to_video_thumbnail | image_url }}"
+                    width="744"
+                    height="555"
+                    loading="lazy"
+                    decoding="async"
+            />
+          {% else %}
+            <img
+                    class="rounded-lg"
+                    alt="SneakerLab Product 3"
+                    src="{{ '343x360.jpg' | asset_url }}"
+                    width="744"
+                    height="555"
+                    loading="lazy"
+                    decoding="async"
+            />
+          {% endif %}
         </div>
 
         <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
