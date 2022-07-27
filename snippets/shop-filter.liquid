@@ -2,14 +2,14 @@
     Renders Markup for filter
 {% endcomment %}
 
-<div style="margin-top: 1px;" class="filter-dropdown absolute invisible opacity-0 pointer-events-none z-10 bg-[#fff]/70 backdrop-blur w-full left-0 p-5 -bottom-72 top-full" aria-hidden="true" id="filter-dropdown">
+<div style="margin-top: 1px;" class="filter-dropdown absolute invisible opacity-0 pointer-events-none z-10 bg-[#fff]/70 backdrop-blur w-full left-0 lg:p-5 -bottom-72 top-full" aria-hidden="true" id="filter-dropdown">
     {% if collection.all_tags.size > 0 %}
         <ul class="tag-filters">
-            <li class="text-2xl lg:text-5xl uppercase font-medium text-[#000]">
-                {{ 'All,' | link_to: '/collections/all/', class: "filter-item hover:opacity-50 focus:opacity-50 transition-all" }}
+            <li class="text-[2rem] lg:text-5xl uppercase font-medium text-[#000]">
+                {{ 'All,' | link_to: '/collections/all/', class: "filter-item opacity-50 hover:opacity-100 tracking-tighter focus:opacity-100 transition-all" }}
             </li>
             {% for tag in collection.all_tags %}
-                <li class="text-2xl lg:text-5xl uppercase font-medium text-[#000]">
+                <li class="text-[2rem] lg:text-5xl shop-filter-menu-item uppercase font-medium tracking-tighter text-[#000] filter-item opacity-50 hover:opacity-100 focus:opacity-100 transition-all">
                     {{ tag | link_to_tag: tag }}{% if forloop.last != true %},{% endif %}
                 </li>
             {% endfor %}
