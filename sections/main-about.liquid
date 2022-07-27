@@ -101,8 +101,6 @@
                     <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="white" />
                 </svg>
                 Play video
-                {{ section.settings.modal.video_type }}
-                {{  section.settings.modal_video_id }}
             </a>
             <p class="mt-16">
                 <a class="text-3xl font-medium uppercase" href="{{ section.settings.cta_link }}">
@@ -112,8 +110,6 @@
         </div>
     </div>
 </section>
-
-
 
 {% render 'modal', video_type: section.settings.modal.video_type, video_id: section.settings.modal_video_id %}
 
