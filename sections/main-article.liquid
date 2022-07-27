@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article grid gap-2 grid-cols-12 mb-20 md:mb-36" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="grid grid-cols-12 gap-2 mb-20 article md:mb-36" itemscope itemtype="http://schema.org/BlogPosting">
     {%- for block in section.blocks -%}
         {%- case block.type -%}
             {%- when '@app' -%}
@@ -23,7 +23,7 @@
                                 src="{{ article.image | image_url: width: 1500 }}"
                                 loading="lazy"
                                 decoding="async"
-                                class="rounded-lg object-cover"
+                                class="object-cover rounded-lg"
                                 style="width: 1536px; height: 790px;"
                                 width="{{ article.image.width }}"
                                 height="{{ article.image.height }}"
@@ -31,7 +31,7 @@
                         >
                         <a
                                 data-trigger-modal
-                                class="mt-4 play-video hover:opacity-50 focus:opacity-50 transition-all text-xs md:text-sm inline-flex justify-start items-center"
+                                class="inline-flex items-center justify-start mt-4 text-xs transition-all play-video hover:opacity-50 focus:opacity-50 md:text-sm"
                                 role="button"
                                 aria-controls="modal"
                                 aria-expanded="false"
@@ -56,10 +56,10 @@
                 </header>
                 <div class="col-span-12 article-subtitle">
                     <div class="flex items-center justify-between mb-3 md:mb-5">
-                        <p class="uppercase text-xs md:text-sm pb-0">
+                        <p class="pb-0 text-xs uppercase md:text-sm">
                             [&nbsp;&nbsp;Story&nbsp;&nbsp;]
                         </p>
-                        <p class="uppercase text-xs md:text-sm pb-0">
+                        <p class="pb-0 text-xs uppercase md:text-sm">
                             Article
                             <time>
                                 {%- if block.settings.blog_show_date -%}
@@ -78,7 +78,7 @@
                 </div>
 
             {%- when 'quote-and-paragraph' -%}
-                <div class="col-span-12 md:col-span-6 mb-5 md:mb-12">
+                <div class="col-span-12 mb-5 md:col-span-6 md:mb-12">
                     <div class="text-xl md:text-3xl">
                         {% if article.metafields.custom.left_quote %}
                             {{ article.metafields.custom.left_quote }}
@@ -87,7 +87,7 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="col-span-12 md:col-span-6 mb-8 md:mb-12 quote-paragraph">
+                <div class="col-span-12 mb-8 md:col-span-6 md:mb-12 quote-paragraph">
                     <div class="max-w-[344px] md:float-right text-left">
                         {% if article.metafields.custom.small_right_quote %}
                             {{ article.metafields.custom.small_right_quote }}
@@ -98,10 +98,10 @@
                 </div>
 
             {%- when 'two-image-grid' -%}
-                <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
+                <div class="col-span-12 mb-0 md:col-span-6 md:mb-12">
                     {% if article.metafields.custom.image_1 %}
                         <img
-                                class="rounded-lg object-cover"
+                                class="object-cover rounded-lg"
                                 style="width: 740px; height: 740px;"
                                 alt="{{ article.metafields.custom.image_1.alt }}"
                                 src="{{ article.metafields.custom.image_1 | image_url: width: 740, height: 740 }}"
@@ -116,10 +116,10 @@
                              loading="lazy" decoding="async"/>
                     {% endif %}
                 </div>
-                <div class="col-span-12 md:col-span-6 mb-10 md:mb-12">
+                <div class="col-span-12 mb-10 md:col-span-6 md:mb-12">
                     {% if article.metafields.custom.image_2 %}
                         <img
-                                class="rounded-lg object-cover"
+                                class="object-cover rounded-lg"
                                 style="width: 740px; height: 740px;"
                                 alt="{{ article.metafields.custom.image_2.alt }}"
                                 src="{{ article.metafields.custom.image_1 | image_url: width: 740, height: 740 }}"
@@ -137,12 +137,12 @@
 
             {%- when 'two-image-grid-subgrid' -%}
                 <!-- Two Image Grid Subgrid -->
-                <div class="col-span-12 md:col-span-6 mb-0 md:mb-12">
+                <div class="col-span-12 mb-0 md:col-span-6 md:mb-12">
                     <!-- Small grid of images -->
-                    <div class="grid gap-2 grid-cols-2">
+                    <div class="grid grid-cols-2 gap-2">
                         {% if article.metafields.custom.small_quad_grid_image_1 %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ article.metafields.custom.small_quad_grid_image_1.alt }}"
                                     style="width: 370px; height: 370px;"
                                     src="{{ article.metafields.custom.small_quad_grid_image_1 | image_url }}"
@@ -153,7 +153,7 @@
                             />
                         {% else %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ block.settings.grid_image_1.alt  }}"
                                     style="width: 370px; height: 370px;"
                                     src="{{ block.settings.grid_image_1 | image_url }}"
@@ -165,7 +165,7 @@
                         {% endif %}
                         {% if article.metafields.custom.small_quad_grid_image_2 %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ article.metafields.custom.small_quad_grid_image_2.alt }}"
                                     style="width: 370px; height: 370px;"
                                     src="{{ article.metafields.custom.small_quad_grid_image_2 | image_url }}"
@@ -176,7 +176,7 @@
                             />
                         {% else %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ block.settings.grid_image_2.alt  }}"
                                     style="width: 370px; height: 370px;"
                                     src="{{ block.settings.grid_image_2 | image_url }}"
@@ -188,7 +188,7 @@
                         {% endif %}
                         {% if article.metafields.custom.small_quad_grid_image_3 %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ article.metafields.custom.small_quad_grid_image_3.alt }}"
                                     style="width: 370px; height: 370px;"
                                     src="{{ article.metafields.custom.small_quad_grid_image_3 | image_url }}"
@@ -199,7 +199,7 @@
                             />
                         {% else %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ block.settings.grid_image_3.alt  }}"
                                     style="width: 370px; height: 370px;"
                                     src="{{ block.settings.grid_image_3 | image_url }}"
@@ -211,7 +211,7 @@
                         {% endif %}
                         {% if article.metafields.custom.small_quad_grid_image_4 %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ article.metafields.custom.small_quad_grid_image_4.alt }}"
                                     style="width: 370px; height: 370px;"
                                     src="{{ article.metafields.custom.small_quad_grid_image_4 | image_url }}"
@@ -222,7 +222,7 @@
                             />
                         {% else %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ block.settings.grid_image_4.alt  }}"
                                     style="width: 370px; height: 370px;"
                                     src="{{ block.settings.grid_image_4 | image_url }}"
@@ -236,10 +236,10 @@
                 </div>
 
                 <!-- Large Image -->
-                <div class="col-span-12 md:col-span-6 mb-8 md:mb-12">
+                <div class="col-span-12 mb-8 md:col-span-6 md:mb-12">
                     {% if article.metafields.custom.right_image_next_to_quad_grid %}
                         <img
-                                class="rounded-lg object-cover"
+                                class="object-cover rounded-lg"
                                 alt="{{ article.metafields.custom.right_image_next_to_quad_grid.alt }}"
                                 style="width: 740px; height: 748px;"
                                 src="{{ article.metafields.custom.right_image_next_to_quad_grid | image_url }}"
@@ -249,7 +249,7 @@
                         />
                     {% else %}
                         <img
-                                class="rounded-lg object-cover"
+                                class="object-cover rounded-lg"
                                 alt="{{ block.settings.right_image.alt }}"
                                 style="width: 740px; height: 748px;"
                                 src="{{ block.settings.right_image | image_url }}"
@@ -274,8 +274,8 @@
                 </div>
 
             {%- when 'paragraph-centered' -%}
-                <div class="hidden md:block md:col-span-3 mb-12"></div>
-                <div class="col-span-12 md:col-span-9 mb-12 paragraph-centered">
+                <div class="hidden mb-12 md:block md:col-span-3"></div>
+                <div class="col-span-12 mb-12 md:col-span-9 paragraph-centered">
                     <div class="text-xs md:text-sm max-w-[660px]">
                         {% if article.metafields.custom.paragraph_2 %}
                             {{ article.metafields.custom.paragraph_2 }}
@@ -286,12 +286,12 @@
                 </div>
 
             {%- when 'large-offset-image' -%}
-                <div class="hidden md:block md:col-span-3 mb-12"></div>
-                <div class="col-span-12 md:col-span-9 mb-12">
+                <div class="hidden mb-12 md:block md:col-span-3"></div>
+                <div class="col-span-12 mb-12 md:col-span-9">
                     <!-- Large offest image -->
                     {% if article.metafields.custom.large_image_off_center %}
                         <img
-                                class="rounded-lg mb-2 object-cover"
+                                class="object-cover mb-2 rounded-lg"
                                 alt="{{ article.metafields.custom.large_image_off_center.alt }}"
                                 style="width: 1120px; height: 1048px;"
                                 src="{{ article.metafields.custom.large_image_off_center | image_url }}"
@@ -302,7 +302,7 @@
                         />
                     {% else %}
                         <img
-                                class="rounded-lg mb-2 object-cover"
+                                class="object-cover mb-2 rounded-lg"
                                 alt="{{ block.settings.large-offset-image.alt }}"
                                 style="width: 1120px; height: 1048px;"
                                 src="{{ block.settings.large-offset-image | image_url }}"
@@ -315,12 +315,12 @@
                 </div>
 
             {% when 'content-two-column-images' %}
-                <div class="hidden md:block md:col-span-3 mb-12"></div>
-                <div class="col-span-12 md:col-span-9 mb-12">
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                <div class="hidden mb-12 md:block md:col-span-3"></div>
+                <div class="col-span-12 mb-12 md:col-span-9">
+                    <div class="grid grid-cols-2 gap-2 md:grid-cols-3">
                         {% if article.metafields.custom.small_sub_image_1 %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ article.metafields.custom.small_sub_image_1.alt }}"
                                     style="width: 370px; height: 372px;"
                                     src="{{ article.metafields.custom.small_sub_image_1 | image_url }}"
@@ -331,7 +331,7 @@
                             />
                         {% else %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ block.settings.left-image.alt }}"
                                     style="width: 370px; height: 372px;"
                                     src="{{ block.settings.left-image | image_url }}"
@@ -343,7 +343,7 @@
                         {% endif %}
                         {% if article.metafields.custom.small_sub_image_2 %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ article.metafields.custom.small_sub_image_2.alt }}"
                                     style="width: 370px; height: 372px;"
                                     src="{{ article.metafields.custom.small_sub_image_2 | image_url }}"
@@ -354,7 +354,7 @@
                             />
                         {% else %}
                             <img
-                                    class="rounded-lg object-cover"
+                                    class="object-cover rounded-lg"
                                     alt="{{ block.settings.right-image.alt }}"
                                     style="width: 370px; height: 372px;"
                                     src="{{ block.settings.right-image | image_url }}"
@@ -375,7 +375,7 @@
 
             {%- when 'socials' -%}
                 <div class="col-span-12 md:col-span-3">
-                    <p class="uppercase text-xs md:text-sm">[&nbsp;&nbsp;Follow&nbsp;&nbsp;]</p>
+                    <p class="text-xs uppercase md:text-sm">[&nbsp;&nbsp;Follow&nbsp;&nbsp;]</p>
                 </div>
                 <div class="col-span-12 md:col-span-9">
                     <p class="text-xl md:text-3xl md:max-w-[696px]">
@@ -393,7 +393,7 @@
                 {%- when 'share' -%}
                     <div class="article-template__social-sharing page-width page-width--narrow" {{ block.shopify_attributes }}>
                         <share-button class="share-button" {{ block.shopify_attributes }}>
-                            <button class="share-button__button hidden">
+                            <button class="hidden share-button__button">
                                 {% render 'icon-share' %}
                                 {{ block.settings.share_label | escape }}
                             </button>
@@ -404,7 +404,7 @@
                                 </summary>
                                 <div id="Article-share-{{ section.id }}" class="share-button__fallback motion-reduce">
                                     <div class="field">
-                                        <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden"
+                                        <span id="ShareMessage-{{ section.id }}" class="hidden share-button__message"
                                               role="status">
                                         </span>
                                         <input type="text"
@@ -417,7 +417,7 @@
                                         >
                                         <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
                                     </div>
-                                    <button class="share-button__close hidden no-js-hidden">
+                                    <button class="hidden share-button__close no-js-hidden">
                                         {% render 'icon-close' %}
                                         <span class="visually-hidden">{{ 'general.share.close' | t }}</span>
                                     </button>
