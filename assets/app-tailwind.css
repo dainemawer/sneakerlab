@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Testing font features */
+body {
+    font-variant-numeric: lining-nums;
+    font-feature-settings: 'pnum' on, 'lnum' on, 'ordn' on, 'ss09' on, 'ss02' on, 'ss05' on;
+}
+
 a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.filter-item):not(.pagination__item) {
     @apply relative after:content-[''] after:absolute after:w-0 after:left-0 after:border-b after:border-solid after:border-[rgb(0,0,0)] after:block hover:after:w-full focus:after:w-full focus:outline-0 after:transition-all after:ease-in-out after:duration-300
 }
@@ -334,7 +340,9 @@ a.ticker::after {
     @apply border-[#fff] hover:opacity-50 focus:opacity-50 transition-all !important
 }
 
-[data-close-modal] {
+[data-close-modal],
+[data-close-modal-1],
+[data-close-modal-2] {
     position: absolute !important
 }
 
@@ -510,6 +518,9 @@ a.predictive-search__item:after {
         @apply flex-col !important;
     }
 }
+#grid-toggle.md\:grid-cols-4 article img {
+    max-height: 250px;
+}
 
 @media (max-width: 600px) {
     #grid-toggle.md\:grid-cols-4 article img {
@@ -553,13 +564,6 @@ a.predictive-search__item:after {
 div.errors,
 small#RecoverEmail-email-error {
     @apply text-sm text-[#ff0000];
-}
-
-/* Testing font features */
-body {
-  font-variant-numeric: lining-nums;
-  font-feature-settings: 'pnum' on, 'lnum' on, 'ordn' on, 'ss09' on, 'ss02' on, 'ss05' on;
-
 }
 
 /* Enviromentally friendly image sizing */

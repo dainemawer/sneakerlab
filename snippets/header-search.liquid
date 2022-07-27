@@ -5,9 +5,9 @@
     {% render 'header-search' %}
 {% endcomment %}
 
-{% comment %}<div class="invisible transition-all opacity-0 pointer-events-none max-h-0" id="search" aria-hidden="true">{% endcomment %}
-<div class="invisible hidden transition-all opacity-0 pointer-events-none" id="search" aria-hidden="true">
-    {% comment %}<form class="relative pt-20 pb-3" role="searchform" action="" method="">{% endcomment %}
+{% comment %}<div class="invisible opacity-0 pointer-events-none max-h-0 transition-all" id="search" aria-hidden="true">{% endcomment %}
+<div class="invisible opacity-0 pointer-events-none transition-all hidden h-[150px] container mx-auto" id="search" aria-hidden="true">
+    {% comment %}<form class="pt-20 pb-3 relative" role="searchform" action="" method="">{% endcomment %}
         {% comment %}<input autocomplete="off" name="search" id="query" type="search" placeholder="Search"{% endcomment %}
                {% comment %}class="placeholder:uppercase placeholder:text-medium-gray bg-[transparent] placeholder:text-5xl text-5xl placeholder:font-medium w-full focus:outline-none"/>{% endcomment %}
         {% comment %}<button id="close-search" class="absolute right-0 bottom-7" type="button">{% endcomment %}

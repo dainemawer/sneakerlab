@@ -27,7 +27,7 @@
   </div>
 </div>
 
-{% render 'modal', video_id: product.metafields.custom.how_to_video_link %}
+{% render 'modal', video_type: product.metafields.custom.youtube_or_vimeo_select, video_id: product.metafields.custom.how_to_video_id %}
 
 {%- liquid
   render 'add-to-cart-js'

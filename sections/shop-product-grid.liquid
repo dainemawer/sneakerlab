@@ -99,8 +99,8 @@
                         <div class="loading-overlay gradient"></div>
 
                         <ul id="product-grid" data-id="{{ section.id }}" class="
-              grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-              grid--{{ section.settings.columns_desktop }}-col-desktop">
+                              grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
+                              grid--{{ section.settings.columns_desktop }}-col-desktop">
                             {%- for product in collection.products -%}
                                 {% assign lazy_load = false %}
                                 {%- if forloop.index > 2 -%}

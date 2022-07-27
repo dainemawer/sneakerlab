@@ -689,6 +689,18 @@ video {
   bottom: 8rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
 .top-\[20\%\] {
   top: 20%;
 }
@@ -713,14 +725,6 @@ video {
   top: -1px;
 }
 
-.right-4 {
-  right: 1rem;
-}
-
-.top-4 {
-  top: 1rem;
-}
-
 .top-\[41px\] {
   top: 41px;
 }
@@ -741,16 +745,20 @@ video {
   bottom: 1.75rem;
 }
 
-.top-0 {
-  top: 0px;
-}
-
 .top-2 {
   top: 0.5rem;
 }
 
 .bottom-4 {
   bottom: 1rem;
+}
+
+.top-\[12px\] {
+  top: 12px;
+}
+
+.left-\[12px\] {
+  left: 12px;
 }
 
 .top-full {
@@ -765,16 +773,16 @@ video {
   z-index: 10;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .z-0 {
   z-index: 0;
 }
 
 .z-40 {
   z-index: 40;
-}
-
-.z-50 {
-  z-index: 50;
 }
 
 .z-20 {
@@ -917,6 +925,10 @@ video {
   margin-top: 1.25rem;
 }
 
+.mt-\[35vh\] {
+  margin-top: 35vh;
+}
+
 .mt-12 {
   margin-top: 3rem;
 }
@@ -981,10 +993,6 @@ video {
   margin-right: 0.25rem;
 }
 
-.mt-\[35vh\] {
-  margin-top: 35vh;
-}
-
 .mt-7 {
   margin-top: 1.75rem;
 }
@@ -1033,16 +1041,20 @@ video {
   height: 100vh;
 }
 
-.h-\[33px\] {
-  height: 33px;
-}
-
 .h-full {
   height: 100%;
 }
 
+.h-\[33px\] {
+  height: 33px;
+}
+
 .h-10 {
   height: 2.5rem;
+}
+
+.h-\[150px\] {
+  height: 150px;
 }
 
 .max-h-0 {
@@ -1071,6 +1083,10 @@ video {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .w-\[65\%\] {
@@ -1107,10 +1123,6 @@ video {
 
 .w-2\/4 {
   width: 50%;
-}
-
-.w-4\/5 {
-  width: 80%;
 }
 
 .max-w-\[300px\] {
@@ -1458,6 +1470,10 @@ video {
   background-color: rgb(255 255 255 / 0.7);
 }
 
+.bg-\[\#fff\]\/90 {
+  background-color: rgb(255 255 255 / 0.9);
+}
+
 .bg-\[\#F5F5F5\] {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1476,8 +1492,9 @@ video {
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.bg-\[\#fff\]\/90 {
-  background-color: rgb(255 255 255 / 0.9);
+.bg-\[\#000\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .object-contain {
@@ -1567,6 +1584,16 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.px-\[4px\] {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.py-\[1px\] {
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .pb-4 {
@@ -1883,11 +1910,26 @@ video {
   transition-duration: 150ms;
 }
 
+.transition {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+/* Testing font features */
+
+body {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'pnum' on, 'lnum' on, 'ordn' on, 'ss09' on, 'ss02' on, 'ss05' on;
 }
 
 a:not(.logo):not(.button):not(.sr-only):not(.thumbnail):not(.play-video):not(.filter-item):not(.pagination__item) {
@@ -2440,7 +2482,9 @@ a.ticker::after {
   opacity: 0.5 !important;
 }
 
-[data-close-modal] {
+[data-close-modal],
+[data-close-modal-1],
+[data-close-modal-2] {
   position: absolute !important
 }
 
@@ -2700,7 +2744,13 @@ a.predictive-search__item:after {
   #grid-toggle.md\:grid-cols-4 article .description_column {
     flex-direction: column !important;
   }
+}
 
+#grid-toggle.md\:grid-cols-4 article img {
+  max-height: 250px;
+}
+
+@media (max-width: 600px) {
   #grid-toggle.md\:grid-cols-4 article img {
     max-height: 180px;
   }
@@ -2749,13 +2799,6 @@ small#RecoverEmail-email-error {
   line-height: 1.25rem;
   --tw-text-opacity: 1;
   color: rgb(255 0 0 / var(--tw-text-opacity));
-}
-
-/* Testing font features */
-
-body {
-  font-variant-numeric: lining-nums;
-  font-feature-settings: 'pnum' on, 'lnum' on, 'ordn' on, 'ss09' on, 'ss02' on, 'ss05' on;
 }
 
 /* Enviromentally friendly image sizing */
@@ -3389,12 +3432,16 @@ sup {
     margin-top: 9rem;
   }
 
-  .lg\:mb-5 {
-    margin-bottom: 1.25rem;
+  .lg\:mt-8 {
+    margin-top: 2rem;
   }
 
-  .lg\:mt-32 {
-    margin-top: 8rem;
+  .lg\:mt-16 {
+    margin-top: 4rem;
+  }
+
+  .lg\:mb-5 {
+    margin-bottom: 1.25rem;
   }
 
   .lg\:block {

@@ -23,16 +23,14 @@
                         <h2 class="text-xs uppercase md:text-sm">[&nbsp;&nbsp;Collaboration&nbsp;&nbsp;]</h2>
                         <p class="text-xs uppercase md:text-sm">
                             Article
-                            {%- if block.settings.blog_show_date -%}
-                                <time>
-                                    <span
-                                            class="circle-divider caption-with-letter-spacing"
-                                            itemprop="dateCreated pubdate datePublished"
-                                    >
-                                        {{ article.published_at | date: "%d.%m.%y" }}
-                                    </span>
-                                </time>
-                            {%- endif -%}
+                            <time>
+                                <span
+                                        class="circle-divider caption-with-letter-spacing"
+                                        itemprop="dateCreated pubdate datePublished"
+                                >
+                                    {{ article.published_at | date: "%d.%m.%y" }}
+                                </span>
+                            </time>
                         </p>
                     </div>
                 </div>
@@ -513,7 +511,7 @@
     {% endcomment %}
 </article>
 
-{% render 'modal', video_id: article.metafields.my_fields.video_link %}
+{% render 'modal', video_type: article.metafields.custom.modal_video_type, video_id: article.metafields.custom.modal_video_id %}
 
 <script>
     const CollaborationsFilter = () => {
