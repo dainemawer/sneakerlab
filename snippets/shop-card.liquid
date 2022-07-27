@@ -16,7 +16,7 @@
     </figure>
     <div class="lg:px-2">
         <h3 class="mt-2 text-xl font-medium tracking-tighter uppercase md:text-2xl lg:text-3xl">{{ product.title }}</h3>
-        <div class="flex items-start justify-between font-medium">
+        <div class="flex items-start justify-between font-medium description_column">
             <p class="uppercase text-sm max-w-[220px] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
             {% render 'new-price' product: card_product %}
         </div>
