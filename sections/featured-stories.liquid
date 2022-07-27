@@ -2,13 +2,46 @@
     Renders markup for featured stories grid.
 {% endcomment %}
 
-<section class="mb-6 xl:container xl:mx-auto">
-    <h2 class="mb-5 text-sm font-medium uppercase">[ &nbsp;&nbsp;Featured Stories&nbsp;&nbsp; ]</h2>
-    <header class="relative flex items-center justify-between">
-        <button data-filter-trigger class="relative text-5xl font-medium tracking-tighter uppercase transition-all focus:opacity-50 hover:opacity-50" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
+{% if blog.handle %}
+    {%- liquid
+        assign featured_more = 'More'
+    -%}
+    {% if blog.handle == 'how-to' %}
+        {%- liquid
+            assign name = 'How To'
+            assign type = blog.handle
+        -%}
+    {% endif %}
 
-        <a class="md:block button hidden rounded py-3 px-12 leading-[1] font-medium text-sm border border-silver hover:border-[#000] focus:border-[#000] transition-all" href="/blogs/stories">
-            View all stories
+    {% if blog.handle == 'stories' %}
+        {%- liquid
+            assign name = 'Stories'
+            assign type = blog.handle
+        -%}
+    {% endif %}
+
+    {% if blog.handle == 'collaborations' %}
+        {%- liquid
+            assign name = 'Collaboration'
+            assign type = blog.handle
+        -%}
+    {% endif %}
+
+{% else %}
+    {%- liquid
+        assign featured_more = 'Featured'
+        assign name = 'Stories'
+        assign type = 'stories'
+    -%}
+{% endif %}
+
+<section class="mb-6 xl:container xl:mx-auto">
+    <h2 class="mb-5 text-sm font-medium uppercase">[ &nbsp;&nbsp;{{ featured_more }} {{ name }}'s&nbsp;&nbsp; ]</h2>
+    <header class="relative flex items-center justify-between">
+        <button data-filter-trigger class="relative text-5xl font-medium tracking-tighter uppercase transition-all hover:opacity-50" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
+
+        <a class="md:block button hidden rounded py-3 px-12 leading-[1] font-medium text-sm border border-silver hover:border-[#000] focus:border-[#000] transition-all" href="/blogs/{{ type }}">
+            View all <span class="lowercase">{{ name }}'s</span>
         </a>
 
         <div class="top-[100%] filter-dropdown absolute invisible opacity-0 pointer-events-none z-10 bg-[#fff]/70 backdrop-blur w-full left-0 p-5 -bottom-72" aria-hidden="true" id="filter-dropdown">
@@ -37,7 +70,8 @@
         </div>
     </header>
     {% comment %}theme-check-disable{% endcomment %}
-    {%- liquid assign blogs = blogs['stories'].articles %}
+
+    {%- liquid assign blogs = blogs[type].articles %}
     {% comment %}theme-check-enable{% endcomment %}
     {% for article in blogs limit: 4 %}
         {%- liquid
@@ -71,8 +105,8 @@
         {% endif %}
     {% endfor %}
 
-    <a class="inline-block px-12 py-3 text-sm font-medium border rounded md:hidden border-silver" href="/blogs/stories">
-        View all stories
+    <a class="inline-block px-12 py-3 text-sm font-medium border rounded md:hidden border-silver" href="/blogs/{{ type }}">
+        View all {{ type }}
     </a>
 </section>
 
@@ -84,11 +118,13 @@
         trigger && trigger.addEventListener('click', () => {
             if (!panel.classList.contains('filter-active')) {
                 trigger.innerHTML = 'Filter-'
+                trigger.classList.add('focus:opacity-50');
                 trigger.setAttribute('aria-expanded', 'true')
                 panel.setAttribute('aria-hidden', 'false')
                 panel.classList.add('filter-active')
             } else {
                 trigger.innerHTML = 'Filter+'
+                trigger.classList.remove('focus:opacity-50');
                 trigger.setAttribute('aria-expanded', 'false')
                 panel.setAttribute('aria-hidden', 'true')
                 panel.classList.remove('filter-active')
