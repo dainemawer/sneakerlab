@@ -689,6 +689,18 @@ video {
   bottom: 8rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
 .left-\[-5px\] {
   left: -5px;
 }
@@ -709,14 +721,6 @@ video {
   top: -1px;
 }
 
-.right-4 {
-  right: 1rem;
-}
-
-.top-4 {
-  top: 1rem;
-}
-
 .top-\[41px\] {
   top: 41px;
 }
@@ -735,10 +739,6 @@ video {
 
 .bottom-7 {
   bottom: 1.75rem;
-}
-
-.top-0 {
-  top: 0px;
 }
 
 .top-2 {
@@ -769,16 +769,16 @@ video {
   z-index: 10;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .z-0 {
   z-index: 0;
 }
 
 .z-40 {
   z-index: 40;
-}
-
-.z-50 {
-  z-index: 50;
 }
 
 .z-20 {
@@ -921,6 +921,10 @@ video {
   margin-top: 1.25rem;
 }
 
+.mt-\[35vh\] {
+  margin-top: 35vh;
+}
+
 .mt-12 {
   margin-top: 3rem;
 }
@@ -985,10 +989,6 @@ video {
   margin-right: 0.25rem;
 }
 
-.mt-\[35vh\] {
-  margin-top: 35vh;
-}
-
 .mt-7 {
   margin-top: 1.75rem;
 }
@@ -1037,12 +1037,12 @@ video {
   height: 100vh;
 }
 
-.h-\[33px\] {
-  height: 33px;
-}
-
 .h-full {
   height: 100%;
+}
+
+.h-\[33px\] {
+  height: 33px;
 }
 
 .h-10 {
@@ -1081,6 +1081,10 @@ video {
   width: 1.5rem;
 }
 
+.w-4\/5 {
+  width: 80%;
+}
+
 .w-\[65\%\] {
   width: 65%;
 }
@@ -1115,10 +1119,6 @@ video {
 
 .w-2\/4 {
   width: 50%;
-}
-
-.w-4\/5 {
-  width: 80%;
 }
 
 .max-w-\[300px\] {
@@ -1462,6 +1462,10 @@ video {
   background-color: rgb(255 255 255 / 0.7);
 }
 
+.bg-\[\#fff\]\/90 {
+  background-color: rgb(255 255 255 / 0.9);
+}
+
 .bg-\[\#F5F5F5\] {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1478,10 +1482,6 @@ video {
 
 .bg-\[\#fff\]\/50 {
   background-color: rgb(255 255 255 / 0.5);
-}
-
-.bg-\[\#fff\]\/90 {
-  background-color: rgb(255 255 255 / 0.9);
 }
 
 .bg-\[\#000\] {
@@ -2470,7 +2470,8 @@ a.ticker::after {
   opacity: 0.5 !important;
 }
 
-[data-close-modal] {
+[data-close-modal-1],
+[data-close-modal-2] {
   position: absolute !important
 }
 
@@ -3353,16 +3354,16 @@ small#RecoverEmail-email-error {
     margin-top: 9rem;
   }
 
-  .lg\:mb-5 {
-    margin-bottom: 1.25rem;
-  }
-
   .lg\:mt-8 {
     margin-top: 2rem;
   }
 
   .lg\:mt-16 {
     margin-top: 4rem;
+  }
+
+  .lg\:mb-5 {
+    margin-bottom: 1.25rem;
   }
 
   .lg\:block {
