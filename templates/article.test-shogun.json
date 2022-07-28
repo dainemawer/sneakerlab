@@ -76,18 +76,6 @@
           }
         }
       },
-      "block_order": [
-        "title",
-        "featured_image",
-        "quote-section",
-        "two-image-grid",
-        "quote-section-2",
-        "four-tile-grid",
-        "featured-section",
-        "social",
-        "content",
-        "share"
-      ],
       "settings": {
       }
     },
