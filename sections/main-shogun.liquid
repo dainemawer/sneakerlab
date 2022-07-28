@@ -1,0 +1,155 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+<article class="grid grid-cols-12 gap-2 mb-20 article md:mb-36" itemscope itemtype="http://schema.org/BlogPosting">
+
+    {%- for block in section.blocks -%}
+        {%- case block.type -%}
+            {%- when '@app' -%}
+                <div class="page-width page-width--narrow">
+                    {% render block %}
+                </div>
+            {%- when 'featured_image' -%}
+                {%- if article.image -%}
+                    <figure class="col-span-12 mb-10 md:mb-16" itemprop="image">
+                        {% comment %}<img class="rounded-lg" alt="{{ article.image.alt | escape }}" src="{{ '1536x790.jpg' | asset_url }}" width="1536" height="790" decoding="async" />{% endcomment %}
+                        <img
+                                srcset="{% if article.image.width >= 350 %}{{ article.image | image_url: width: 350 }} 350w,{% endif %}
+                            {% if article.image.width >= 750 %}{{ article.image | image_url: width: 750 }} 750w,{% endif %}
+                            {% if article.image.width >= 1100 %}{{ article.image | image_url: width: 1100 }} 1100w,{% endif %}
+                            {% if article.image.width >= 1500 %}{{ article.image | image_url: width: 1500 }} 1500w,{% endif %}
+                            {% if article.image.width >= 2200 %}{{ article.image | image_url: width: 2200 }} 2200w,{% endif %}
+                            {% if article.image.width >= 3000 %}{{ article.image | image_url: width: 3000 }} 3000w,{% endif %}
+                            {{ article.image | image_url }} {{ article.image.width }}w"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 }}px, (min-width: 750px) calc(100vw - 10rem), 100vw"
+                                src="{{ article.image | image_url: width: 1500 }}"
+                                loading="lazy"
+                                decoding="async"
+                                class="object-cover rounded-lg"
+                                style="width: 1536px; height: 790px;"
+                                width="{{ article.image.width }}"
+                                height="{{ article.image.height }}"
+                                alt="{{ article.image.alt | escape }}"
+                        >
+                        <a
+                                data-trigger-modal
+                                class="inline-flex items-center justify-start mt-4 text-xs transition-all play-video hover:opacity-50 focus:opacity-50 md:text-sm"
+                                role="button"
+                                aria-controls="modal"
+                                aria-expanded="false"
+                                href="#"
+                        >
+                            <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black"/>
+                            </svg>
+                            Play video
+                        </a>
+                    </figure>
+                {% endif %}
+
+            {%- when 'title' -%}
+                <header {{ block.shopify_attributes }} class="col-span-12 max-w-[1200px] mx-auto">
+                    <h1 class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center mt-14 md:mt-20 mb-14 md:mb-28">
+                        {% if article.title %}
+                            {{ article.title | escape }}
+                        {% endif %}
+                    </h1>
+                </header>
+                <div class="col-span-12 article-subtitle">
+                    <div class="flex items-center justify-between mb-3 md:mb-5">
+                        <p class="pb-0 text-xs uppercase md:text-sm">
+                            [&nbsp;&nbsp;Story&nbsp;&nbsp;]
+                        </p>
+                        <p class="pb-0 text-xs uppercase md:text-sm">
+                            Article
+                            <time>
+                                {%- if block.settings.blog_show_date -%}
+                                    <time>
+                                        <span
+                                                class="circle-divider caption-with-letter-spacing"
+                                                itemprop="dateCreated pubdate datePublished"
+                                        >
+                                            {{ article.published_at | date: "%d.%m.%y" }}
+                                        </span>
+                                    </time>
+                                {%- endif -%}
+                            </time>
+                        </p>
+                    </div>
+                </div>
+
+
+            {%- when 'content' -%}
+                <div class="article-template__content page-width page-width--narrow rte"
+                     itemprop="articleBody" {{ block.shopify_attributes }}>
+                    {{ article.content }}
+                </div>
+
+            {%- when 'socials' -%}
+                <div class="col-span-12 md:col-span-3">
+                    <p class="text-xs uppercase md:text-sm">[&nbsp;&nbsp;Follow&nbsp;&nbsp;]</p>
+                </div>
+                <div class="col-span-12 md:col-span-9">
+                    <p class="text-xl md:text-3xl md:max-w-[696px]">
+                        Follow us to stay up to date with all things Sneaker LAB.
+                        <a href="https://instagram.com" target="_blank" rel="noopenner noreferrer">
+                            Instagram
+                        </a> and
+                        <a href="https://facebook.com" target="_blank" rel="noopenner noreferrer">
+                            Facebook
+                        </a>.
+                    </p>
+                </div>
+        {%- endcase -%}
+    {%- endfor -%}
+</article>
+
+{% render 'modal', video_type: article.metafields.custom.modal_video_type, video_id: article.metafields.custom.modal_video_id %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+      "image": [
+        {{ article | image_url: width: article.image.width | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      {% if settings.share_image %}
+        "logo": {
+          "@type": "ImageObject",
+          "height": {{ settings.share_image.height | json }},
+          "url": {{ settings.share_image | image_url: width: settings.share_image.width | prepend: "https:" | json }},
+          "width": {{ settings.share_image.width | json }}
+        },
+      {% endif %}
+      "name": {{ shop.name | json }}
+    }
+  }
+</script>
+
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section"
+}
+{% endschema %}

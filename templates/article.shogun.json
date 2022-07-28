@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "main": {
+            "type": "main-shogun",
+            "settings": {
+            }
+        },
+        "featured-stories": {
+            "type": "featured-stories"
+        }
+    },
+    "order": [
+        "main",
+        "featured-stories"
+    ]
+}
