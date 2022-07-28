@@ -57,19 +57,19 @@
       document.documentElement.classList.add('shopify-design-mode');
     }
     </script>
-  
+
   {% render 'shogun-head' %}
 </head>
 
   <body class="flex flex-col min-h-screen font-raleway {% echo color_scheme %}">
-    <a class="skip-to-content-link button visually-hidden sr-only" href="#MainContent">
+    <a class="sr-only skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
     {% section 'announcement-bar' %}
     {% section 'test-header' %}
 
-    <main id="main-content" class="xl:container xl:mx-auto px-4 lg:px-5" role="main" aria-label="Main Site Content">
+    <main id="main-content" class="px-4 xl:container xl:mx-auto lg:px-5" role="main" aria-label="Main Site Content">
       {{ content_for_layout }}
     </main>
 
@@ -83,7 +83,7 @@
       const Marquee = () => {
         const elements = document.querySelectorAll('.marquee')
         const lastScrollPos = 0
-        let speed = 4
+        let speed = 3
         let timer
 
         elements.forEach(function (el) {
@@ -123,20 +123,20 @@
           loop()
         })
 
-        window.addEventListener('scroll', function () {
-          const maxScrollValue = 12
-          const newScrollPos = window.scrollY
-          let scrollValue = newScrollPos - lastScrollPos
-          if (scrollValue > maxScrollValue) scrollValue = maxScrollValue
-          else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue
-          speed = scrollValue
-          clearTimeout(timer)
-          timer = setTimeout(handleSpeedClear, 10)
-        })
+        //window.addEventListener('scroll', function () {
+          //const maxScrollValue = 12
+          //const newScrollPos = window.scrollY
+          //let scrollValue = newScrollPos - lastScrollPos
+          //if (scrollValue > maxScrollValue) scrollValue = maxScrollValue
+          //else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue
+          //speed = 0
+          //clearTimeout(timer)
+          //timer = setTimeout(handleSpeedClear, 10)
+        //})
 
-        function handleSpeedClear () {
-          speed = 2
-        }
+        //function handleSpeedClear () {
+          //speed = 2
+        //}
       }
 
       window.addEventListener('load', () => {

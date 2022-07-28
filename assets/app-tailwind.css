@@ -610,6 +610,11 @@ sup {
   font-size: 64%;
 }
 
-/* .product-info p {
-    font-size: 0.875rem;
-} */
+
+
+/* Testing scroll pause */
+.scroll-pause {
+ -moz-animation-play-state: paused !important;
+ -webkit-animation-play-state: paused !important;
+ animation-play-state: paused !important;
+ }

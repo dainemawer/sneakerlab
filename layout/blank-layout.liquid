@@ -62,13 +62,13 @@
 </head>
 
 <body class="flex flex-col min-h-screen font-raleway {% echo color_scheme %}">
-<a class="skip-to-content-link button visually-hidden sr-only" href="#MainContent">
+<a class="sr-only skip-to-content-link button visually-hidden" href="#MainContent">
     {{ "accessibility.skip_to_text" | t }}
 </a>
 
 {% section 'announcement-bar' %}
 
-<main id="main-content" class="xl:container xl:mx-auto px-4 lg:px-5" role="main" aria-label="Main Site Content">
+<main id="main-content" class="px-4 xl:container xl:mx-auto lg:px-5" role="main" aria-label="Main Site Content">
     {{ content_for_layout }}
 </main>
 
@@ -111,12 +111,26 @@
             }
 
             marqueeWrapper.addEventListener('mouseenter', function () {
-                isPlaying = true;
-                loop();
+                //isPlaying = true;
+                //loop();
+                window.addEventListener('scroll', function () {
+                    if (window.pageYOffset > lastScrollPos) {
+                        isPlaying = false;
+                    } else {
+                        isPlaying = true;
+                        loop();
+                    }
+                    lastScrollPos = window.pageYOffset;
+                });
             });
             marqueeWrapper.addEventListener('mouseleave', function () {
-                isPlaying = false;
-                loop();
+                window.addEventListener('scroll', function () {
+                    if (window.pageYOffset > lastScrollPos) {
+                        isPlaying = false;
+                    }
+                });
+                //isPlaying = false;
+                //loop();
             });
 
             loop()
