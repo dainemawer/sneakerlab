@@ -610,11 +610,11 @@ sup {
   font-size: 64%;
 }
 
+/* Custom cursor for shop page */
+.x-cursor {
+    cursor: url('/assets/close_x.svg'), auto;
+}
 
-
-/* Testing scroll pause */
-.scroll-pause {
- -moz-animation-play-state: paused !important;
- -webkit-animation-play-state: paused !important;
- animation-play-state: paused !important;
- }
+.collab-underline a:hover {
+    text-decoration: none;
+}

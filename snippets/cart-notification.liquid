@@ -8,8 +8,9 @@
     {% render 'cart-notification' %}
 {% endcomment %}
 
+
 <cart-notification>
-  <div id="cart-notification-wrapper" class="cart-notification-wrapper">
+  <div id="cart-notification-wrapper" class="cart-notification-wrapper x-cursor">
     <div
         id="cart-notification"
         class="cart-notification focus-inset"
@@ -24,7 +25,7 @@
         <div id="cart-notification-product" class="cart-notification-product"></div>
         <a href="{{ routes.cart_url }}" id="cart-notification-button" class="button button--secondary button--full-width"></a>
 
-        <div class="flex mt-2 z-40">
+        <div class="z-40 flex mt-2">
           <!-- View Cart Button -->
           <a href="{{ routes.cart_url }}" class="view-cart-button w-2/4 border text-xs border-silver rounded flex justify-center items-center no-underline cursor-pointer hover:bg-gray-100 hover:border-[#000]">
               View Cart
@@ -48,3 +49,7 @@
      display: none;
   }
 {% endstyle %}
+
+<script>
+
+</script>

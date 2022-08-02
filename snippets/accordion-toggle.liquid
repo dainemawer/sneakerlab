@@ -1,4 +1,4 @@
-<svg
+<!-- <svg
     xmlns="http://www.w3.org/2000/svg"
     class="w-5 h-5 plus accordion-trigger"
     fill="none"
@@ -8,8 +8,8 @@
     aria-controls="accordion-item-{{ block_id }}"
 >
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
-</svg>
-<svg
+</svg> -->
+<!-- <svg
     xmlns="http://www.w3.org/2000/svg"
     class="w-5 h-5 minus accordion-trigger"
     fill="none"
@@ -19,4 +19,27 @@
     aria-controls="accordion-item-{{ block_id }}"
 >
     <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+</svg> -->
+
+<svg
+    class="plus accordion-trigger"
+    aria-controls="accordion-item-{{ block_id }}"
+    width="5"
+    height="5"
+    viewBox="0 0 4 4"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 1.5H0V2.5H4V1.5Z" fill="black" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 4L2.5 0L1.5 -4.37114e-08L1.5 4L2.5 4Z" fill="black" />
+</svg>
+
+<svg
+    class="minus accordion-trigger"
+    width="7"
+    height="2"
+    viewBox="0 0 4 2"
+    fill="none"
+    aria-controls="accordion-item-{{ block_id }}"
+    xmlns="http://www.w3.org/2000/svg">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 0.5H0V1.5H4V0.5Z" fill="black" />
 </svg>

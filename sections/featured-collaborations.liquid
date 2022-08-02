@@ -8,7 +8,7 @@
   </h2>
   <div class="grid gap-4 md:grid-cols-12">
     <!-- Large Featured Collaboration -->
-    <article class="md:col-span-6">
+    <article class="md:col-span-6 shop-filter-menu-item">
       <figure class="relative overflow-hidden marquee-wrap">
         {% if section.settings.collaborations_large_featured_article %}
           <a href="{{ section.settings.collaborations_large_featured_article.url }}">
@@ -47,16 +47,16 @@
           </div>
         </div>
       </figure>
-      <h3 class="flex-1 w-full mt-2 text-sm font-medium uppercase">
+      <a href="{{ section.settings.collaborations_large_featured_article.url }}" class="flex-1 w-full mt-2 text-sm font-medium uppercase">
         {% if section.settings.collaborations_large_featured_article %}
         [ &nbsp;&nbsp;{{ section.settings.collaborations_large_featured_article.title }}&nbsp;&nbsp; ]
         {% endif %}
-      </h3>
+      </a>
     </article>
 
     <!-- Medium Featured Collaboration -->
     <article class="relative md:col-span-6">
-      <div class="flex flex-wrap justify-between">
+      <div class="flex flex-wrap justify-between shop-filter-menu-item">
         <figure class="basis-[49%] md:col-span-3 relative overflow-hidden marquee-wrap">
           {% if section.settings.collaborations_medium_1_featured_article %}
             <a href="{{ section.settings.collaborations_medium_1_featured_article.url }}">
@@ -132,11 +132,11 @@
             </div>
           </div>
         </figure>
-        <h3 class="flex-1 w-full mt-2 text-sm font-medium uppercase">
+        <a href="{{ section.settings.collaborations_medium_1_featured_article.url }}" class="flex-1 w-full mt-2 text-sm font-medium uppercase">
           {% if section.settings.collaborations_medium_1_featured_article %}
             [ &nbsp;&nbsp;{{ section.settings.collaborations_medium_1_featured_article.title }}&nbsp;&nbsp; ]
           {% endif %}
-        </h3>
+        </a>
       </div>
       <h4 class="hidden md:block text-xl md:text-lg xl:text-3xl tracking-tighter lg:absolute lg:bottom-[24%]">
         {{ section.settings.collaborations_description }}
