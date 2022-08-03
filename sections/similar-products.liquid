@@ -38,9 +38,9 @@
 <script>
 
 const Marquee2 = () => {
-  const elements = document.querySelectorAll('.marquee2')
+  const elements = document.querySelectorAll('.marquee')
   const lastScrollPos = 0
-  let speed = 4
+  let speed = 3
   let timer
 
   elements.forEach(function (el) {
@@ -56,7 +56,8 @@ const Marquee2 = () => {
 
     let progress = 1
     let isPlaying = false;
-    function loop () {
+
+    function loop() {
       progress = progress - speed
       if (progress <= elWidth * -1) {
         progress = 0
@@ -80,20 +81,20 @@ const Marquee2 = () => {
     loop()
   })
 
-  window.addEventListener('scroll', function () {
-    const maxScrollValue = 12
-    const newScrollPos = window.scrollY
-    let scrollValue = newScrollPos - lastScrollPos
-    if (scrollValue > maxScrollValue) scrollValue = maxScrollValue
-    else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue
-    speed = scrollValue
-    clearTimeout(timer)
-    timer = setTimeout(handleSpeedClear, 10)
-  })
+  //window.addEventListener('scroll', function () {
+  //const maxScrollValue = 12
+  //const newScrollPos = window.scrollY
+  //let scrollValue = newScrollPos - lastScrollPos
+  //if (scrollValue > maxScrollValue) scrollValue = maxScrollValue
+  //else if (scrollValue < -maxScrollValue) scrollValue = -maxScrollValue
+  //speed = 0
+  //clearTimeout(timer)
+  //timer = setTimeout(handleSpeedClear, 10)
+  //})
 
-  function handleSpeedClear () {
-    speed = 2
-  }
+  //function handleSpeedClear () {
+  //speed = 2
+  //}
 }
 class ProductRecommendations extends HTMLElement {
   constructor() {
