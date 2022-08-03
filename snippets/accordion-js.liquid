@@ -11,7 +11,7 @@
                 if (event.target.classList.contains('accordion-trigger')) {
                     target = event.target
                 } else {
-                    target = event.target.parentNode('.accordion-trigger')
+                    target = event.target.parentElement;
                 }
 
                 if (target.classList.contains('accordion-trigger') || target.classList.contains('accordion-button')) {
@@ -29,8 +29,8 @@
 
                     if (!isExpanded) {
                         target.setAttribute('aria-expanded', 'true')
-                        console.log(document.getElementById(target.getAttribute('aria-controls')));
                         document.getElementById(target.getAttribute('aria-controls')).removeAttribute('hidden')
+                        console.log(active.getAttribute('aria-controls'))
 
                         if (!allowToggle) {
                             target.setAttribute('aria-disabled', 'true')
