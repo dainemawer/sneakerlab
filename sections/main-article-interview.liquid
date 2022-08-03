@@ -75,10 +75,10 @@
     <div class="col-span-12 mb-5 md:col-span-6 md:mb-12">
         <div class="text-xl md:text-3xl {{ class }}">
             {% if left_quote %}
-            {{ left_quote }}
+                {{ left_quote }}
             {% else %}
-            Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to
-            host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
+                Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to
+                host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
             {% endif %}
         </div>
     </div>
@@ -103,8 +103,8 @@
     <div class="col-span-12 mb-10 md:col-span-6 md:mb-12">
         {% if block.settings.right_image %}
         <img class="object-cover rounded-lg" style="width: 740px; height: 740px;"
-            alt="{{ block.settings.left_image.alt }}"
-            src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}" width="740" height="740"
+            alt="{{ block.settings.right_image.alt }}"
+            src="{{ block.settings.right_image | image_url: width: 740, height: 740 }}" width="740" height="740"
             loading="lazy" decoding="async" />
         {% else %}
         <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740"
@@ -218,14 +218,14 @@
     </div>
 
     {% when 'social' %}
-    <div class="col-span-12 md:col-span-3">
-        <p class="text-xs uppercase md:text-sm">[&nbsp;&nbsp;Follow&nbsp;&nbsp;]</p>
-    </div>
-    <div class="col-span-12 md:col-span-9">
-        <p class="text-xl md:text-3xl md:max-w-[696px]">
-            {{ block.settings.social_html }}
-        </p>
-    </div>
+        <div class="col-span-12 md:col-span-3">
+            <p class="text-xs uppercase md:text-sm">[&nbsp;&nbsp;Follow&nbsp;&nbsp;]</p>
+        </div>
+        <div class="col-span-12 md:col-span-9">
+            <p class="text-xl md:text-3xl md:max-w-[696px]">
+                {{ block.settings.social_html }}
+            </p>
+        </div>
 
     {% comment %}
     {%- when 'content'-%}

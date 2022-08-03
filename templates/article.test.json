@@ -28,11 +28,16 @@
         }
       },
       "block_order": [
-        "featured_image",
         "title",
-        "share",
-        "content"
+        "featured_image",
+        "content",
+        "share"
       ],
+      "settings": {
+      }
+    },
+    "featured-stories": {
+      "type": "featured-stories",
       "settings": {
       }
     },
@@ -44,6 +49,7 @@
   },
   "order": [
     "shogun-helper",
-    "main"
+    "main",
+    "featured-stories"
   ]
 }

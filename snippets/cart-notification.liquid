@@ -8,6 +8,14 @@
     {% render 'cart-notification' %}
 {% endcomment %}
 
+<style>
+
+  /* Custom cursor for shop page */
+  .x-cursor {
+    cursor: url('{{ 'close_x.svg' | asset_url }}'), auto;
+    /*cursor: url('/assets/close_x.svg'), auto;*/
+  }
+</style>
 
 <cart-notification>
   <div id="cart-notification-wrapper" class="cart-notification-wrapper x-cursor">

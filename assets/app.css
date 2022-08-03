@@ -1235,6 +1235,10 @@ video {
   max-width: 220px;
 }
 
+.max-w-\[750px\] {
+  max-width: 750px;
+}
+
 .max-w-\[300\] {
   max-width: 300;
 }
@@ -1630,6 +1634,10 @@ video {
 
 .pr-4 {
   padding-right: 1rem;
+}
+
+.pl-16 {
+  padding-left: 4rem;
 }
 
 .pb-10 {
@@ -2935,6 +2943,26 @@ sup {
   color: rgb(129 129 129 / var(--tw-text-opacity));
 }
 
+.before\:absolute::before {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.before\:left-0::before {
+  content: var(--tw-content);
+  left: 0px;
+}
+
+.before\:content-\[\'SL\'\]::before {
+  --tw-content: 'SL';
+  content: var(--tw-content);
+}
+
+.before\:content-\[\'CJ\'\]::before {
+  --tw-content: 'CJ';
+  content: var(--tw-content);
+}
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
@@ -3278,8 +3306,16 @@ sup {
     max-width: 146px;
   }
 
+  .md\:max-w-\[750px\] {
+    max-width: 750px;
+  }
+
   .md\:max-w-\[344px\] {
     max-width: 344px;
+  }
+
+  .md\:max-w-\[360px\] {
+    max-width: 360px;
   }
 
   .md\:grid-cols-12 {
@@ -3320,6 +3356,10 @@ sup {
 
   .md\:border-0 {
     border-width: 0px;
+  }
+
+  .md\:pl-8 {
+    padding-left: 2rem;
   }
 
   .md\:pb-0 {
