@@ -5,17 +5,20 @@
             const allowToggle = (!allowMultiple) ? accordion.hasAttribute('data-allow-toggle') : allowMultiple
 
             const triggers = Array.prototype.slice.call(accordion.querySelectorAll('.accordion-trigger'))
+            let buttonTrigger = document.querySelector('button.accordion-trigger');
 
             accordion.addEventListener('click', function (event) {
                 let target;
+
                 if (event.target.classList.contains('accordion-trigger')) {
                     target = event.target
                 } else {
                     target = event.target.parentElement;
                 }
 
+                const isExpanded = target.getAttribute('aria-expanded') === 'true';
+
                 if (target.classList.contains('accordion-trigger') || target.classList.contains('accordion-button')) {
-                    const isExpanded = target.getAttribute('aria-expanded') === 'true'
                     let active = accordion.querySelector('[aria-expanded="true"]')
 
                     if (!allowMultiple && active && active !== target) {
@@ -30,7 +33,7 @@
                     if (!isExpanded) {
                         target.setAttribute('aria-expanded', 'true')
                         document.getElementById(target.getAttribute('aria-controls')).removeAttribute('hidden')
-                        console.log(active.getAttribute('aria-controls'))
+                        buttonTrigger.setAttribute('aria-expanded', 'true')
 
                         if (!allowToggle) {
                             target.setAttribute('aria-disabled', 'true')
@@ -38,6 +41,7 @@
                     } else if (allowToggle && isExpanded) {
                         target.setAttribute('aria-expanded', 'false')
                         document.getElementById(target.getAttribute('aria-controls')).setAttribute('hidden', '')
+                        buttonTrigger.setAttribute('aria-expanded', 'false')
                     }
 
                     event.preventDefault()
