@@ -1,18 +1,17 @@
 <article class="border-t border-[#000] pt-3">
     <a href="{{ article.url }}">
-        <p class="uppercase text-xs lg:text-sm font-medium">
+        <p class="text-xs font-medium uppercase lg:text-sm">
             {% if article.metafields.my_fields.article_type %}
                 {{ article.metafields.my_fields.article_type }}
             {% else %}
                 Article
             {% endif %}
         </p>
-        <h3 class="text-xl lg:text-3xl font-medium uppercase mt-6 line-clamp-2 min-h-[75px] inline-block">
+        <h3 class="text-xl lg:text-3xl font-medium uppercase mt-6 line-clamp-2 inline-block md:min-h-[75px]">
             {{ article.title }}
         </h3>
         <img
-                class="rounded my-4 object-cover"
-                style="width: 360px; height: 263px;"
+                class="object-cover my-4 rounded-2xl w-[250px] h-[200px] md:w-[360px] md:h-[263px] md:rounded"
                 src="{{ article.image | image_url }}"
                 width="372" height="263"
                 alt="{{ article.image.alt }}"
@@ -20,7 +19,7 @@
                 decoding="async"
         />
         {% if show_date %}
-            <time class="left-0 bottom-4 text-xs lg:text-sm uppercase">
+            <time class="left-0 text-xs uppercase bottom-4 lg:text-sm">
                 [  {{ article.published_at | date: format: 'abbreviated_date' }}  ]
             </time>
         {% endif %}

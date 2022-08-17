@@ -75,12 +75,16 @@
 
                 if (target.dataset.columns === '4') {
                     grid.classList.remove('md:grid-cols-2')
+                    grid.classList.remove('gap-[1.5rem]')
                     grid.classList.add('md:grid-cols-4')
                     grid.classList.add('grid-cols-2')
+                    grid.classList.add('gap-2')
                 } else {
                     grid.classList.remove('grid-cols-2')
+                    grid.classList.remove('gap-2')
                     grid.classList.remove('md:grid-cols-4')
                     grid.classList.add('md:grid-cols-2')
+                    grid.classList.add('gap-[1.5rem]')
                 }
             })
         }

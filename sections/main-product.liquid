@@ -6,9 +6,9 @@
     <div id="product-carousel"  class="block col-span-12 overflow-hidden md:hidden">
       {% for image in product.images limit: 5 %}
         <div class="slide carousel-cell ">
-          <figure class="flex items-center justify-center h-full rounded-lg bg-light-gray">
+          <figure class="flex items-center justify-center h-[95%] rounded-lg bg-light-gray">
             <img
-                    style="width: 343px; height: 360px;"
+                    style="width: 343px; height: 343px;"
                     class="object-cover bg-[#F5F5F5]"
                     alt="{{ image.alt }}"
                     src="{{ image.src | image_url }}"
@@ -120,7 +120,7 @@
           {% render 'new-price' %}
       </div>
 
-      <div class="flex items-center justify-between flex-nowrap">
+      <div class="flex items-center gap-4 flex-nowrap">
         <div class="w-full max-w-[124px] md:max-w-[146px]">
 
           <!-- Quantity Input -->
@@ -146,7 +146,7 @@
           </div>
         </div>
 
-        <div class="w-full ml-2 2xl:ml-0 max-w-[541px]">
+        <div class="w-full ml-2 2xl:ml-0 max-w-[585px]">
           <!-- Shopify Add To Cart -->
           <div {{ block.shopify_attributes }}>
             <product-form class="product-form">
@@ -219,7 +219,7 @@
       </div>
       <!-- Product Description -->
       {%- if product.description != blank -%}
-        <div class="mt-4 text-[0.75rem] leading-[1.2] md:leading-none md:text-sm">
+        <div class="mt-4 text-[0.75rem] leading-[1.2] md:text-sm">
           {{ product.description }}
         </div>
       {%- endif -%}

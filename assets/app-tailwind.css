@@ -590,7 +590,7 @@ small#RecoverEmail-email-error {
 }
 
 .flickity-page-dots {
-    bottom: 27rem !important;
+    bottom: 28rem !important;
     right: 2rem !important;
     width: auto !important;
     display: flex;
@@ -612,4 +612,40 @@ sup {
 
 .collab-underline a:hover {
     text-decoration: none;
+}
+
+.menu-blur {
+    background-color: rgba(237, 237, 237, 0.5);
+    -webkit-backdrop-filter: saturate(200%) blur(10px);
+    backdrop-filter: saturate(200%) blur(10px);
+}
+
+.thick-underline::after {
+    border-bottom-width: 2px !important;
+}
+
+.collab-underline a {
+    border-bottom: 2px solid;
+}
+
+.collab-underline a:hover {
+    border-bottom: none;
+}
+
+.collab-underline.thick-underline p a::after {
+    border-bottom-width: 2px !important;
+}
+
+@media (max-width: 768px) {
+    .mobile-spacing ul li {
+        padding-bottom: 5px;
+    }
+}
+
+.sign-up-mb {
+    margin-bottom: 0 !important;
+}
+
+.card-link {
+    grid-area: 1 / 1 / span 2 / span 2;
 }

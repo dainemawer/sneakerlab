@@ -19,7 +19,7 @@
     <!-- Form Errors -->
     {%- if form.errors -%}
         <h2 class="form__message" tabindex="-1" autofocus>
-            <svg class="h-5 w-5" aria-hidden="true" focusable="false" role="presentation">
+            <svg class="w-5 h-5" aria-hidden="true" focusable="false" role="presentation">
                 <use href="#icon-error" />
             </svg>
             {{ 'templates.contact.form.error_heading' | t }}
@@ -124,18 +124,18 @@
         </div>
         {%- if form.errors contains 'password' -%}
             <span id="RegisterForm-password-error" class="form__message">
-                <svg class="h-5 w-5" aria-hidden="true" focusable="false" role="presentation">
+                <svg class="w-5 h-5" aria-hidden="true" focusable="false" role="presentation">
                   <use href="#icon-error" />
                 </svg>
                 {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
             </span>
         {%- endif -%}
-        <div class="md:flex justify-between items-center">
-            <label class="checkbox-container text-cod-gray">
+        <div class="items-center justify-between md:flex">
+            <label class="sign-up-mb checkbox-container text-cod-gray">
                 <input type="hidden" name="customer[accepts_marketing]" value="" />
                 <input type="checkbox" name="customer[accepts_marketing]" checked="checked" />
                 <span class="checkmark"></span>
-                <span class="text-xs uppercase leading-normal">Subscribe to Newsletter</span>
+                <span class="text-xs leading-normal uppercase">Subscribe to Newsletter</span>
             </label>
 
             <button class="bg-eco-green mt-7 md:mt-0 text-[#fff] text-xs py-3 px-4 rounded hover:bg-forest-green uppercase" type="submit">
@@ -144,4 +144,3 @@
         </div>
     </fieldset>
 {% endform %}
-

@@ -1,48 +1,52 @@
-<article id="" class="" aria-label="{{ product.title }}">
-    <figure class="relative overflow-hidden rounded-lg bg-light-gray marquee-wrap ">
-        <a href="{{ product.url }}">
-            {% assign out_of_stock = false %}
-            {% for variant in product.variants %}
-                {% if variant.inventory_quantity == 0 %}
-                    {% assign out_of_stock = true %}
-                {% endif %}
-            {% endfor %}
+<div class="grid grid-cols-2">
+    <a class="card-link" href="{{ product.url }}">
+        <article id="" class="card-link" aria-label="{{ product.title }}">
+            <figure class="relative overflow-hidden rounded-lg bg-light-gray marquee-wrap ">
+                <a href="{{ product.url }}">
+                    {% assign out_of_stock = false %}
+                    {% for variant in product.variants %}
+                        {% if variant.inventory_quantity == 0 %}
+                            {% assign out_of_stock = true %}
+                        {% endif %}
+                    {% endfor %}
 
-            {% if product.metafields.custom.new_release == true %}
-                <span class="product-image-tag absolute top-[12px] left-[12px] uppercase bg-eco-green text-xs text-[#fff] px-[4px] py-[1px]">
-                    New Release
-                </span>
-            {% endif %}
+                    {% if product.metafields.custom.new_release == true %}
+                        <span class="product-image-tag absolute top-[12px] left-[12px] uppercase bg-eco-green text-xs text-[#fff] px-[4px] py-[1px]">
+                            New Release
+                        </span>
+                    {% endif %}
 
-            {% if out_of_stock == true %}
-                <span class="product-image-tag absolute top-[12px] left-[12px] uppercase bg-[#000] text-xs text-[#fff] px-[4px] py-[1px]">
-                    Sold Out
-                </span>
-            {% endif %}
+                    {% if out_of_stock == true %}
+                        <span class="product-image-tag absolute top-[12px] left-[12px] uppercase bg-[#000] text-xs text-[#fff] px-[4px] py-[1px]">
+                            Sold Out
+                        </span>
+                    {% endif %}
 
-            {% if product.compare_at_price %}
-                <span class="product-image-tag absolute top-[12px] left-[12px] uppercase bg-eco-green text-xs text-[#fff] px-[4px] py-[1px]">
-                    Sale
-                </span>
-            {% endif %}
-            {% comment %}theme-check-disable{% endcomment %}
-            <img style="width: 760px; height: 450px;" class="object-contain" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
-            loading="lazy" decoding="async" />
-            {% comment %}theme-check-enable{% endcomment %}
-        </a>
+                    {% if product.compare_at_price %}
+                        <span class="product-image-tag absolute top-[12px] left-[12px] uppercase bg-eco-green text-xs text-[#fff] px-[4px] py-[1px]">
+                            Sale
+                        </span>
+                    {% endif %}
+                    {% comment %}theme-check-disable{% endcomment %}
+                    <img style="width: 760px;" class="object-contain h-[350px] md:h-[450px]" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url }}"
+                    loading="lazy" decoding="async" />
+                    {% comment %}theme-check-enable{% endcomment %}
+                </a>
 
-        <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
-            <div class="relative flex w-full inner">
-                <p class="uppercase text-eco-green whitespace-nowrap text-7xl">View [{{ product.title }}]</p>
-                <p class="uppercase text-eco-green whitespace-nowrap text-7xl">View [{{ product.title }}]</p>
+                <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none">
+                    <div class="relative flex w-full inner">
+                        <p class="uppercase text-eco-green whitespace-nowrap text-7xl">View [{{ product.title }}]</p>
+                        <p class="uppercase text-eco-green whitespace-nowrap text-7xl">View [{{ product.title }}]</p>
+                    </div>
+                </div>
+            </figure>
+            <div class="lg:px-2">
+                <h3 class="mt-2 text-xl font-medium tracking-tighter uppercase md:text-2xl lg:text-3xl">{{ product.title }}</h3>
+                <div class="flex items-start justify-between font-medium description_column">
+                    <p class="uppercase text-sm max-w-[220px] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
+                    {% render 'new-price', product: card_product %}
+                </div>
             </div>
-        </div>
-    </figure>
-    <div class="lg:px-2">
-        <h3 class="mt-2 text-xl font-medium tracking-tighter uppercase md:text-2xl lg:text-3xl">{{ product.title }}</h3>
-        <div class="flex items-start justify-between font-medium description_column">
-            <p class="uppercase text-sm max-w-[220px] lg:max-w-none">{{ product.metafields.descriptors.subtitle }}</p>
-            {% render 'new-price', product: card_product %}
-        </div>
-    </div>
-</article>
+        </article>
+    </a>
+</div>

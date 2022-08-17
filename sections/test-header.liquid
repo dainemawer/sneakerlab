@@ -6,19 +6,17 @@
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
 <a class="sr-only focus:not-sr-only" href="#main-content">Skip to Main Content</a>
-<header id="testing" aria-label="Site Header" role="banner" class="sticky z-10 top-[-1px] py-3 transition-all
-    {% if template.name == 'product' %} border-b border-silver {% endif %}
-">
+<header id="menu-bg" aria-label="Site Header" role="banner" class="sticky z-10 top-[-1px] py-3 transition-all">
     <div class="menu-overlay"></div>
     <div class="flex flex-wrap justify-between px-4 lg:px-5 xl:container xl:mx-auto">
         <nav class="basis-2/6">
             <ul class="flex">
-                <li class="inline-block text-base lg:hidden">
+                <li class="inline-block text-base md:hidden">
                     <a id="mobile-navigation-trigger" aria-controls="mobile-navigation" aria-expanded="false" href="#mobile-navigation" role="button">Menu</a>
                 </li>
-                <li class="hidden mr-6 text-sm lg:inline-block"><a href="/collections/all/">Shop</a></li>
-                <li class="hidden mr-6 text-sm lg:inline-block"><a href="/blogs/how-tos/">How To</a></li>
-                <li class="hidden text-sm lg:inline-block"><a href="/blogs/collaborations/">Collaborations</a></li>
+                <li class="hidden mr-6 text-sm md:inline-block"><a href="/collections/all/">Shop</a></li>
+                <li class="hidden mr-6 text-sm md:inline-block"><a href="/blogs/how-tos/">How To</a></li>
+                <li class="hidden text-sm md:inline-block"><a href="/blogs/collaborations/">Collaborations</a></li>
             </ul>
         </nav>
         <div class="flex justify-center basis-2/6">
@@ -45,8 +43,8 @@
         </div>
         <nav class="flex justify-end basis-2/6">
             <ul class="flex">
-                <li class="hidden mr-6 text-sm lg:inline-block"><a href="#search" aria-expanded="false" aria-controls="search" data-id="js-trigger-search" role="button">Search</a></li>
-                <li class="inline-block mr-6 text-sm scale-75 xl:hidden">
+                <li class="hidden mr-6 text-sm md:inline-block"><a href="#search" aria-expanded="false" aria-controls="search" data-id="js-trigger-search" role="button">Search</a></li>
+                <li class="inline-block mr-6 text-sm scale-75 md:hidden">
                     <a aria-label="Search Sneaker Lab" data-id="js-trigger-search" href="#search" role="button" aria-expanded="false" aria-controls="search">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewbox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
@@ -55,7 +53,7 @@
                         </svg>
                     </a>
                 </li>
-                <li class="hidden mr-6 text-sm lg:inline-block">
+                <li class="hidden mr-6 text-sm md:inline-block">
                     {%- if customer -%}
                         <a
                             aria-expanded="false"
@@ -81,14 +79,12 @@
                 <li class="text-sm">
                     <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
                         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-                        {%- if cart != empty -%}
                             <div class="cart-count-bubble">
                                 {%- if cart.item_count < 300 -%}
                                     <span aria-hidden="true">Cart<sup id="cart-count">{{ cart.item_count }}</sup></span>
                                 {%- endif -%}
                                 <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
                             </div>
-                        {%- endif -%}
                     </a>
                 </li>
             </ul>
@@ -105,7 +101,7 @@
 
 <script>
     const about_url = '/pages/about'
-    const search = document.getElementById("testing");
+    const search = document.getElementById("menu-bg");
     const border_bottom = document.getElementById("search");
     const about_close = document.getElementById("close-search");
     const search_text = document.getElementById("query");

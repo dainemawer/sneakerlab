@@ -13,7 +13,7 @@
                 <header {{ block.shopify_attributes }} class="col-span-12 max-w-[621px] mx-auto">
                     <h1
                             itemprop="headline"
-                            class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center md:text-center mt-20 mb-14 md:mb-28">
+                            class="text-5xl md:text-7xl tracking-tighter lg:text-[6.875rem] uppercase font-medium text-center md:text-center mt-20 mb-6 md:mb-28">
                         {{ article.title | escape }}
                     </h1>
                 </header>
@@ -132,8 +132,7 @@
                     <div class="grid grid-cols-2 gap-2">
                         {% if block.settings.left_grid_image_1 %}
                             <img
-                                    class="object-cover rounded-lg"
-                                    style="width: 370px; height: 368px;"
+                                    class="object-cover rounded-lg w-[300px] lg:h-[368px] lg:w-[370px]"
                                     alt="{{ block.settings.left_grid_image_1.alt }}"
                                     src="{{ block.settings.left_grid_image_1 | image_url: width: 370, height: 368 }}"
                                     width="370"
@@ -148,8 +147,7 @@
                         {% endif %}
                         {% if block.settings.left_grid_image_2 %}
                             <img
-                                    class="object-cover rounded-lg"
-                                    style="width: 370px; height: 368px;"
+                                    class="object-cover rounded-lg w-[300px] lg:h-[368px] lg:w-[370px]"
                                     alt="{{ block.settings.left_grid_image_2.alt }}"
                                     src="{{ block.settings.left_grid_image_2 | image_url: width: 370, height: 368 }}"
                                     width="370"
@@ -164,8 +162,7 @@
                         {% endif %}
                         {% if block.settings.left_grid_image_3 %}
                             <img
-                                    class="object-cover rounded-lg"
-                                    style="width: 370px; height: 368px;"
+                                    class="object-cover rounded-lg w-[300px] lg:h-[368px] lg:w-[370px]"
                                     alt="{{ block.settings.left_grid_image_3.alt }}"
                                     src="{{ block.settings.left_grid_image_3 | image_url: width: 370, height: 368 }}"
                                     width="370"
@@ -180,8 +177,7 @@
                         {% endif %}
                         {% if block.settings.left_grid_image_4 %}
                             <img
-                                    class="object-cover rounded-lg"
-                                    style="width: 370px; height: 368px;"
+                                    class="object-cover rounded-lg w-[300px] lg:h-[368px] lg:w-[370px]"
                                     alt="{{ block.settings.left_grid_image_4.alt }}"
                                     src="{{ block.settings.left_grid_image_4 | image_url: width: 370, height: 368 }}"
                                     width="370"
@@ -199,8 +195,7 @@
                 <div class="col-span-12 mb-12 md:col-span-6">
                     {% if block.settings.right_image %}
                         <img
-                                class="object-cover rounded-lg"
-                                style="width: 740px; height: 744px;"
+                                class="object-cover rounded-lg w-[360px] md:w-[386px] lg:h-[744px] lg:w-[740px]"
                                 alt="{{ block.settings.right_image.alt }}"
                                 src="{{ block.settings.right_image | image_url: width: 740, height: 744 }}"
                                 width="740"
