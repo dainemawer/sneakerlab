@@ -35,7 +35,7 @@
     -%}
 {% endif %}
 
-<section class="mb-6 xl:container xl:mx-auto">
+<section class="mb-6 border-b xl:container border-silver xl:mx-auto">
     <h2 class="mb-5 text-sm font-medium uppercase">[ &nbsp;&nbsp;{{ featured_more }} {{ name }}'s&nbsp;&nbsp; ]</h2>
     <header class="relative flex items-center justify-between">
         <button data-filter-trigger class="relative text-5xl font-medium tracking-tighter uppercase transition-all hover:opacity-50" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
@@ -67,7 +67,7 @@
                     </a>
                 </li>
             </ul>
-            <div class="bg-[#000] mt-4 left-0 opacity-[40%] absolute h-[100vh] w-full md:hidden"></div>
+            <!-- <div class="bg-[#000] mt-4 left-0 opacity-[40%] absolute h-[100vh] w-full md:hidden"></div> -->
         </div>
     </header>
     {% comment %}theme-check-disable{% endcomment %}
@@ -120,12 +120,14 @@
             if (!panel.classList.contains('filter-active')) {
                 trigger.innerHTML = 'Filter-'
                 trigger.classList.add('focus:opacity-50');
+                trigger.classList.add('overlay-active');
                 trigger.setAttribute('aria-expanded', 'true')
                 panel.setAttribute('aria-hidden', 'false')
                 panel.classList.add('filter-active')
             } else {
                 trigger.innerHTML = 'Filter+'
                 trigger.classList.remove('focus:opacity-50');
+                trigger.classList.remove('overlay-active');
                 trigger.setAttribute('aria-expanded', 'false')
                 panel.setAttribute('aria-hidden', 'true')
                 panel.classList.remove('filter-active')

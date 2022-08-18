@@ -1,9 +1,8 @@
-<article class="flex flex-row border-silver border-b pb-6 md:pb-0 md:border-0">
+<article class="flex flex-row pb-6 border-b border-silver md:pb-0 md:border-0">
     <figure class="basis-3/6">
         <a class="thumbnail" href="{{ article.url }}">
             <img
-                    class="rounded-lg object-cover"
-                    style="width: 372px; height: 263px;"
+                    class="rounded-lg object-cover h-[200px] w-[372px] md:h-[230px] lg:h-[263px]"
                     src="{{ article.image | image_url }}"
                     width="372" height="263"
                     alt="{{ article.image.alt }}"
@@ -12,15 +11,15 @@
             />
         </a>
     </figure>
-    <div class="ml-4 basis-3/6 relative">
+    <div class="relative ml-4 basis-3/6">
         <a href="{{ article.url }}">
-            <h3 class="uppercase text-sm md:text-xl leading-none lg:text-2xl xl:text-3xl md:max-w-[344px] inline-block">
+            <h3 class="uppercase text-sm font-semibold md:font-normal md:text-xl leading-none lg:text-2xl xl:text-3xl md:max-w-[344px] inline-block">
                 {{ article.title }}
             </h3>
         </a>
-        <div class="absolute left-0 bottom-0 md:flex w-full justify-between xl:justify-start">
-            <span class="text-xs sm:text-sm block uppercase font-semibold">Article</span>
-            <time class="text-xs sm:text-sm block md:ml-2 uppercase">
+        <div class="absolute bottom-0 left-0 justify-between w-full md:flex xl:justify-start">
+            <span class="block text-xs font-semibold uppercase sm:text-sm">Article</span>
+            <time class="block text-xs uppercase sm:text-sm md:ml-2">
                 {% if show_date %}
                     [  {{ article.published_at | date: format: 'abbreviated_date' }}  ]
                 {% endif %}
@@ -28,4 +27,3 @@
         </div>
     </div>
 </article>
-

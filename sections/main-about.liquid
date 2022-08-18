@@ -14,14 +14,14 @@
         <div class="col-span-12 md:col-span-6">
 
             {% if section.settings.image1 %}
-                <img class="rounded-lg lg:max-h-[795px]" src="{{ section.settings.image1 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image1.alt | escape }}" loading="lazy" decoding="async" />
+                <img class="rounded-lg max-h-[358px] object-cover md:max-h-[415px] lg:max-h-[795px]" src="{{ section.settings.image1 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image1.alt | escape }}" loading="lazy" decoding="async" />
             {% else %}
                 <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async"/>
             {% endif %}
         </div>
         <div class="col-span-12 md:col-span-6">
             {% if section.settings.image2 %}
-                <img class="rounded-lg lg:max-h-[795px]" src="{{ section.settings.image2 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image2.alt | escape }}" loading="lazy" decoding="async" />
+                <img class="rounded-lg max-h-[358px] object-cover md:max-h-[415px] lg:max-h-[795px]" src="{{ section.settings.image2 | image_url: width: 760, height: 814 }}" width="760" height="814" alt="{{ section.settings.image2.alt | escape }}" loading="lazy" decoding="async" />
             {% else %}
                 <img class="rounded-lg" src="{{ '760x814.jpg' | asset_url }}" width="760" height="814" alt="" loading="lazy" decoding="async"/>
             {% endif %}

@@ -108,6 +108,7 @@
     const search_color = document.getElementById("search-color");
     if (window.location.pathname === about_url) {
         search.classList.add('bg-black' )
+        search.classList.add('menu-blur-dark')
         border_bottom.classList.add('border-b', 'border-white' )
         search_text.classList.add('text-white')
         about_close.classList.add('invert')
@@ -116,5 +117,6 @@
     } else {
         search.classList.add('bg-transparent')
         search_text.classList.add('text-black')
+        search.classList.add('menu-blur')
     }
 </script>

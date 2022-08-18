@@ -614,10 +614,22 @@ sup {
     text-decoration: none;
 }
 
-.menu-blur {
-    background-color: rgba(237, 237, 237, 0.5);
-    -webkit-backdrop-filter: saturate(200%) blur(10px);
-    backdrop-filter: saturate(200%) blur(10px);
+@media (min-width: 768px) {
+    .menu-blur {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        width: 100%;
+        position: fixed !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu-blur-dark {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(15px);
+        width: 100%;
+        position: fixed !important;
+    }
 }
 
 .thick-underline::after {
@@ -648,4 +660,18 @@ sup {
 
 .card-link {
     grid-area: 1 / 1 / span 2 / span 2;
+}
+
+.social-thickunderline a {
+    @apply border-b-2 hover:border-none;
+}
+
+.social-thickunderline a::after {
+    border-bottom-width: 2px !important;
+}
+
+@media (max-width: 768px) {
+    .how-to-title-mobile a {
+        font-weight: 600;
+    }
 }

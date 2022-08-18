@@ -15,12 +15,11 @@
             <img
                 src="{{ section.settings.collaborations_large_featured_article.image.src | image_url }}"
                 alt="{{ section.settings.collaborations_large_featured_article.image.alt }}"
-                class="object-cover rounded-lg"
+                class="object-cover rounded-lg h-[400px] md:h-[600px] lg:h-[700px] lg:w-[760px]"
                 width="760"
                 height="700"
                 loading="lazy"
                 decoding="async"
-                style="width: 760px; height: 700px;"
             >
           </a>
         {% else %}
@@ -63,12 +62,11 @@
               <img
                       src="{{ section.settings.collaborations_medium_1_featured_article.image.src | image_url }}"
                       alt="{{ section.settings.collaborations_medium_1_featured_article.image.alt }}"
-                      class="object-cover rounded-lg"
+                      class="object-cover rounded-lg h-[200px] md:h-[300px] lg:w-[370px]"
                       width="370"
                       height="340"
                       loading="lazy"
                       decoding="async"
-                      style="width: 370px; height: 300px;"
               >
             </a>
           {% else %}
@@ -101,12 +99,11 @@
               <img
                       src="{{ section.settings.collaborations_medium_2_featured_article.image.src | image_url }}"
                       alt="{{ section.settings.collaborations_medium_2_featured_article.image.alt }}"
-                      class="object-cover rounded-lg"
+                      class="object-cover rounded-lg h-[200px] md:h-[300px] lg:w-[370px]"
                       width="370"
                       height="340"
                       loading="lazy"
                       decoding="async"
-                      style="width: 370px; height: 300px;"
               >
             </a>
           {% else %}
@@ -138,10 +135,10 @@
           {% endif %}
         </a>
       </div>
-      <h4 class="hidden collab-underline thick-underline md:block text-xl md:text-lg xl:text-3xl tracking-tighter lg:absolute lg:bottom-[24%]">
+      <h4 class="hidden collab-underline thick-underline md:block text-xl md:text-lg xl:text-3xl tracking-tighter md:absolute md:bottom-[24%]">
         {{ section.settings.collaborations_description }}
       </h4>
-      <p class="uppercase block md:mt-16 mt-8 mb-20 md:mb-0 tracking-tighter lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:font-medium lg:tracking-tighter lg:no-underline lg:text-2xl xl:text-3xl">
+      <p class="uppercase block md:mt-16 mt-8 mb-20 md:mb-4 tracking-tighter lg:mt-0 view-all md:bottom-[20px] lg:bottom-[28px] text-xl lg:font-medium lg:tracking-tighter lg:no-underline lg:text-2xl xl:text-3xl">
         <a class="border-b-2 hover:border-none thick-underline" href="{{ section.settings.collaborations_view_all_link_url }}">
           {{ section.settings.collaborations_view_all_link_text }}
         </a>

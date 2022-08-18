@@ -4,33 +4,37 @@
 
 <section class="flex flex-col justify-between gap-2 tn:flex-row">
     {% for block in section.blocks %}
-        <article class="mb-6 tn:mb-0">
-            <figure class="relative overflow-hidden marquee-wrap">
-                <a href="{{ block.settings.link }}">
-                    {% if block.settings.image %}
-                        {% comment %}theme-check-disable{% endcomment %}
-                        <img
-                            src="{{ block.settings.image | image_url: width: 520, height: 712 }}"
-                            alt="{{ block.settings.image.alt }}"
-                            class="rounded-lg"
-                            decoding="async" />
-                        {% comment %}theme-check-enable{% endcomment %}
-                    {% else %}
-                        <img class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" />
-                    {% endif %}
-                </a>
-                <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">
-                    <div class="relative flex w-full inner">
-                        <p class="uppercase text-eco-green whitespace-nowrap text-7xl">
-                            {{ block.settings.hover_text }}
-                        </p>
-                    </div>
-                </div>
-            </figure>
-            <h2 class="uppercase tracking-tighter font-medium text-xl xl:text-3xl leading-none max-w-[438px] mt-3">
-                {{ block.settings.title }}
-            </h2>
-        </article>
+      <div class="grid grid-cols-2">
+        <a class="card-link" href="{{ block.settings.link }}">
+          <article class="mb-6 card-link tn:mb-0">
+              <figure class="relative overflow-hidden marquee-wrap">
+                  <a href="{{ block.settings.link }}">
+                      {% if block.settings.image %}
+                          {% comment %}theme-check-disable{% endcomment %}
+                          <img
+                              src="{{ block.settings.image | image_url: width: 520, height: 712 }}"
+                              alt="{{ block.settings.image.alt }}"
+                              class="rounded-lg"
+                              decoding="async" />
+                          {% comment %}theme-check-enable{% endcomment %}
+                      {% else %}
+                          <img class="rounded-lg" alt="Keep It Clean" src="{{ '520x712.jpg' | asset_url }}" width="520" height="712" decoding="async" />
+                      {% endif %}
+                  </a>
+                  <div class="marquee absolute top-[50%] opacity-0 transition-opacity pointer-events-none" data-speed="5">
+                      <div class="relative flex w-full inner">
+                          <p class="uppercase text-eco-green whitespace-nowrap text-7xl">
+                              {{ block.settings.hover_text }}
+                          </p>
+                      </div>
+                  </div>
+              </figure>
+              <h2 class="uppercase tracking-tighter font-medium text-xl xl:text-3xl leading-none max-w-[438px] mt-3">
+                  {{ block.settings.title }}
+              </h2>
+          </article>
+        </a>
+      </div>
     {% endfor %}
 </section>
 
