@@ -101,6 +101,7 @@
 
 <script>
     const about_url = '/pages/about'
+    const contact_url = '/pages/contact'
     const search = document.getElementById("menu-bg");
     const border_bottom = document.getElementById("search");
     const about_close = document.getElementById("close-search");
@@ -110,6 +111,14 @@
         search.classList.add('bg-black' )
         search.classList.add('menu-blur-dark')
         border_bottom.classList.add('border-b', 'border-white' )
+        search_text.classList.add('text-white')
+        about_close.classList.add('invert')
+        search_color.classList.remove('bg-[#fff]')
+        search_color.classList.add('bg-[#000]', 'opacity-100')
+    } if (window.location.pathname === contact_url) {
+        search.classList.add('bg-black')
+        search.classList.add('menu-blur-dark')
+        border_bottom.classList.add('border-b', 'border-white')
         search_text.classList.add('text-white')
         about_close.classList.add('invert')
         search_color.classList.remove('bg-[#fff]')

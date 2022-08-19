@@ -503,6 +503,10 @@ a.predictive-search__item:after {
     @apply text-[0.75rem] !important;
 }
 
+#grid-toggle.md\:grid-cols-4 article p#marquee-text {
+    @apply -mt-4 text-[3.5rem] !important;
+}
+
 #grid-toggle.md\:grid-cols-4 article .product__price__regular {
     @apply text-[0.75rem] !important;
 }
@@ -590,7 +594,7 @@ small#RecoverEmail-email-error {
 }
 
 .flickity-page-dots {
-    bottom: 28rem !important;
+    bottom: 2rem !important;
     right: 2rem !important;
     width: auto !important;
     display: flex;
@@ -662,6 +666,10 @@ sup {
     grid-area: 1 / 1 / span 2 / span 2;
 }
 
+a.card-link::after{
+    border-bottom-width: 0px !important;
+}
+
 .social-thickunderline a {
     @apply border-b-2 hover:border-none;
 }
@@ -674,4 +682,63 @@ sup {
     .how-to-title-mobile a {
         font-weight: 600;
     }
+}
+
+@media (max-width: 768px) {
+    .stories-overlay-active,
+    .stories-search-active {
+    z-index: 10;
+    overflow: hidden;
+    }
+
+    .stories-overlay-active::after,
+    .stories-search-active::after {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0 0 0 / 0.5);
+    --tw-content: '';
+    content: var(--tw-content);
+    }
+}
+
+.iframe-ratio {
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.iframe-ratio iframe {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 1301px) {
+    .iframe-ratio iframe {
+        height: 420px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .iframe-ratio iframe {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .iframe-ratio iframe {
+        height: 190px;
+    }
+}
+
+
+/* Removes blue x-close */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
 }

@@ -35,8 +35,8 @@
     -%}
 {% endif %}
 
-<section class="mb-6 border-b xl:container border-silver xl:mx-auto">
-    <h2 class="mb-5 text-sm font-medium uppercase">[ &nbsp;&nbsp;{{ featured_more }} {{ name }}'s&nbsp;&nbsp; ]</h2>
+<section class="mb-6 md:border-b border-silver xl:container xl:mx-auto">
+    <h2 class="mb-5 text-sm font-medium uppercase">[ &nbsp;&nbsp;{{ featured_more }} {{ name }}&nbsp;&nbsp; ]</h2>
     <header class="relative flex items-center justify-between">
         <button data-filter-trigger class="relative text-5xl font-medium tracking-tighter uppercase transition-all hover:opacity-50" type="button" aria-expanded="false" aria-controls="filter-dropdown">Filter+</button>
 
@@ -79,9 +79,9 @@
             assign modulus = forloop.index | modulo: 2
         %}
         {% if modulus == 1 %}
-            <div class="grid gap-4 pt-6 mt-6 mb-6 border-t bg-grey md:grid-cols-2 border-silver">
+            <div class="grid gap-4 pt-6 bg-grey md:grid-cols-2 border-silver md:mt-6 md:mb-6 md:border-t">
         {% endif %}
-            <article class="flex flex-row ">
+            <article class="flex flex-row py-4 border-t border-silver md:py-0 md:border-none">
                 <figure class="basis-3/6">
                     <a class="thumbnail" href="{{ article.url }}">
                         {% if article.image %}
@@ -120,14 +120,14 @@
             if (!panel.classList.contains('filter-active')) {
                 trigger.innerHTML = 'Filter-'
                 trigger.classList.add('focus:opacity-50');
-                trigger.classList.add('overlay-active');
+                trigger.classList.add('stories-overlay-active');
                 trigger.setAttribute('aria-expanded', 'true')
                 panel.setAttribute('aria-hidden', 'false')
                 panel.classList.add('filter-active')
             } else {
                 trigger.innerHTML = 'Filter+'
                 trigger.classList.remove('focus:opacity-50');
-                trigger.classList.remove('overlay-active');
+                trigger.classList.remove('stories-overlay-active');
                 trigger.setAttribute('aria-expanded', 'false')
                 panel.setAttribute('aria-hidden', 'true')
                 panel.classList.remove('filter-active')

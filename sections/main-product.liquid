@@ -3,7 +3,7 @@
   {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
     <!-- Mobile Product Gallery -->
-    <div id="product-carousel"  class="block col-span-12 overflow-hidden md:hidden">
+    <div id="product-carousel"  class="relative block col-span-12 overflow-hidden md:hidden">
       {% for image in product.images limit: 5 %}
         <div class="slide carousel-cell ">
           <figure class="flex items-center justify-center h-[95%] rounded-lg bg-light-gray">
@@ -219,13 +219,13 @@
       </div>
       <!-- Product Description -->
       {%- if product.description != blank -%}
-        <div class="mt-4 text-[0.75rem] leading-[1.2] md:text-sm">
+        <div class="mt-4 text-[0.75rem] iframe-ratio leading-[1.2]  md:text-sm">
           {{ product.description }}
         </div>
       {%- endif -%}
 
       <!-- Single Product Accordion -->
-      <div id="accordion" class="mt-24 mb-5 border-b accordion md:mt-44 border-silver" data-allow-multiple>
+      <div id="accordion" class="mt-16 mb-5 border-b accordion md:mt-20 border-silver" data-allow-multiple>
         {% assign my_counter = 0 %}
         {%- for block in section.blocks -%}
           {%- case block.type -%}
