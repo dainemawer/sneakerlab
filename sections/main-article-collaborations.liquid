@@ -94,16 +94,18 @@
                 </div>
                 <div class="col-span-12 mb-8 md:col-span-6 md:mb-12">
                     <div class="text-xs md:text-sm max-w-[344px] text-left float-right">
-                        {{ block.settings.small_paragraph }}
+                        {% if article.metafields.custom.small_right_quote %}
+                            {{ article.metafields.custom.small_right_quote }}
+                        {% endif %}
                     </div>
                 </div>
 
             {%- when 'two-image-grid' -%}
                 <div class="col-span-12 mb-0 md:col-span-6 md:mb-12">
-                    {% if block.settings.left_image %}
+                    {% if article.metafields.custom.image_1 %}
                         <img class="object-cover rounded-lg" style="width: 740px; height: 740px;"
-                             alt="{{ block.settings.left_image.alt }}"
-                             src="{{ block.settings.left_image | image_url: width: 740, height: 740 }}" width="740" height="740"
+                             alt="{{ article.metafields.custom.image_1.alt }}"
+                             src="{{ article.metafields.custom.image_1 | image_url: width: 740, height: 740 }}" width="740" height="740"
                              loading="lazy" decoding="async" />
                     {% else %}
                         <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740"
@@ -111,10 +113,10 @@
                     {% endif %}
                 </div>
                 <div class="col-span-12 mb-10 md:col-span-6 md:mb-12">
-                    {% if block.settings.right_image %}
+                    {% if article.metafields.custom.image_2 %}
                         <img class="object-cover rounded-lg" style="width: 740px; height: 740px;"
-                             alt="{{ block.settings.right_image.alt }}"
-                             src="{{ block.settings.right_image | image_url: width: 740, height: 740 }}" width="740" height="740"
+                             alt="{{ article.metafields.custom.image_2.alt }}"
+                             src="{{ article.metafields.custom.image_2 | image_url: width: 740, height: 740 }}" width="740" height="740"
                              loading="lazy" decoding="async" />
                     {% else %}
                         <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740"
@@ -125,37 +127,37 @@
             {% when 'four-tile-grid' %}
                 <div class="col-span-12 mb-0 md:col-span-6 md:mb-12">
                     <div class="grid grid-cols-2 gap-2">
-                        {% if block.settings.left_grid_image_1 %}
+                        {% if article.metafields.custom.small_quad_grid_image_1 %}
                             <img class="object-cover rounded-lg" style="width: 370px; height: 368px;"
-                                 alt="{{ block.settings.left_grid_image_1.alt }}"
-                                 src="{{ block.settings.left_grid_image_1 | image_url: width: 370, height: 368 }}" width="370"
+                                 alt="{{ article.metafields.custom.small_quad_grid_image_1.alt }}"
+                                 src="{{ article.metafields.custom.small_quad_grid_image_1 | image_url: width: 370, height: 368 }}" width="370"
                                  height="368" loading="lazy" decoding="async" />
                         {% else %}
                             <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
                                  height="368" loading="lazy" decoding="async" />
                         {% endif %}
-                        {% if block.settings.left_grid_image_2 %}
+                        {% if article.metafields.custom.small_quad_grid_image_2 %}
                             <img class="object-cover rounded-lg" style="width: 370px; height: 368px;"
-                                 alt="{{ block.settings.left_grid_image_2.alt }}"
-                                 src="{{ block.settings.left_grid_image_2 | image_url: width: 370, height: 368 }}" width="370"
+                                 alt="{{ article.metafields.custom.small_quad_grid_image_2.alt }}"
+                                 src="{{ article.metafields.custom.small_quad_grid_image_2 | image_url: width: 370, height: 368 }}" width="370"
                                  height="368" loading="lazy" decoding="async" />
                         {% else %}
                             <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
                                  height="368" loading="lazy" decoding="async" />
                         {% endif %}
-                        {% if block.settings.left_grid_image_3 %}
+                        {% if article.metafields.custom.small_quad_grid_image_3 %}
                             <img class="object-cover rounded-lg" style="width: 370px; height: 368px;"
-                                 alt="{{ block.settings.left_grid_image_3.alt }}"
-                                 src="{{ block.settings.left_grid_image_3 | image_url: width: 370, height: 368 }}" width="370"
+                                 alt="{{ article.metafields.custom.small_quad_grid_image_3.alt }}"
+                                 src="{{ article.metafields.custom.small_quad_grid_image_3 | image_url: width: 370, height: 368 }}" width="370"
                                  height="368" loading="lazy" decoding="async" />
                         {% else %}
                             <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
                                  height="368" loading="lazy" decoding="async" />
                         {% endif %}
-                        {% if block.settings.left_grid_image_4 %}
+                        {% if article.metafields.custom.small_quad_grid_image_4 %}
                             <img class="object-cover rounded-lg" style="width: 370px; height: 368px;"
-                                 alt="{{ block.settings.left_grid_image_4.alt }}"
-                                 src="{{ block.settings.left_grid_image_4 | image_url: width: 370, height: 368 }}" width="370"
+                                 alt="{{ article.metafields.custom.small_quad_grid_image_4.alt }}"
+                                 src="{{ article.metafields.custom.small_quad_grid_image_4 | image_url: width: 370, height: 368 }}" width="370"
                                  height="368" loading="lazy" decoding="async" />
                         {% else %}
                             <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '370x370.jpg' | asset_url }}" width="370"
@@ -164,10 +166,10 @@
                     </div>
                 </div>
                 <div class="col-span-12 mb-12 md:col-span-6">
-                    {% if block.settings.right_image %}
+                    {% if article.metafields.custom.right_image_next_to_quad_grid %}
                         <img class="object-cover rounded-lg" style="width: 740px; height: 744px;"
-                             alt="{{ block.settings.right_image.alt }}"
-                             src="{{ block.settings.right_image | image_url: width: 740, height: 744 }}" width="740" height="744"
+                             alt="{{ article.metafields.custom.right_image_next_to_quad_grid.alt }}"
+                             src="{{ article.metafields.custom.right_image_next_to_quad_grid | image_url: width: 740, height: 744 }}" width="740" height="744"
                              loading="lazy" decoding="async" />
                     {% else %}
                         <img class="rounded-lg" alt="SneakerLab Product 3" src="{{ '740x740.jpg' | asset_url }}" width="740"
