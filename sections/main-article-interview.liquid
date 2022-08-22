@@ -60,33 +60,33 @@
     {% endif %}
 
     {%- when 'quote-section' -%}
-    {%- liquid
-        assign left_quote = article.metafields.custom.left_quote
-    -%}
+        {%- liquid
+            assign left_quote = article.metafields.custom.left_quote
+        -%}
 
-    {%- liquid
-    if block.id == 'quote-section-2'
-    assign class = 'max-w-[344px]'
-    else
-    assign class = ''
-    endif
-    %}
+        {%- liquid
+            if block.id == 'quote-section-2'
+                assign class = 'max-w-[344px]'
+            else
+                assign class = ''
+            endif
+        %}
 
-    <div class="col-span-12 mb-5 md:col-span-6 md:mb-12">
-        <div class="text-xl md:text-3xl {{ class }}">
-            {% if left_quote %}
-                {{ left_quote }}
-            {% else %}
-                Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to
-                host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
-            {% endif %}
+        <div class="col-span-12 mb-5 md:col-span-6 md:mb-12">
+            <div class="text-xl md:text-3xl {{ class }}">
+                {% if left_quote %}
+                    {{ left_quote }}
+                {% else %}
+                    Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to
+                    host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
+                {% endif %}
+            </div>
         </div>
-    </div>
-    <div class="col-span-12 mb-8 md:col-span-6 md:mb-12">
-        <div class="text-xs md:text-sm max-w-[344px] text-left float-right">
-            {{ block.settings.small_paragraph }}
+        <div class="col-span-12 mb-8 md:col-span-6 md:mb-12">
+            <div class="text-xs md:text-sm max-w-[344px] text-left float-right">
+                {{ block.settings.small_paragraph }}
+            </div>
         </div>
-    </div>
 
     {%- when 'two-image-grid' -%}
     <div class="col-span-12 mb-0 md:col-span-6 md:mb-12">
