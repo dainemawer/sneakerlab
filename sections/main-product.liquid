@@ -6,10 +6,10 @@
     <div id="product-carousel"  class="relative block col-span-12 overflow-hidden md:hidden">
       {% for image in product.images limit: 5 %}
         <div class="slide carousel-cell ">
-          <figure class="flex items-center justify-center h-[95%] rounded-lg bg-light-gray">
+          <figure class="flex items-center justify-center h-[95%] rounded-xl bg-light-gray">
             <img
                     style="width: 343px; height: 343px;"
-                    class="object-cover bg-[#F5F5F5]"
+                    class="object-cover bg-[#F5F5F5] rounded-lg"
                     alt="{{ image.alt }}"
                     src="{{ image.src | image_url }}"
                     width="343"
@@ -44,7 +44,7 @@
           <img
               alt=""
               style="width: 240px; height: 382px;"
-              class="rounded-lg"
+              class="rounded-lg bg-[#F5F5F5]"
               src="{{ image.src | image_url }}"
               width="240"
               height="382"
@@ -107,7 +107,7 @@
     <!-- Main Product Information -->
     <div class="relative col-span-12 md:col-span-6 product-info">
       <!-- Product Title -->
-      <h1 class="mb-2 text-3xl leading-[1] md:leading-none font-medium uppercase md:text-5xl">
+      <h1 class="mb-2 text-3xl leading-[0.85] md:leading-none font-medium uppercase md:text-5xl">
         {{ product.title }}
       </h1>
 

@@ -496,7 +496,7 @@ a.predictive-search__item:after {
 /*}*/
 
 #grid-toggle.md\:grid-cols-4 article h3 {
-    @apply text-[1rem] font-semibold !important;
+    @apply text-[0.75rem] leading-[1.1] font-semibold !important;
 }
 
 #grid-toggle.md\:grid-cols-4 article p {

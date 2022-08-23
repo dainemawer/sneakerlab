@@ -6,12 +6,11 @@
                 <a href="{{ card_product.url }}">
                     {%- if card_product.featured_media -%}
                         <img
-                            style="width: 760px; height: 567px;"
                             src="{{ card_product.featured_media | image_url: width: 760 }}"
                             alt="{{ card_product.featured_media.alt | escape }}"
                             width="760"
                             height="567"
-                            class="object-contain motion-reduce"
+                            class="object-contain motion-reduce h-[400px] w-[760px] md:h-[567px]"
                             loading="lazy"
                             decoding="async"
                         >
