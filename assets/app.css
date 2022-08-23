@@ -3065,6 +3065,10 @@ input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance:none;
 }
 
+.shop-product-title {
+  line-height: 1.25rem !important;
+}
+
 .placeholder\:text-5xl::-moz-placeholder {
   font-size: 3rem;
   line-height: 1;

@@ -742,3 +742,7 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance:none;
 }
+
+.shop-product-title {
+    line-height: 1.25rem !important;
+}
