@@ -48,14 +48,17 @@
             src="{{ article.image | image_url: width: 1500 }}" loading="lazy" decoding="async"
             class="object-cover rounded-lg" style="width: 1536px; height: 790px;" width="{{ article.image.width }}"
             height="{{ article.image.height }}" alt="{{ article.image.alt | escape }}">
-        <a data-trigger-modal
-            class="inline-flex items-center justify-start mt-4 text-xs transition-all play-video hover:opacity-50 focus:opacity-50 md:text-sm"
-            role="button" aria-controls="modal" aria-expanded="false" href="#">
-            <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
-            </svg>
-            Play video
-        </a>
+
+        {% if article.metafields.custom.modal_video_id and article.metafields.custom.modal_video_type %}
+            <a data-trigger-modal
+                class="inline-flex items-center justify-start mt-4 text-xs transition-all play-video hover:opacity-50 focus:opacity-50 md:text-sm"
+                role="button" aria-controls="modal" aria-expanded="false" href="#">
+                <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black" />
+                </svg>
+                Play video
+            </a>
+        {% endif %}
     </figure>
     {% endif %}
 
@@ -411,9 +414,10 @@
     {%- endif -%}
     {% endcomment %}
 </article>
-
-{% render 'modal', video_type: article.metafields.custom.modal_video_type, video_id:
-article.metafields.custom.modal_video_id %}
+{% if article.metafields.custom.modal_video_type and article.metafields.custom.modal_video_id %}
+    {% render 'modal', video_type: article.metafields.custom.modal_video_type, video_id:
+    article.metafields.custom.modal_video_id %}
+{% endif %}
 
 <script>
     const CollaborationsFilter = () => {

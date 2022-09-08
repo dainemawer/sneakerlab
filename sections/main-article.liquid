@@ -103,8 +103,8 @@
             {%- when 'quote-and-paragraph-2' -%}
                 <div class="col-span-12 mb-5 md:col-span-6 md:mb-12">
                     <div class="text-xl md:text-3xl">
-                        {% if article.metafields.custom.second_large_quote %}
-                            {{ article.metafields.custom.second_large_quote }}
+                        {% if article.metafields.custom.left_quote_2 %}
+                            {{ article.metafields.custom.left_quote_2 }}
                         {% else %}
                             Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
                         {% endif %}
@@ -112,8 +112,8 @@
                 </div>
                 <div class="col-span-12 mb-8 md:col-span-6 md:mb-12 quote-paragraph">
                     <div class="max-w-[344px] md:float-right text-left">
-                        {% if article.metafields.custom.paragraph_2 %}
-                            {{ article.metafields.custom.paragraph_2 }}
+                        {% if article.metafields.custom.small_right_quote_2  %}
+                            {{ article.metafields.custom.small_right_quote_2  }}
                         {% else %}
                             The DC x The_ONES E. Tribeka Vachetta is made of premium untreatedleather that ages over time like an old baseball mitt. Buttery softand ready to be made yours. This limited edition sneaker comes witha Sneaker Lab Deluxe cleaning kit that includes all leather care essentials.
                         {% endif %}
@@ -284,13 +284,22 @@
                 </div>
 
             {% when 'large-quote' %}
+                {% if article.metafields.custom.large_quote %}
+                    <div class="col-span-12 mb-8 md:mb-12">
+                        <h3 class="uppercase tracking-tighter font-medium text-4xl md:text-7xl md:max-w-[1048px]">
+                            {% if article.metafields.custom.large_quote %}
+                                {{ article.metafields.custom.large_quote }}
+                            {% endif %}
+                        </h3>
+                    </div>
+                {% endif %}
+
+            {% when 'large-quote-2' %}
                 <div class="col-span-12 mb-8 md:mb-12">
                     {% if article.metafields.custom.second_large_quote %}
                         <h3 class="uppercase tracking-tighter font-medium text-4xl md:text-7xl md:max-w-[1048px]">
                             {% if article.metafields.custom.second_large_quote %}
                                 {{ article.metafields.custom.second_large_quote }}
-                            {% else %}
-                                {{ block.settings.large-quote }}
                             {% endif %}
                         </h3>
                     {% endif %}
@@ -300,13 +309,21 @@
                 <div class="hidden mb-12 md:block md:col-span-3"></div>
                 <div class="col-span-12 mb-12 md:col-span-9 paragraph-centered">
                     <div class="text-xs md:text-sm max-w-[660px]">
-                        {% if article.metafields.custom.paragraph_2 %}
-                            {{ article.metafields.custom.paragraph_2 }}
-                        {% else %}
-                            {{ block.settings.paragraph-centered }}
+                        {% if article.metafields.custom.paragraph-centered %}
+                            {{ article.metafields.custom.paragraph-centered }}
                         {% endif %}
                     </div>
                 </div>
+
+            {%- when 'paragraph-centered-2' -%}
+                {% if article.metafields.custom.paragraph_2 %}
+                    <div class="hidden mb-12 md:block md:col-span-3"></div>
+                    <div class="col-span-12 mb-12 md:col-span-9 paragraph-centered">
+                        <div class="text-xs md:text-sm max-w-[660px]">
+                                {{ article.metafields.custom.paragraph_2 }}
+                        </div>
+                    </div>
+                {% endif %}
 
             {%- when 'large-offset-image' -%}
                 <div class="hidden mb-12 md:block md:col-span-3"></div>
@@ -790,8 +807,32 @@
       ]
     },
     {
+      "type": "large-quote-2",
+      "name": "Large Quote 2",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "large-quote",
+          "label": "Quote Text"
+        }
+      ]
+    },
+    {
       "type": "paragraph-centered",
       "name": "Paragraph Centered",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "paragraph-centered",
+          "label": "Content Paragraph (Centered)"
+        }
+      ]
+    },
+    {
+      "type": "paragraph-centered-2",
+      "name": "Paragraph Centered 2",
       "limit": 4,
       "settings": [
         {

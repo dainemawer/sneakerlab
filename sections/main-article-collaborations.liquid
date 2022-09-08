@@ -57,15 +57,17 @@
                                 height="{{ article.image.height }}"
                                 alt="{{ article.image.alt | escape }}"
                         >
-                        <a data-trigger-modal
-                           class="inline-flex items-center justify-start mt-4 text-xs transition-all play-video hover:opacity-50 focus:opacity-50 md:text-sm"
-                           role="button" aria-controls="modal" aria-expanded="false" href="#">
-                            <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black"/>
-                            </svg>
-                            Play video
-                        </a>
+                        {% if article.metafields.custom.modal_video_type and rticle.metafields.custom.modal_video_id %}
+                            <a data-trigger-modal
+                               class="inline-flex items-center justify-start mt-4 text-xs transition-all play-video hover:opacity-50 focus:opacity-50 md:text-sm"
+                               role="button" aria-controls="modal" aria-expanded="false" href="#">
+                                <svg class="mr-2" width="8" height="10" viewbox="0 0 8 10" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 5L0.5 9.33013L0.5 0.669872L8 5Z" fill="black"/>
+                                </svg>
+                                Play video
+                            </a>
+                        {% endif %}
                     </figure>
                 {% endif %}
 
@@ -74,8 +76,28 @@
                     assign left_quote = article.metafields.custom.left_quote
                 -%}
 
+                <div class="col-span-12 mb-5 md:col-span-6 md:mb-12">
+                    <div class="text-xl md:text-3xl {{ class }}">
+                        {% if left_quote %}
+                            {{ left_quote }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-span-12 mb-8 md:col-span-6 md:mb-12">
+                    <div class="text-xs md:text-sm max-w-[344px] text-left float-right">
+                        {% if article.metafields.custom.small_right_quote %}
+                            {{ article.metafields.custom.small_right_quote }}
+                        {% endif %}
+                    </div>
+                </div>
+
+            {%- when 'quote-section-2' -%}
                 {%- liquid
-                    if block.id == 'quote-section-2'
+                    assign left_quote = article.metafields.custom.left_quote_2
+                -%}
+
+                {%- liquid
+                    if 'quote-section-2'
                         assign class = 'max-w-[344px]'
                     else
                         assign class = ''
@@ -86,16 +108,13 @@
                     <div class="text-xl md:text-3xl {{ class }}">
                         {% if left_quote %}
                             {{ left_quote }}
-                        {% else %}
-                            Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to
-                            host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
                         {% endif %}
                     </div>
                 </div>
                 <div class="col-span-12 mb-8 md:col-span-6 md:mb-12">
                     <div class="text-xs md:text-sm max-w-[344px] text-left float-right">
-                        {% if article.metafields.custom.small_right_quote %}
-                            {{ article.metafields.custom.small_right_quote }}
+                        {% if article.metafields.custom.small_right_quote_2 %}
+                            {{ article.metafields.custom.small_right_quote_2 }}
                         {% endif %}
                     </div>
                 </div>
@@ -473,8 +492,9 @@
     {%- endif -%}
     {% endcomment %}
 </article>
-
+{% if article.metafields.custom.modal_video_type and rticle.metafields.custom.modal_video_id %}
 {% render 'modal', video_type: article.metafields.custom.modal_video_type, video_id: article.metafields.custom.modal_video_id %}
+{% endif %}
 
 <script>
     const CollaborationsFilter = () => {
@@ -622,6 +642,23 @@
     {
       "type": "quote-section",
       "name": "Quote Section",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote_paragraph",
+          "label": "Quote Paragraph Text (Larger Text)"
+        },
+        {
+          "type": "richtext",
+          "id": "small_paragraph",
+          "label": "Smaller Paragraph"
+        }
+      ]
+    },
+    {
+      "type": "quote-section-2",
+      "name": "Quote Section 2",
       "limit": 4,
       "settings": [
         {
