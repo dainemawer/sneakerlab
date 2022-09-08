@@ -98,6 +98,26 @@
                     </div>
                 </div>
 
+            {%- when 'quote-and-paragraph-2' -%}
+                <div class="col-span-12 mb-5 md:col-span-6 md:mb-12">
+                    <div class="text-xl md:text-3xl">
+                        {% if article.metafields.custom.second_large_quote %}
+                            {{ article.metafields.custom.second_large_quote }}
+                        {% else %}
+                            Sneaker Lab recently teamed up with DC Shoes and The_Ones,a social platform that celebrates women in sneaker culture,to host the launch of the limited E. Tribeka Vachetta shoe at our Los Angeles store.
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-span-12 mb-8 md:col-span-6 md:mb-12 quote-paragraph">
+                    <div class="max-w-[344px] md:float-right text-left">
+                        {% if article.metafields.custom.paragraph_2 %}
+                            {{ article.metafields.custom.paragraph_2 }}
+                        {% else %}
+                            The DC x The_ONES E. Tribeka Vachetta is made of premium untreatedleather that ages over time like an old baseball mitt. Buttery softand ready to be made yours. This limited edition sneaker comes witha Sneaker Lab Deluxe cleaning kit that includes all leather care essentials.
+                        {% endif %}
+                    </div>
+                </div>
+
             {%- when 'two-image-grid' -%}
                 <div class="col-span-12 mb-0 md:col-span-6 md:mb-12">
                     {% if article.metafields.custom.image_1 %}
@@ -688,6 +708,23 @@
       ]
     },
     {
+      "type": "quote-and-paragraph-2",
+      "name": "Quote with Paragraph 2",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote_paragraph",
+          "label": "Quote Paragraph Text (Larger Text)"
+        },
+        {
+          "type": "richtext",
+          "id": "small_paragraph",
+          "label": "Smaller Paragraph"
+        }
+      ]
+    },
+    {
       "type": "two-image-grid",
       "name": "Two Image Grid",
       "limit": 1,
@@ -838,7 +875,7 @@
           "type": "two-image-grid"
         },
         {
-          "type": "quote-and-paragraph"
+          "type": "quote-and-paragraph-2"
         },
         {
           "type": "content"
