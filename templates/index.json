@@ -5,7 +5,7 @@
       "settings": {
         "heading_line_1": "Sneaker Lab",
         "heading_line_2": "The Future Of",
-        "heading_line_2_subscript": "Engineering to clean, care for and protect your sneakers."
+        "heading_line_2_subscript": "Engineered to clean, care for and protect your sneakers."
       }
     },
     "three-column-image-grid": {
@@ -14,9 +14,9 @@
         "6329d168-d6b6-4142-ab2a-a3dd499cbf84": {
           "type": "image",
           "settings": {
-            "title": "Keep it clean. Make it last. Natural shoe care solutions",
+            "title": "Shop the Sneaker LAB x Nice Collaboration",
             "link": "shopify:\/\/collections\/shop",
-            "image": "shopify:\/\/shop_images\/520x712.jpg",
+            "image": "shopify:\/\/shop_images\/5.png",
             "hover_text": "View [Products]"
           }
         },
