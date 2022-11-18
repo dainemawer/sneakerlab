@@ -1,7 +1,7 @@
 {
   "sections": {
     "shop-main": {
-      "type": "shop-product-grid",
+      "type": "shop-product-grid-static",
       "settings": {
       }
     }
