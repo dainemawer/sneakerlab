@@ -47,7 +47,7 @@
         {%- endcomment -%}
         <div class="product__price__regular uppercase text-xs md:text-sm">
             <span class="visually-hidden visually-hidden--inline sr-only">{{ 'products.product.price.regular_price' | t }}</span>
-            {{ cart.currency.symbol }}{{ product.price }}
+            {{ cart.currency.symbol }}{{ money_price }}
         </div>
 
         <div class="product__price__sale uppercase text-xs md:text-sm">
