@@ -8,7 +8,54 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="{{ 'raleway.css' | asset_url }}" rel="stylesheet">
-<!-- TODO: Add Favicon -->
+
+{% comment %}<link href="{{ 'new-raleway.css' | asset_url }}" rel="stylesheet">{% endcomment %}
+{% comment %}<link rel="stylesheet" href="https://use.typekit.net/gin5wii.css">{% endcomment %}
+
+<style>
+    @font-face {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 200;
+        src: url({{ "Raleway-Thin.otf" | asset_url }}) format("opentype");
+    }
+
+    @font-face {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 300;
+        src: url({{ "Raleway-Light.otf" | asset_url }}) format("opentype");
+    }
+
+    @font-face {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 400;
+        src: url({{ "Raleway-Regular.otf" | asset_url }}) format("opentype");
+    }
+
+    @font-face {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 500;
+        src: url({{ "Raleway-Medium.otf" | asset_url }}) format("opentype");
+    }
+
+    @font-face {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 600;
+        src: url({{ "Raleway-SemiBold.otf" | asset_url }}) format("opentype");
+    }
+
+    @font-face {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        src: url({{ "Raleway-Bold.otf" | asset_url }}) format("opentype");
+    }
+
+</style>
 
 {% comment %}<link rel="shortcut icon" href="/public/favicon.svg" type="image/png">{% endcomment %}
 <meta name="theme-color" content="#fafafa">
