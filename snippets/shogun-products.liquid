@@ -18,6 +18,9 @@ This file can be re-written at any time.
 
 {% if cart and cart.currency and cart.currency.iso_code %}
   <script type="text/javascript">
+    {% if 'shopify' == 'shopify' %}
+      window.__shgMoneyFormat = window.__shgMoneyFormat || {"USD":{"currency":"USD","currency_symbol":"$","currency_symbol_location":"left","decimal_places":2,"decimal_separator":".","thousands_separator":","}};
+    {% endif %}
     window.__shgCurrentCurrencyCode = window.__shgCurrentCurrencyCode || {
       currency: "{{ cart.currency.iso_code }}",
       currency_symbol: "{{ cart.currency.symbol }}",
