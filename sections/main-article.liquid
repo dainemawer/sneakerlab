@@ -309,8 +309,8 @@
                 <div class="hidden mb-12 md:block md:col-span-3"></div>
                 <div class="col-span-12 mb-12 md:col-span-9 paragraph-centered">
                     <div class="text-xs md:text-sm max-w-[660px]">
-                        {% if article.metafields.custom.paragraph-centered %}
-                            {{ article.metafields.custom.paragraph-centered }}
+                        {% if article.metafields.custom.paragraph %}
+                            {{ article.metafields.custom.paragraph }}
                         {% endif %}
                     </div>
                 </div>
@@ -813,7 +813,7 @@
       "settings": [
         {
           "type": "richtext",
-          "id": "large-quote",
+          "id": "large-quote-2",
           "label": "Quote Text"
         }
       ]
