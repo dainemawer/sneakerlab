@@ -1,4 +1,5 @@
 {
+  "layout": "theme.maintenance.liquid",
   "sections": {
     "maintenance": {
       "type": "maintenance",
