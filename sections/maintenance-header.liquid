@@ -10,14 +10,7 @@
     <div class="menu-overlay"></div>
     <div class="flex flex-wrap justify-between px-4 lg:px-5 xl:container xl:mx-auto">
         <nav class="basis-2/6">
-            <ul class="flex">
-                <li class="inline-block text-base md:hidden">
-                    <a id="mobile-navigation-trigger" aria-controls="mobile-navigation" aria-expanded="false" href="#mobile-navigation" role="button">Menu</a>
-                </li>
-                <li class="hidden mr-6 text-sm md:inline-block"><a href="/collections/all/">Shop</a></li>
-                <li class="hidden mr-6 text-sm md:inline-block"><a href="/blogs/how-tos/">How To</a></li>
-                <li class="hidden text-sm md:inline-block"><a href="/blogs/collaborations/">Collaborations</a></li>
-            </ul>
+            
         </nav>
         <div class="flex justify-center basis-2/6">
             <a class="transition-all logo hover:opacity-50 focus:opacity-50" aria-label="SneakerLab" href="/">
@@ -42,59 +35,12 @@
             </a>
         </div>
         <nav class="flex justify-end basis-2/6">
-            <ul class="flex">
-                <li class="hidden mr-6 text-sm md:inline-block"><a href="#search" aria-expanded="false" aria-controls="search" data-id="js-trigger-search" role="button">Search</a></li>
-                <li class="inline-block mr-6 text-sm scale-75 md:hidden">
-                    <a aria-label="Search Sneaker Lab" data-id="js-trigger-search" href="#search" role="button" aria-expanded="false" aria-controls="search">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 stroke-1" viewbox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                  clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </li>
-                <li class="hidden mr-6 text-sm md:inline-block">
-                    {%- if customer -%}
-                        <a
-                            aria-expanded="false"
-                            aria-controls="account-modal"
-                            role="button"
-                            data-logged-in="{%- if customer -%}true{%- else -%}false{%- endif -%}"
-                            href="{{ routes.account_url }}"
-                        >
-                            My Account
-                        </a>
-                    {%- else -%}
-                        <a
-                            data-id="js-account-trigger"
-                            aria-expanded="false"
-                            aria-controls="account-modal"
-                            role="button"
-                            data-logged-in="{%- if customer -%}true{%- else -%}false{%- endif -%}"
-                        >
-                            Account
-                        </a>
-                    {%- endif -%}
-                </li>
-                <li class="text-sm">
-                    <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-                        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-                            <div class="cart-count-bubble">
-                                {%- if cart.item_count < 300 -%}
-                                    <span aria-hidden="true">Cart<sup id="cart-count">{{ cart.item_count }}</sup></span>
-                                {%- endif -%}
-                                <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-                            </div>
-                    </a>
-                </li>
-            </ul>
+            
         </nav>
         <div id="search-color" class="w-full fixed left-0 top-0 bg-[#fff] mt-8">
-            {% render 'header-search' %}
+            
         </div>
     </div>
-    {% render 'header-navigation' %}
-    {% render 'account-modal' %}
 </header>
 
 {%- render 'cart-notification' -%}
