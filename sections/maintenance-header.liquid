@@ -12,7 +12,7 @@
         <nav class="basis-2/6">
             
         </nav>
-        <div class="flex justify-center basis-2/6">
+        <div style="filter: invert(1);" class="flex justify-center basis-2/6">
             <a class="transition-all logo hover:opacity-50 focus:opacity-50" aria-label="SneakerLab" href="/">
                 <svg width="24" height="24" class="block logo lg:hidden" fill="none" xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 25 24">
@@ -43,35 +43,3 @@
     </div>
 </header>
 
-{%- render 'cart-notification' -%}
-
-<script>
-    const about_url = '/pages/about'
-    const contact_url = '/pages/contact'
-    const search = document.getElementById("menu-bg");
-    const border_bottom = document.getElementById("search");
-    const about_close = document.getElementById("close-search");
-    const search_text = document.getElementById("query");
-    const search_color = document.getElementById("search-color");
-    if (window.location.pathname === about_url) {
-        search.classList.add('bg-black' )
-        search.classList.add('menu-blur-dark')
-        border_bottom.classList.add('border-b', 'border-white' )
-        search_text.classList.add('text-white')
-        about_close.classList.add('invert')
-        search_color.classList.remove('bg-[#fff]')
-        search_color.classList.add('bg-[#000]', 'opacity-100')
-    } if (window.location.pathname === contact_url) {
-        search.classList.add('bg-black')
-        search.classList.add('menu-blur-dark')
-        border_bottom.classList.add('border-b', 'border-white')
-        search_text.classList.add('text-white')
-        about_close.classList.add('invert')
-        search_color.classList.remove('bg-[#fff]')
-        search_color.classList.add('bg-[#000]', 'opacity-100')
-    } else {
-        search.classList.add('bg-transparent')
-        search_text.classList.add('text-black')
-        search.classList.add('menu-blur')
-    }
-</script>
