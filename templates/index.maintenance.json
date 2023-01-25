@@ -1,0 +1,94 @@
+{
+  "sections": {
+    "hero": {
+      "type": "home-hero",
+      "settings": {
+        "heading_line_1": "Sneaker Lab",
+        "heading_line_2": "The Future Of",
+        "heading_line_2_subscript": "Engineered to clean, care for and protect your sneakers."
+      }
+    },
+    "three-column-image-grid": {
+      "type": "three-column-image-grid",
+      "blocks": {
+        "6329d168-d6b6-4142-ab2a-a3dd499cbf84": {
+          "type": "image",
+          "settings": {
+            "title": "Shop the Sneaker LAB x Nice Collaboration",
+            "link": "shopify:\/\/collections\/shop",
+            "image": "shopify:\/\/shop_images\/5.png",
+            "hover_text": "View [Products]"
+          }
+        },
+        "cbea314f-f00c-427d-ac1b-fd27e998caa9": {
+          "type": "image",
+          "settings": {
+            "title": "Here's the best way to clean your nike dunk lows",
+            "link": "shopify:\/\/blogs\/how-to\/how-to-clean-nike-dunk-michigan",
+            "image": "shopify:\/\/shop_images\/custom_resized_2c9c4dd3-938b-428f-bb31-d09ebc3b8f81.jpg",
+            "hover_text": "View [How To Blog]"
+          }
+        },
+        "106a1f1e-9647-46ea-942b-1bfd9172a848": {
+          "type": "image",
+          "settings": {
+            "title": "Better for your sneakers, better for your earth.",
+            "link": "shopify:\/\/collections\/all",
+            "image": "shopify:\/\/shop_images\/custom_resized_057c3b1b-01af-4406-a0f8-c342465d49c5.jpg",
+            "hover_text": "View [products]"
+          }
+        }
+      },
+      "block_order": [
+        "6329d168-d6b6-4142-ab2a-a3dd499cbf84",
+        "cbea314f-f00c-427d-ac1b-fd27e998caa9",
+        "106a1f1e-9647-46ea-942b-1bfd9172a848"
+      ],
+      "settings": {
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "featured_products": [
+          "sneaker-wipes-12-pack-box",
+          "premium-kit",
+          "deluxe-kit",
+          "sneaker-cleaner"
+        ]
+      }
+    },
+    "commitment": {
+      "type": "home-commitment",
+      "settings": {
+        "text": "AT SNEAKER LAB WE ARE COMMITTED TO BEING AS ENVIRONMENTALLY FRIENDLY AS WE CAN."
+      }
+    },
+    "featured-collaborations": {
+      "type": "featured-collaborations",
+      "settings": {
+        "collaborations_title": "Collaborations",
+        "collaborations_count": "03",
+        "collaborations_large_featured_article": "collaborations\/nice-x-sneaker-lab",
+        "collaborations_medium_1_featured_article": "collaborations\/new-balance",
+        "collaborations_medium_2_featured_article": "collaborations\/new-balance",
+        "collaborations_description": "<p>See our latest limited edition brand collaborations including, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">New Balance<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Fila<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Eytys<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Reebok<\/a> and <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Axel Arigato<\/a>.<\/p>",
+        "collaborations_view_all_link_text": "View All",
+        "collaborations_view_all_link_url": "shopify:\/\/blogs\/collaborations"
+      }
+    },
+    "featured-stories": {
+      "type": "featured-stories",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "three-column-image-grid",
+    "featured-products",
+    "commitment",
+    "featured-collaborations",
+    "featured-stories"
+  ]
+}
