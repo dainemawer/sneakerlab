@@ -1,13 +1,94 @@
 {
-  "layout": "theme.maintenance",
   "sections": {
-    "maintenance": {
-      "type": "maintenance",
+    "hero": {
+      "type": "home-hero",
+      "settings": {
+        "heading_line_1": "Sneaker Lab",
+        "heading_line_2": "The Future Of",
+        "heading_line_2_subscript": "Engineered to clean, care for and protect your sneakers."
+      }
+    },
+    "three-column-image-grid": {
+      "type": "three-column-image-grid",
+      "blocks": {
+        "6329d168-d6b6-4142-ab2a-a3dd499cbf84": {
+          "type": "image",
+          "settings": {
+            "title": "Dior x Sneaker LAB",
+            "link": "https:\/\/www.sneakerlab.com\/blogs\/collaborations\/dior-x-sneaker-lab-collaboration",
+            "image": "shopify:\/\/shop_images\/DIOR_x_Sneaker_LAB_Shoot-01.jpg",
+            "hover_text": "View [COLLAB]"
+          }
+        },
+        "cbea314f-f00c-427d-ac1b-fd27e998caa9": {
+          "type": "image",
+          "settings": {
+            "title": "Introducing: Apparel Care",
+            "link": "shopify:\/\/blogs\/news\/introducing-sneaker-labs-apparel-care-elevate-your-apparel-care-routine",
+            "image": "shopify:\/\/shop_images\/Untitled_design_15.png",
+            "hover_text": "View [Apparel Care]"
+          }
+        },
+        "106a1f1e-9647-46ea-942b-1bfd9172a848": {
+          "type": "image",
+          "settings": {
+            "title": "Better for your sneakers, better for your earth.",
+            "link": "https:\/\/www.sneakerlab.com\/blogs\/stories\/better-for-your-sneakers-better-for-your-earth",
+            "image": "shopify:\/\/shop_images\/DSC09649_SPRAY_982d7732-78bc-4167-94a7-9b874f9926a0.jpg",
+            "hover_text": "View [story]"
+          }
+        }
+      },
+      "block_order": [
+        "6329d168-d6b6-4142-ab2a-a3dd499cbf84",
+        "cbea314f-f00c-427d-ac1b-fd27e998caa9",
+        "106a1f1e-9647-46ea-942b-1bfd9172a848"
+      ],
+      "settings": {
+      }
+    },
+    "featured-products": {
+      "type": "featured-products",
+      "settings": {
+        "featured_products": [
+          "sneaker-wipes-12-pack-box",
+          "premium-kit",
+          "sneaker-cleaner",
+          "basic-kit"
+        ]
+      }
+    },
+    "commitment": {
+      "type": "home-commitment",
+      "settings": {
+        "text": "AT SNEAKER LAB WE ARE COMMITTED TO BEING AS ENVIRONMENTALLY FRIENDLY AS WE CAN."
+      }
+    },
+    "featured-collaborations": {
+      "type": "featured-collaborations",
+      "settings": {
+        "collaborations_title": "Collaborations",
+        "collaborations_count": "03",
+        "collaborations_large_featured_article": "collaborations\/sneaker-lab-x-new-balance-partnership",
+        "collaborations_medium_1_featured_article": "collaborations\/sneaker-freaker-x-sneaker-lab",
+        "collaborations_medium_2_featured_article": "news\/nice-x-sneaker-lab-collab",
+        "collaborations_description": "<p>See our latest limited edition brand collaborations including, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">New Balance<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Fila<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Eytys<\/a>, <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Reebok<\/a> and <a href=\"\/blogs\/collaborations\/\" title=\"\/blogs\/collaborations\/\">Axel Arigato<\/a>.<\/p>",
+        "collaborations_view_all_link_text": "View All",
+        "collaborations_view_all_link_url": "shopify:\/\/blogs\/collaborations"
+      }
+    },
+    "featured-stories": {
+      "type": "featured-stories",
       "settings": {
       }
     }
   },
   "order": [
-    "maintenance"
+    "hero",
+    "three-column-image-grid",
+    "featured-products",
+    "commitment",
+    "featured-collaborations",
+    "featured-stories"
   ]
 }
