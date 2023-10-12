@@ -1,6 +1,6 @@
-<div>
-  {{ section.settings.enable_ticker }}
-</div>
+{% if section.settings.enable_ticker %}
+  <div class="ticker-wrapper">{{ section.settings.enable_ticker }} HIII</div>
+{% endif %}
 
 {% schema %}
 {
