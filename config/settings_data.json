@@ -206,6 +206,12 @@
         "type": "foot",
         "settings": {
         }
+      },
+      "ticker": {
+        "type": "ticker",
+        "settings": {
+          "enable_ticker": true
+        }
       }
     },
     "content_for_index": [
