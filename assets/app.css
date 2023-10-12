@@ -2944,7 +2944,7 @@ sup {
     -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
     width: 100%;
-    position: fixed !important;
+    position: absolute !important;
   }
 
   .menu-blur-dark {
@@ -2952,7 +2952,7 @@ sup {
     -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
     width: 100%;
-    position: fixed !important;
+    position: absolute !important;
   }
 }
 
