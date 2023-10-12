@@ -4095,7 +4095,7 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
-#shopify-section-ticker {
+.ticker-wrapper {
   position: absolute;
   height: 32px;
   width: 100%;
