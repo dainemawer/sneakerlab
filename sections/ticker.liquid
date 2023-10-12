@@ -1,8 +1,19 @@
+{% for block in section.blocks %}
+  {{ block.settings.setting }}
+{% endfor %}
+
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Ticker Settings",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_ticker",
+      "label": "Enable Ticker",
+      "default": false
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}
