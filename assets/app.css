@@ -4097,6 +4097,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .ticker-wrapper {
   position: absolute;
+  display: contents;
   height: 32px;
   width: 100%;
 }
