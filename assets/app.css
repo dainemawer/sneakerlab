@@ -4094,3 +4094,9 @@ input[type="search"]::-webkit-search-results-decoration {
     flex-direction: row;
   }
 }
+
+.ticker-wrapper {
+  position: absolute;
+  height: 32px;
+  width: 100%;
+}
