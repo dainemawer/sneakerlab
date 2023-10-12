@@ -41,32 +41,40 @@ This file can be re-written at any time.
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
-
-
     {% comment %}
       {{ 'base.css' | asset_url | stylesheet_tag }}
     {% endcomment %}
 
-    {{ "app.css" | asset_url | stylesheet_tag }}
+    {{ 'app.css' | asset_url | stylesheet_tag }}
 
-    {% if page_title == 'About' or request.page_type == '404' or page_title == 'Contact' or page_title == 'Become a stockist' %}
+    {% if page_title == 'About'
+      or request.page_type == '404'
+      or page_title == 'Contact'
+      or page_title == 'Become a stockist'
+    %}
       {%- liquid
         assign color_scheme = 'page-inverted'
       %}
     {% endif %}
 
     {%- if settings.predictive_search_enabled -%}
-      <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link
+        rel="stylesheet"
+        href="{{ 'component-predictive-search.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
     {%- endif -%}
 
-    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-    if (Shopify.designMode) {
-      document.documentElement.classList.add('shopify-design-mode');
-    }
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
     </script>
 
-  {% render 'shogun-head' %}
-
+    {% render 'shogun-head' %}
+  
 </head>
 
 
@@ -143,6 +151,7 @@ This file can be re-written at any time.
       // Marquee()
     </script>
 <script>
+      
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
         cart_add_url: '{{ routes.cart_add_url }}',
@@ -168,6 +177,7 @@ This file can be re-written at any time.
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
       }
+
     </script>
 <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
   <style type="text/css">
