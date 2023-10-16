@@ -13,11 +13,14 @@
 
   <script>
     let odometer1 = document.querySelector('.odometer1');
-    let mobileMenuButton = document.querySelector('#mobile-navigation-trigger');
 
-    mobileMenuButton.addEventListener('click', function () {
-      let odometer1 = document.querySelector('.ticker-wrapper');
-      odometer1.classList.add('hidden');
+    document.addEventListener('DOMContentLoaded', function () {
+      let mobileMenuButton = document.querySelector('#mobile-navigation-trigger');
+
+      mobileMenuButton.addEventListener('click', function () {
+        let odometer1 = document.querySelector('.ticker-wrapper');
+        odometer1.classList.add('hidden');
+      });
     });
 
     // var el = document.querySelector('.odometer1');
