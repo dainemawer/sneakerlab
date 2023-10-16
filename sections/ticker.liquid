@@ -4,7 +4,7 @@
   <div class="ticker-wrapper">
     {{ section.settings.enable_ticker }}
 
-    <div class="odometer1" style="display: inline-block">0</div>
+    <div class="odometer1" style="display: inline-block"></div>
 
     <div class="stats-subtitle-message">
       {{ section.settings['subtitle-message'] }}
@@ -22,7 +22,6 @@
 
     od = new Odometer({
       el: odometer1,
-      value: 000000,
     });
 
     setTimeout(function() {
