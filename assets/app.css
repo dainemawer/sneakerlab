@@ -4107,6 +4107,14 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .odometer-digit {
-  padding: 0 1px;
-  margin: 0 1px;
+    padding: 0 1px;
+    margin: 0 2px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    width: 20px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+
 }
