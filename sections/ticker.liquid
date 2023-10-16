@@ -15,11 +15,14 @@
      let odometer1 = document.querySelector('.odometer1');
 
     // var el = document.querySelector('.odometer1');
+    window.odometerOptions = {
+      format: '(,ddd).dd',
+      animation: 'count'
+    }
 
     od = new Odometer({
       el: odometer1,
-      value: 0,
-      format: '(,ddd).dd',
+      value: 000000,
     });
 
     setTimeout(function() {
