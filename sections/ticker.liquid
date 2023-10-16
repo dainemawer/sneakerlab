@@ -1,5 +1,8 @@
 {% if section.settings.enable_ticker %}
-  <div class="ticker-wrapper">{{ section.settings.enable_ticker }} HIII</div>
+  <div class="ticker-wrapper">
+    {{ section.settings.enable_ticker }}
+    {{ section.settings.message }}
+  </div>
 {% endif %}
 
 {% schema %}
