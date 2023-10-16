@@ -13,8 +13,6 @@
   <script>
      let odometer1 = document.querySelector('.odometer1');
 
-    console.log(stat1.value);
-
     // var el = document.querySelector('.odometer1');
     window.odometerOptions = {
       format: '(,ddd)',
@@ -28,7 +26,7 @@
     setTimeout(function() {
       let stat1 = document.querySelector('#stat-1');
       let odometer1 = document.querySelector('.odometer1');
-      odometer1.innerHTML = stat1
+      odometer1.innerHTML = stat1.value
     }, 200)
   </script>
 {% endif %}
