@@ -1,7 +1,10 @@
 {% if section.settings.enable_ticker %}
   <div class="ticker-wrapper">
     {{ section.settings.enable_ticker }}
-    {{ section.settings['subtitle-message'] }}
+
+    <div class="stats-subtitle-message">
+      {{ section.settings['subtitle-message'] }}
+    </div>
   </div>
 {% endif %}
 
