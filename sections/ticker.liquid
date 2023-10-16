@@ -12,9 +12,9 @@
   </div>
 
   <script>
-     let odometer1 = document.querySelector('.odometer');
-    odometer1.innerHTML = 0
-    var el = document.querySelector('.some-element');
+    //  let odometer1 = document.querySelector('.odometer');
+    // odometer1.innerHTML = 0
+    var el = document.querySelector('.odometer');
 
     od = new Odometer({
       el: el,
@@ -24,10 +24,6 @@
       // format: '',
       // theme: 'minimal'
     });
-
-    od.update(555)
-    // or
-    el.innerHTML = 555
 
     setTimeout(function() {
       let odometer1 = document.querySelector('.odometer');
