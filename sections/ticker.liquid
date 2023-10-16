@@ -1,6 +1,6 @@
 {% if section.settings.enable_ticker %}
   <link rel="stylesheet" href="{{ odometer-theme-minimal.css | asset_url }}">
-  <script src="{{ odometer.min.js | asset_url }}"></script>
+  <script src="{{ odometer.min.js | asset_url }}" async></script>
   <div class="ticker-wrapper">
     {{ section.settings.enable_ticker }}
 
