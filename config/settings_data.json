@@ -210,7 +210,8 @@
       "ticker": {
         "type": "ticker",
         "settings": {
-          "enable_ticker": true
+          "enable_ticker": true,
+          "message": "testing 1234"
         }
       }
     },
