@@ -4,7 +4,7 @@
   <div class="ticker-wrapper">
     {{ section.settings.enable_ticker }}
 
-    <div class="odometer" style="display: inline-block"></div>
+    <div class="odometer1" style="display: inline-block"></div>
 
     <div class="stats-subtitle-message">
       {{ section.settings['subtitle-message'] }}
@@ -14,7 +14,7 @@
   <script>
     //  let odometer1 = document.querySelector('.odometer');
     // odometer1.innerHTML = 0
-    var el = document.querySelector('.odometer');
+    var el = document.querySelector('.odometer1');
 
     od = new Odometer({
       el: el,
@@ -26,7 +26,7 @@
     });
 
     setTimeout(function() {
-      let odometer1 = document.querySelector('.odometer');
+      let odometer1 = document.querySelector('.odometer1');
       odometer1.innerHTML = 1234000
     }, 2000)
   </script>
