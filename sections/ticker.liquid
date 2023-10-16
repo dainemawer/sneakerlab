@@ -2,6 +2,7 @@
   {{ 'odometer-theme-minimal.css' | asset_url | stylesheet_tag }}
   {{ 'odometer.min.js' | asset_url | script_tag }}
   <div class="ticker-wrapper">
+    <input hidden id="stat-1" value="">
     <div class="odometer1" style="display: inline-block"></div>
 
     <div class="stats-subtitle-message">
