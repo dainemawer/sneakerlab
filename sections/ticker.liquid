@@ -12,7 +12,13 @@
   </div>
 
   <script>
-     let odometer1 = document.querySelector('.odometer1');
+    let odometer1 = document.querySelector('.odometer1');
+    let mobileMenuButton = document.querySelector('#mobile-navigation-trigger');
+
+    mobileMenuButton.addEventListener('click', function () {
+      let odometer1 = document.querySelector('.odometer1');
+      odometer1.classList.add('hidden');
+    });
 
     // var el = document.querySelector('.odometer1');
     window.odometerOptions = {
