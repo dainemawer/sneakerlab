@@ -4120,6 +4120,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .odometer-ribbon-inner,
 .odometer-digit-inner,
+.odometer-digit-spacer,
 .odometer-ribbon,
 .odometer-value {
   text-align: center;
