@@ -4118,10 +4118,11 @@ input[type="search"]::-webkit-search-results-decoration {
     line-height: 30px;
 }
 
+.odometer-inside,
 .odometer-ribbon-inner,
 .odometer-digit-inner,
 .odometer-digit-spacer,
 .odometer-ribbon,
 .odometer-value {
-  text-align: center;
+  text-align: center !important;
 }
