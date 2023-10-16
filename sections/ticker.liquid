@@ -14,6 +14,20 @@
   <script>
      let odometer1 = document.querySelector('.odometer');
     odometer1.innerHTML = 0
+    var el = document.querySelector('.some-element');
+
+    od = new Odometer({
+      el: el,
+      value: 000000,
+
+      // Any option (other than auto and selector) can be passed in here
+      // format: '',
+      // theme: 'minimal'
+    });
+
+    od.update(555)
+    // or
+    el.innerHTML = 555
 
     setTimeout(function() {
       let odometer1 = document.querySelector('.odometer');
