@@ -1,6 +1,6 @@
 {% if section.settings.enable_ticker %}
-  {{ odometer-theme-minimal.css | asset_url | stylesheet_tag }}
-  {{ odometer.min.js | asset_url | script_tag }}
+  {{ 'odometer-theme-minimal.css' | asset_url | stylesheet_tag }}
+  {{ 'odometer.min.js' | asset_url | script_tag }}
   <div class="ticker-wrapper">
     {{ section.settings.enable_ticker }}
 
