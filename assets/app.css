@@ -4101,3 +4101,7 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 32px;
   width: 100%;
 }
+
+.hidden {
+  display: none;
+}
