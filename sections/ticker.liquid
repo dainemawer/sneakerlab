@@ -1,7 +1,7 @@
 {% if section.settings.enable_ticker %}
   <div class="ticker-wrapper">
     {{ section.settings.enable_ticker }}
-    {{ section.settings.message }}
+    {{ section.settings['subtitle-message'] }}
   </div>
 {% endif %}
 
@@ -17,8 +17,13 @@
     },
     {
       "type": "text",
-      "id": "message",
-      "label": "Message"
+      "id": "subtitle-message",
+      "label": "Sub Title Message"
+    },
+    {
+      "type": "text",
+      "id": "stat-1-text",
+      "label": "Stat 1 Text (Right Hand Side)"
     }
   ]
 }
