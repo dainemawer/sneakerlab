@@ -17,6 +17,16 @@
     defer
   ></script>
   <div class="ticker-wrapper">
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide">0</li>
+          <li class="glide__slide">1</li>
+          <li class="glide__slide">2</li>
+        </ul>
+      </div>
+    </div>
+
     {% for block in section.blocks %}
       <input hidden id="stat-{{ forloop.index }}" value="{{ block.settings.stat-number }}">
       <div data-target="stat-{{ forloop.index }}" class="odometer" style="display: inline-block"></div>
