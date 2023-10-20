@@ -4,7 +4,7 @@
   <div class="ticker-wrapper">
     {% for block in section.blocks %}
       <input hidden id="{{ forloop.index }}" value="{{ block.settings.stat-number }}">
-      <div data-target="{{ forloop.index }}" class="odometer1" style="display: inline-block"></div>
+      <div data-target="{{ forloop.index }}" class="odometer" style="display: inline-block"></div>
       <div>{{ block.settings['stat-text'] }}</div>
     {% endfor %}
 
@@ -28,10 +28,11 @@
       animation: 'count'
     }
 
-    let odometer1 = document.querySelectorAll('.odometer');
-
-    od = new Odometer({
-      el: odometer1,
+    let odometers = document.querySelectorAll('.odometer');
+    odometers.forEach((odometer) => {
+      new Odometer({
+        el: odometer
+      });
     });
 
     setTimeout(function() {
