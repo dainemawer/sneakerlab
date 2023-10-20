@@ -3,8 +3,8 @@
   {{ 'odometer.min.js' | asset_url | script_tag }}
   <div class="ticker-wrapper">
     {% for block in section.blocks %}
-      <input hidden id="{{ block.settings.stat-text }}" value="{{ block.settings.stat-number }}">
-      <div class="odometer1" style="display: inline-block"></div>
+      <input hidden id="{{ forloop.index }}" value="{{ block.settings.stat-number }}">
+      <div data-target="{{ forloop.index }}" class="odometer1" style="display: inline-block"></div>
       <div>{{ block.settings['stat-text'] }}</div>
     {% endfor %}
 
