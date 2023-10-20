@@ -89,7 +89,7 @@
         dragThreshold: false,
         swipeThreshold: false,
         rewind: false
-      }).on("build.after", function () {
+      }).on("build.after", function (glide) {
           // Fix height calculation
           slides.forEach((s) => {
             s.style.height = containerHeight / perView + "px"
