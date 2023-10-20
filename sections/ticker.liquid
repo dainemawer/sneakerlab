@@ -1,6 +1,6 @@
 {% if section.settings.enable_ticker %}
   {{ 'odometer-theme-minimal.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'odometer.min.js' | asset_url }}" defer></script>
+  {{ 'odometer.min.js' | asset_url | script_tag }}
   <div class="ticker-wrapper">
     {% for block in section.blocks %}
       <input hidden id="stat-{{ forloop.index }}" value="{{ block.settings.stat-number }}">
@@ -47,7 +47,7 @@
 
         odometer.innerHTML = stat.value;
       });
-    }, 400)
+    }, 200)
   </script>
 {% endif %}
 
