@@ -213,15 +213,15 @@
           "3670b47f-9630-4b42-97c2-e93bd49c2a26": {
             "type": "stat",
             "settings": {
-              "stat-1-text": "Kg of waste recycled",
-              "stat-1-number": 200000
+              "stat-text": "test",
+              "stat-number": 234234
             }
           },
           "60a75fce-b355-4917-a494-110324c57a5f": {
             "type": "stat",
             "settings": {
-              "stat-1-text": "Kg of waste recycled 2",
-              "stat-1-number": 233334
+              "stat-text": "asdlfkjasldkf",
+              "stat-number": 239085720938
             }
           }
         },
@@ -231,11 +231,7 @@
         ],
         "settings": {
           "enable_ticker": true,
-          "subtitle-message": "Test subtitle message some text so I can see how long the message can be underneath the stats.",
-          "stat-1-text": "Kg of waste recycled",
-          "stat-1-number": 100000,
-          "stat-2-text": "Equivalent bottles removed",
-          "stat-2-number": 2035058
+          "subtitle-message": "Test subtitle message some text so I can see how long the message can be underneath the stats."
         }
       }
     },
