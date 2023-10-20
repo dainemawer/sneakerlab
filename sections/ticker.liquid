@@ -73,9 +73,10 @@
         });
       }, 200)
 
-      new Glide('.glide').mount({
-        type: 'slider'
-      })
+      new Glide('.glide', {
+        type: 'slider',
+        autoplay: true
+      }).mount()
     });
   </script>
 {% endif %}
