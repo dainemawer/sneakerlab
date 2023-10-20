@@ -2,6 +2,11 @@
   {{ 'odometer-theme-minimal.css' | asset_url | stylesheet_tag }}
   {{ 'odometer.min.js' | asset_url | script_tag }}
   <div class="ticker-wrapper">
+    {% for block in section.blocks %}
+      <div class="slide" {{ block.shopify_attributes }}>
+        {{ block.settings.image | image_url: width: 2048 | image_tag }}
+      </div>
+    {% endfor %}
     <input hidden id="stat-1" value="{{ section.settings.stat-1-number }}">
     <div class="odometer1" style="display: inline-block"></div>
     <div>{{ section.settings['stat-1-text'] }}</div>
@@ -64,13 +69,13 @@
        "settings": [
          {
            "type": "text",
-           "id": "stat-1-text",
+           "id": "stat-text",
            "label": "Stat Text"
          },
          {
            "type": "number",
-          "id": "stat-1-number",
-          "label": "Stat 1 Number for ticker"
+          "id": "stat-number",
+          "label": "Stat Number"
          }
        ]
      }
