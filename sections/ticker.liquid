@@ -53,7 +53,6 @@
     }
 
     .glide__slides {
-      border: 1px solid green;
       display: flex;
       flex-direction: column;
     }
@@ -119,6 +118,7 @@
         bound: true,
         dragThreshold: false,
         swipeThreshold: false,
+        dragDistance: false,
         rewind: false,
         hoverpause: false
       }).on("build.after", function () {
