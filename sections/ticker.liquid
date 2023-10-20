@@ -17,7 +17,7 @@
     defer
   ></script>
   <div class="ticker-wrapper">
-    <div class="glide" id="multi">
+    <div class="glide glide--vertical" id="multi">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides" id="ulContainer">
           <li class="glide__slide">0</li>
@@ -37,6 +37,37 @@
       {{ section.settings['subtitle-message'] }}
     </div>
   </div>
+
+  <style>
+        #multi {
+      height: 300px;
+    }
+
+    .glide {
+      overflow: hidden;
+    }
+
+    .glide__track {
+      display: flex;
+    }
+
+    .glide__slides {
+      border: 1px solid green;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .glide--vertical .glide__slides {
+      width: auto;
+      background: pink;
+      flex-direction: column;
+      transform: translate3d(0, 0, 0); /* Reset transform */
+    }
+
+    .glide--vertical .glide__slide {
+      display: block;
+    }
+  </style>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
