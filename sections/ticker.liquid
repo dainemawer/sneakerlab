@@ -145,11 +145,13 @@
 
           odometers.forEach((odometer) => {
             odometer.innerHTML = 0;
+
             let target = odometer.dataset.target
             let stat = document.getElementById(target);
 
             let odometerObject = new Odometer({
               el: odometer
+              value: 0
             });
 
             odometerObject.update(stat.value)
