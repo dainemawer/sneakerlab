@@ -79,24 +79,24 @@
         animation: 'count'
       }
 
-      let odometers = document.querySelectorAll('.odometer');
-      odometers.forEach((odometer) => {
-        new Odometer({
-          el: odometer
-        });
-      });
+      // let odometers = document.querySelectorAll('.odometer');
+      // odometers.forEach((odometer) => {
+      //   new Odometer({
+      //     el: odometer
+      //   });
+      // });
 
-        let odometers1 = document.querySelectorAll('.odometer');
+      //   let odometers1 = document.querySelectorAll('.odometer');
 
-        odometers1.forEach((odometer) => {
-          let target = odometer.dataset.target
-          console.log(odometer.dataset.target);
-          let stat = document.getElementById(target);
+      //   odometers1.forEach((odometer) => {
+      //     let target = odometer.dataset.target
+      //     console.log(odometer.dataset.target);
+      //     let stat = document.getElementById(target);
 
-          console.log(stat);
+      //     console.log(stat);
 
-          odometer.innerHTML = stat.value;
-        });
+      //     odometer.innerHTML = stat.value;
+      //   });
 
 
       const container = document.getElementById("multi")
