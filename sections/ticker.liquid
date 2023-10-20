@@ -1,6 +1,7 @@
 {% if section.settings.enable_ticker %}
   {{ 'odometer-theme-minimal.css' | asset_url | stylesheet_tag }}
-  {{ 'odometer.min.js' | asset_url | script_tag }}
+
+  <script src="{{ 'odometer.min.js' | asset_url }}" defer></script>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.min.css"
