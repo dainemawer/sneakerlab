@@ -34,9 +34,8 @@
         let odometer1 = document.querySelector('.ticker-wrapper');
         odometer1.classList.toggle('hidden');
       });
-    });
 
-    window.odometerOptions = {
+      window.odometerOptions = {
       format: '(,ddd)',
       animation: 'count'
     }
@@ -61,6 +60,7 @@
         odometer.innerHTML = stat.value;
       });
     }, 200)
+    });
   </script>
 {% endif %}
 
