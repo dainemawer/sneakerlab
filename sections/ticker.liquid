@@ -48,30 +48,32 @@
       });
 
       window.odometerOptions = {
-      format: '(,ddd)',
-      animation: 'count'
-    }
+        format: '(,ddd)',
+        animation: 'count'
+      }
 
-    let odometers = document.querySelectorAll('.odometer');
-    odometers.forEach((odometer) => {
-      new Odometer({
-        el: odometer
-      });
-    });
-
-    setTimeout(function() {
       let odometers = document.querySelectorAll('.odometer');
-
       odometers.forEach((odometer) => {
-        let target = odometer.dataset.target
-        console.log(odometer.dataset.target);
-        let stat = document.getElementById(target);
-
-        console.log(stat);
-
-        odometer.innerHTML = stat.value;
+        new Odometer({
+          el: odometer
+        });
       });
-    }, 200)
+
+      setTimeout(function() {
+        let odometers = document.querySelectorAll('.odometer');
+
+        odometers.forEach((odometer) => {
+          let target = odometer.dataset.target
+          console.log(odometer.dataset.target);
+          let stat = document.getElementById(target);
+
+          console.log(stat);
+
+          odometer.innerHTML = stat.value;
+        });
+      }, 200)
+
+      new Glide('.glide').mount({ Autoplay })
     });
   </script>
 {% endif %}
