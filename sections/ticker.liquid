@@ -14,8 +14,6 @@
   </div>
 
   <script>
-    let odometer1 = document.querySelector('.odometer1');
-
     document.addEventListener('DOMContentLoaded', function () {
       let mobileMenuButton = document.querySelector('#mobile-navigation-trigger');
 
@@ -25,20 +23,27 @@
       });
     });
 
-    // var el = document.querySelector('.odometer1');
     window.odometerOptions = {
       format: '(,ddd)',
       animation: 'count'
     }
+
+    let odometer1 = document.querySelectorAll('.odometer');
 
     od = new Odometer({
       el: odometer1,
     });
 
     setTimeout(function() {
-      let stat1 = document.querySelector('#stat-1');
-      let odometer1 = document.querySelector('.odometer1');
-      odometer1.innerHTML = stat1.value
+      let odometers = document.querySelectorAll('.odometer');
+
+      odometers.forEach((odometer) => {
+        let target = odometer.dataset.target
+        console.log(odometer.dataset.target);
+        let stat = document.querySelector('#' + target);
+
+        odometer.innerHTML = stat.vlue;
+      });
     }, 200)
   </script>
 {% endif %}
