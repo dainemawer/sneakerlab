@@ -39,8 +39,8 @@
   </div>
 
   <style>
-        #multi {
-      height: 300px;
+    #multi {
+      height: 54px;
     }
 
     .glide {
@@ -59,7 +59,6 @@
 
     .glide--vertical .glide__slides {
       width: auto;
-      background: pink;
       flex-direction: column;
       transform: translate3d(0, 0, 0); /* Reset transform */
     }
@@ -112,7 +111,7 @@
       const perView = 1
       const containerHeight = 54
 
-      var glide = new Glide('.glide', {
+      var glide = new Glide("#multi", {
         type: 'slider',
         autoplay: 5000,
         perView: perView,
