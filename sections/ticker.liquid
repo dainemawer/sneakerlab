@@ -148,7 +148,11 @@
             let target = odometer.dataset.target
             let stat = document.getElementById(target);
 
-            odometer.update(stat.value)
+            let odometerObject = new Odometer({
+              el: odometer
+            });
+
+            odometerObject.update(stat.value)
           });
       });
       glide.mount()
