@@ -20,19 +20,16 @@
     <div class="glide glide--vertical" id="multi">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides" id="ulContainer">
-          <li class="glide__slide">0</li>
-          <li class="glide__slide">1</li>
-          <li class="glide__slide">2</li>
-          <li class="glide__slide">3</li>
+          {% for block in section.blocks %}
+            <li class="glide__slide">
+              <input hidden id="stat-{{ forloop.index }}" value="{{ block.settings.stat-number }}">
+              <div data-target="stat-{{ forloop.index }}" class="odometer" style="display: inline-block"></div>
+              <div>{{ block.settings['stat-text'] }}</div>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </div>
-
-    {% for block in section.blocks %}
-      <input hidden id="stat-{{ forloop.index }}" value="{{ block.settings.stat-number }}">
-      <div data-target="stat-{{ forloop.index }}" class="odometer" style="display: inline-block"></div>
-      <div>{{ block.settings['stat-text'] }}</div>
-    {% endfor %}
 
     <div class="stats-subtitle-message">
       {{ section.settings['subtitle-message'] }}
