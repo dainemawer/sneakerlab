@@ -86,19 +86,19 @@
         });
       });
 
-      setTimeout(function() {
-        let odometers = document.querySelectorAll('.odometer');
+      // setTimeout(function() {
+      //   let odometers = document.querySelectorAll('.odometer');
 
-        odometers.forEach((odometer) => {
-          let target = odometer.dataset.target
-          console.log(odometer.dataset.target);
-          let stat = document.getElementById(target);
+      //   odometers.forEach((odometer) => {
+      //     let target = odometer.dataset.target
+      //     console.log(odometer.dataset.target);
+      //     let stat = document.getElementById(target);
 
-          console.log(stat);
+      //     console.log(stat);
 
-          odometer.innerHTML = stat.value;
-        });
-      }, 200)
+      //     odometer.innerHTML = stat.value;
+      //   });
+      // }, 200)
 
 
       const container = document.getElementById("multi")
@@ -142,6 +142,18 @@
           //     glide.go("=0")
           //   }
           // })
+      }).on("move.after", function () {
+          let odometers = document.querySelectorAll('.odometer');
+
+          odometers.forEach((odometer) => {
+            let target = odometer.dataset.target
+            console.log(odometer.dataset.target);
+            let stat = document.getElementById(target);
+
+            console.log(stat);
+
+            odometer.innerHTML = stat.value;
+          });
       });
       glide.mount()
     });
