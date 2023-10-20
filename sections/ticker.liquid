@@ -83,7 +83,12 @@
 
       new Glide('.glide', {
         type: 'slider',
-        autoplay: 5000
+        autoplay: 5000,
+        perView: perView,
+        bound: true,
+        dragThreshold: false,
+        swipeThreshold: false,
+        rewind: false
       }).on("build.after", function () {
           // Fix height calculation
           slides.forEach((s) => {
