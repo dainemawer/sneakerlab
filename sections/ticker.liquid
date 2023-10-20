@@ -73,10 +73,40 @@
         });
       }, 200)
 
+
+      const perView = 1
+      const containerHeight = 54
+
       new Glide('.glide', {
         type: 'slider',
         autoplay: 5000
-      }).mount()
+      }).on("build.after", function () {
+          // Fix height calculation
+          slides.forEach((s) => {
+            s.style.height = containerHeight / perView + "px"
+          })
+
+          // Update vertical translation
+          glide.on("run", function (move) {
+            console.log("glide.index", glide.index, glide.settings.direction)
+            var translateY = glide.index * (-100 / perView / (countSlides / perView))
+            // go to 0 when index is countSlides - perView
+            // if (glide?.index - 1 > countSlides - perView) {
+            //   glide.settings.direction="rtl"
+            //   translateY = 0;
+            // }
+            slidesContainer.style.transform = "translate3d(0, " + translateY + "% , 0)"
+          })
+
+          // Handle looping
+          // glide.on("move.after", function () {
+          //   if (glide.index === countSlides - perView) {
+          //     console.log("go to 0")
+          //     glide.go("=0")
+          //   }
+          // })
+        })
+        .mount()
     });
   </script>
 {% endif %}
