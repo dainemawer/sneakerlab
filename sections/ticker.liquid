@@ -6,7 +6,7 @@
       <input hidden id="{{ block.settings.stat-text }}" value="{{ block.settings.stat-number }}">
       <div class="odometer1" style="display: inline-block"></div>
       <div>{{ block.settings['stat-text'] }}</div>
-      {{ block }}
+      {{ block.settings }}
     {% endfor %}
 
     <div class="stats-subtitle-message">
