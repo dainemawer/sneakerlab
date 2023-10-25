@@ -117,7 +117,6 @@
 
           // Update vertical translation
           glide.on("run", function (move) {
-            console.log("glide.index", glide.index, glide.settings.direction)
             var translateY = glide.index * (-100 / perView / (countSlides / perView))
             // go to 0 when index is countSlides - perView
             // if (glide?.index - 1 > countSlides - perView) {
