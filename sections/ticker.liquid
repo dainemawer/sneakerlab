@@ -87,8 +87,10 @@
 
       let odometerObject = new Odometer({
           el: odometer,
-          value: stats[0].value,
+          value: 0,
       });
+
+      odometerObject.update(stats[0].value);
 
 
       const container = document.getElementById("multi")
