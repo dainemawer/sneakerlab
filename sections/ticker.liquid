@@ -17,20 +17,22 @@
     defer
   ></script>
   <div class="ticker-wrapper">
-    <div class="glide glide--vertical" id="multi">
-      <div class="glide__track" data-glide-el="track">
-        <ul class="glide__slides" id="ulContainer">
-          {% for block in section.blocks %}
-            <li class="glide__slide">
-              <input hidden id="stat-{{ forloop.index }}" class="stat-input" value="{{ block.settings.stat-number }}">
-              <div>{{ block.settings['stat-text'] }}</div>
-            </li>
-          {% endfor %}
-        </ul>
+    <div style="display: flex;">
+      <div class="glide glide--vertical" id="multi">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides" id="ulContainer">
+            {% for block in section.blocks %}
+              <li class="glide__slide">
+                <input hidden id="stat-{{ forloop.index }}" class="stat-input" value="{{ block.settings.stat-number }}">
+                <div>{{ block.settings['stat-text'] }}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="odometer" style="display: inline-block"></div>
+      <div class="odometer" style="display: inline-block"></div>
+    </div>
 
     <div class="stats-subtitle-message">
       {{ section.settings['subtitle-message'] }}
