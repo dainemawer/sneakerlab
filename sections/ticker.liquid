@@ -142,7 +142,7 @@
       }).on("run.after", function () {
           let odometer = document.querySelector('.odometer');
           odometer.innerHTML = 0;
-          let currentIndex = glide.index + 1;
+          let currentIndex = 'stat-' + (glide.index + 1);
 
           let stats = document.querySelectorAll('.stat-input');
 
@@ -153,9 +153,11 @@
 
           stats.forEach((statInput) => {
             let stat = statInput.value;
-            odometerObject.update(stat);
             let statId = statInput.id;
-            console.log(statId);
+
+            if (statId == currentIndex) {
+              odometerObject.update(stat);
+            }
           });
       });
       glide.mount()
