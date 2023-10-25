@@ -183,8 +183,8 @@
 
           // Update vertical translation
           glide.on("run", function (move) {
-            var translateY2 = glide.index * (-100 / perView / (countSlides2 / perView))
-            slidesContainer2.style.transform = "translate3d(0, " + translateY2 + "% , 0)"
+            var translateY = glide.index * (-100 / perView / (countSlides / perView))
+            slidesContainer2.style.transform = "translate3d(0, " + translateY + "% , 0)"
           })
       });
 
