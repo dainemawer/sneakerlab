@@ -4128,3 +4128,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .odometer-last-value {
   text-align: center !important;
 }
+
+.odometer-value {
+  width: 20px;
+}
