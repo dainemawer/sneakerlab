@@ -149,12 +149,11 @@
 
           let odometerObject = new Odometer({
               el: odometer,
-              value: 0
+              value: stats[0].value,
           });
 
           stats.forEach((statInput) => {
             let stat = statInput.value;
-            console.log(stat);
             odometerObject.update(stat);
           });
       });
