@@ -52,8 +52,7 @@
   </div>
 
   <style>
-    #multi,
-    #multi2 {
+    #multi {
       height: 54px;
     }
 
@@ -114,13 +113,9 @@
 
 
       const container = document.getElementById("multi");
-      const container2 = document.getElementById("multi2");
       const slidesContainer = document.getElementById("ulContainer");
-      const slidesContainer2 = document.getElementById("ulContainer2");
       const slides = slidesContainer.querySelectorAll(".glide__slide");
-      const slides2 = slidesContainer2.querySelectorAll(".glide__slide");
       const countSlides = slides.length;
-      const countSlides2 = slides2.length;
       const perView = 1;
       const containerHeight = 54;
 
@@ -166,30 +161,7 @@
           });
       });
 
-      var glide2 = new Glide("#multi2", {
-        type: 'slider',
-        autoplay: 5000,
-        perView: perView,
-        bound: true,
-        dragThreshold: false,
-        swipeThreshold: false,
-        dragDistance: false,
-        hoverpause: false
-      }).on("build.after", function () {
-          // Fix height calculation
-          slides2.forEach((s) => {
-            s.style.height = containerHeight / perView + "px"
-          })
-
-          // Update vertical translation
-          glide.on("run", function (move) {
-            slidesContainer2.style.transform = "translate3d(0, " + translateY + "% , 0)"
-          })
-      });
-
-
       glide.mount();
-      glide2.mount();
     });
   </script>
 {% endif %}
