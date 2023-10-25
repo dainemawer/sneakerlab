@@ -33,7 +33,17 @@
 
       <div style="min-width: 300px;" class="odometer" style="display: inline-block"></div>
 
-      <div style="min-width: 300px;"></div>
+      <div class="glide glide--vertical" id="multi2" style="width: 300px; text-align: right;">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides" id="ulContainer">
+            {% for block in section.blocks %}
+              <li class="glide__slide">
+                <div>{{ block.settings['stat-text-2'] }}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="stats-subtitle-message" style="text-align: center;">
