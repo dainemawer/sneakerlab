@@ -23,13 +23,14 @@
           {% for block in section.blocks %}
             <li class="glide__slide">
               <input hidden id="stat-{{ forloop.index }}" value="{{ block.settings.stat-number }}">
-              <div data-target="stat-{{ forloop.index }}" class="odometer" style="display: inline-block"></div>
               <div>{{ block.settings['stat-text'] }}</div>
             </li>
           {% endfor %}
         </ul>
       </div>
     </div>
+
+    <div data-target="stat-{{ forloop.index }}" class="odometer" style="display: inline-block"></div>
 
     <div class="stats-subtitle-message">
       {{ section.settings['subtitle-message'] }}
