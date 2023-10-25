@@ -113,12 +113,16 @@
       odometerObject.update(paddedString);
 
 
-      const container = document.getElementById("multi")
-      const slidesContainer = document.getElementById("ulContainer")
-      const slides = slidesContainer.querySelectorAll(".glide__slide")
-      const countSlides = slides.length
-      const perView = 1
-      const containerHeight = 54
+      const container = document.getElementById("multi");
+      const container2 = document.getElementById("multi2");
+      const slidesContainer = document.getElementById("ulContainer");
+      const slidesContainer2 = document.getElementById("ulContainer2");
+      const slides = slidesContainer.querySelectorAll(".glide__slide");
+      const slides2 = slidesContainer2.querySelectorAll(".glide__slide");
+      const countSlides = slides.length;
+      const countSlides2 = slides2.length;
+      const perView = 1;
+      const containerHeight = 54;
 
       var glide = new Glide("#multi", {
         type: 'slider',
@@ -186,28 +190,15 @@
         hoverpause: false
       }).on("build.after", function () {
           // Fix height calculation
-          slides.forEach((s) => {
+          slides2.forEach((s) => {
             s.style.height = containerHeight / perView + "px"
           })
 
           // Update vertical translation
           glide.on("run", function (move) {
-            var translateY = glide.index * (-100 / perView / (countSlides / perView))
-            // go to 0 when index is countSlides - perView
-            // if (glide?.index - 1 > countSlides - perView) {
-            //   glide.settings.direction="rtl"
-            //   translateY = 0;
-            // }
-            slidesContainer.style.transform = "translate3d(0, " + translateY + "% , 0)"
+            let translateY = glide.index * (-100 / perView / (countSlides2 / perView))
+            slidesContainer2.style.transform = "translate3d(0, " + translateY + "% , 0)"
           })
-
-          // Handle looping
-          // glide.on("move.after", function () {
-          //   if (glide.index === countSlides - perView) {
-          //     console.log("go to 0")
-          //     glide.go("=0")
-          //   }
-          // })
       });
 
       glide.mount();
