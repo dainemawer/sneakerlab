@@ -80,24 +80,15 @@
         animation: 'count'
       }
 
-      // let odometers = document.querySelectorAll('.odometer');
-      // odometers.forEach((odometer) => {
-      //   new Odometer({
-      //     el: odometer
-      //   });
-      // });
+      let odometer = document.querySelector('.odometer');
+      odometer.innerHTML = 0;
 
-      //   let odometers1 = document.querySelectorAll('.odometer');
+      let stats = document.querySelectorAll('.stat-input');
 
-      //   odometers1.forEach((odometer) => {
-      //     let target = odometer.dataset.target
-      //     console.log(odometer.dataset.target);
-      //     let stat = document.getElementById(target);
-
-      //     console.log(stat);
-
-      //     odometer.innerHTML = stat.value;
-      //   });
+      let odometerObject = new Odometer({
+          el: odometer,
+          value: stats[0].value,
+      });
 
 
       const container = document.getElementById("multi")
@@ -149,9 +140,8 @@
 
           let odometerObject = new Odometer({
               el: odometer,
-              value: stats[0].value,
+              value: 0,
           });
-        console.log(stats[0].value);
 
           stats.forEach((statInput) => {
             let stat = statInput.value;
