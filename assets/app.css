@@ -4123,6 +4123,8 @@ input[type="search"]::-webkit-search-results-decoration {
 .odometer-digit-inner,
 .odometer-digit-spacer,
 .odometer-ribbon,
-.odometer-value {
+.odometer-value,
+.odometer-first-value,
+.odometer-last-value {
   text-align: center !important;
 }
