@@ -95,8 +95,9 @@
           el: odometer,
           value: 0,
       });
+      let paddedString = String(stats[0].value).padStart(9, '0')
 
-      odometerObject.update(stats[0].value);
+      odometerObject.update(paddedString);
 
 
       const container = document.getElementById("multi")
