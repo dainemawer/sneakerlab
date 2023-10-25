@@ -173,7 +173,20 @@
             }
           });
       });
-      glide.mount()
+
+      var glide2 = new Glide("#multi2", {
+        type: 'slider',
+        autoplay: 5000,
+        perView: perView,
+        bound: true,
+        dragThreshold: false,
+        swipeThreshold: false,
+        dragDistance: false,
+        hoverpause: false
+      });
+
+      glide.mount();
+      glide2.mount();
     });
   </script>
 {% endif %}
