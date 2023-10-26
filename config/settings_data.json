@@ -223,11 +223,19 @@
               "stat-text": "asdlfkjasldkf",
               "stat-number": 239085720
             }
+          },
+          "30e00660-9f2a-4d02-a375-2df7a55293ef": {
+            "type": "stat",
+            "settings": {
+              "stat-text": "Some stat text",
+              "stat-number": 23479875
+            }
           }
         },
         "block_order": [
           "3670b47f-9630-4b42-97c2-e93bd49c2a26",
-          "60a75fce-b355-4917-a494-110324c57a5f"
+          "60a75fce-b355-4917-a494-110324c57a5f",
+          "30e00660-9f2a-4d02-a375-2df7a55293ef"
         ],
         "settings": {
           "enable_ticker": true,
