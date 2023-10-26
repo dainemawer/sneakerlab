@@ -50,7 +50,7 @@
 
     .ticker-right,
     .ticker-left {
-      min-width: 50px;
+      min-width: 80px;
     }
 
     @media(min-width: 600px) {
@@ -70,7 +70,7 @@
 
   <div class="ticker-wrapper">
     <div style="display: flex; justify-content: center; align-items: center;">
-      <div class="glide glide--vertical ticker-left" id="multi" style="width: 300px; text-align: right;">
+      <div class="glide glide--vertical ticker-left" id="multi" style="text-align: right;">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides" id="ulContainer">
             {% for block in section.blocks %}
