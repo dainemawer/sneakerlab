@@ -16,30 +16,6 @@
     referrerpolicy="no-referrer"
     defer
   ></script>
-  <div class="ticker-wrapper">
-    <div style="display: flex; justify-content: center; align-items: center;">
-      <div class="glide glide--vertical" id="multi" style="width: 300px; text-align: right;">
-        <div class="glide__track" data-glide-el="track">
-          <ul class="glide__slides" id="ulContainer">
-            {% for block in section.blocks %}
-              <li class="glide__slide">
-                <input hidden id="stat-{{ forloop.index }}" class="stat-input" value="{{ block.settings.stat-number }}">
-                <div>{{ block.settings['stat-text'] }}</div>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-
-      <div style="min-width: 300px;" class="odometer" style="display: inline-block"></div>
-
-      <div class="ticker-right-spacer"></div>
-    </div>
-
-    <div class="stats-subtitle-message" style="text-align: center;">
-      {{ section.settings['subtitle-message'] }}
-    </div>
-  </div>
 
   <style>
     #multi {
@@ -72,22 +48,50 @@
     }
 
 
-    .ticker-right-spacer {
+    .ticker-right,
+    .ticker-left {
       min-width: 50px;
     }
 
     @media(min-width: 600px) {
-      .ticker-right-spacer {
+      .ticker-right,
+      .ticker-left {
         min-width: 150px;
       }
     }
 
     @media(min-width: 1200px) {
-      .ticker-right-spacer {
+      .ticker-right,
+      .ticker-left {
         min-width: 300px;
       }
     }
   </style>
+
+  <div class="ticker-wrapper">
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <div class="glide glide--vertical ticker-left" id="multi" style="width: 300px; text-align: right;">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides" id="ulContainer">
+            {% for block in section.blocks %}
+              <li class="glide__slide">
+                <input hidden id="stat-{{ forloop.index }}" class="stat-input" value="{{ block.settings.stat-number }}">
+                <div>{{ block.settings['stat-text'] }}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div style="min-width: 300px;" class="odometer" style="display: inline-block"></div>
+
+      <div class="ticker-right"></div>
+    </div>
+
+    <div class="stats-subtitle-message" style="text-align: center;">
+      {{ section.settings['subtitle-message'] }}
+    </div>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
