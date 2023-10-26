@@ -33,7 +33,7 @@
 
       <div style="min-width: 300px;" class="odometer" style="display: inline-block"></div>
 
-      <div style="width: 300px;"></div>
+      <div class="ticker-right-spacer"></div>
     </div>
 
     <div class="stats-subtitle-message" style="text-align: center;">
@@ -69,6 +69,23 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+    }
+
+
+    .ticker-right-spacer {
+      min-width: 50px;
+    }
+
+    @media(min-width: 600px) {
+      .ticker-right-spacer {
+        min-width: 150px;
+      }
+    }
+
+    @media(min-width: 1200px) {
+      .ticker-right-spacer {
+        min-width: 300px;
+      }
     }
   </style>
 
