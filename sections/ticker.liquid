@@ -102,7 +102,18 @@
 
       <div class="odometer ticker-center" style="display: inline-block"></div>
 
-      <div class="ticker-right"></div>
+      <div class="glide glide--vertical  ticker-right" id="multi2" style="text-align: left;">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides" id="ulContainer">
+            {% for block in section.blocks %}
+              <li class="glide__slide">
+                <input hidden id="stat-{{ forloop.index }}" class="stat-input" value="{{ block.settings.stat-number }}">
+                <div>{{ block.settings['stat-text-2'] }}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="stats-subtitle-message" style="text-align: center;">
