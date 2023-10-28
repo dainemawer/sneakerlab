@@ -223,14 +223,18 @@
             s.style.height = containerHeight / perView + "px"
           })
 
+        glide.on("run.before", function () {
+          slidesContainer2.style.transform = "translate3d(0, " + translateY + "% , 0)";
+        });
+
           // Update vertical translation
           glide.on("run", function (move) {
-            // let translateY = glide.index * (-100 / perView / (countSlides2 / perView))
-            // slidesContainer2.style.transform = "translate3d(0, " + translateY + "% , 0)"
+            let translateY = glide.index * (-100 / perView / (countSlides2 / perView))
+            slidesContainer2.style.transform = "translate3d(0, " + translateY + "% , 0)";
           })
-      }).on("run.before", function () {
-        var translateY2 = glide.index * (-100 / perView / (countSlides2 / perView))
-            slidesContainer2.style.transform = "translate3d(0, " + translateY2 + "% , 0)"
+      }).on("run.after", function () {
+        // var translateY2 = glide.index * (-100 / perView / (countSlides2 / perView))
+        //     slidesContainer2.style.transform = "translate3d(0, " + translateY2 + "% , 0)"
       });
 
       glide.mount();
