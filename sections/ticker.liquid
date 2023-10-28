@@ -185,8 +185,10 @@
 
           // Update vertical translation
           glide.on("run", function (move) {
+            console.log(glide.index);
             var translateY = glide.index * (-100 / perView / (countSlides / perView))
             slidesContainer.style.transform = "translate3d(0, " + translateY + "% , 0)"
+            console.log('Translate Y: ' + translateY);
           })
       }).on("run.after", function () {
           let odometer = document.querySelector('.odometer');
@@ -230,6 +232,7 @@
             console.log(glide.index);
             var translateY2 = glide.index * (-100 / perView / (countSlides2 / perView))
             slidesContainer2.style.transform = "translate3d(0, " + translateY2 + "% , 0)"
+            console.log('Translate Y 2: ' + translateY2);
           })
       });
 
