@@ -90,20 +90,18 @@
 
   <div class="ticker-wrapper">
     <div style="display: flex; justify-content: center; align-items: center;">
-      <!--
-        <div class="glide glide--vertical ticker-left" id="multi" style="text-align: right;">
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides" id="ulContainer">
-              {% for block in section.blocks %}
-                <li class="glide__slide">
-                  <input hidden id="stat-{{ forloop.index }}" class="stat-input" value="{{ block.settings.stat-number }}">
-                  <div>{{ block.settings['stat-text'] }}</div>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
+      <div class="glide glide--vertical ticker-left" id="multi" style="text-align: right;">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides" id="ulContainer">
+            {% for block in section.blocks %}
+              <li class="glide__slide">
+                <input hidden id="stat-{{ forloop.index }}" class="stat-input" value="{{ block.settings.stat-number }}">
+                <div>{{ block.settings['stat-text'] }}</div>
+              </li>
+            {% endfor %}
+          </ul>
         </div>
-      -->
+      </div>
 
       <div class="odometer ticker-center" style="display: inline-block"></div>
 
@@ -140,77 +138,77 @@
         duration: 10000
       }
 
-      // let odometer = document.querySelector('.odometer');
-      // odometer.innerHTML = 0;
+      let odometer = document.querySelector('.odometer');
+      odometer.innerHTML = 0;
 
-      // let stats = document.querySelectorAll('.stat-input');
+      let stats = document.querySelectorAll('.stat-input');
 
-      // let odometerObject = new Odometer({
-      //     el: odometer,
-      //     value: 0,
-      //     minIntegerLen: 9
-      // });
-      // let paddedString = String(stats[0].value).padStart(9, '0')
+      let odometerObject = new Odometer({
+          el: odometer,
+          value: 0,
+          minIntegerLen: 9
+      });
+      let paddedString = String(stats[0].value).padStart(9, '0')
 
-      // odometerObject.update(paddedString);
+      odometerObject.update(paddedString);
 
 
-      // const container = document.getElementById("multi");
+      const container = document.getElementById("multi");
       const container2 = document.getElementById("multi2");
 
-      // const slidesContainer = document.getElementById("ulContainer");
+      const slidesContainer = document.getElementById("ulContainer");
       const slidesContainer2 = document.getElementById("ulContainer2");
 
-      // const slides = slidesContainer.querySelectorAll(".glide__slide");
+      const slides = slidesContainer.querySelectorAll(".glide__slide");
       const slides2 = slidesContainer2.querySelectorAll(".glide__slide");
 
-      // const countSlides = slides.length;
+      const countSlides = slides.length;
       const countSlides2 = slides2.length;
 
       const perView = 1;
       const containerHeight = 54;
 
-      // var glide = new Glide("#multi", {
-      //   type: 'slider',
-      //   autoplay: 5000,
-      //   perView: perView,
-      //   bound: true,
-      //   dragThreshold: false,
-      //   swipeThreshold: false,
-      //   dragDistance: false,
-      //   hoverpause: false
-      // }).on("build.after", function () {
-      //     // Fix height calculation
-      //     slides.forEach((s) => {
-      //       s.style.height = containerHeight / perView + "px"
-      //     })
+      var glide = new Glide("#multi", {
+        type: 'slider',
+        autoplay: 5000,
+        perView: perView,
+        bound: true,
+        dragThreshold: false,
+        swipeThreshold: false,
+        dragDistance: false,
+        hoverpause: false
+      }).on("build.after", function () {
+          // Fix height calculation
+          slides.forEach((s) => {
+            s.style.height = containerHeight / perView + "px"
+          })
 
-      //     // Update vertical translation
-      //     glide.on("run", function (move) {
-      //       var translateY = glide.index * (-100 / perView / (countSlides / perView))
-      //       slidesContainer.style.transform = "translate3d(0, " + translateY + "% , 0)"
-      //     })
-      // }).on("run.after", function () {
-      //     let odometer = document.querySelector('.odometer');
-      //     odometer.innerHTML = 0;
-      //     let currentIndex = 'stat-' + (glide.index + 1);
+          // Update vertical translation
+          glide.on("run", function (move) {
+            var translateY = glide.index * (-100 / perView / (countSlides / perView))
+            slidesContainer.style.transform = "translate3d(0, " + translateY + "% , 0)"
+          })
+      }).on("run.after", function () {
+          let odometer = document.querySelector('.odometer');
+          odometer.innerHTML = 0;
+          let currentIndex = 'stat-' + (glide.index + 1);
 
-      //     let stats = document.querySelectorAll('.stat-input');
+          let stats = document.querySelectorAll('.stat-input');
 
-      //     let odometerObject = new Odometer({
-      //         el: odometer,
-      //         value: 0,
-      //     });
+          let odometerObject = new Odometer({
+              el: odometer,
+              value: 0,
+          });
 
-      //     stats.forEach((statInput) => {
-      //       let stat = statInput.value;
-      //       let statId = statInput.id;
+          stats.forEach((statInput) => {
+            let stat = statInput.value;
+            let statId = statInput.id;
 
-      //       if (statId == currentIndex) {
-      //         odometerObject.update(stat);
-      //       }
-      //     });
-      // });
+            if (statId == currentIndex) {
+              odometerObject.update(stat);
+            }
+          });
+      });
 
       var glide2 = new Glide("#multi2", {
         type: 'slider',
@@ -234,7 +232,7 @@
           })
       });
 
-      // glide.mount();
+      glide.mount();
       glide2.mount();
     });
   </script>
