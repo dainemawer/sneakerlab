@@ -214,21 +214,24 @@
             "type": "stat",
             "settings": {
               "stat-text": "test",
-              "stat-number": 234234
+              "stat-number": 234234,
+              "stat-text-2": "Test 2"
             }
           },
           "60a75fce-b355-4917-a494-110324c57a5f": {
             "type": "stat",
             "settings": {
               "stat-text": "asdlfkjasldkf",
-              "stat-number": 239085720
+              "stat-number": 239085720,
+              "stat-text-2": "Text on right"
             }
           },
           "30e00660-9f2a-4d02-a375-2df7a55293ef": {
             "type": "stat",
             "settings": {
               "stat-text": "Some stat text",
-              "stat-number": 23479875
+              "stat-number": 23479875,
+              "stat-text-2": "Some stat text 2"
             }
           }
         },
