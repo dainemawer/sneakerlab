@@ -105,7 +105,7 @@
 
       <div class="odometer ticker-center" style="display: inline-block"></div>
 
-      <div class="glide glide--vertical ticker-right" id="multi2" style="text-align: left;">
+      <div class="glide glide--vertical-2 ticker-right" id="multi2" style="text-align: left;">
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides" id="ulContainer2">
             {% for block in section.blocks %}
@@ -227,6 +227,7 @@
 
           // Update vertical translation
           glide.on("run", function (move) {
+            console.log(glide.index);
             var translateY2 = glide.index * (-100 / perView / (countSlides2 / perView))
             slidesContainer2.style.transform = "translate3d(0, " + translateY2 + "% , 0)"
           })
