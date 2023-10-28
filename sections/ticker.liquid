@@ -140,19 +140,19 @@
         duration: 10000
       }
 
-      let odometer = document.querySelector('.odometer');
-      odometer.innerHTML = 0;
+      // let odometer = document.querySelector('.odometer');
+      // odometer.innerHTML = 0;
 
-      let stats = document.querySelectorAll('.stat-input');
+      // let stats = document.querySelectorAll('.stat-input');
 
-      let odometerObject = new Odometer({
-          el: odometer,
-          value: 0,
-          minIntegerLen: 9
-      });
-      let paddedString = String(stats[0].value).padStart(9, '0')
+      // let odometerObject = new Odometer({
+      //     el: odometer,
+      //     value: 0,
+      //     minIntegerLen: 9
+      // });
+      // let paddedString = String(stats[0].value).padStart(9, '0')
 
-      odometerObject.update(paddedString);
+      // odometerObject.update(paddedString);
 
 
       const container = document.getElementById("multi");
