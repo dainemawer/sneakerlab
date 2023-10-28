@@ -208,7 +208,30 @@
           });
       });
 
+      var glide2 = new Glide("#multi2", {
+        type: 'slider',
+        autoplay: 5000,
+        perView: perView,
+        bound: true,
+        dragThreshold: false,
+        swipeThreshold: false,
+        dragDistance: false,
+        hoverpause: false
+      }).on("build.after", function () {
+          // Fix height calculation
+          slides2.forEach((s) => {
+            s.style.height = containerHeight / perView + "px"
+          })
+
+          // Update vertical translation
+          glide.on("run", function (move) {
+            var translateY2 = glide.index * (-100 / perView / (countSlides2 / perView))
+            slidesContainer2.style.transform = "translate3d(0, " + translateY2 + "% , 0)"
+          })
+      });
+
       glide.mount();
+      glide2.mount();
     });
   </script>
 {% endif %}
