@@ -4118,6 +4118,10 @@ input[type="search"]::-webkit-search-results-decoration {
   color: black;
 }
 
+.mobile-hidden {
+  display: none;
+}
+
 .odometer-inside,
 .odometer-ribbon-inner,
 .odometer-digit-inner,
