@@ -4109,7 +4109,8 @@ input[type="search"]::-webkit-search-results-decoration {
 .odometer-digit {
     padding: 0 1px;
     margin: 0 2px;
-    background-color: #000;
+    background-color: #EFEFEF;
+    color: black;
     color: #fff;
     border-radius: 4px;
     width: 20px;
