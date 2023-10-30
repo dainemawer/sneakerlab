@@ -4102,10 +4102,6 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 100%;
 }
 
-.hidden {
-  display: none;
-}
-
 .odometer-digit {
     padding: 0 1px;
     margin: 0 2px;
