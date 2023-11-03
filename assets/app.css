@@ -4112,6 +4112,7 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 28px;
     text-align: center;
     line-height: 28px;
+    font-size: 12px;
 }
 
 .odometer-value {
