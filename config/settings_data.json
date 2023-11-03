@@ -241,7 +241,7 @@
           "30e00660-9f2a-4d02-a375-2df7a55293ef"
         ],
         "settings": {
-          "enable_ticker": true,
+          "enable_ticker": false,
           "subtitle-message": "Test subtitle message some text so I can see how long the message can be underneath the stats."
         }
       }
