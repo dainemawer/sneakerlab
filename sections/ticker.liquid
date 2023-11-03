@@ -101,7 +101,7 @@
             {% for block in section.blocks %}
               <li class="glide__slide">
                 <input hidden id="stat-{{ forloop.index }}" class="stat-input" value="{{ block.settings.stat-number }}">
-                <p>{{ block.settings['stat-text'] }}</p>
+                {{ block.settings['stat-text'] }}
               </li>
             {% endfor %}
           </ul>
@@ -115,7 +115,7 @@
           <ul class="glide__slides" id="ulContainer2">
             {% for block in section.blocks %}
               <li class="glide__slide">
-                <p>{{ block.settings['stat-text-2'] }}</p>
+                {{ block.settings['stat-text-2'] }}
               </li>
             {% endfor %}
           </ul>
