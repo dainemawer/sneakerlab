@@ -49,6 +49,13 @@ This file can be re-written at any time.
         <template id="shogun-variant-head">
           {{ content_for_header }}
         </template>
+        <script type="text/javascript">
+          {% if customer %}
+            window.SHG_CUSTOMER = { "id": "{{ customer.id }}" }
+          {% else %}
+            window.SHG_CUSTOMER = null;
+          {% endif %}
+        </script>
         {{ content.metafields.shogun.json_template_optimizer.value['head'] }}
      {% endcapture %}
 
